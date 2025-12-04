@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 
 const stats = [
-  { value: "4", label: "integrated solutions working together", suffix: "" },
-  { value: "99.9", label: "data accuracy guaranteed", suffix: "%" },
-  { value: "10x", label: "faster insights from unified data", suffix: "" },
-  { value: "24/7", label: "real-time data synchronization", suffix: "" },
+  { value: "50M+", label: "contactos B2B verificados", suffix: "" },
+  { value: "95", label: "precisión de datos garantizada", suffix: "%" },
+  { value: "12M+", label: "empresas en nuestra base", suffix: "" },
+  { value: "150+", label: "países con cobertura", suffix: "" },
 ];
 
 export function StatsSection() {
@@ -37,10 +37,11 @@ export function StatsSection() {
       <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight mb-4">
-            CemScale makes data unification as seamless as business growth
+            La data que impulsa tu crecimiento
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Our platform connects all your business touchpoints into one intelligent ecosystem, transforming scattered data into strategic decisions.
+            Accede a la base de datos de leads B2B más completa y actualizada del mercado. 
+            Encuentra a tus clientes ideales con precisión.
           </p>
         </div>
 

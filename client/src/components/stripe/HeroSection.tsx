@@ -1,4 +1,6 @@
 import { DashboardPreview } from "./DashboardPreview";
+import { Badge } from "@/components/ui/badge";
+import { CheckCircle2 } from "lucide-react";
 
 export function HeroSection() {
   return (
@@ -16,25 +18,43 @@ export function HeroSection() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            Now Live: Total Data Clarity
+            Acceso a Millones de Leads Verificados
           </div>
           
           <h1 
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-[6.5rem] font-bold tracking-tight leading-[0.95] mb-6 animate-fade-up"
             data-testid="text-hero-headline"
           >
-            We bring clarity to <br className="hidden sm:block" />
-            <span className="stripe-text-gradient">scattered data.</span>
+            Data Premium para <br className="hidden sm:block" />
+            <span className="stripe-text-gradient">vender más.</span>
           </h1>
           
           <p 
-            className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-2xl xl:max-w-3xl mx-auto mb-10 leading-relaxed font-light animate-fade-up px-2"
+            className="text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-2xl xl:max-w-3xl mx-auto mb-8 leading-relaxed font-light animate-fade-up px-2"
             style={{ animationDelay: "0.1s" }}
             data-testid="text-hero-subheadline"
           >
-            Unify your Leads, Marketing, and Offline interactions into one scalable ecosystem. 
-            Stop guessing, start growing.
+            Accede a la base de datos de leads más completa del mercado. 
+            Contactos verificados, segmentados y listos para convertir.
           </p>
+
+          <div 
+            className="flex flex-wrap justify-center gap-4 mb-10 animate-fade-up"
+            style={{ animationDelay: "0.15s" }}
+          >
+            <Badge variant="secondary" className="gap-2 px-4 py-2 text-sm">
+              <CheckCircle2 className="h-4 w-4 text-[#7CFD98]" />
+              +50M Contactos B2B
+            </Badge>
+            <Badge variant="secondary" className="gap-2 px-4 py-2 text-sm">
+              <CheckCircle2 className="h-4 w-4 text-[#7CFD98]" />
+              Verificación en tiempo real
+            </Badge>
+            <Badge variant="secondary" className="gap-2 px-4 py-2 text-sm">
+              <CheckCircle2 className="h-4 w-4 text-[#7CFD98]" />
+              Segmentación avanzada
+            </Badge>
+          </div>
           
           <div 
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20 animate-fade-up"
@@ -44,13 +64,13 @@ export function HeroSection() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-full font-semibold text-lg transition-all hero-button-shadow transform hover:-translate-y-0.5"
               data-testid="button-hero-start"
             >
-              Start Scaling Now
+              Obtener Leads Ahora
             </button>
             <button 
               className="glass-card px-8 py-4 rounded-full font-semibold text-foreground hover:bg-background/80 dark:hover:bg-white/20 transition-all"
               data-testid="button-hero-contact"
             >
-              Explore the System
+              Ver Demo
             </button>
           </div>
         </div>
