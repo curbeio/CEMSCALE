@@ -5,48 +5,48 @@ import { ArrowRight, Phone, Target, Megaphone, Users, BarChart3, Zap } from "luc
 const useCases = [
   {
     id: "call-center",
-    title: "Call Center Integrado",
-    description: "Centraliza todas las llamadas de tu equipo. Grabación automática, IVR inteligente y métricas en tiempo real para optimizar cada conversación.",
+    title: "Integrated Call Center",
+    description: "Centralize all your team's calls. Automatic recording, intelligent IVR and real-time metrics to optimize every conversation.",
     icon: Phone,
     color: "from-[#7E4EF2] to-[#6B8CFF]",
-    logos: ["Grabación", "IVR", "Analytics"],
+    logos: ["Recording", "IVR", "Analytics"],
   },
   {
     id: "lead-capture",
-    title: "Captura de Leads",
-    description: "Captura leads de cualquier fuente: web, WhatsApp, llamadas, redes sociales. Todo unificado en tu CRM automáticamente.",
+    title: "Lead Capture",
+    description: "Capture leads from any source: web, WhatsApp, calls, social media. Everything unified in your CRM automatically.",
     icon: Target,
     color: "from-[#7CFD98] to-[#4974EA]",
-    logos: ["Multi-canal", "Auto-sync", "Scoring"],
+    logos: ["Multi-channel", "Auto-sync", "Scoring"],
   },
   {
     id: "marketing-automation",
-    title: "Automatización de Marketing",
-    description: "Campañas de email, SMS y WhatsApp automatizadas. Segmentación inteligente y nurturing que convierte.",
+    title: "Marketing Automation",
+    description: "Automated email, SMS and WhatsApp campaigns. Intelligent segmentation and nurturing that converts.",
     icon: Megaphone,
     color: "from-[#6B8CFF] to-[#7E4EF2]",
     logos: ["Email", "SMS", "WhatsApp"],
   },
   {
     id: "sales-pipeline",
-    title: "Pipeline de Ventas",
-    description: "Visualiza y gestiona tu embudo de ventas. Seguimiento de oportunidades y pronóstico de ingresos preciso.",
+    title: "Sales Pipeline",
+    description: "Visualize and manage your sales funnel. Opportunity tracking and accurate revenue forecasting.",
     icon: Users,
     color: "from-[#7CFD98] to-[#6B8CFF]",
     logos: ["Pipeline", "Forecast", "Deals"],
   },
   {
     id: "analytics",
-    title: "Analytics y Reportes",
-    description: "Dashboards en tiempo real con KPIs de ventas, marketing y atención. Toma decisiones basadas en datos.",
+    title: "Analytics & Reports",
+    description: "Real-time dashboards with sales, marketing and support KPIs. Make data-driven decisions.",
     icon: BarChart3,
     color: "from-[#FF805D] to-[#7E4EF2]",
-    logos: ["Dashboards", "KPIs", "Reportes"],
+    logos: ["Dashboards", "KPIs", "Reports"],
   },
   {
     id: "integrations",
-    title: "Integraciones",
-    description: "Conecta con tus herramientas favoritas: Google, Meta, WhatsApp Business, Zapier y más de 100 integraciones.",
+    title: "Integrations",
+    description: "Connect with your favorite tools: Google, Meta, WhatsApp Business, Zapier and 100+ integrations.",
     icon: Zap,
     color: "from-[#4974EA] to-[#7CFD98]",
     logos: ["API", "Webhooks", "Zapier"],
@@ -58,12 +58,12 @@ export function UseCasesSection() {
     <section className="py-16 sm:py-24 lg:py-32 xl:py-40">
       <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
-          <Badge variant="secondary" className="mb-4">Capacidades</Badge>
+          <Badge variant="secondary" className="mb-4">Capabilities</Badge>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight mb-4">
-            Todo para escalar tu negocio
+            Everything to scale your business
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Herramientas potentes diseñadas para capturar más leads, vender más y crecer más rápido.
+            Powerful tools designed to capture more leads, sell more and grow faster.
           </p>
         </div>
 
@@ -95,7 +95,7 @@ export function UseCasesSection() {
                 href="#" 
                 className="inline-flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-all"
               >
-                Saber más <ArrowRight className="h-4 w-4" />
+                Learn more <ArrowRight className="h-4 w-4" />
               </a>
             </Card>
           ))}

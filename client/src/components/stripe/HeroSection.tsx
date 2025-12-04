@@ -18,15 +18,15 @@ export function HeroSection() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
-            Acceso a Millones de Leads Verificados
+            Access to Millions of Verified Leads
           </div>
           
           <h1 
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-[6.5rem] font-bold tracking-tight leading-[0.95] mb-6 animate-fade-up"
             data-testid="text-hero-headline"
           >
-            Data Premium para <br className="hidden sm:block" />
-            <span className="stripe-text-gradient">vender más.</span>
+            Premium Data to <br className="hidden sm:block" />
+            <span className="stripe-text-gradient">sell more.</span>
           </h1>
           
           <p 
@@ -34,8 +34,8 @@ export function HeroSection() {
             style={{ animationDelay: "0.1s" }}
             data-testid="text-hero-subheadline"
           >
-            Accede a la base de datos de leads más completa del mercado. 
-            Contactos verificados, segmentados y listos para convertir.
+            Access the most complete leads database on the market. 
+            Verified contacts, segmented and ready to convert.
           </p>
 
           <div 
@@ -44,15 +44,15 @@ export function HeroSection() {
           >
             <Badge variant="secondary" className="gap-2 px-4 py-2 text-sm">
               <CheckCircle2 className="h-4 w-4 text-[#7CFD98]" />
-              +50M Contactos B2B
+              +50M B2B Contacts
             </Badge>
             <Badge variant="secondary" className="gap-2 px-4 py-2 text-sm">
               <CheckCircle2 className="h-4 w-4 text-[#7CFD98]" />
-              Verificación en tiempo real
+              Real-time Verification
             </Badge>
             <Badge variant="secondary" className="gap-2 px-4 py-2 text-sm">
               <CheckCircle2 className="h-4 w-4 text-[#7CFD98]" />
-              Segmentación avanzada
+              Advanced Segmentation
             </Badge>
           </div>
           
@@ -64,13 +64,13 @@ export function HeroSection() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-full font-semibold text-lg transition-all hero-button-shadow transform hover:-translate-y-0.5"
               data-testid="button-hero-start"
             >
-              Obtener Leads Ahora
+              Get Leads Now
             </button>
             <button 
               className="glass-card px-8 py-4 rounded-full font-semibold text-foreground hover:bg-background/80 dark:hover:bg-white/20 transition-all"
               data-testid="button-hero-contact"
             >
-              Ver Demo
+              View Demo
             </button>
           </div>
         </div>

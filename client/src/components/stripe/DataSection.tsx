@@ -11,7 +11,6 @@ import {
   Building2,
   Mail,
   Phone,
-  Linkedin,
   ArrowRight,
   CheckCircle2
 } from "lucide-react";
@@ -19,36 +18,36 @@ import {
 const dataFeatures = [
   {
     icon: Database,
-    title: "+50 Millones de Contactos",
-    description: "Base de datos B2B actualizada diariamente con decisores de compra verificados.",
+    title: "+50 Million Contacts",
+    description: "B2B database updated daily with verified decision-makers.",
   },
   {
     icon: Shield,
-    title: "Verificación en Tiempo Real",
-    description: "Emails, teléfonos y datos validados antes de cada entrega. 95%+ de precisión garantizada.",
+    title: "Real-Time Verification",
+    description: "Emails, phones and data validated before each delivery. 95%+ accuracy guaranteed.",
   },
   {
     icon: Target,
-    title: "Segmentación Avanzada",
-    description: "Filtra por industria, cargo, tamaño de empresa, ubicación, tecnologías y más de 50 criterios.",
+    title: "Advanced Segmentation",
+    description: "Filter by industry, job title, company size, location, technologies and 50+ criteria.",
   },
   {
     icon: Globe2,
-    title: "Cobertura Global",
-    description: "Leads de LATAM, USA, Europa y Asia. Expande tu mercado sin límites geográficos.",
+    title: "Global Coverage",
+    description: "Leads from LATAM, USA, Europe and Asia. Expand your market without geographic limits.",
   },
 ];
 
 const dataPoints = [
-  { icon: Building2, label: "Empresas", value: "12M+" },
-  { icon: Users, label: "Decisores", value: "50M+" },
-  { icon: Mail, label: "Emails verificados", value: "98%" },
-  { icon: Phone, label: "Teléfonos directos", value: "45M+" },
+  { icon: Building2, label: "Companies", value: "12M+" },
+  { icon: Users, label: "Decision Makers", value: "50M+" },
+  { icon: Mail, label: "Verified Emails", value: "98%" },
+  { icon: Phone, label: "Direct Phones", value: "45M+" },
 ];
 
 const industries = [
-  "Tecnología", "Finanzas", "Salud", "Manufactura", "Retail", 
-  "Educación", "Real Estate", "Consulting", "Marketing", "Legal"
+  "Technology", "Finance", "Healthcare", "Manufacturing", "Retail", 
+  "Education", "Real Estate", "Consulting", "Marketing", "Legal"
 ];
 
 export function DataSection() {
@@ -61,15 +60,15 @@ export function DataSection() {
           <Badge 
             className="mb-4 bg-[#7CFD98]/20 text-[#7CFD98] border-[#7CFD98]/30"
           >
-            Data Premium
+            Premium Data
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-4">
-            La base de datos de leads
-            <span className="stripe-text-gradient block"> más potente del mercado</span>
+            The most powerful leads
+            <span className="stripe-text-gradient block"> database on the market</span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Accede a millones de contactos B2B verificados y actualizados. 
-            Encuentra a tus clientes ideales con precisión quirúrgica.
+            Access millions of verified and updated B2B contacts. 
+            Find your ideal customers with surgical precision.
           </p>
         </div>
 
@@ -96,7 +95,7 @@ export function DataSection() {
             
             <Card className="relative p-6 lg:p-8 stripe-card-shadow">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-semibold">Nuestra Data en Números</h3>
+                <h3 className="text-xl font-semibold">Our Data in Numbers</h3>
                 <Badge className="bg-[#7CFD98]/20 text-[#7CFD98]">Live</Badge>
               </div>
               
@@ -111,7 +110,7 @@ export function DataSection() {
               </div>
 
               <div className="border-t border-border pt-6">
-                <p className="text-sm text-muted-foreground mb-3">Industrias disponibles:</p>
+                <p className="text-sm text-muted-foreground mb-3">Available industries:</p>
                 <div className="flex flex-wrap gap-2">
                   {industries.map((industry) => (
                     <Badge key={industry} variant="secondary" className="text-xs">
@@ -128,31 +127,31 @@ export function DataSection() {
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-2xl lg:text-3xl font-bold mb-4">
-                ¿Por qué nuestra data es diferente?
+                Why is our data different?
               </h3>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="h-5 w-5 text-[#7CFD98] mt-0.5 flex-shrink-0" />
                   <p className="text-muted-foreground">
-                    <strong className="text-foreground">Actualización constante:</strong> Nuestra base se actualiza diariamente con nuevos contactos y verificaciones.
+                    <strong className="text-foreground">Constant updates:</strong> Our database is updated daily with new contacts and verifications.
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="h-5 w-5 text-[#7CFD98] mt-0.5 flex-shrink-0" />
                   <p className="text-muted-foreground">
-                    <strong className="text-foreground">Datos enriquecidos:</strong> Cargo, empresa, industria, tecnologías, redes sociales y más en cada contacto.
+                    <strong className="text-foreground">Enriched data:</strong> Job title, company, industry, technologies, social networks and more on each contact.
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="h-5 w-5 text-[#7CFD98] mt-0.5 flex-shrink-0" />
                   <p className="text-muted-foreground">
-                    <strong className="text-foreground">Intent data:</strong> Identificamos leads que están activamente buscando soluciones como la tuya.
+                    <strong className="text-foreground">Intent data:</strong> We identify leads who are actively looking for solutions like yours.
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="h-5 w-5 text-[#7CFD98] mt-0.5 flex-shrink-0" />
                   <p className="text-muted-foreground">
-                    <strong className="text-foreground">Cumplimiento GDPR:</strong> Toda nuestra data cumple con las regulaciones de privacidad internacionales.
+                    <strong className="text-foreground">GDPR Compliant:</strong> All our data complies with international privacy regulations.
                   </p>
                 </div>
               </div>
@@ -160,9 +159,9 @@ export function DataSection() {
             
             <div className="text-center lg:text-right">
               <p className="text-4xl lg:text-5xl font-bold text-[#7CFD98] mb-2">95%+</p>
-              <p className="text-lg text-muted-foreground mb-6">Precisión de datos garantizada</p>
+              <p className="text-lg text-muted-foreground mb-6">Data accuracy guaranteed</p>
               <Button size="lg" className="rounded-full gap-2">
-                Solicitar Acceso <ArrowRight className="h-4 w-4" />
+                Request Access <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
           </div>

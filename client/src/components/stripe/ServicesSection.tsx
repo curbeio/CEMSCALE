@@ -8,9 +8,9 @@ import offlineFlyer from "@assets/Flyers_servicios-04_1764870214057.png";
 const services = [
   {
     id: "telephony",
-    name: "Telefonía",
-    tagline: "Comunicación sin límites.",
-    description: "Sistema de telefonía cloud integrado con tu CRM. Grabación de llamadas, IVR inteligente y analytics en tiempo real.",
+    name: "Telephony",
+    tagline: "Communication without limits.",
+    description: "Cloud telephony system integrated with your CRM. Call recording, intelligent IVR and real-time analytics.",
     image: dashboardFlyer,
     color: "#7E4EF2",
     bgColor: "from-[#7E4EF2]/20 via-[#7E4EF2]/10 to-transparent",
@@ -18,8 +18,8 @@ const services = [
   {
     id: "marketing",
     name: "Marketing",
-    tagline: "Automatiza y escala tu alcance.",
-    description: "Email, SMS, WhatsApp y redes sociales en una plataforma. Campañas automatizadas que convierten.",
+    tagline: "Automate and scale your reach.",
+    description: "Email, SMS, WhatsApp and social media in one platform. Automated campaigns that convert.",
     image: marketingFlyer,
     color: "#6B8CFF",
     bgColor: "from-[#6B8CFF]/20 via-[#6B8CFF]/10 to-transparent",
@@ -27,8 +27,8 @@ const services = [
   {
     id: "crm",
     name: "CRM",
-    tagline: "Cada cliente, bajo control.",
-    description: "Gestiona relaciones, historial de interacciones y pipeline de ventas visual. Todo en un solo lugar.",
+    tagline: "Every customer, under control.",
+    description: "Manage relationships, interaction history and visual sales pipeline. Everything in one place.",
     image: offlineFlyer,
     color: "#7CFD98",
     bgColor: "from-[#7CFD98]/20 via-[#7CFD98]/10 to-transparent",
@@ -36,8 +36,8 @@ const services = [
   {
     id: "leads",
     name: "Leads",
-    tagline: "Convierte más, pierde menos.",
-    description: "Captura, califica y nurturing automatizado. Scoring inteligente para priorizar oportunidades de alto valor.",
+    tagline: "Convert more, lose less.",
+    description: "Automated capture, qualification and nurturing. Intelligent scoring to prioritize high-value opportunities.",
     image: leadsFlyer,
     color: "#FF805D",
     bgColor: "from-[#FF805D]/20 via-[#FF805D]/10 to-transparent",
@@ -87,14 +87,14 @@ export function ServicesSection() {
               border: '1px solid rgba(107, 140, 255, 0.2)'
             }}
           >
-            Nuestros Servicios
+            Our Services
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-4">
-            Todo lo que necesitas para
-            <span className="stripe-text-gradient block sm:inline"> vender más</span>
+            Everything you need to
+            <span className="stripe-text-gradient block sm:inline"> sell more</span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Telefonía, Marketing, CRM y Leads integrados para transformar cómo gestionas y conviertes oportunidades.
+            Telephony, Marketing, CRM and Leads integrated to transform how you manage and convert opportunities.
           </p>
         </motion.div>
 
@@ -145,7 +145,7 @@ export function ServicesSection() {
                     style={{ color: service.color }}
                     data-testid={`button-learn-${service.id}`}
                   >
-                    Saber más
+                    Learn more
                     <svg 
                       className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" 
                       fill="none" 

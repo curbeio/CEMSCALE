@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 
 const stats = [
-  { value: "50M+", label: "contactos B2B verificados", suffix: "" },
-  { value: "95", label: "precisión de datos garantizada", suffix: "%" },
-  { value: "12M+", label: "empresas en nuestra base", suffix: "" },
-  { value: "150+", label: "países con cobertura", suffix: "" },
+  { value: "50M+", label: "verified B2B contacts", suffix: "" },
+  { value: "95", label: "data accuracy guaranteed", suffix: "%" },
+  { value: "12M+", label: "companies in our database", suffix: "" },
+  { value: "150+", label: "countries with coverage", suffix: "" },
 ];
 
 export function StatsSection() {
@@ -37,11 +37,11 @@ export function StatsSection() {
       <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight mb-4">
-            La data que impulsa tu crecimiento
+            The data that drives your growth
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Accede a la base de datos de leads B2B más completa y actualizada del mercado. 
-            Encuentra a tus clientes ideales con precisión.
+            Access the most complete and updated B2B leads database on the market. 
+            Find your ideal customers with precision.
           </p>
         </div>
 

@@ -13,13 +13,13 @@ import {
 const productCategories = [
   { 
     id: "telephony",
-    name: "Telefonía", 
+    name: "Telephony", 
     icon: Phone,
-    description: "Sistema de telefonía integrado para gestionar todas tus llamadas. Grabación, IVR, y analytics en tiempo real para tu equipo de ventas.",
+    description: "Integrated telephony system to manage all your calls. Recording, IVR, and real-time analytics for your sales team.",
     products: [
-      { name: "Llamadas", href: "#" },
+      { name: "Calls", href: "#" },
       { name: "IVR", href: "#" },
-      { name: "Grabaciones", href: "#" },
+      { name: "Recording", href: "#" },
       { name: "Analytics", href: "#" },
     ]
   },
@@ -27,9 +27,9 @@ const productCategories = [
     id: "marketing",
     name: "Marketing", 
     icon: Megaphone,
-    description: "Automatiza y escala tus campañas de marketing. Email, SMS, WhatsApp y redes sociales en una sola plataforma unificada.",
+    description: "Automate and scale your marketing campaigns. Email, SMS, WhatsApp and social media in a single unified platform.",
     products: [
-      { name: "Campañas", href: "#" },
+      { name: "Campaigns", href: "#" },
       { name: "Email", href: "#" },
       { name: "SMS", href: "#" },
       { name: "WhatsApp", href: "#" },
@@ -39,24 +39,24 @@ const productCategories = [
     id: "crm",
     name: "CRM", 
     icon: Users,
-    description: "Gestiona todas las relaciones con tus clientes. Historial completo, seguimiento de interacciones y pipeline de ventas visual.",
+    description: "Manage all your customer relationships. Complete history, interaction tracking and visual sales pipeline.",
     products: [
-      { name: "Contactos", href: "#" },
+      { name: "Contacts", href: "#" },
       { name: "Pipeline", href: "#" },
-      { name: "Actividades", href: "#" },
-      { name: "Reportes", href: "#" },
+      { name: "Activities", href: "#" },
+      { name: "Reports", href: "#" },
     ]
   },
   { 
     id: "leads",
     name: "Leads", 
     icon: Target,
-    description: "Captura, califica y convierte leads automáticamente. Scoring inteligente y nurturing automatizado para maximizar conversiones.",
+    description: "Capture, qualify and convert leads automatically. Intelligent scoring and automated nurturing to maximize conversions.",
     products: [
-      { name: "Captura", href: "#" },
+      { name: "Capture", href: "#" },
       { name: "Scoring", href: "#" },
       { name: "Nurturing", href: "#" },
-      { name: "Conversión", href: "#" },
+      { name: "Conversion", href: "#" },
     ]
   },
 ];
@@ -69,12 +69,12 @@ export function ProductsSection() {
     <section className="py-16 sm:py-24 lg:py-32 xl:py-40">
       <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4">Productos</Badge>
+          <Badge variant="secondary" className="mb-4">Products</Badge>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight mb-4">
-            Una suite completa para tu negocio
+            A complete suite for your business
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Telefonía, Marketing, CRM y Leads integrados en una plataforma unificada para escalar tu empresa.
+            Telephony, Marketing, CRM and Leads integrated in a unified platform to scale your company.
           </p>
         </div>
 
@@ -119,7 +119,7 @@ export function ProductsSection() {
             </div>
 
             <Button className="rounded-full gap-2" data-testid="button-learn-more">
-              Saber más <ArrowRight className="h-4 w-4" />
+              Learn more <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
 
@@ -137,9 +137,9 @@ export function ProductsSection() {
 
 function TelephonyPreview() {
   const calls = [
-    { id: 1, name: "María García", duration: "4:32", status: "completed", type: "inbound" },
-    { id: 2, name: "Carlos López", duration: "2:15", status: "completed", type: "outbound" },
-    { id: 3, name: "Ana Martínez", duration: "0:00", status: "missed", type: "inbound" },
+    { id: 1, name: "Sarah Johnson", duration: "4:32", status: "completed", type: "inbound" },
+    { id: 2, name: "Michael Chen", duration: "2:15", status: "completed", type: "outbound" },
+    { id: 3, name: "Emma Wilson", duration: "0:00", status: "missed", type: "inbound" },
   ];
 
   return (
@@ -149,23 +149,23 @@ function TelephonyPreview() {
       <Card className="relative p-6 stripe-card-shadow-sm">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <p className="text-sm text-muted-foreground">Hoy</p>
-            <h4 className="text-2xl font-semibold">247 llamadas</h4>
+            <p className="text-sm text-muted-foreground">Today</p>
+            <h4 className="text-2xl font-semibold">247 calls</h4>
           </div>
           <Badge className="bg-[#7CFD98]/20 text-[#7CFD98]">+18.4%</Badge>
         </div>
         
         <div className="grid grid-cols-3 gap-4 mb-6">
           <div className="bg-muted/50 rounded-lg p-3 text-center">
-            <p className="text-xs text-muted-foreground">Entrantes</p>
+            <p className="text-xs text-muted-foreground">Inbound</p>
             <p className="text-lg font-semibold text-[#7CFD98]">156</p>
           </div>
           <div className="bg-muted/50 rounded-lg p-3 text-center">
-            <p className="text-xs text-muted-foreground">Salientes</p>
+            <p className="text-xs text-muted-foreground">Outbound</p>
             <p className="text-lg font-semibold text-[#6B8CFF]">78</p>
           </div>
           <div className="bg-muted/50 rounded-lg p-3 text-center">
-            <p className="text-xs text-muted-foreground">Perdidas</p>
+            <p className="text-xs text-muted-foreground">Missed</p>
             <p className="text-lg font-semibold text-[#FF805D]">13</p>
           </div>
         </div>
@@ -183,7 +183,7 @@ function TelephonyPreview() {
                 </div>
                 <div>
                   <p className="text-sm font-medium">{call.name}</p>
-                  <p className="text-xs text-muted-foreground">{call.type === 'inbound' ? 'Entrante' : 'Saliente'}</p>
+                  <p className="text-xs text-muted-foreground">{call.type}</p>
                 </div>
               </div>
               <span className="text-sm text-muted-foreground">{call.duration}</span>
@@ -197,8 +197,8 @@ function TelephonyPreview() {
 
 function MarketingPreview() {
   const campaigns = [
-    { name: "Campaña Verano", channel: "Email", sent: 12450, opens: "34%", clicks: "12%" },
-    { name: "Promo WhatsApp", channel: "WhatsApp", sent: 8920, opens: "89%", clicks: "45%" },
+    { name: "Summer Campaign", channel: "Email", sent: 12450, opens: "34%", clicks: "12%" },
+    { name: "WhatsApp Promo", channel: "WhatsApp", sent: 8920, opens: "89%", clicks: "45%" },
     { name: "SMS Flash Sale", channel: "SMS", sent: 5600, opens: "92%", clicks: "28%" },
   ];
 
@@ -217,11 +217,11 @@ function MarketingPreview() {
                 <h4 className="font-semibold">{campaign.name}</h4>
                 <p className="text-sm text-muted-foreground">{campaign.channel}</p>
               </div>
-              <Badge variant="secondary">{campaign.sent.toLocaleString()} enviados</Badge>
+              <Badge variant="secondary">{campaign.sent.toLocaleString()} sent</Badge>
             </div>
             <div className="flex gap-4">
               <div className="flex-1 bg-muted/30 rounded-lg p-2 text-center">
-                <p className="text-xs text-muted-foreground">Apertura</p>
+                <p className="text-xs text-muted-foreground">Open Rate</p>
                 <p className="text-lg font-semibold text-[#7CFD98]">{campaign.opens}</p>
               </div>
               <div className="flex-1 bg-muted/30 rounded-lg p-2 text-center">
@@ -238,9 +238,9 @@ function MarketingPreview() {
 
 function CRMPreview() {
   const contacts = [
-    { name: "Empresa ABC", value: "$45,000", stage: "Negociación", probability: 75 },
-    { name: "Tech Solutions", value: "$28,500", stage: "Propuesta", probability: 50 },
-    { name: "Global Corp", value: "$120,000", stage: "Cierre", probability: 90 },
+    { name: "ABC Company", value: "$45,000", stage: "Negotiation", probability: 75 },
+    { name: "Tech Solutions", value: "$28,500", stage: "Proposal", probability: 50 },
+    { name: "Global Corp", value: "$120,000", stage: "Closing", probability: 90 },
   ];
 
   return (
@@ -249,7 +249,7 @@ function CRMPreview() {
       
       <Card className="relative p-6 stripe-card-shadow-sm">
         <div className="flex items-center justify-between mb-6">
-          <h4 className="font-semibold">Pipeline de Ventas</h4>
+          <h4 className="font-semibold">Sales Pipeline</h4>
           <Badge className="bg-[#7CFD98]/20 text-[#7CFD98]">$193,500</Badge>
         </div>
         
@@ -269,7 +269,7 @@ function CRMPreview() {
                   style={{ width: `${contact.probability}%` }}
                 />
               </div>
-              <p className="text-xs text-muted-foreground mt-1">{contact.probability}% probabilidad</p>
+              <p className="text-xs text-muted-foreground mt-1">{contact.probability}% probability</p>
             </div>
           ))}
         </div>
@@ -280,9 +280,9 @@ function CRMPreview() {
 
 function LeadsPreview() {
   const leads = [
-    { id: "L-001", name: "Laura Sánchez", source: "Web", score: 92, status: "Hot" },
-    { id: "L-002", name: "Pedro Ruiz", source: "WhatsApp", score: 78, status: "Warm" },
-    { id: "L-003", name: "Sofia Torres", source: "Llamada", score: 65, status: "New" },
+    { id: "L-001", name: "Laura Smith", source: "Web", score: 92, status: "Hot" },
+    { id: "L-002", name: "Peter Johnson", source: "WhatsApp", score: 78, status: "Warm" },
+    { id: "L-003", name: "Sofia Davis", source: "Call", score: 65, status: "New" },
   ];
 
   return (
@@ -291,8 +291,8 @@ function LeadsPreview() {
       
       <Card className="relative p-4 stripe-card-shadow-sm">
         <div className="flex items-center justify-between mb-4">
-          <h4 className="font-semibold">Leads Recientes</h4>
-          <Badge variant="secondary">Hoy</Badge>
+          <h4 className="font-semibold">Recent Leads</h4>
+          <Badge variant="secondary">Today</Badge>
         </div>
         
         <div className="space-y-3">
