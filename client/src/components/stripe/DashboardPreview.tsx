@@ -77,7 +77,6 @@ export function DashboardPreview() {
   return (
     <div className="relative max-w-5xl mx-auto">
       <div className="absolute -inset-4 bg-gradient-to-r from-[#6B8CFF]/20 via-[#7E4EF2]/20 to-[#7CFD98]/20 rounded-3xl blur-2xl opacity-50" />
-      
       <Card className="relative bg-card/95 backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden stripe-card-shadow">
         <div className="bg-muted/50 border-b border-border px-6 py-4">
           <div className="flex items-center gap-4">
@@ -91,9 +90,7 @@ export function DashboardPreview() {
                 leads.cemscale.com
               </div>
             </div>
-            <div className="text-sm text-muted-foreground">
-              CRM Dashboard
-            </div>
+            <div className="text-sm text-muted-foreground">CEM Dashboard</div>
           </div>
         </div>
         
