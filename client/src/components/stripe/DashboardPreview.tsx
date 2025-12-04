@@ -80,11 +80,11 @@ export function DashboardPreview() {
             </div>
             <div className="flex-1 flex items-center justify-center gap-2">
               <div className="bg-background rounded-lg px-4 py-1.5 text-sm text-muted-foreground border border-border">
-                dashboard.stripe.com
+                dashboard.cemscale.com
               </div>
             </div>
             <div className="text-sm text-muted-foreground">
-              Rocket Rides
+              Your Business
             </div>
           </div>
         </div>

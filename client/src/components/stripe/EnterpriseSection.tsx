@@ -6,32 +6,32 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 const enterprises = [
   {
-    id: "bmw",
-    name: "BMW",
-    headline: "Learn why BMW chose Stripe to power ecommerce and payments",
-    image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=600&fit=crop",
-    color: "from-blue-600 to-blue-800",
+    id: "fitness-chain",
+    name: "Fitness Chain",
+    headline: "How a major gym network unified member data across 50+ locations",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop",
+    color: "from-[#7E4EF2] to-[#6B8CFF]",
   },
   {
-    id: "amazon",
-    name: "Amazon",
-    headline: "See how Amazon simplified cross-border payments with Stripe",
-    image: "https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=800&h=600&fit=crop",
-    color: "from-orange-500 to-amber-600",
+    id: "education-group",
+    name: "Education Group",
+    headline: "See how this university streamlined student enrollment data by 300%",
+    image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop",
+    color: "from-[#6B8CFF] to-[#4974EA]",
   },
   {
-    id: "maersk",
-    name: "Maersk",
-    headline: "See how Maersk tapped into new technology to make shipping easier",
-    image: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&h=600&fit=crop",
-    color: "from-sky-500 to-blue-600",
+    id: "retail-brand",
+    name: "Retail Brand",
+    headline: "Connecting offline and online customer journeys in real-time",
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
+    color: "from-[#7CFD98] to-[#6B8CFF]",
   },
   {
-    id: "twilio",
-    name: "Twilio",
-    headline: "See how Twilio increased authorization rates by 10% with Stripe",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop",
-    color: "from-red-500 to-pink-600",
+    id: "healthcare-network",
+    name: "Healthcare Network",
+    headline: "How patient data unification improved care coordination by 40%",
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop",
+    color: "from-[#FF805D] to-[#7E4EF2]",
   },
 ];
 
@@ -51,14 +51,14 @@ export function EnterpriseSection() {
       <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8 sm:mb-12">
           <div>
-            <Badge variant="secondary" className="mb-4">Enterprise</Badge>
+            <Badge variant="secondary" className="mb-4">Success Stories</Badge>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight">
-              Trusted by the world's leading companies
+              Trusted by growing businesses
             </h2>
           </div>
           
           <p className="text-muted-foreground max-w-md">
-            Quickly build great payments experiences, improve performance, expand into new markets, and engage customers with subscriptions and marketplaces.
+            See how businesses are transforming their operations with CemScale's unified data platform.
           </p>
         </div>
 

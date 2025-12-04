@@ -7,39 +7,38 @@ import {
 
 const footerLinks = {
   products: {
-    title: "Products",
+    title: "Solutions",
     links: [
-      "Atlas", "Billing", "Capital", "Checkout", "Climate", "Connect",
-      "Elements", "Identity", "Invoicing", "Issuing", "Payments",
-      "Radar", "Sigma", "Tax", "Terminal", "Treasury"
+      "Dashboard", "Leads", "Marketing", "Offline Form",
+      "Analytics", "Reporting", "Integrations", "API"
     ]
   },
   solutions: {
-    title: "Solutions",
+    title: "Industries",
     links: [
-      "Enterprises", "SaaS", "Marketplaces", "Platforms", "E-commerce",
-      "Embedded Finance", "Crypto", "Creator Economy", "Global Businesses"
+      "Gyms & Fitness", "Education", "Retail", "Healthcare",
+      "Real Estate", "Events", "Hospitality", "Services"
     ]
   },
   developers: {
     title: "Developers",
     links: [
-      "Documentation", "API Reference", "API Status", "API Changelog",
-      "Stripe Apps", "Open Source"
+      "Documentation", "API Reference", "Webhooks", "SDK",
+      "Changelog", "Status Page"
     ]
   },
   resources: {
     title: "Resources",
     links: [
-      "Guides", "Customer Stories", "Blog", "Annual Conference",
-      "Privacy & Terms", "Licenses", "Contact"
+      "Getting Started", "Case Studies", "Blog", "Help Center",
+      "Privacy Policy", "Terms of Service", "Contact"
     ]
   },
   company: {
     title: "Company",
     links: [
-      "About", "Customers", "Enterprise", "Partners", "Jobs",
-      "Newsroom", "Stripe Press"
+      "About Us", "Our Team", "Careers", "Partners",
+      "News", "Contact Us"
     ]
   }
 };

@@ -1,7 +1,7 @@
 import { Header } from "@/components/stripe/Header";
 import { HeroSection } from "@/components/stripe/HeroSection";
 import { LogoCarousel } from "@/components/stripe/LogoCarousel";
-import { ProductsSection } from "@/components/stripe/ProductsSection";
+import { ServicesSection } from "@/components/stripe/ServicesSection";
 import { StatsSection } from "@/components/stripe/StatsSection";
 import { UseCasesSection } from "@/components/stripe/UseCasesSection";
 import { EnterpriseSection } from "@/components/stripe/EnterpriseSection";
@@ -17,7 +17,7 @@ export default function Home() {
       <main className="w-full">
         <HeroSection />
         <LogoCarousel />
-        <ProductsSection />
+        <ServicesSection />
         <StatsSection />
         <UseCasesSection />
         <EnterpriseSection />

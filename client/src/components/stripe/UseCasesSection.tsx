@@ -1,55 +1,55 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Cpu, Building, ShoppingBag, Store, Coins, Users } from "lucide-react";
+import { ArrowRight, LayoutDashboard, Target, Megaphone, FileText, BarChart3, Zap } from "lucide-react";
 
 const useCases = [
   {
-    id: "ai",
-    title: "AI",
-    description: "Stripe supports businesses across the AI ecosystem—from usage-based billing for AI assistants to premium subscriptions for infrastructure providers.",
-    icon: Cpu,
-    color: "from-violet-500 to-purple-600",
-    logos: ["OpenAI", "Anthropic", "Cursor"],
+    id: "centralized-dashboard",
+    title: "Centralized Analytics",
+    description: "Bring all your data sources into one powerful dashboard. Visualize trends, monitor KPIs, and make informed decisions with real-time insights.",
+    icon: LayoutDashboard,
+    color: "from-[#7E4EF2] to-[#6B8CFF]",
+    logos: ["Real-time", "Multi-source", "Custom Views"],
   },
   {
-    id: "saas",
-    title: "SaaS",
-    description: "Quickly launch and grow recurring revenue with a unified platform for payments, subscriptions, invoicing, tax, accounting, and more.",
-    icon: Building,
-    color: "from-blue-500 to-cyan-600",
-    logos: ["Slack", "Twilio", "Linear"],
+    id: "lead-management",
+    title: "Lead Intelligence",
+    description: "Transform raw leads into qualified opportunities. Track every touchpoint, score leads automatically, and prioritize high-value prospects.",
+    icon: Target,
+    color: "from-[#7CFD98] to-[#4974EA]",
+    logos: ["AI Scoring", "Auto-qualify", "Pipeline"],
   },
   {
-    id: "marketplaces",
-    title: "Marketplaces",
-    description: "Get everything you need to onboard service providers, manage multiparty payments, and send payouts, all in one place.",
-    icon: Store,
-    color: "from-orange-500 to-amber-600",
-    logos: ["Instacart", "Deliveroo", "BloomNation"],
+    id: "marketing-automation",
+    title: "Marketing Automation",
+    description: "Scale your marketing efforts intelligently. Automate campaigns across channels while maintaining personalized customer experiences.",
+    icon: Megaphone,
+    color: "from-[#6B8CFF] to-[#7E4EF2]",
+    logos: ["Multi-channel", "A/B Testing", "ROI Track"],
   },
   {
-    id: "ecommerce",
-    title: "E-commerce",
-    description: "Access an optimized suite of tools to accept payments online and in person from customers around the world.",
-    icon: ShoppingBag,
-    color: "from-pink-500 to-rose-600",
-    logos: ["Glossier", "Dermalogica", "Indochino"],
+    id: "offline-integration",
+    title: "Offline Data Capture",
+    description: "Bridge the gap between physical and digital. Capture offline interactions, events, and forms seamlessly into your unified data ecosystem.",
+    icon: FileText,
+    color: "from-[#7CFD98] to-[#6B8CFF]",
+    logos: ["Forms", "Events", "Sync"],
   },
   {
-    id: "embedded-finance",
-    title: "Embedded Finance",
-    description: "Distribute financial accounts, commercial cards, and lending to create tailored in-product experiences for your customers.",
-    icon: Coins,
-    color: "from-emerald-500 to-teal-600",
-    logos: ["Shopify", "Karat", "Persona"],
+    id: "advanced-reporting",
+    title: "Advanced Reporting",
+    description: "Generate comprehensive reports that tell your business story. Custom metrics, automated scheduling, and stakeholder-ready presentations.",
+    icon: BarChart3,
+    color: "from-[#FF805D] to-[#7E4EF2]",
+    logos: ["Custom", "Scheduled", "Export"],
   },
   {
-    id: "creator-economy",
-    title: "Creator Economy",
-    description: "Quickly onboard and pay out creators globally with prebuilt UIs, or build your own custom solution.",
-    icon: Users,
-    color: "from-indigo-500 to-blue-600",
-    logos: ["Twitter", "Spotify", "Substack"],
+    id: "real-time-sync",
+    title: "Real-time Sync",
+    description: "Keep all your systems in perfect harmony. Bidirectional sync ensures your data is always current across every platform.",
+    icon: Zap,
+    color: "from-[#4974EA] to-[#7CFD98]",
+    logos: ["Instant", "Bi-directional", "API"],
   },
 ];
 
@@ -58,12 +58,12 @@ export function UseCasesSection() {
     <section className="py-16 sm:py-24 lg:py-32 xl:py-40">
       <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
-          <Badge variant="secondary" className="mb-4">Use Cases</Badge>
+          <Badge variant="secondary" className="mb-4">Capabilities</Badge>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight mb-4">
-            From global AI companies to category-defining marketplaces
+            Everything you need to scale intelligently
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Successful businesses across industries grow and scale with Stripe.
+            Powerful features designed to transform how you collect, analyze, and act on your business data.
           </p>
         </div>
 

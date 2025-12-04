@@ -6,40 +6,35 @@ import {
   ChevronDown, 
   Menu, 
   X,
-  CreditCard,
-  BarChart3,
-  Users,
-  Building2,
-  Shield,
-  Globe,
-  Zap,
+  LayoutDashboard,
+  Target,
+  Megaphone,
   FileText,
-  Calculator,
-  Wallet,
-  Landmark,
+  BarChart3,
+  Zap,
+  Link2,
+  Settings,
   ArrowRight
 } from "lucide-react";
 
 const products = [
-  { name: "Payments", desc: "Accept online & in-person payments", icon: CreditCard },
-  { name: "Billing", desc: "Subscription & recurring billing", icon: BarChart3 },
-  { name: "Connect", desc: "Payments for platforms", icon: Users },
-  { name: "Issuing", desc: "Card creation", icon: Building2 },
-  { name: "Radar", desc: "Fraud prevention", icon: Shield },
-  { name: "Terminal", desc: "In-person payments", icon: Zap },
-  { name: "Treasury", desc: "Banking-as-a-service", icon: Landmark },
-  { name: "Tax", desc: "Sales tax & VAT automation", icon: Calculator },
-  { name: "Invoicing", desc: "Online invoices", icon: FileText },
-  { name: "Atlas", desc: "Startup incorporation", icon: Globe },
+  { name: "Dashboard", desc: "Centralized data visualization", icon: LayoutDashboard },
+  { name: "Leads", desc: "Intelligent lead management", icon: Target },
+  { name: "Marketing", desc: "Automated campaign tools", icon: Megaphone },
+  { name: "Offline Form", desc: "Physical data capture", icon: FileText },
+  { name: "Analytics", desc: "Advanced reporting & insights", icon: BarChart3 },
+  { name: "Integrations", desc: "Connect your existing tools", icon: Link2 },
+  { name: "Real-time Sync", desc: "Instant data synchronization", icon: Zap },
+  { name: "API", desc: "Developer-friendly interface", icon: Settings },
 ];
 
 const solutions = [
-  { name: "Enterprise", desc: "For large-scale businesses" },
-  { name: "SaaS", desc: "For subscription businesses" },
-  { name: "Marketplaces", desc: "For platforms & marketplaces" },
-  { name: "E-commerce", desc: "For online stores" },
-  { name: "Embedded Finance", desc: "For financial services" },
-  { name: "Creator Economy", desc: "For creators & influencers" },
+  { name: "Gyms & Fitness", desc: "Member management & engagement" },
+  { name: "Education", desc: "Student data & enrollment" },
+  { name: "Retail", desc: "Omnichannel customer insights" },
+  { name: "Healthcare", desc: "Patient data unification" },
+  { name: "Real Estate", desc: "Lead tracking & property data" },
+  { name: "Events", desc: "Attendee management & analytics" },
 ];
 
 export function Header() {
@@ -108,7 +103,7 @@ export function Header() {
                   className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
                   data-testid="button-solutions-dropdown"
                 >
-                  Solutions
+                  Industries
                   <ChevronDown className="h-4 w-4" />
                 </button>
                 

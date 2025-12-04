@@ -8,11 +8,11 @@ export function CTASection() {
       
       <div className="relative max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight mb-4">
-          Ready to get started?
+          Ready to unify your data?
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-          Explore Stripe Payments, or create an account instantly and start accepting payments. 
-          You can also contact us to design a custom package for your business.
+          Explore CemScale's solutions or schedule a demo to see how our integrated platform 
+          can transform your business data into actionable insights.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -21,7 +21,7 @@ export function CTASection() {
             className="rounded-full px-8 text-base h-12"
             data-testid="button-cta-start"
           >
-            Start now <ArrowRight className="ml-2 h-4 w-4" />
+            Get Started <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
           <Button 
             variant="outline" 
@@ -29,7 +29,7 @@ export function CTASection() {
             className="rounded-full px-8 text-base h-12"
             data-testid="button-cta-contact"
           >
-            Contact sales
+            Schedule a Demo
           </Button>
         </div>
       </div>

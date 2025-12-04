@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 
 const stats = [
-  { value: "500M+", label: "API requests per day", suffix: "" },
-  { value: "99.999", label: "historical uptime", suffix: "%" },
-  { value: "90", label: "of U.S. adults have bought from businesses using Stripe", suffix: "%" },
-  { value: "135+", label: "currencies and payment methods supported", suffix: "" },
+  { value: "4", label: "integrated solutions working together", suffix: "" },
+  { value: "99.9", label: "data accuracy guaranteed", suffix: "%" },
+  { value: "10x", label: "faster insights from unified data", suffix: "" },
+  { value: "24/7", label: "real-time data synchronization", suffix: "" },
 ];
 
 export function StatsSection() {
@@ -37,10 +37,10 @@ export function StatsSection() {
       <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight mb-4">
-            Stripe makes moving money as easy and programmable as moving data
+            CemScale makes data unification as seamless as business growth
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Our teams are based in offices around the world and we process hundreds of billions of dollars each year for ambitious businesses of all sizes.
+            Our platform connects all your business touchpoints into one intelligent ecosystem, transforming scattered data into strategic decisions.
           </p>
         </div>
 

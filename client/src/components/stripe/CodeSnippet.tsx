@@ -5,34 +5,37 @@ import { Badge } from "@/components/ui/badge";
 import { Check, Copy } from "lucide-react";
 
 const codeExamples = {
-  javascript: `const stripe = require('stripe')('sk_test_...');
+  javascript: `const cemscale = require('@cemscale/sdk');
 
-const paymentIntent = await stripe.paymentIntents.create({
-  amount: 2000,
-  currency: 'usd',
-  payment_method_types: ['card'],
+const client = cemscale.init('cs_api_key_...');
+
+const lead = await client.leads.create({
+  name: 'John Smith',
+  email: 'john@company.com',
+  source: 'marketing_campaign',
 });`,
-  python: `import stripe
-stripe.api_key = "sk_test_..."
+  python: `from cemscale import CemScale
 
-payment_intent = stripe.PaymentIntent.create(
-  amount=2000,
-  currency="usd",
-  payment_method_types=["card"],
+client = CemScale(api_key="cs_api_key_...")
+
+lead = client.leads.create(
+  name="John Smith",
+  email="john@company.com",
+  source="marketing_campaign",
 )`,
-  ruby: `require 'stripe'
-Stripe.api_key = 'sk_test_...'
+  ruby: `require 'cemscale'
+CemScale.api_key = 'cs_api_key_...'
 
-payment_intent = Stripe::PaymentIntent.create({
-  amount: 2000,
-  currency: 'usd',
-  payment_method_types: ['card'],
+lead = CemScale::Lead.create({
+  name: 'John Smith',
+  email: 'john@company.com',
+  source: 'marketing_campaign',
 })`,
-  curl: `curl https://api.stripe.com/v1/payment_intents \\
-  -u sk_test_...: \\
-  -d amount=2000 \\
-  -d currency=usd \\
-  -d "payment_method_types[]"=card`,
+  curl: `curl https://api.cemscale.com/v1/leads \\
+  -H "Authorization: Bearer cs_api_key_..." \\
+  -d name="John Smith" \\
+  -d email="john@company.com" \\
+  -d source="marketing_campaign"`,
 };
 
 type Language = keyof typeof codeExamples;
@@ -54,18 +57,18 @@ export function CodeSnippet() {
           <div>
             <Badge variant="secondary" className="mb-4">Developer Experience</Badge>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight mb-4">
-              Designed for developers
+              Built for developers
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
-              Stripe's APIs and SDKs are designed with a focus on developer experience. 
+              CemScale's APIs and SDKs are designed with a focus on developer experience. 
               Start integrating in minutes with comprehensive documentation and intuitive libraries.
             </p>
             
             <ul className="space-y-3 mb-8">
               {[
-                "Comprehensive documentation with examples",
-                "SDKs for 7+ programming languages",
-                "Webhook support for real-time events",
+                "Comprehensive API documentation",
+                "SDKs for popular languages",
+                "Webhook support for real-time sync",
                 "Sandbox environment for testing",
               ].map((feature) => (
                 <li key={feature} className="flex items-center gap-2 text-sm">
