@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -7,43 +6,52 @@ import {
   TrendingUp, 
   ArrowUpRight, 
   ArrowDownRight,
-  CreditCard,
+  Target,
   DollarSign,
   Users,
-  Clock
+  Zap,
+  CheckCircle2,
+  Clock,
+  Star
 } from "lucide-react";
-import type { DashboardMetrics, Invoice } from "@shared/schema";
 
 export function DashboardPreview() {
-  const { data: metrics, isLoading } = useQuery<DashboardMetrics>({
-    queryKey: ["/api/dashboard/metrics"],
-    refetchInterval: 5000,
-  });
-
-  const { data: invoices } = useQuery<Invoice>({
-    queryKey: ["/api/dashboard/invoices"],
-  });
-
-  const [displayVolume, setDisplayVolume] = useState(0);
+  const [displayLeads, setDisplayLeads] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  const totalLeads = 12847;
+  const qualifiedLeads = 4256;
+  const conversions = 1893;
+  const pipelineValue = 2847500;
   
   useEffect(() => {
-    if (metrics?.netVolume) {
+    const timer = setTimeout(() => setIsLoading(false), 500);
+    return () => clearTimeout(timer);
+  }, []);
+  
+  useEffect(() => {
+    if (!isLoading) {
       const interval = setInterval(() => {
-        setDisplayVolume(prev => {
-          const diff = metrics.netVolume - prev;
-          if (Math.abs(diff) < 10) return metrics.netVolume;
-          return prev + diff * 0.1;
+        setDisplayLeads(prev => {
+          const diff = totalLeads - prev;
+          if (Math.abs(diff) < 50) return totalLeads;
+          return prev + Math.floor(diff * 0.1);
         });
-      }, 50);
+      }, 30);
       return () => clearInterval(interval);
     }
-  }, [metrics?.netVolume]);
+  }, [isLoading]);
+
+  const formatNumber = (value: number) => {
+    return new Intl.NumberFormat('en-US').format(value);
+  };
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-      minimumFractionDigits: 2,
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     }).format(value);
   };
 
@@ -80,11 +88,11 @@ export function DashboardPreview() {
             </div>
             <div className="flex-1 flex items-center justify-center gap-2">
               <div className="bg-background rounded-lg px-4 py-1.5 text-sm text-muted-foreground border border-border">
-                dashboard.cemscale.com
+                leads.cemscale.com
               </div>
             </div>
             <div className="text-sm text-muted-foreground">
-              Your Business
+              CRM Dashboard
             </div>
           </div>
         </div>
@@ -92,44 +100,44 @@ export function DashboardPreview() {
         <div className="p-6 lg:p-8">
           <div className="flex items-center justify-between mb-6">
             <div>
-              <p className="text-sm text-muted-foreground">Today</p>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold" data-testid="text-net-volume">
-                {formatCurrency(displayVolume || metrics?.netVolume || 0)}
+              <p className="text-sm text-muted-foreground">Total Leads</p>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold" data-testid="text-total-leads">
+                {formatNumber(displayLeads || totalLeads)}
               </h2>
-              <p className="text-sm text-muted-foreground mt-1">Net volume</p>
+              <p className="text-sm text-muted-foreground mt-1">Active in pipeline</p>
             </div>
             <Badge variant="secondary" className="gap-1 text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50">
               <TrendingUp className="h-3 w-3" />
-              +{metrics?.volumeChange?.toFixed(1) || "20.3"}%
+              +47.3%
             </Badge>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
             <MetricCard 
-              title="Yesterday" 
-              value={formatCurrency(metrics?.yesterdayVolume || 0)}
-              icon={Clock}
-              change="+15.2%"
+              title="New Today" 
+              value="847"
+              icon={Zap}
+              change="+23.5%"
               positive
             />
             <MetricCard 
-              title="USD Balance" 
-              value={formatCurrency(metrics?.usdBalance || 0)}
+              title="Qualified Leads" 
+              value={formatNumber(qualifiedLeads)}
+              icon={Target}
+              subtitle="Ready to convert"
+            />
+            <MetricCard 
+              title="Conversions" 
+              value={formatNumber(conversions)}
+              icon={CheckCircle2}
+              change="+31.2%"
+              positive
+            />
+            <MetricCard 
+              title="Pipeline Value" 
+              value={formatCurrency(pipelineValue)}
               icon={DollarSign}
-              subtitle="Available to pay out"
-            />
-            <MetricCard 
-              title="Payouts" 
-              value={formatCurrency(metrics?.payouts || 0)}
-              icon={CreditCard}
-              subtitle="Expected today"
-            />
-            <MetricCard 
-              title="New customers" 
-              value={String(metrics?.newCustomers || 0)}
-              icon={Users}
-              change={`+${metrics?.customerChange?.toFixed(1) || "32.1"}%`}
-              positive
+              subtitle="Potential revenue"
             />
           </div>
           
@@ -137,24 +145,26 @@ export function DashboardPreview() {
             <div className="md:col-span-1 lg:col-span-2">
               <div className="bg-muted/30 rounded-xl p-4">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-medium">Net volume from sales</h3>
+                  <h3 className="font-medium">Lead Growth</h3>
                   <Badge variant="secondary" className="gap-1 text-emerald-600 dark:text-emerald-400">
                     <ArrowUpRight className="h-3 w-3" />
-                    +{metrics?.volumeChange?.toFixed(1) || "32.8"}%
+                    +52.8%
                   </Badge>
                 </div>
                 
                 <div className="h-40 flex items-end gap-1">
                   {Array.from({ length: 30 }).map((_, i) => {
-                    const height = Math.random() * 60 + 20;
+                    const baseHeight = 20 + (i * 2);
+                    const variation = Math.sin(i * 0.5) * 15;
+                    const height = Math.min(95, baseHeight + variation);
                     const isHighlight = i > 24;
                     return (
                       <div 
                         key={i}
                         className={`flex-1 rounded-t transition-all ${
                           isHighlight 
-                            ? 'bg-primary' 
-                            : 'bg-primary/30'
+                            ? 'bg-[#7CFD98]' 
+                            : 'bg-[#6B8CFF]/40'
                         }`}
                         style={{ height: `${height}%` }}
                       />
@@ -163,7 +173,7 @@ export function DashboardPreview() {
                 </div>
                 
                 <div className="flex justify-between mt-2 text-xs text-muted-foreground">
-                  <span>Apr 20</span>
+                  <span>30 days ago</span>
                   <span>Today</span>
                 </div>
               </div>
@@ -171,11 +181,12 @@ export function DashboardPreview() {
             
             <div className="space-y-4">
               <div className="bg-muted/30 rounded-xl p-4">
-                <h3 className="font-medium mb-3">Invoices</h3>
+                <h3 className="font-medium mb-3">Lead Status</h3>
                 <div className="space-y-2">
-                  <InvoiceRow label="Paid" amount={formatCurrency(invoices?.paid || 25000)} color="emerald" />
-                  <InvoiceRow label="Open" amount={formatCurrency(invoices?.open || 20000)} color="blue" />
-                  <InvoiceRow label="Past due" amount={formatCurrency(invoices?.pastDue || 1000)} color="red" />
+                  <LeadStatusRow label="Hot Leads" count="2,847" color="orange" icon={Star} />
+                  <LeadStatusRow label="Qualified" count="4,256" color="emerald" icon={CheckCircle2} />
+                  <LeadStatusRow label="Nurturing" count="3,891" color="blue" icon={Clock} />
+                  <LeadStatusRow label="New" count="1,853" color="purple" icon={Users} />
                 </div>
               </div>
             </div>
@@ -220,20 +231,31 @@ function MetricCard({
   );
 }
 
-function InvoiceRow({ label, amount, color }: { label: string; amount: string; color: string }) {
+function LeadStatusRow({ 
+  label, 
+  count, 
+  color,
+  icon: Icon 
+}: { 
+  label: string; 
+  count: string; 
+  color: string;
+  icon: React.ComponentType<{ className?: string }>;
+}) {
   const colorClasses: Record<string, string> = {
-    emerald: 'bg-emerald-500',
-    blue: 'bg-blue-500',
-    red: 'bg-red-500',
+    emerald: 'text-emerald-500',
+    blue: 'text-[#6B8CFF]',
+    orange: 'text-[#FF805D]',
+    purple: 'text-[#7E4EF2]',
   };
   
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-2">
-        <div className={`w-2 h-2 rounded-full ${colorClasses[color]}`} />
+        <Icon className={`w-4 h-4 ${colorClasses[color]}`} />
         <span className="text-sm">{label}</span>
       </div>
-      <span className="text-sm font-medium">{amount}</span>
+      <span className="text-sm font-medium">{count}</span>
     </div>
   );
 }
