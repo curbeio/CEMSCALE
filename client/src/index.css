@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* LIGHT MODE */
+/* LIGHT MODE - Stripe Color Palette */
 :root {
   --button-outline: rgba(0,0,0, .10);
   --badge-outline: rgba(0,0,0, .05);
@@ -10,42 +10,42 @@
   --elevate-1: rgba(0,0,0, .03);
   --elevate-2: rgba(0,0,0, .08);
   --background: 0 0% 100%;
-  --foreground: 0 0% 9%;
-  --border: 240 6% 90%;
-  --card: 0 0% 98%;
-  --card-foreground: 0 0% 9%;
-  --card-border: 240 6% 94%;
-  --sidebar: 240 5% 96%;
-  --sidebar-foreground: 240 6% 10%;
-  --sidebar-border: 240 6% 92%;
-  --sidebar-primary: 243 75% 59%;
+  --foreground: 228 14% 18%;
+  --border: 220 13% 91%;
+  --card: 0 0% 100%;
+  --card-foreground: 228 14% 18%;
+  --card-border: 220 13% 91%;
+  --sidebar: 220 14% 96%;
+  --sidebar-foreground: 228 14% 18%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-primary: 252 100% 67%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 240 5% 92%;
-  --sidebar-accent-foreground: 240 6% 10%;
-  --sidebar-ring: 243 75% 59%;
-  --popover: 0 0% 96%;
-  --popover-foreground: 0 0% 9%;
-  --popover-border: 240 6% 92%;
-  --primary: 243 75% 59%;
+  --sidebar-accent: 220 14% 93%;
+  --sidebar-accent-foreground: 228 14% 18%;
+  --sidebar-ring: 252 100% 67%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 228 14% 18%;
+  --popover-border: 220 13% 91%;
+  --primary: 252 100% 67%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 240 5% 92%;
-  --secondary-foreground: 240 6% 10%;
-  --muted: 240 5% 94%;
-  --muted-foreground: 240 4% 46%;
-  --accent: 240 5% 94%;
-  --accent-foreground: 240 6% 10%;
+  --secondary: 220 14% 96%;
+  --secondary-foreground: 228 14% 18%;
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 9% 46%;
+  --accent: 220 14% 96%;
+  --accent-foreground: 228 14% 18%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
-  --input: 240 6% 85%;
-  --ring: 243 75% 59%;
-  --chart-1: 243 75% 59%;
-  --chart-2: 262 83% 58%;
+  --input: 220 13% 91%;
+  --ring: 252 100% 67%;
+  --chart-1: 252 100% 67%;
+  --chart-2: 171 77% 48%;
   --chart-3: 203 89% 53%;
-  --chart-4: 291 64% 42%;
+  --chart-4: 43 96% 56%;
   --chart-5: 340 82% 52%;
-  --font-sans: Open Sans, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-serif: Georgia, serif;
-  --font-mono: Menlo, monospace;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --radius: .5rem;
   --shadow-2xs: 0px 2px 0px 0px hsl(240 6% 10% / 0.00);
   --shadow-xs: 0px 2px 0px 0px hsl(240 6% 10% / 0.00);
@@ -93,39 +93,39 @@
   --opaque-button-border-intensity: 9;
   --elevate-1: rgba(255,255,255, .04);
   --elevate-2: rgba(255,255,255, .09);
-  --background: 240 6% 6%;
+  --background: 228 14% 8%;
   --foreground: 0 0% 98%;
-  --border: 240 6% 16%;
-  --card: 240 5% 8%;
+  --border: 228 14% 16%;
+  --card: 228 14% 10%;
   --card-foreground: 0 0% 98%;
-  --card-border: 240 6% 12%;
-  --sidebar: 240 5% 10%;
+  --card-border: 228 14% 14%;
+  --sidebar: 228 14% 10%;
   --sidebar-foreground: 0 0% 98%;
-  --sidebar-border: 240 6% 14%;
-  --sidebar-primary: 243 75% 59%;
+  --sidebar-border: 228 14% 14%;
+  --sidebar-primary: 252 100% 67%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 240 5% 14%;
+  --sidebar-accent: 228 14% 14%;
   --sidebar-accent-foreground: 0 0% 98%;
-  --sidebar-ring: 243 75% 59%;
-  --popover: 240 5% 12%;
+  --sidebar-ring: 252 100% 67%;
+  --popover: 228 14% 12%;
   --popover-foreground: 0 0% 98%;
-  --popover-border: 240 6% 16%;
-  --primary: 243 75% 59%;
+  --popover-border: 228 14% 16%;
+  --primary: 252 100% 67%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 240 5% 16%;
+  --secondary: 228 14% 16%;
   --secondary-foreground: 0 0% 98%;
-  --muted: 240 5% 14%;
-  --muted-foreground: 240 5% 64%;
-  --accent: 240 5% 14%;
+  --muted: 228 14% 14%;
+  --muted-foreground: 220 9% 64%;
+  --accent: 228 14% 14%;
   --accent-foreground: 0 0% 98%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
-  --input: 240 6% 20%;
-  --ring: 243 75% 59%;
-  --chart-1: 243 75% 70%;
-  --chart-2: 262 83% 70%;
+  --input: 228 14% 20%;
+  --ring: 252 100% 67%;
+  --chart-1: 252 100% 70%;
+  --chart-2: 171 77% 55%;
   --chart-3: 203 89% 65%;
-  --chart-4: 291 64% 60%;
+  --chart-4: 43 96% 60%;
   --chart-5: 340 82% 65%;
   --shadow-2xs: 0px 2px 0px 0px hsl(240 6% 98% / 0.00);
   --shadow-xs: 0px 2px 0px 0px hsl(240 6% 98% / 0.00);
@@ -285,4 +285,113 @@
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
   }
+}
+
+/* Stripe-specific gradients and animations */
+@layer utilities {
+  .stripe-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  }
+
+  .stripe-gradient-dark {
+    background: linear-gradient(135deg, #0a2540 0%, #1a1f36 50%, #2d3748 100%);
+  }
+
+  .stripe-hero-gradient {
+    background: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(120, 119, 198, 0.2) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, rgba(138, 132, 255, 0.15) 0%, transparent 50%);
+  }
+
+  .stripe-text-gradient {
+    background: linear-gradient(135deg, #635bff 0%, #00d4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stripe-card-shadow {
+    box-shadow: 
+      0 50px 100px -20px rgba(50, 50, 93, 0.25),
+      0 30px 60px -30px rgba(0, 0, 0, 0.3);
+  }
+
+  .stripe-card-shadow-sm {
+    box-shadow: 
+      0 6px 12px -2px rgba(50, 50, 93, 0.12),
+      0 3px 7px -3px rgba(0, 0, 0, 0.15);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes scaleIn {
+  from { 
+    opacity: 0; 
+    transform: scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
