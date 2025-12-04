@@ -46,7 +46,7 @@ const footerLinks = {
 export function Footer() {
   return (
     <footer className="bg-muted/30 border-t border-border">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+      <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <a href="/" className="inline-block mb-4">

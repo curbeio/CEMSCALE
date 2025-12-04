@@ -48,12 +48,12 @@ export function CodeSnippet() {
   };
 
   return (
-    <section className="py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section className="py-16 sm:py-24 lg:py-32 xl:py-40">
+      <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
             <Badge variant="secondary" className="mb-4">Developer Experience</Badge>
-            <h2 className="text-3xl lg:text-5xl font-semibold tracking-tight mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight mb-4">
               Designed for developers
             </h2>
             <p className="text-lg text-muted-foreground mb-6">

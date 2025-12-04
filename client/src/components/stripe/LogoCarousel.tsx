@@ -11,9 +11,9 @@ export function LogoCarousel() {
   ];
 
   return (
-    <section className="py-16 border-y border-border/50">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-4 lg:grid-cols-8 gap-8 items-center justify-items-center">
+    <section className="py-12 sm:py-16 border-y border-border/50">
+      <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-4 md:grid-cols-8 gap-4 sm:gap-6 lg:gap-8 items-center justify-items-center">
           {logos.map((logo) => (
             <div 
               key={logo.name}

@@ -47,12 +47,12 @@ export function EnterpriseSection() {
   };
 
   return (
-    <section className="py-24 lg:py-32 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-12">
+    <section className="py-16 sm:py-24 lg:py-32 xl:py-40 bg-muted/30">
+      <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8 sm:mb-12">
           <div>
             <Badge variant="secondary" className="mb-4">Enterprise</Badge>
-            <h2 className="text-3xl lg:text-5xl font-semibold tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight">
               Trusted by the world's leading companies
             </h2>
           </div>

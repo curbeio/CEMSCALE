@@ -93,7 +93,7 @@ export function DashboardPreview() {
           <div className="flex items-center justify-between mb-6">
             <div>
               <p className="text-sm text-muted-foreground">Today</p>
-              <h2 className="text-3xl lg:text-4xl font-semibold" data-testid="text-net-volume">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold" data-testid="text-net-volume">
                 {formatCurrency(displayVolume || metrics?.netVolume || 0)}
               </h2>
               <p className="text-sm text-muted-foreground mt-1">Net volume</p>
@@ -104,7 +104,7 @@ export function DashboardPreview() {
             </Badge>
           </div>
           
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
             <MetricCard 
               title="Yesterday" 
               value={formatCurrency(metrics?.yesterdayVolume || 0)}
@@ -133,8 +133,8 @@ export function DashboardPreview() {
             />
           </div>
           
-          <div className="grid lg:grid-cols-3 gap-6">
-            <div className="lg:col-span-2">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div className="md:col-span-1 lg:col-span-2">
               <div className="bg-muted/30 rounded-xl p-4">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="font-medium">Net volume from sales</h3>

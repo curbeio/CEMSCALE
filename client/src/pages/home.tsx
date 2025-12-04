@@ -12,9 +12,9 @@ import { Footer } from "@/components/stripe/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background w-full overflow-x-hidden">
       <Header />
-      <main>
+      <main className="w-full">
         <HeroSection />
         <LogoCarousel />
         <ProductsSection />

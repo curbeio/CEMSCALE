@@ -3,11 +3,11 @@ import { ArrowRight } from "lucide-react";
 
 export function CTASection() {
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden">
+    <section className="py-16 sm:py-24 lg:py-32 xl:py-40 relative overflow-hidden">
       <div className="absolute inset-0 stripe-hero-gradient" />
       
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 text-center">
-        <h2 className="text-3xl lg:text-5xl font-semibold tracking-tight mb-4">
+      <div className="relative max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight mb-4">
           Ready to get started?
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">

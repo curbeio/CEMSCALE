@@ -5,11 +5,11 @@ import { ArrowRight, Rocket, CreditCard, Zap } from "lucide-react";
 
 export function StartupSection() {
   return (
-    <section className="py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-12">
+    <section className="py-16 sm:py-24 lg:py-32 xl:py-40">
+      <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-12">
           <Badge variant="secondary" className="mb-4">For Startups</Badge>
-          <h2 className="text-3xl lg:text-5xl font-semibold tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight mb-4">
             Startups build on Stripe to launch faster
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -17,7 +17,7 @@ export function StartupSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           <Card className="p-8 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-full blur-3xl opacity-50 group-hover:opacity-70 transition-opacity" />
             

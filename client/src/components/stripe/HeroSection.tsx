@@ -4,13 +4,13 @@ import { DashboardPreview } from "./DashboardPreview";
 
 export function HeroSection() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
+    <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-20 lg:pt-40 lg:pb-32 xl:pt-48 xl:pb-40 overflow-hidden">
       <div className="absolute inset-0 stripe-hero-gradient" />
       
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center max-w-4xl mx-auto mb-16">
+      <div className="relative max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-4xl xl:max-w-5xl mx-auto mb-10 sm:mb-16">
           <h1 
-            className="text-4xl sm:text-5xl lg:text-7xl font-semibold tracking-tight leading-[1.1] mb-6 animate-fade-up"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-semibold tracking-tight leading-[1.1] mb-4 sm:mb-6 animate-fade-up"
             data-testid="text-hero-headline"
           >
             Financial infrastructure to{" "}
@@ -18,7 +18,7 @@ export function HeroSection() {
           </h1>
           
           <p 
-            className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-up"
+            className="text-base sm:text-lg lg:text-xl xl:text-2xl text-muted-foreground max-w-2xl xl:max-w-3xl mx-auto mb-6 sm:mb-8 animate-fade-up px-2"
             style={{ animationDelay: "0.1s" }}
             data-testid="text-hero-subheadline"
           >

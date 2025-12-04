@@ -55,11 +55,11 @@ const useCases = [
 
 export function UseCasesSection() {
   return (
-    <section className="py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-12">
+    <section className="py-16 sm:py-24 lg:py-32 xl:py-40">
+      <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-12">
           <Badge variant="secondary" className="mb-4">Use Cases</Badge>
-          <h2 className="text-3xl lg:text-5xl font-semibold tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight mb-4">
             From global AI companies to category-defining marketplaces
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -67,7 +67,7 @@ export function UseCasesSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {useCases.map((useCase) => (
             <Card 
               key={useCase.id}

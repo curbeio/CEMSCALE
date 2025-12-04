@@ -32,11 +32,11 @@ export function StatsSection() {
   return (
     <section 
       ref={sectionRef}
-      className="py-24 lg:py-32 bg-muted/30"
+      className="py-16 sm:py-24 lg:py-32 xl:py-40 bg-muted/30"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-5xl font-semibold tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight mb-4">
             Stripe makes moving money as easy and programmable as moving data
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -44,7 +44,7 @@ export function StatsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 xl:gap-16">
           {stats.map((stat, index) => (
             <div 
               key={stat.label}
@@ -55,7 +55,7 @@ export function StatsSection() {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="text-4xl lg:text-6xl font-semibold stripe-text-gradient mb-2" data-testid={`stat-value-${index}`}>
+              <div className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-semibold stripe-text-gradient mb-2" data-testid={`stat-value-${index}`}>
                 {stat.value}{stat.suffix}
               </div>
               <p className="text-sm lg:text-base text-muted-foreground" data-testid={`stat-label-${index}`}>
