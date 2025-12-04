@@ -3,78 +3,78 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
-  BarChart3, 
+  Phone, 
   Users, 
-  Globe,
-  FileText,
+  Megaphone,
+  Target,
   ArrowRight
 } from "lucide-react";
 
 const productCategories = [
   { 
-    id: "dashboard",
-    name: "Dashboard", 
-    icon: BarChart3,
-    description: "See all your key metrics in one unified view. Real-time insights from every data source, beautifully visualized.",
+    id: "telephony",
+    name: "Telefonía", 
+    icon: Phone,
+    description: "Sistema de telefonía integrado para gestionar todas tus llamadas. Grabación, IVR, y analytics en tiempo real para tu equipo de ventas.",
     products: [
+      { name: "Llamadas", href: "#" },
+      { name: "IVR", href: "#" },
+      { name: "Grabaciones", href: "#" },
       { name: "Analytics", href: "#" },
-      { name: "Reports", href: "#" },
-      { name: "Metrics", href: "#" },
-      { name: "Alerts", href: "#" },
-    ]
-  },
-  { 
-    id: "leads",
-    name: "Leads", 
-    icon: Users,
-    description: "Track, score, and nurture leads from any source. Unify your lead data for complete visibility into your pipeline.",
-    products: [
-      { name: "Lead Capture", href: "#" },
-      { name: "Scoring", href: "#" },
-      { name: "Pipeline", href: "#" },
-      { name: "Tracking", href: "#" },
     ]
   },
   { 
     id: "marketing",
     name: "Marketing", 
-    icon: Globe,
-    description: "Consolidate campaign data from all channels. Measure ROI accurately and optimize spend across platforms.",
+    icon: Megaphone,
+    description: "Automatiza y escala tus campañas de marketing. Email, SMS, WhatsApp y redes sociales en una sola plataforma unificada.",
     products: [
-      { name: "Campaigns", href: "#" },
-      { name: "Attribution", href: "#" },
-      { name: "Automation", href: "#" },
-      { name: "Insights", href: "#" },
+      { name: "Campañas", href: "#" },
+      { name: "Email", href: "#" },
+      { name: "SMS", href: "#" },
+      { name: "WhatsApp", href: "#" },
     ]
   },
   { 
-    id: "forms",
-    name: "Forms", 
-    icon: FileText,
-    description: "Capture data from anywhere, even offline. All form submissions flow into your unified data ecosystem.",
+    id: "crm",
+    name: "CRM", 
+    icon: Users,
+    description: "Gestiona todas las relaciones con tus clientes. Historial completo, seguimiento de interacciones y pipeline de ventas visual.",
     products: [
-      { name: "Form Builder", href: "#" },
-      { name: "Offline Sync", href: "#" },
-      { name: "Submissions", href: "#" },
-      { name: "Integrations", href: "#" },
+      { name: "Contactos", href: "#" },
+      { name: "Pipeline", href: "#" },
+      { name: "Actividades", href: "#" },
+      { name: "Reportes", href: "#" },
+    ]
+  },
+  { 
+    id: "leads",
+    name: "Leads", 
+    icon: Target,
+    description: "Captura, califica y convierte leads automáticamente. Scoring inteligente y nurturing automatizado para maximizar conversiones.",
+    products: [
+      { name: "Captura", href: "#" },
+      { name: "Scoring", href: "#" },
+      { name: "Nurturing", href: "#" },
+      { name: "Conversión", href: "#" },
     ]
   },
 ];
 
 export function ProductsSection() {
-  const [activeCategory, setActiveCategory] = useState("dashboard");
+  const [activeCategory, setActiveCategory] = useState("telephony");
   const category = productCategories.find(c => c.id === activeCategory)!;
 
   return (
     <section className="py-16 sm:py-24 lg:py-32 xl:py-40">
       <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4">Products</Badge>
+          <Badge variant="secondary" className="mb-4">Productos</Badge>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight mb-4">
-            A fully integrated suite of data unification products
+            Una suite completa para tu negocio
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Reduce complexity, grow faster, and run your business more efficiently on a unified platform.
+            Telefonía, Marketing, CRM y Leads integrados en una plataforma unificada para escalar tu empresa.
           </p>
         </div>
 
@@ -119,15 +119,15 @@ export function ProductsSection() {
             </div>
 
             <Button className="rounded-full gap-2" data-testid="button-learn-more">
-              Learn more <ArrowRight className="h-4 w-4" />
+              Saber más <ArrowRight className="h-4 w-4" />
             </Button>
           </div>
 
           <div className="order-1 lg:order-2">
-            {activeCategory === "dashboard" && <DashboardProductPreview />}
-            {activeCategory === "leads" && <LeadsPreview />}
+            {activeCategory === "telephony" && <TelephonyPreview />}
             {activeCategory === "marketing" && <MarketingPreview />}
-            {activeCategory === "forms" && <FormsPreview />}
+            {activeCategory === "crm" && <CRMPreview />}
+            {activeCategory === "leads" && <LeadsPreview />}
           </div>
         </div>
       </div>
@@ -135,7 +135,13 @@ export function ProductsSection() {
   );
 }
 
-function DashboardProductPreview() {
+function TelephonyPreview() {
+  const calls = [
+    { id: 1, name: "María García", duration: "4:32", status: "completed", type: "inbound" },
+    { id: 2, name: "Carlos López", duration: "2:15", status: "completed", type: "outbound" },
+    { id: 3, name: "Ana Martínez", duration: "0:00", status: "missed", type: "inbound" },
+  ];
+
   return (
     <div className="relative">
       <div className="absolute -inset-4 bg-gradient-to-r from-[#6B8CFF]/20 via-[#7E4EF2]/20 to-[#7CFD98]/20 rounded-3xl blur-2xl opacity-50" />
@@ -143,93 +149,44 @@ function DashboardProductPreview() {
       <Card className="relative p-6 stripe-card-shadow-sm">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <p className="text-sm text-muted-foreground">This Month</p>
-            <h4 className="text-2xl font-semibold">$847,234</h4>
+            <p className="text-sm text-muted-foreground">Hoy</p>
+            <h4 className="text-2xl font-semibold">247 llamadas</h4>
           </div>
-          <Badge className="bg-[#7CFD98]/20 text-[#7CFD98]">+28.4%</Badge>
+          <Badge className="bg-[#7CFD98]/20 text-[#7CFD98]">+18.4%</Badge>
         </div>
         
-        <div className="grid grid-cols-2 gap-4 mb-6">
-          <div className="bg-muted/50 rounded-lg p-3">
-            <p className="text-xs text-muted-foreground">Active Users</p>
-            <p className="text-lg font-semibold">12,847</p>
+        <div className="grid grid-cols-3 gap-4 mb-6">
+          <div className="bg-muted/50 rounded-lg p-3 text-center">
+            <p className="text-xs text-muted-foreground">Entrantes</p>
+            <p className="text-lg font-semibold text-[#7CFD98]">156</p>
           </div>
-          <div className="bg-muted/50 rounded-lg p-3">
-            <p className="text-xs text-muted-foreground">Data Sources</p>
-            <p className="text-lg font-semibold">24</p>
+          <div className="bg-muted/50 rounded-lg p-3 text-center">
+            <p className="text-xs text-muted-foreground">Salientes</p>
+            <p className="text-lg font-semibold text-[#6B8CFF]">78</p>
           </div>
-          <div className="bg-muted/50 rounded-lg p-3">
-            <p className="text-xs text-muted-foreground">Leads</p>
-            <p className="text-lg font-semibold">3,421</p>
-          </div>
-          <div className="bg-muted/50 rounded-lg p-3">
-            <p className="text-xs text-muted-foreground">Conversion</p>
-            <p className="text-lg font-semibold">4.2%</p>
+          <div className="bg-muted/50 rounded-lg p-3 text-center">
+            <p className="text-xs text-muted-foreground">Perdidas</p>
+            <p className="text-lg font-semibold text-[#FF805D]">13</p>
           </div>
         </div>
         
-        <div className="h-24 flex items-end gap-1">
-          {Array.from({ length: 20 }).map((_, i) => {
-            const height = Math.random() * 60 + 20;
-            return (
-              <div 
-                key={i}
-                className="flex-1 rounded-t bg-[#6B8CFF]"
-                style={{ height: `${height}%`, opacity: 0.3 + (i / 30) }}
-              />
-            );
-          })}
-        </div>
-      </Card>
-    </div>
-  );
-}
-
-function LeadsPreview() {
-  const leads = [
-    { id: "L-001", name: "Sarah Johnson", source: "Website", score: 92, status: "Hot" },
-    { id: "L-002", name: "Michael Chen", source: "Campaign", score: 78, status: "Warm" },
-    { id: "L-003", name: "Emma Wilson", source: "Form", score: 65, status: "New" },
-  ];
-
-  return (
-    <div className="relative">
-      <div className="absolute -inset-4 bg-gradient-to-r from-[#7E4EF2]/20 via-[#6B8CFF]/20 to-[#4974EA]/20 rounded-3xl blur-2xl opacity-50" />
-      
-      <Card className="relative p-4 stripe-card-shadow-sm">
-        <div className="flex items-center justify-between mb-4">
-          <h4 className="font-semibold">Recent Leads</h4>
-          <Badge variant="secondary">Today</Badge>
-        </div>
-        
-        <div className="space-y-3">
-          {leads.map((lead) => (
-            <div 
-              key={lead.id}
-              className="flex items-center justify-between p-3 rounded-lg bg-muted/50"
-            >
+        <div className="space-y-2">
+          {calls.map((call) => (
+            <div key={call.id} className="flex items-center justify-between p-2 rounded-lg bg-muted/30">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#7E4EF2]/10 flex items-center justify-center text-xs font-medium text-[#7E4EF2]">
-                  {lead.name.charAt(0)}
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                  call.status === 'missed' ? 'bg-[#FF805D]/20' : 'bg-[#7CFD98]/20'
+                }`}>
+                  <Phone className={`h-4 w-4 ${
+                    call.status === 'missed' ? 'text-[#FF805D]' : 'text-[#7CFD98]'
+                  }`} />
                 </div>
                 <div>
-                  <p className="text-sm font-medium">{lead.name}</p>
-                  <p className="text-xs text-muted-foreground">{lead.source}</p>
+                  <p className="text-sm font-medium">{call.name}</p>
+                  <p className="text-xs text-muted-foreground">{call.type === 'inbound' ? 'Entrante' : 'Saliente'}</p>
                 </div>
               </div>
-              <div className="text-right">
-                <p className="text-sm font-medium">Score: {lead.score}</p>
-                <Badge 
-                  variant="secondary" 
-                  className={`text-xs ${
-                    lead.status === 'Hot' ? 'bg-red-50 dark:bg-red-950 text-red-600' :
-                    lead.status === 'Warm' ? 'bg-amber-50 dark:bg-amber-950 text-amber-600' :
-                    'bg-blue-50 dark:bg-blue-950 text-blue-600'
-                  }`}
-                >
-                  {lead.status}
-                </Badge>
-              </div>
+              <span className="text-sm text-muted-foreground">{call.duration}</span>
             </div>
           ))}
         </div>
@@ -240,9 +197,9 @@ function LeadsPreview() {
 
 function MarketingPreview() {
   const campaigns = [
-    { name: "Summer Campaign", channel: "Email", leads: 245, roi: "+156%" },
-    { name: "Social Ads Q4", channel: "Facebook", leads: 189, roi: "+92%" },
-    { name: "Search Campaign", channel: "Google", leads: 312, roi: "+234%" },
+    { name: "Campaña Verano", channel: "Email", sent: 12450, opens: "34%", clicks: "12%" },
+    { name: "Promo WhatsApp", channel: "WhatsApp", sent: 8920, opens: "89%", clicks: "45%" },
+    { name: "SMS Flash Sale", channel: "SMS", sent: 5600, opens: "92%", clicks: "28%" },
   ];
 
   return (
@@ -255,16 +212,21 @@ function MarketingPreview() {
             key={campaign.name}
             className="p-4 stripe-card-shadow-sm"
           >
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between mb-3">
               <div>
-                <div className="flex items-center gap-2">
-                  <h4 className="font-semibold">{campaign.name}</h4>
-                </div>
+                <h4 className="font-semibold">{campaign.name}</h4>
                 <p className="text-sm text-muted-foreground">{campaign.channel}</p>
               </div>
-              <div className="text-right">
-                <p className="text-lg font-semibold text-[#7CFD98]">{campaign.roi}</p>
-                <p className="text-xs text-muted-foreground">{campaign.leads} leads</p>
+              <Badge variant="secondary">{campaign.sent.toLocaleString()} enviados</Badge>
+            </div>
+            <div className="flex gap-4">
+              <div className="flex-1 bg-muted/30 rounded-lg p-2 text-center">
+                <p className="text-xs text-muted-foreground">Apertura</p>
+                <p className="text-lg font-semibold text-[#7CFD98]">{campaign.opens}</p>
+              </div>
+              <div className="flex-1 bg-muted/30 rounded-lg p-2 text-center">
+                <p className="text-xs text-muted-foreground">Clicks</p>
+                <p className="text-lg font-semibold text-[#6B8CFF]">{campaign.clicks}</p>
               </div>
             </div>
           </Card>
@@ -274,42 +236,97 @@ function MarketingPreview() {
   );
 }
 
-function FormsPreview() {
+function CRMPreview() {
+  const contacts = [
+    { name: "Empresa ABC", value: "$45,000", stage: "Negociación", probability: 75 },
+    { name: "Tech Solutions", value: "$28,500", stage: "Propuesta", probability: 50 },
+    { name: "Global Corp", value: "$120,000", stage: "Cierre", probability: 90 },
+  ];
+
+  return (
+    <div className="relative">
+      <div className="absolute -inset-4 bg-gradient-to-r from-[#7E4EF2]/20 via-[#6B8CFF]/20 to-[#4974EA]/20 rounded-3xl blur-2xl opacity-50" />
+      
+      <Card className="relative p-6 stripe-card-shadow-sm">
+        <div className="flex items-center justify-between mb-6">
+          <h4 className="font-semibold">Pipeline de Ventas</h4>
+          <Badge className="bg-[#7CFD98]/20 text-[#7CFD98]">$193,500</Badge>
+        </div>
+        
+        <div className="space-y-4">
+          {contacts.map((contact) => (
+            <div key={contact.name} className="p-3 rounded-lg bg-muted/50">
+              <div className="flex items-center justify-between mb-2">
+                <div>
+                  <p className="font-medium">{contact.name}</p>
+                  <p className="text-sm text-muted-foreground">{contact.stage}</p>
+                </div>
+                <p className="text-lg font-semibold text-[#6B8CFF]">{contact.value}</p>
+              </div>
+              <div className="w-full bg-muted rounded-full h-2">
+                <div 
+                  className="bg-gradient-to-r from-[#6B8CFF] to-[#7CFD98] h-2 rounded-full transition-all"
+                  style={{ width: `${contact.probability}%` }}
+                />
+              </div>
+              <p className="text-xs text-muted-foreground mt-1">{contact.probability}% probabilidad</p>
+            </div>
+          ))}
+        </div>
+      </Card>
+    </div>
+  );
+}
+
+function LeadsPreview() {
+  const leads = [
+    { id: "L-001", name: "Laura Sánchez", source: "Web", score: 92, status: "Hot" },
+    { id: "L-002", name: "Pedro Ruiz", source: "WhatsApp", score: 78, status: "Warm" },
+    { id: "L-003", name: "Sofia Torres", source: "Llamada", score: 65, status: "New" },
+  ];
+
   return (
     <div className="relative">
       <div className="absolute -inset-4 bg-gradient-to-r from-[#7CFD98]/20 via-[#6B8CFF]/20 to-[#7E4EF2]/20 rounded-3xl blur-2xl opacity-50" />
       
-      <div className="relative space-y-4">
-        <Card className="p-6 stripe-card-shadow-sm">
-          <h4 className="font-semibold mb-4">Contact Form</h4>
-          
-          <div className="space-y-3">
-            <div>
-              <label className="text-xs text-muted-foreground">Full Name</label>
-              <div className="h-9 rounded-md border border-border bg-muted/30 mt-1 flex items-center px-3 text-sm">
-                John Smith
+      <Card className="relative p-4 stripe-card-shadow-sm">
+        <div className="flex items-center justify-between mb-4">
+          <h4 className="font-semibold">Leads Recientes</h4>
+          <Badge variant="secondary">Hoy</Badge>
+        </div>
+        
+        <div className="space-y-3">
+          {leads.map((lead) => (
+            <div 
+              key={lead.id}
+              className="flex items-center justify-between p-3 rounded-lg bg-muted/50"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#6B8CFF] to-[#7E4EF2] flex items-center justify-center text-sm font-medium text-white">
+                  {lead.name.charAt(0)}
+                </div>
+                <div>
+                  <p className="text-sm font-medium">{lead.name}</p>
+                  <p className="text-xs text-muted-foreground">{lead.source}</p>
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="text-sm font-medium">Score: {lead.score}</p>
+                <Badge 
+                  variant="secondary" 
+                  className={`text-xs ${
+                    lead.status === 'Hot' ? 'bg-[#FF805D]/20 text-[#FF805D]' :
+                    lead.status === 'Warm' ? 'bg-amber-50 dark:bg-amber-950 text-amber-600' :
+                    'bg-[#6B8CFF]/20 text-[#6B8CFF]'
+                  }`}
+                >
+                  {lead.status}
+                </Badge>
               </div>
             </div>
-            <div>
-              <label className="text-xs text-muted-foreground">Email</label>
-              <div className="h-9 rounded-md border border-border bg-muted/30 mt-1 flex items-center px-3 text-sm">
-                john@company.com
-              </div>
-            </div>
-            <div>
-              <label className="text-xs text-muted-foreground">Message</label>
-              <div className="h-16 rounded-md border border-border bg-muted/30 mt-1 flex items-start p-3 text-sm text-muted-foreground">
-                I'd like to learn more about...
-              </div>
-            </div>
-          </div>
-          
-          <div className="flex items-center gap-2 mt-4">
-            <Badge className="bg-[#7CFD98]/20 text-[#7CFD98]">Synced</Badge>
-            <span className="text-xs text-muted-foreground">Works offline</span>
-          </div>
-        </Card>
-      </div>
+          ))}
+        </div>
+      </Card>
     </div>
   );
 }

@@ -1,55 +1,55 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, LayoutDashboard, Target, Megaphone, FileText, BarChart3, Zap } from "lucide-react";
+import { ArrowRight, Phone, Target, Megaphone, Users, BarChart3, Zap } from "lucide-react";
 
 const useCases = [
   {
-    id: "centralized-dashboard",
-    title: "Centralized Analytics",
-    description: "Bring all your data sources into one powerful dashboard. Visualize trends, monitor KPIs, and make informed decisions with real-time insights.",
-    icon: LayoutDashboard,
+    id: "call-center",
+    title: "Call Center Integrado",
+    description: "Centraliza todas las llamadas de tu equipo. Grabación automática, IVR inteligente y métricas en tiempo real para optimizar cada conversación.",
+    icon: Phone,
     color: "from-[#7E4EF2] to-[#6B8CFF]",
-    logos: ["Real-time", "Multi-source", "Custom Views"],
+    logos: ["Grabación", "IVR", "Analytics"],
   },
   {
-    id: "lead-management",
-    title: "Lead Intelligence",
-    description: "Transform raw leads into qualified opportunities. Track every touchpoint, score leads automatically, and prioritize high-value prospects.",
+    id: "lead-capture",
+    title: "Captura de Leads",
+    description: "Captura leads de cualquier fuente: web, WhatsApp, llamadas, redes sociales. Todo unificado en tu CRM automáticamente.",
     icon: Target,
     color: "from-[#7CFD98] to-[#4974EA]",
-    logos: ["AI Scoring", "Auto-qualify", "Pipeline"],
+    logos: ["Multi-canal", "Auto-sync", "Scoring"],
   },
   {
     id: "marketing-automation",
-    title: "Marketing Automation",
-    description: "Scale your marketing efforts intelligently. Automate campaigns across channels while maintaining personalized customer experiences.",
+    title: "Automatización de Marketing",
+    description: "Campañas de email, SMS y WhatsApp automatizadas. Segmentación inteligente y nurturing que convierte.",
     icon: Megaphone,
     color: "from-[#6B8CFF] to-[#7E4EF2]",
-    logos: ["Multi-channel", "A/B Testing", "ROI Track"],
+    logos: ["Email", "SMS", "WhatsApp"],
   },
   {
-    id: "offline-integration",
-    title: "Offline Data Capture",
-    description: "Bridge the gap between physical and digital. Capture offline interactions, events, and forms seamlessly into your unified data ecosystem.",
-    icon: FileText,
+    id: "sales-pipeline",
+    title: "Pipeline de Ventas",
+    description: "Visualiza y gestiona tu embudo de ventas. Seguimiento de oportunidades y pronóstico de ingresos preciso.",
+    icon: Users,
     color: "from-[#7CFD98] to-[#6B8CFF]",
-    logos: ["Forms", "Events", "Sync"],
+    logos: ["Pipeline", "Forecast", "Deals"],
   },
   {
-    id: "advanced-reporting",
-    title: "Advanced Reporting",
-    description: "Generate comprehensive reports that tell your business story. Custom metrics, automated scheduling, and stakeholder-ready presentations.",
+    id: "analytics",
+    title: "Analytics y Reportes",
+    description: "Dashboards en tiempo real con KPIs de ventas, marketing y atención. Toma decisiones basadas en datos.",
     icon: BarChart3,
     color: "from-[#FF805D] to-[#7E4EF2]",
-    logos: ["Custom", "Scheduled", "Export"],
+    logos: ["Dashboards", "KPIs", "Reportes"],
   },
   {
-    id: "real-time-sync",
-    title: "Real-time Sync",
-    description: "Keep all your systems in perfect harmony. Bidirectional sync ensures your data is always current across every platform.",
+    id: "integrations",
+    title: "Integraciones",
+    description: "Conecta con tus herramientas favoritas: Google, Meta, WhatsApp Business, Zapier y más de 100 integraciones.",
     icon: Zap,
     color: "from-[#4974EA] to-[#7CFD98]",
-    logos: ["Instant", "Bi-directional", "API"],
+    logos: ["API", "Webhooks", "Zapier"],
   },
 ];
 
@@ -58,12 +58,12 @@ export function UseCasesSection() {
     <section className="py-16 sm:py-24 lg:py-32 xl:py-40">
       <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
-          <Badge variant="secondary" className="mb-4">Capabilities</Badge>
+          <Badge variant="secondary" className="mb-4">Capacidades</Badge>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight mb-4">
-            Everything you need to scale intelligently
+            Todo para escalar tu negocio
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Powerful features designed to transform how you collect, analyze, and act on your business data.
+            Herramientas potentes diseñadas para capturar más leads, vender más y crecer más rápido.
           </p>
         </div>
 
@@ -95,7 +95,7 @@ export function UseCasesSection() {
                 href="#" 
                 className="inline-flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-all"
               >
-                Learn more <ArrowRight className="h-4 w-4" />
+                Saber más <ArrowRight className="h-4 w-4" />
               </a>
             </Card>
           ))}

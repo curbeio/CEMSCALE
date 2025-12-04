@@ -7,40 +7,40 @@ import offlineFlyer from "@assets/Flyers_servicios-04_1764870214057.png";
 
 const services = [
   {
-    id: "dashboard",
-    name: "Dashboard",
-    tagline: "We bring clarity to scattered data.",
-    description: "Centralize information and transform scattered data into a clear, organized vision for decision-making.",
+    id: "telephony",
+    name: "Telefonía",
+    tagline: "Comunicación sin límites.",
+    description: "Sistema de telefonía cloud integrado con tu CRM. Grabación de llamadas, IVR inteligente y analytics en tiempo real.",
     image: dashboardFlyer,
     color: "#7E4EF2",
     bgColor: "from-[#7E4EF2]/20 via-[#7E4EF2]/10 to-transparent",
   },
   {
-    id: "leads",
-    name: "Leads",
-    tagline: "We focus data into actionable insights.",
-    description: "Convert data into actionable insights, facilitating effective identification and management of business opportunities.",
-    image: leadsFlyer,
-    color: "#7CFD98",
-    bgColor: "from-[#7CFD98]/20 via-[#7CFD98]/10 to-transparent",
-  },
-  {
     id: "marketing",
     name: "Marketing",
-    tagline: "We enable businesses to scale intelligently.",
-    description: "Drive businesses to grow intelligently and strategically, connecting tools and channels.",
+    tagline: "Automatiza y escala tu alcance.",
+    description: "Email, SMS, WhatsApp y redes sociales en una plataforma. Campañas automatizadas que convierten.",
     image: marketingFlyer,
     color: "#6B8CFF",
     bgColor: "from-[#6B8CFF]/20 via-[#6B8CFF]/10 to-transparent",
   },
   {
-    id: "offline-form",
-    name: "Offline Form",
-    tagline: "We connect every channel into one seamless ecosystem.",
-    description: "Integrate physical and digital channels into a unified ecosystem, ensuring continuity in the customer experience.",
+    id: "crm",
+    name: "CRM",
+    tagline: "Cada cliente, bajo control.",
+    description: "Gestiona relaciones, historial de interacciones y pipeline de ventas visual. Todo en un solo lugar.",
     image: offlineFlyer,
     color: "#7CFD98",
     bgColor: "from-[#7CFD98]/20 via-[#7CFD98]/10 to-transparent",
+  },
+  {
+    id: "leads",
+    name: "Leads",
+    tagline: "Convierte más, pierde menos.",
+    description: "Captura, califica y nurturing automatizado. Scoring inteligente para priorizar oportunidades de alto valor.",
+    image: leadsFlyer,
+    color: "#FF805D",
+    bgColor: "from-[#FF805D]/20 via-[#FF805D]/10 to-transparent",
   },
 ];
 
@@ -87,14 +87,14 @@ export function ServicesSection() {
               border: '1px solid rgba(107, 140, 255, 0.2)'
             }}
           >
-            Our Services
+            Nuestros Servicios
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-4">
-            Complete Data Solutions for
-            <span className="stripe-text-gradient block sm:inline"> Modern Businesses</span>
+            Todo lo que necesitas para
+            <span className="stripe-text-gradient block sm:inline"> vender más</span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Four integrated solutions that work together to transform how you collect, analyze, and act on your business data.
+            Telefonía, Marketing, CRM y Leads integrados para transformar cómo gestionas y conviertes oportunidades.
           </p>
         </motion.div>
 
@@ -145,7 +145,7 @@ export function ServicesSection() {
                     style={{ color: service.color }}
                     data-testid={`button-learn-${service.id}`}
                   >
-                    Learn more
+                    Saber más
                     <svg 
                       className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" 
                       fill="none" 
