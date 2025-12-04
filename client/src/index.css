@@ -369,11 +369,20 @@ html {
   }
 
   .hero-button-shadow {
-    box-shadow: 0 10px 20px -5px rgba(99, 91, 255, 0.4);
+    box-shadow: 0 10px 20px -5px rgba(107, 140, 255, 0.4);
   }
 
   .hero-button-shadow:hover {
-    box-shadow: 0 15px 30px -5px rgba(99, 91, 255, 0.5);
+    box-shadow: 0 15px 30px -5px rgba(107, 140, 255, 0.5);
+  }
+
+  /* CemScale gradient utilities */
+  .cemscale-gradient {
+    background: linear-gradient(135deg, #6B8CFF 0%, #4974EA 50%, #7E4EF2 100%);
+  }
+
+  .cemscale-glow {
+    box-shadow: 0 0 40px rgba(107, 140, 255, 0.3), 0 0 80px rgba(126, 78, 242, 0.2);
   }
 }
 
