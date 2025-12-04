@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 import { DashboardPreview } from "./DashboardPreview";
 
@@ -9,12 +10,20 @@ export function HeroSection() {
       
       <div className="relative max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl xl:max-w-5xl mx-auto mb-10 sm:mb-16">
+          <Badge 
+            variant="secondary" 
+            className="mb-4 sm:mb-6 animate-fade-up"
+            data-testid="badge-hero-new"
+          >
+            New: Offline Integration 2.0
+          </Badge>
+          
           <h1 
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-semibold tracking-tight leading-[1.1] mb-4 sm:mb-6 animate-fade-up"
             data-testid="text-hero-headline"
           >
-            Financial infrastructure to{" "}
-            <span className="stripe-text-gradient">grow your revenue</span>
+            Clarity for your{" "}
+            <span className="stripe-text-gradient">scattered data.</span>
           </h1>
           
           <p 
@@ -22,9 +31,8 @@ export function HeroSection() {
             style={{ animationDelay: "0.1s" }}
             data-testid="text-hero-subheadline"
           >
-            Join the millions of companies of all sizes that use Stripe to accept payments 
-            online and in person, embed financial services, power custom revenue models, 
-            and build a more profitable business.
+            Unify Leads, Marketing, and Offline interactions into one ecosystem. 
+            Built for scaling, not guessing.
           </p>
           
           <div 
@@ -36,7 +44,7 @@ export function HeroSection() {
               className="rounded-full px-8 text-base h-12"
               data-testid="button-hero-start"
             >
-              Start now <ArrowRight className="ml-2 h-4 w-4" />
+              Start Scaling <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button 
               variant="outline" 
@@ -44,7 +52,7 @@ export function HeroSection() {
               className="rounded-full px-8 text-base h-12"
               data-testid="button-hero-contact"
             >
-              Contact sales
+              How it works
             </Button>
           </div>
         </div>
