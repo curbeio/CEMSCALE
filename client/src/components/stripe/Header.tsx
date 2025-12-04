@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
-import cemscaleLogo from "@assets/Logotipo-CemScale-08_1764869877650.png";
+import cemscaleLogo from "@assets/cemscale_logo_1764870041879.png";
 import { 
   ChevronDown, 
   Menu, 
