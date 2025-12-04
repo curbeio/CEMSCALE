@@ -55,7 +55,7 @@ export function Header() {
               <img 
                 src={cemscaleLogo} 
                 alt="CemScale" 
-                className="h-7 w-auto"
+                className="h-8 sm:h-9 w-auto"
               />
             </a>
             
