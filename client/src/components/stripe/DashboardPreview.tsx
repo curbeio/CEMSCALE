@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -15,32 +15,52 @@ import {
   Star
 } from "lucide-react";
 
+function useAnimatedCounter(baseValue: number, incrementPerSecond: number = 1) {
+  const [value, setValue] = useState(0);
+  const startTimeRef = useRef<number | null>(null);
+  
+  useEffect(() => {
+    startTimeRef.current = Date.now();
+    
+    const animate = () => {
+      if (startTimeRef.current === null) return;
+      
+      const elapsed = (Date.now() - startTimeRef.current) / 1000;
+      const progress = Math.min(elapsed / 2, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const animatedBase = Math.floor(baseValue * eased);
+      const increment = Math.floor(elapsed * incrementPerSecond);
+      
+      setValue(animatedBase + (progress >= 1 ? increment : 0));
+    };
+    
+    animate();
+    const interval = setInterval(animate, 50);
+    
+    return () => clearInterval(interval);
+  }, [baseValue, incrementPerSecond]);
+  
+  return value;
+}
+
 export function DashboardPreview() {
-  const [displayLeads, setDisplayLeads] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   
-  const totalLeads = 12847;
-  const qualifiedLeads = 4256;
-  const conversions = 1893;
-  const pipelineValue = 2847500;
+  const totalLeads = useAnimatedCounter(12847, 3);
+  const newToday = useAnimatedCounter(847, 2);
+  const qualifiedLeads = useAnimatedCounter(4256, 1);
+  const conversions = useAnimatedCounter(1893, 1);
+  const pipelineValue = useAnimatedCounter(2847500, 150);
+  
+  const hotLeads = useAnimatedCounter(2847, 1);
+  const qualifiedStatus = useAnimatedCounter(4256, 1);
+  const nurturing = useAnimatedCounter(3891, 1);
+  const newLeads = useAnimatedCounter(1853, 2);
   
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 500);
     return () => clearTimeout(timer);
   }, []);
-  
-  useEffect(() => {
-    if (!isLoading) {
-      const interval = setInterval(() => {
-        setDisplayLeads(prev => {
-          const diff = totalLeads - prev;
-          if (Math.abs(diff) < 50) return totalLeads;
-          return prev + Math.floor(diff * 0.1);
-        });
-      }, 30);
-      return () => clearInterval(interval);
-    }
-  }, [isLoading]);
 
   const formatNumber = (value: number) => {
     return new Intl.NumberFormat('en-US').format(value);
@@ -77,6 +97,7 @@ export function DashboardPreview() {
   return (
     <div className="relative max-w-5xl mx-auto">
       <div className="absolute -inset-4 bg-gradient-to-r from-[#6B8CFF]/20 via-[#7E4EF2]/20 to-[#7CFD98]/20 rounded-3xl blur-2xl opacity-50" />
+      
       <Card className="relative bg-card/95 backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden stripe-card-shadow">
         <div className="bg-muted/50 border-b border-border px-6 py-4">
           <div className="flex items-center gap-4">
@@ -90,7 +111,9 @@ export function DashboardPreview() {
                 leads.cemscale.com
               </div>
             </div>
-            <div className="text-sm text-muted-foreground">CEM Dashboard</div>
+            <div className="text-sm text-muted-foreground">
+              CRM Dashboard
+            </div>
           </div>
         </div>
         
@@ -98,8 +121,8 @@ export function DashboardPreview() {
           <div className="flex items-center justify-between mb-6">
             <div>
               <p className="text-sm text-muted-foreground">Total Leads</p>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold" data-testid="text-total-leads">
-                {formatNumber(displayLeads || totalLeads)}
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tabular-nums" data-testid="text-total-leads">
+                {formatNumber(totalLeads)}
               </h2>
               <p className="text-sm text-muted-foreground mt-1">Active in pipeline</p>
             </div>
@@ -112,7 +135,7 @@ export function DashboardPreview() {
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
             <MetricCard 
               title="New Today" 
-              value="847"
+              value={formatNumber(newToday)}
               icon={Zap}
               change="+23.5%"
               positive
@@ -180,10 +203,10 @@ export function DashboardPreview() {
               <div className="bg-muted/30 rounded-xl p-4">
                 <h3 className="font-medium mb-3">Lead Status</h3>
                 <div className="space-y-2">
-                  <LeadStatusRow label="Hot Leads" count="2,847" color="orange" icon={Star} />
-                  <LeadStatusRow label="Qualified" count="4,256" color="emerald" icon={CheckCircle2} />
-                  <LeadStatusRow label="Nurturing" count="3,891" color="blue" icon={Clock} />
-                  <LeadStatusRow label="New" count="1,853" color="purple" icon={Users} />
+                  <LeadStatusRow label="Hot Leads" count={formatNumber(hotLeads)} color="orange" icon={Star} />
+                  <LeadStatusRow label="Qualified" count={formatNumber(qualifiedStatus)} color="emerald" icon={CheckCircle2} />
+                  <LeadStatusRow label="Nurturing" count={formatNumber(nurturing)} color="blue" icon={Clock} />
+                  <LeadStatusRow label="New" count={formatNumber(newLeads)} color="purple" icon={Users} />
                 </div>
               </div>
             </div>
@@ -222,7 +245,7 @@ function MetricCard({
           </span>
         )}
       </div>
-      <p className="font-semibold text-lg">{value}</p>
+      <p className="font-semibold text-lg tabular-nums">{value}</p>
       <p className="text-xs text-muted-foreground">{subtitle || title}</p>
     </div>
   );
@@ -252,7 +275,7 @@ function LeadStatusRow({
         <Icon className={`w-4 h-4 ${colorClasses[color]}`} />
         <span className="text-sm">{label}</span>
       </div>
-      <span className="text-sm font-medium">{count}</span>
+      <span className="text-sm font-medium tabular-nums">{count}</span>
     </div>
   );
 }
