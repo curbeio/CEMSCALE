@@ -355,6 +355,26 @@ html {
   .animate-pulse-slow {
     animation: pulse 3s ease-in-out infinite;
   }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .dark .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-button-shadow {
+    box-shadow: 0 10px 20px -5px rgba(99, 91, 255, 0.4);
+  }
+
+  .hero-button-shadow:hover {
+    box-shadow: 0 15px 30px -5px rgba(99, 91, 255, 0.5);
+  }
 }
 
 @keyframes float {
