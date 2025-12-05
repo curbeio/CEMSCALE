@@ -677,6 +677,36 @@ html {
   animation: float-notification 4s ease-in-out infinite;
 }
 
+/* Slow floating animation for center metrics */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 3s ease-in-out infinite;
+}
+
+/* Number pulse animation */
+@keyframes number-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+.animate-number-pulse {
+  animation: number-pulse 2s ease-in-out infinite;
+}
+
 /* Line flow animation */
 @keyframes line-flow {
   0%, 100% {

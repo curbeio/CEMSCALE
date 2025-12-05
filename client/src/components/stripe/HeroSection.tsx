@@ -618,27 +618,27 @@ function CommandCenterRing() {
       
       {/* Core content - center metrics */}
       <div className="absolute inset-24 rounded-full bg-white/80 dark:bg-slate-900/90 backdrop-blur-xl shadow-2xl flex flex-col items-center justify-center">
-        <div className="text-center">
+        <div className="text-center animate-float-slow">
           <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Total Leads</p>
-          <p className="text-3xl lg:text-4xl font-bold text-foreground">{leadsCount.toLocaleString()}</p>
+          <p className="text-3xl lg:text-4xl font-bold text-foreground animate-number-pulse">{leadsCount.toLocaleString()}</p>
           <p className="text-sm text-[#7CFD98] font-medium">+12% this month</p>
         </div>
         
         <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#6B8CFF]/50 to-transparent my-3" />
         
         <div className="flex gap-4 text-center">
-          <div>
-            <p className="text-lg font-semibold text-foreground">{formatValue(pipelineValue)}</p>
+          <div className="animate-float-slow" style={{ animationDelay: '0.5s' }}>
+            <p className="text-lg font-semibold text-foreground animate-number-pulse" style={{ animationDelay: '0.2s' }}>{formatValue(pipelineValue)}</p>
             <p className="text-xs text-muted-foreground">Pipeline</p>
           </div>
           <div className="w-px h-8 bg-border" />
-          <div>
-            <p className="text-lg font-semibold text-foreground">{callsCount}</p>
+          <div className="animate-float-slow" style={{ animationDelay: '1s' }}>
+            <p className="text-lg font-semibold text-foreground animate-number-pulse" style={{ animationDelay: '0.4s' }}>{callsCount}</p>
             <p className="text-xs text-muted-foreground">Calls</p>
           </div>
           <div className="w-px h-8 bg-border" />
-          <div>
-            <p className="text-lg font-semibold text-foreground">{formatValue(emailsCount)}</p>
+          <div className="animate-float-slow" style={{ animationDelay: '1.5s' }}>
+            <p className="text-lg font-semibold text-foreground animate-number-pulse" style={{ animationDelay: '0.6s' }}>{formatValue(emailsCount)}</p>
             <p className="text-xs text-muted-foreground">Emails</p>
           </div>
         </div>
