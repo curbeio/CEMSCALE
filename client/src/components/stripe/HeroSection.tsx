@@ -385,11 +385,29 @@ function DashboardPreviewPanel() {
 
 function ActivityPanel() {
   const [highlight, setHighlight] = useState(false);
+  const [activeCount, setActiveCount] = useState(3);
   
   const handleNewActivity = () => {
     setHighlight(true);
     setTimeout(() => setHighlight(false), 600);
   };
+
+  useEffect(() => {
+    const updateCount = () => {
+      const randomDelay = 4000 + Math.random() * 8000;
+      return setTimeout(() => {
+        setActiveCount(prev => {
+          const change = Math.random() > 0.5 ? 1 : -1;
+          const newVal = prev + change;
+          return Math.max(1, Math.min(12, newVal));
+        });
+        updateCount();
+      }, randomDelay);
+    };
+    
+    const timeout = updateCount();
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <FloatingPanel delay={0.5} floatDuration={9} floatDelay={2} highlight={highlight} className="w-72">
@@ -399,7 +417,7 @@ function ActivityPanel() {
           <span className="text-sm font-medium text-foreground">Live Activity</span>
           <span className="ml-auto flex items-center gap-1">
             <span className="w-2 h-2 rounded-full bg-[#7CFD98] animate-pulse" />
-            <span className="text-xs text-muted-foreground">3 active</span>
+            <span className="text-xs text-muted-foreground">{activeCount} active</span>
           </span>
         </div>
         <LiveActivityFeed onNewActivity={handleNewActivity} />
