@@ -408,18 +408,62 @@ function ActivityPanel() {
   );
 }
 
+const alertPool = [
+  { title: 'High-value lead', subtitle: 'Score: 92 - Needs follow-up', color: '#FF805D', priority: 'high' },
+  { title: 'Deal closing soon', subtitle: '$45,000 - Final review', color: '#FF805D', priority: 'high' },
+  { title: 'Hot lead detected', subtitle: 'Enterprise - 3 page views', color: '#FF805D', priority: 'high' },
+  { title: 'Renewal due', subtitle: 'Acme Corp - 7 days left', color: '#FF805D', priority: 'high' },
+  { title: 'Meeting in 15min', subtitle: 'Demo call with Sarah', color: '#6B8CFF', priority: 'medium' },
+  { title: 'Email replied', subtitle: 'John D. - Interested', color: '#7CFD98', priority: 'low' },
+  { title: 'Task overdue', subtitle: 'Follow-up with TechCo', color: '#FF805D', priority: 'high' },
+  { title: 'Quote expiring', subtitle: '$28K proposal - 2 days', color: '#FF805D', priority: 'high' },
+  { title: 'New referral', subtitle: 'From partner: DataFlow', color: '#7CFD98', priority: 'low' },
+  { title: 'Contract signed', subtitle: 'CloudBase Inc - $12K', color: '#7CFD98', priority: 'low' },
+  { title: 'Lead score changed', subtitle: 'TechStart: 45 → 87', color: '#6B8CFF', priority: 'medium' },
+  { title: 'Callback requested', subtitle: 'Mike from Acme - ASAP', color: '#FF805D', priority: 'high' },
+  { title: 'Campaign performing', subtitle: 'ROI: 340% - 52 leads', color: '#7CFD98', priority: 'low' },
+  { title: 'SLA warning', subtitle: 'Response due in 2h', color: '#FF805D', priority: 'high' },
+  { title: 'Deal stage changed', subtitle: 'Negotiation → Closing', color: '#6B8CFF', priority: 'medium' },
+  { title: 'Competitor mentioned', subtitle: 'Call with DataPro', color: '#FF805D', priority: 'high' },
+  { title: 'Budget approved', subtitle: 'Enterprise deal - $85K', color: '#7CFD98', priority: 'low' },
+  { title: 'Meeting scheduled', subtitle: 'Tomorrow 10am - Demo', color: '#6B8CFF', priority: 'medium' },
+  { title: 'Churn risk detected', subtitle: 'GlobalTech - Low usage', color: '#FF805D', priority: 'high' },
+  { title: 'Upsell opportunity', subtitle: 'Add 50 seats - $24K', color: '#7CFD98', priority: 'low' },
+];
+
 function NotificationPanel() {
+  const [alert, setAlert] = useState(alertPool[0]);
+  const [isNew, setIsNew] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newAlert = alertPool[Math.floor(Math.random() * alertPool.length)];
+      setAlert(newAlert);
+      setIsNew(true);
+      setTimeout(() => setIsNew(false), 500);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <FloatingPanel delay={0.7} floatDuration={11} floatDelay={4} className="w-64">
-      <div className="p-3">
+      <div className={`p-3 transition-all duration-300 ${isNew ? 'bg-white/10' : ''}`}>
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-[#FF805D]/20 flex items-center justify-center">
-            <Bell className="w-4 h-4 text-[#FF805D]" />
+          <div 
+            className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${isNew ? 'scale-110' : ''}`}
+            style={{ backgroundColor: `${alert.color}20` }}
+          >
+            <Bell className="w-4 h-4" style={{ color: alert.color }} />
           </div>
-          <div className="flex-1">
-            <p className="text-sm font-medium text-foreground">High-value lead</p>
-            <p className="text-xs text-muted-foreground">Score: 92 - Needs follow-up</p>
+          <div className="flex-1 min-w-0">
+            <p className={`text-sm font-medium text-foreground truncate transition-all duration-300 ${isNew ? 'translate-x-1' : ''}`}>
+              {alert.title}
+            </p>
+            <p className="text-xs text-muted-foreground truncate">{alert.subtitle}</p>
           </div>
+          {isNew && (
+            <span className="w-2 h-2 rounded-full bg-[#7CFD98] animate-pulse" />
+          )}
         </div>
       </div>
     </FloatingPanel>
