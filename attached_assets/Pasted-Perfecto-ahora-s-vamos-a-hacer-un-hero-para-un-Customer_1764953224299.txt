@@ -1,0 +1,119 @@
+Perfecto, ahora sí: vamos a hacer un hero **para un Customer Engagement Management** de verdad, sin dashboard, moderno y futurista.
+
+---
+
+## 1. Copy del hero para CemScale (para pegar directo en la web)
+
+**Badge:**
+
+> Customer Engagement Management
+
+**Headline (H1):**
+
+> Every customer signal.
+> One intelligent system.
+
+**Subheadline:**
+
+> CemScale unifies email, calls, SMS, WhatsApp, and in-app events into a single engagement brain, so your teams see context, act in real time, and never drop a conversation.
+
+**CTAs:**
+
+* Botón principal: **Start orchestrating engagement**
+* Botón secundario: **Watch 3-minute story**
+
+**Métricas debajo (3 columnas):**
+
+* **+50M**
+  Customer interactions tracked
+* **32%**
+  Lift in conversion rate
+* **2.1s**
+  Median time-to-first-response
+
+Eso ya posiciona a CemScale como **sistema de orquestación de engagement**, no como simple CRM ni solo call center.
+
+---
+
+## 2. Concepto visual del hero (sin dashboard)
+
+Hero de pantalla completa, dos columnas:
+
+### Izquierda
+
+Todo el texto de arriba, con:
+
+* Badge pequeñito en pastilla de vidrio.
+* H1 grande, con la segunda línea (“One intelligent system”) en degradado.
+* Subheadline gris claro.
+* Dos botones.
+* Fila de 3 métricas con números grandes.
+
+### Derecha – “Cerebro de engagement” (nada de UI)
+
+Nada de dashboard. En su lugar:
+
+* Un **núcleo/esfera de vidrio** en 3D, con luz interna (tipo “cerebro” o “orbe de datos”).
+* Alrededor del núcleo, **nodos flotando** (chips circulares) con iconos de canales:
+
+  * Email ✉️
+  * Phone 📞
+  * SMS
+  * WhatsApp
+  * In-app
+  * Web
+* Líneas finas que conectan esos nodos al núcleo, como una red neuronal.
+* Ondas suaves que salen del núcleo, dando sensación de actividad en tiempo real.
+* Algunos puntos de luz que se mueven muy sutilmente (animación lenta) para dar vida.
+
+La idea: el visitante entiende visualmente “todos los canales conectados a un solo cerebro de engagement” sin ver una sola pantalla de producto.
+
+---
+
+## 3. Prompt listo para Replit / Lovable (incluye todo lo anterior)
+
+Copia y pega esto, sin tocar nada al principio:
+
+> Create a full-screen HERO section for a SaaS product called **CemScale**, positioned as **Customer Engagement Management**.
+>
+> **Critical rule:**
+> Do NOT show any dashboard, UI, mockup, charts, tables or app screens in the hero. The visual must be abstract and futuristic, representing a “customer engagement brain”, not an interface.
+>
+> **Layout:**
+> – Full-height section (100vh) with a centered max-width container (~1200px).
+> – Two columns on desktop: left column for text, right column for an abstract 3D illustration.
+> – On mobile, stack them: text first, illustration below.
+>
+> **Left column (text):**
+> – Small glassmorphism pill badge above the title:
+> “Customer Engagement Management”
+> – Main heading (two lines):
+> Line 1 in white: “Every customer signal.”
+> Line 2 with a blue → green gradient: “One intelligent system.”
+> – Subheading in light gray:
+> “CemScale unifies email, calls, SMS, WhatsApp, and in-app events into a single engagement brain, so your teams see context, act in real time, and never drop a conversation.”
+> – Two buttons:
+> • Primary solid button with subtle neon glow: “Start orchestrating engagement”
+> • Ghost secondary button: “Watch 3-minute story”
+> – Below the buttons, a row of 3 metrics (large numbers + small labels):
+> • “+50M” / “Customer interactions tracked”
+> • “32%” / “Lift in conversion rate”
+> • “2.1s” / “Median time-to-first-response”
+>
+> **Right column (abstract visual, NO UI):**
+> – A large 3D **glass orb / core**, like a glowing “engagement brain”, with layered semi-transparent rings and soft inner light.
+> – Several circular chips orbiting around the core (glassmorphism style), each with an icon representing a channel: email, phone, SMS, WhatsApp, in-app, web.
+> – Thin luminous lines connecting each chip to the core, forming a network.
+> – Soft circular waves emanating from the core, like signal pulses.
+> – Small floating light particles to give depth and motion.
+> – No rectangles, no windows, no tables. Only circles, rings, lines and waves.
+>
+> **Visual style:**
+> – Dark gradient background (deep blue to indigo), with subtle blobs and a very light grain.
+> – Glassmorphism for chips and the core: blurred, semi-transparent surfaces with soft borders.
+> – Accent colors in neon blue and green for edges, lines and key highlights.
+> – Modern, clean typography with clear hierarchy: title > CTAs > metrics.
+> – Smooth hover states on buttons and channel chips (slight scale + glow).
+
+Con esto alineas todo: nombre, categoría (**Customer Engagement Management**), mensaje y visual.
+Lo siguiente que viene es que tu producto esté a la altura del hero, porque este tipo de portada promete algo serio.
