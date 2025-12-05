@@ -31,36 +31,30 @@ export function HeroSection() {
           }}
         />
         
-        {/* Planet horizon glow effect - full width */}
-        <div className="absolute bottom-0 left-0 right-0 h-[600px] pointer-events-none overflow-visible">
-          
-          {/* Soft ambient glow - spread across */}
-          <div 
-            className="absolute left-1/2"
-            style={{
-              width: '150%',
-              height: '500px',
-              bottom: '-150px',
-              transform: 'translateX(-50%)',
-              background: 'radial-gradient(ellipse 70% 60% at 50% 100%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 80%)',
-              filter: 'blur(60px)',
-            }}
-          />
-          
-          {/* The curved arc line - very wide shallow curve spanning full screen */}
-          <div 
-            className="absolute left-1/2"
-            style={{
-              width: '300vw',
-              height: '300vw',
-              bottom: 'calc(-300vw + 80px)',
-              transform: 'translateX(-50%)',
-              borderRadius: '50%',
-              background: 'transparent',
-              boxShadow: '0 0 0 2px rgba(255, 255, 255, 0.7), 0 0 20px 4px rgba(255, 255, 255, 0.3), 0 0 60px 10px rgba(255, 255, 255, 0.1)',
-            }}
-          />
-        </div>
+        {/* Planet horizon glow effect - full viewport width */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 100% 40% at 50% 105%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 40%, transparent 70%)',
+          }}
+        />
+        
+        {/* The curved arc line - spans full width using viewport-relative gradient */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 120% 50% at 50% 115%, transparent calc(100% - 8px), rgba(255, 255, 255, 0.8) calc(100% - 4px), rgba(255, 255, 255, 0.4) calc(100% - 2px), transparent 100%)',
+          }}
+        />
+        
+        {/* Additional soft glow behind the arc */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 110% 35% at 50% 110%, rgba(255, 255, 255, 0.08) 0%, transparent 60%)',
+            filter: 'blur(20px)',
+          }}
+        />
       </div>
       
       {/* Content */}
