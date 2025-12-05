@@ -441,6 +441,78 @@ html {
   animation: float-particle linear infinite;
 }
 
+/* Aurora animations */
+@keyframes aurora-1 {
+  0%, 100% { 
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  25% { 
+    transform: translate(5%, 10%) rotate(5deg);
+  }
+  50% { 
+    transform: translate(-5%, 5%) rotate(-5deg);
+  }
+  75% { 
+    transform: translate(10%, -5%) rotate(3deg);
+  }
+}
+
+@keyframes aurora-2 {
+  0%, 100% { 
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  25% { 
+    transform: translate(-8%, 5%) rotate(-3deg);
+  }
+  50% { 
+    transform: translate(5%, -8%) rotate(5deg);
+  }
+  75% { 
+    transform: translate(-3%, 10%) rotate(-2deg);
+  }
+}
+
+@keyframes aurora-3 {
+  0%, 100% { 
+    transform: translate(0%, 0%) rotate(0deg);
+  }
+  25% { 
+    transform: translate(10%, -5%) rotate(2deg);
+  }
+  50% { 
+    transform: translate(-8%, 8%) rotate(-4deg);
+  }
+  75% { 
+    transform: translate(5%, 5%) rotate(3deg);
+  }
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-aurora-1 {
+  animation: aurora-1 20s ease-in-out infinite;
+}
+
+.animate-aurora-2 {
+  animation: aurora-2 25s ease-in-out infinite;
+}
+
+.animate-aurora-3 {
+  animation: aurora-3 30s ease-in-out infinite;
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 3s ease infinite;
+}
+
 /* Custom scrollbar for webkit browsers */
 ::-webkit-scrollbar {
   width: 8px;
