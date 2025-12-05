@@ -31,30 +31,35 @@ export function HeroSection() {
           }}
         />
         
-        {/* Planet horizon glow effect - full viewport width */}
+        {/* Soft glow above the arc */}
         <div 
-          className="absolute inset-0 pointer-events-none"
+          className="absolute inset-x-0 bottom-0 h-[220px] pointer-events-none"
           style={{
-            background: 'radial-gradient(ellipse 100% 40% at 50% 105%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 40%, transparent 70%)',
+            background: 'linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.08) 40%, rgba(255,255,255,0.18) 100%)',
+            filter: 'blur(24px)',
           }}
         />
         
-        {/* The curved arc line - spans full width using viewport-relative gradient */}
-        <div 
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'radial-gradient(ellipse 120% 50% at 50% 115%, transparent calc(100% - 8px), rgba(255, 255, 255, 0.8) calc(100% - 4px), rgba(255, 255, 255, 0.4) calc(100% - 2px), transparent 100%)',
-          }}
-        />
-        
-        {/* Additional soft glow behind the arc */}
-        <div 
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'radial-gradient(ellipse 110% 35% at 50% 110%, rgba(255, 255, 255, 0.08) 0%, transparent 60%)',
-            filter: 'blur(20px)',
-          }}
-        />
+        {/* SVG Arc - guaranteed full width corner to corner */}
+        <svg
+          className="absolute bottom-0 left-0 w-full pointer-events-none"
+          height="140"
+          viewBox="0 0 100 10"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <filter id="arcGlow" x="-20%" y="-500%" width="140%" height="1000%">
+              <feGaussianBlur stdDeviation="0.5" />
+            </filter>
+          </defs>
+          <path
+            d="M0 9.5 Q50 1 100 9.5"
+            fill="none"
+            stroke="rgba(255,255,255,0.9)"
+            strokeWidth="0.5"
+            filter="url(#arcGlow)"
+          />
+        </svg>
       </div>
       
       {/* Content */}
