@@ -30,6 +30,43 @@ export function HeroSection() {
             background: 'linear-gradient(to bottom, rgba(140, 100, 255, 0.8), transparent)',
           }}
         />
+        
+        {/* Planet horizon effect at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-[400px] overflow-hidden">
+          {/* Horizon glow - the bright line */}
+          <div 
+            className="absolute bottom-[80px] left-1/2 -translate-x-1/2 w-[200%] h-[600px]"
+            style={{
+              background: 'radial-gradient(ellipse 50% 20% at 50% 100%, rgba(255, 255, 255, 0.15) 0%, rgba(180, 160, 255, 0.08) 30%, transparent 70%)',
+            }}
+          />
+          
+          {/* The curved planet surface */}
+          <div 
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200%] h-[300px]"
+            style={{
+              background: 'radial-gradient(ellipse 50% 100% at 50% 100%, #0a0a15 0%, #050510 50%, transparent 100%)',
+              borderRadius: '50% 50% 0 0',
+            }}
+          />
+          
+          {/* Horizon bright edge line */}
+          <div 
+            className="absolute bottom-[75px] left-1/2 -translate-x-1/2 w-[120%] h-[2px]"
+            style={{
+              background: 'radial-gradient(ellipse at center, rgba(255, 255, 255, 0.4) 0%, rgba(200, 180, 255, 0.2) 40%, transparent 70%)',
+              filter: 'blur(1px)',
+            }}
+          />
+          
+          {/* Atmospheric glow above horizon */}
+          <div 
+            className="absolute bottom-[80px] left-1/2 -translate-x-1/2 w-[100%] h-[120px]"
+            style={{
+              background: 'radial-gradient(ellipse 60% 100% at 50% 100%, rgba(140, 120, 255, 0.12) 0%, transparent 60%)',
+            }}
+          />
+        </div>
       </div>
       
       {/* Content */}
@@ -39,7 +76,7 @@ export function HeroSection() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
           
           {/* Centered headline section */}
-          <div className="text-center max-w-4xl mx-auto mb-16">
+          <div className="text-center max-w-4xl mx-auto mb-32">
             
             {/* Main headline */}
             <h1 
