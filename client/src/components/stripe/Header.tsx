@@ -20,13 +20,13 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2" data-testid="link-home">
             <img 
               src={cemscaleLogo} 
               alt="CemScale" 
-              className="h-8 sm:h-9 w-auto"
+              className="h-10 sm:h-12 w-auto"
             />
           </a>
           
