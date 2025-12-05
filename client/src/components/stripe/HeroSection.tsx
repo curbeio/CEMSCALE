@@ -31,47 +31,19 @@ export function HeroSection() {
           }}
         />
         
-        {/* Moon/Planet at bottom - like Selflane */}
-        <div className="absolute bottom-0 left-0 right-0 h-[300px] pointer-events-none">
-          
-          {/* Glow above the moon */}
-          <div 
-            className="absolute bottom-[100px] left-1/2 -translate-x-1/2 w-[80%] h-[150px]"
-            style={{
-              background: 'radial-gradient(ellipse 50% 100% at 50% 100%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 50%, transparent 80%)',
-            }}
-          />
-          
-          {/* The moon sphere */}
-          <div 
-            className="absolute left-1/2 -translate-x-1/2 rounded-full"
-            style={{
-              width: '200vw',
-              height: '200vw',
-              bottom: '-198vw',
-              background: 'linear-gradient(to top, #000000 0%, #0a0a0f 50%, #121218 100%)',
-              boxShadow: '0 0 60px 10px rgba(255,255,255,0.05)',
-            }}
-          />
-          
-          {/* Bright rim on top of moon */}
-          <div 
-            className="absolute bottom-[95px] left-1/2 -translate-x-1/2 w-[140%] h-[3px]"
-            style={{
-              background: 'radial-gradient(ellipse 40% 100% at 50% 50%, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.2) 30%, rgba(255,255,255,0.05) 60%, transparent 80%)',
-              filter: 'blur(1px)',
-            }}
-          />
-          
-          {/* Secondary softer glow */}
-          <div 
-            className="absolute bottom-[90px] left-1/2 -translate-x-1/2 w-[120%] h-[15px]"
-            style={{
-              background: 'radial-gradient(ellipse 50% 100% at 50% 0%, rgba(255,255,255,0.08) 0%, transparent 70%)',
-              filter: 'blur(8px)',
-            }}
-          />
-        </div>
+        {/* Curved glowing horizon - planet/moon edge effect */}
+        <div 
+          className="absolute left-1/2 pointer-events-none"
+          style={{
+            bottom: '-40%',
+            transform: 'translateX(-50%)',
+            width: '140%',
+            height: '140%',
+            background: 'radial-gradient(ellipse at center, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.3) 35%, rgba(255, 255, 255, 0) 70%)',
+            filter: 'blur(16px)',
+            opacity: 0.9,
+          }}
+        />
       </div>
       
       {/* Content */}
