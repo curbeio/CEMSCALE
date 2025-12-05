@@ -32,32 +32,32 @@ export function HeroSection() {
         />
         
         {/* Planet horizon glow effect - full width */}
-        <div className="absolute bottom-0 left-0 right-0 h-[500px] pointer-events-none overflow-visible">
+        <div className="absolute bottom-0 left-0 right-0 h-[600px] pointer-events-none overflow-visible">
           
           {/* Soft ambient glow - spread across */}
           <div 
             className="absolute left-1/2"
             style={{
-              width: '120%',
-              height: '400px',
-              bottom: '-100px',
+              width: '150%',
+              height: '500px',
+              bottom: '-150px',
               transform: 'translateX(-50%)',
-              background: 'radial-gradient(ellipse 60% 50% at 50% 100%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 50%, transparent 80%)',
-              filter: 'blur(50px)',
+              background: 'radial-gradient(ellipse 70% 60% at 50% 100%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 80%)',
+              filter: 'blur(60px)',
             }}
           />
           
-          {/* The curved arc line - very wide shallow curve */}
+          {/* The curved arc line - very wide shallow curve spanning full screen */}
           <div 
             className="absolute left-1/2"
             style={{
-              width: '400vw',
-              height: '400vw',
-              bottom: '-399vw',
+              width: '300vw',
+              height: '300vw',
+              bottom: 'calc(-300vw + 80px)',
               transform: 'translateX(-50%)',
               borderRadius: '50%',
               background: 'transparent',
-              boxShadow: '0 0 0 2px rgba(255, 255, 255, 0.7), 0 0 15px 3px rgba(255, 255, 255, 0.25), 0 0 50px 8px rgba(255, 255, 255, 0.08)',
+              boxShadow: '0 0 0 2px rgba(255, 255, 255, 0.7), 0 0 20px 4px rgba(255, 255, 255, 0.3), 0 0 60px 10px rgba(255, 255, 255, 0.1)',
             }}
           />
         </div>
