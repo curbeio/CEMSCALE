@@ -369,22 +369,22 @@ export function HeroSection() {
           {/* Right column - Floating panels */}
           <div className="order-1 lg:order-2 relative h-[500px] lg:h-[600px]">
             {/* Main dashboard panel */}
-            <div className="absolute top-0 left-0 lg:left-8 z-30">
+            <div className="absolute top-0 left-4 lg:left-0 z-30">
               <DashboardPreviewPanel />
             </div>
             
             {/* Activity panel */}
-            <div className="absolute top-32 right-0 lg:right-0 z-20">
+            <div className="absolute top-24 right-0 z-20">
               <ActivityPanel />
             </div>
             
             {/* Notification panel */}
-            <div className="absolute bottom-24 left-4 lg:left-0 z-10">
+            <div className="absolute bottom-20 left-0 z-10">
               <NotificationPanel />
             </div>
             
             {/* Quick stat panels */}
-            <div className="absolute bottom-0 right-8 z-10 hidden lg:block">
+            <div className="absolute bottom-0 right-4 z-10 hidden lg:block">
               <QuickStatPanel 
                 label="Calls" 
                 value="247" 
@@ -394,7 +394,7 @@ export function HeroSection() {
                 floatDelay={3}
               />
             </div>
-            <div className="absolute top-48 left-0 z-5 hidden lg:block">
+            <div className="absolute top-0 right-0 z-10 hidden lg:block">
               <QuickStatPanel 
                 label="Emails" 
                 value="1.2K" 
