@@ -31,19 +31,50 @@ export function HeroSection() {
           }}
         />
         
-        {/* Curved glowing horizon - planet/moon edge effect */}
-        <div 
-          className="absolute left-1/2 pointer-events-none"
-          style={{
-            bottom: '-40%',
-            transform: 'translateX(-50%)',
-            width: '140%',
-            height: '140%',
-            background: 'radial-gradient(ellipse at center, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.3) 35%, rgba(255, 255, 255, 0) 70%)',
-            filter: 'blur(16px)',
-            opacity: 0.9,
-          }}
-        />
+        {/* Planet horizon glow effect */}
+        <div className="absolute bottom-0 left-0 right-0 h-[400px] pointer-events-none">
+          
+          {/* Soft ambient glow - concentrated on left-center */}
+          <div 
+            className="absolute"
+            style={{
+              width: '60%',
+              height: '300px',
+              bottom: '0',
+              left: '5%',
+              background: 'radial-gradient(ellipse 80% 60% at 30% 100%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 40%, transparent 70%)',
+              filter: 'blur(40px)',
+            }}
+          />
+          
+          {/* The curved arc line - bright white edge */}
+          <div 
+            className="absolute left-1/2"
+            style={{
+              width: '250vw',
+              height: '250vw',
+              bottom: '-249.5vw',
+              transform: 'translateX(-50%)',
+              borderRadius: '50%',
+              background: 'transparent',
+              boxShadow: '0 0 0 2px rgba(255, 255, 255, 0.8), 0 0 20px 2px rgba(255, 255, 255, 0.3), 0 0 60px 10px rgba(255, 255, 255, 0.1)',
+            }}
+          />
+          
+          {/* Additional soft bloom along the curve */}
+          <div 
+            className="absolute left-1/2"
+            style={{
+              width: '200vw',
+              height: '200vw',
+              bottom: '-199vw',
+              transform: 'translateX(-50%)',
+              borderRadius: '50%',
+              background: 'transparent',
+              boxShadow: 'inset 0 -30px 60px -20px rgba(255, 255, 255, 0.08)',
+            }}
+          />
+        </div>
       </div>
       
       {/* Content */}
