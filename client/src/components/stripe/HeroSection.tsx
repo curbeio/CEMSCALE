@@ -31,42 +31,32 @@ export function HeroSection() {
           }}
         />
         
-        {/* Atmospheric glow/shadow behind the arc */}
-        <div 
-          className="absolute inset-x-0 bottom-0 h-[350px] pointer-events-none"
-          style={{
-            background: 'radial-gradient(ellipse 140% 120% at 50% 120%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.12) 45%, transparent 70%)',
-            filter: 'blur(40px)',
-          }}
-        />
-        
-        {/* Secondary softer glow layer */}
-        <div 
-          className="absolute inset-x-0 bottom-0 h-[250px] pointer-events-none"
-          style={{
-            background: 'radial-gradient(ellipse 100% 80% at 50% 100%, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 50%, transparent 80%)',
-            filter: 'blur(30px)',
-          }}
-        />
-        
-        {/* SVG Arc - more arched upward, corner to corner */}
+        {/* SVG Arc - pronounced arch with outer-only glow */}
         <svg
           className="absolute bottom-0 left-0 w-full pointer-events-none"
-          height="180"
+          height="220"
           viewBox="0 0 100 10"
           preserveAspectRatio="none"
         >
           <defs>
-            <filter id="arcGlow" x="-20%" y="-500%" width="140%" height="1000%">
-              <feGaussianBlur stdDeviation="0.4" />
+            <filter id="arcOuterGlow" x="-20%" y="-500%" width="140%" height="1000%" colorInterpolationFilters="sRGB">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="1.1" result="blur" />
+              <feOffset in="blur" dy="-1.6" result="offset" />
+              <feComposite in="offset" in2="SourceGraphic" operator="out" result="outer" />
+              <feColorMatrix in="outer" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.85 0" />
+              <feMerge>
+                <feMergeNode />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
             </filter>
           </defs>
           <path
-            d="M0 9.8 Q50 -2 100 9.8"
+            d="M0 9.8 Q50 -5.2 100 9.8"
             fill="none"
-            stroke="rgba(255,255,255,0.85)"
-            strokeWidth="0.4"
-            filter="url(#arcGlow)"
+            stroke="#f1f4ff"
+            strokeWidth="0.38"
+            strokeLinecap="round"
+            filter="url(#arcOuterGlow)"
           />
         </svg>
       </div>
