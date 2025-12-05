@@ -540,6 +540,139 @@ function LiveQuickStatPanel({ label, baseValue, icon: Icon, color, delay, floatD
   );
 }
 
+// Notification data for the ring
+const ringNotifications = [
+  { text: 'New lead captured', icon: Users, color: '#7CFD98' },
+  { text: 'Email opened', icon: Mail, color: '#6B8CFF' },
+  { text: 'Deal closed $12K', icon: CheckCircle2, color: '#7CFD98' },
+  { text: 'Call completed', icon: Phone, color: '#7E4EF2' },
+  { text: 'Meeting scheduled', icon: Activity, color: '#6B8CFF' },
+  { text: 'Pipeline updated', icon: BarChart3, color: '#7E4EF2' },
+  { text: 'Lead score: 95', icon: Users, color: '#7CFD98' },
+  { text: 'Campaign sent', icon: Mail, color: '#6B8CFF' },
+];
+
+function CommandCenterRing() {
+  const [activeNotifs, setActiveNotifs] = useState<number[]>([0, 2, 4, 6]);
+  const leadsCount = useLiveCounter(12853, 1, 2500);
+  const pipelineValue = useLiveCounter(2400000, 5000, 3000);
+  const callsCount = useLiveCounter(247, 1, 3000);
+  const emailsCount = useLiveCounter(1247, 2, 2500);
+  
+  // Rotate active notifications
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveNotifs(prev => {
+        const newActive = [...prev];
+        const randomIndex = Math.floor(Math.random() * 4);
+        newActive[randomIndex] = (newActive[randomIndex] + 1) % ringNotifications.length;
+        return newActive;
+      });
+    }, 2000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // Positions for notifications around the ring (in degrees)
+  const positions = [
+    { angle: -60, distance: 220 },  // Top-right
+    { angle: 30, distance: 230 },   // Right
+    { angle: 120, distance: 225 },  // Bottom-right
+    { angle: 210, distance: 220 },  // Bottom-left
+    { angle: -120, distance: 225 }, // Top-left
+    { angle: 150, distance: 230 },  // Bottom
+  ];
+
+  const formatValue = (v: number) => {
+    if (v >= 1000000) return `$${(v / 1000000).toFixed(1)}M`;
+    if (v >= 1000) return `${(v / 1000).toFixed(1)}K`;
+    return v.toString();
+  };
+
+  return (
+    <div className="relative w-[450px] h-[450px] lg:w-[520px] lg:h-[520px]">
+      {/* Outer glow ring */}
+      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#6B8CFF]/20 via-[#7E4EF2]/20 to-[#7CFD98]/20 blur-xl animate-pulse" style={{ animationDuration: '4s' }} />
+      
+      {/* Outer ring - slowly rotating */}
+      <div className="absolute inset-4 rounded-full border-2 border-[#6B8CFF]/30 animate-spin-slow" />
+      
+      {/* Middle ring - opposite rotation */}
+      <div className="absolute inset-12 rounded-full border border-[#7E4EF2]/40 animate-spin-reverse" />
+      
+      {/* Inner ring - static with glow */}
+      <div className="absolute inset-20 rounded-full border-2 border-[#7CFD98]/30 shadow-[0_0_60px_rgba(124,253,152,0.15)]" />
+      
+      {/* Core content - center metrics */}
+      <div className="absolute inset-24 rounded-full bg-white/80 dark:bg-slate-900/90 backdrop-blur-xl shadow-2xl flex flex-col items-center justify-center">
+        <div className="text-center">
+          <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">Total Leads</p>
+          <p className="text-3xl lg:text-4xl font-bold text-foreground">{leadsCount.toLocaleString()}</p>
+          <p className="text-sm text-[#7CFD98] font-medium">+12% this month</p>
+        </div>
+        
+        <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#6B8CFF]/50 to-transparent my-3" />
+        
+        <div className="flex gap-4 text-center">
+          <div>
+            <p className="text-lg font-semibold text-foreground">{formatValue(pipelineValue)}</p>
+            <p className="text-xs text-muted-foreground">Pipeline</p>
+          </div>
+          <div className="w-px h-8 bg-border" />
+          <div>
+            <p className="text-lg font-semibold text-foreground">{callsCount}</p>
+            <p className="text-xs text-muted-foreground">Calls</p>
+          </div>
+          <div className="w-px h-8 bg-border" />
+          <div>
+            <p className="text-lg font-semibold text-foreground">{formatValue(emailsCount)}</p>
+            <p className="text-xs text-muted-foreground">Emails</p>
+          </div>
+        </div>
+      </div>
+      
+      {/* Orbiting notification capsules */}
+      {positions.slice(0, 4).map((pos, i) => {
+        const notif = ringNotifications[activeNotifs[i]];
+        const Icon = notif.icon;
+        const x = Math.cos((pos.angle * Math.PI) / 180) * pos.distance;
+        const y = Math.sin((pos.angle * Math.PI) / 180) * pos.distance;
+        
+        return (
+          <div
+            key={i}
+            className="absolute left-1/2 top-1/2 transition-all duration-700 ease-out"
+            style={{
+              transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
+            }}
+          >
+            <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shadow-lg border border-black/5 dark:border-white/10 animate-fade-in whitespace-nowrap">
+              <div 
+                className="w-6 h-6 rounded-full flex items-center justify-center"
+                style={{ backgroundColor: `${notif.color}20` }}
+              >
+                <Icon className="w-3 h-3" style={{ color: notif.color }} />
+              </div>
+              <span className="text-xs font-medium text-foreground">{notif.text}</span>
+              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: notif.color }} />
+            </div>
+          </div>
+        );
+      })}
+      
+      {/* Floating dots on the rings */}
+      <div className="absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 animate-spin-slow" style={{ animationDuration: '20s' }}>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#6B8CFF] rounded-full shadow-lg shadow-[#6B8CFF]/50" />
+      </div>
+      <div className="absolute top-1/2 left-1/2 w-[85%] h-[85%] -translate-x-1/2 -translate-y-1/2 animate-spin-reverse" style={{ animationDuration: '25s' }}>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#7E4EF2] rounded-full shadow-lg shadow-[#7E4EF2]/50" />
+      </div>
+      <div className="absolute top-1/2 left-1/2 w-[70%] h-[70%] -translate-x-1/2 -translate-y-1/2 animate-spin-slow" style={{ animationDuration: '15s' }}>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#7CFD98] rounded-full shadow-lg shadow-[#7CFD98]/50" />
+      </div>
+    </div>
+  );
+}
+
 function AnimatedRings() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -735,45 +868,9 @@ export function HeroSection() {
             </div>
           </div>
           
-          {/* Right column - Floating panels - Cascading layout */}
-          <div className="order-1 lg:order-2 relative h-[500px] lg:h-[600px]">
-            
-            {/* Main dashboard panel - THE FOCAL ANCHOR - centered */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30">
-              <DashboardPreviewPanel />
-            </div>
-            
-            {/* Activity panel - overlapping top-right of dashboard */}
-            <div className="absolute top-4 right-0 lg:right-4 z-40">
-              <ActivityPanel />
-            </div>
-            
-            {/* Notification panel - tucked under dashboard, bottom-left */}
-            <div className="absolute bottom-24 left-0 lg:-left-4 z-20">
-              <NotificationPanel />
-            </div>
-            
-            {/* Quick stats - stacked vertically, bottom-right */}
-            <div className="hidden lg:flex flex-col gap-3 absolute bottom-16 right-8 z-20">
-              <LiveQuickStatPanel 
-                label="Emails" 
-                baseValue={1247} 
-                icon={Mail} 
-                color="#6B8CFF" 
-                delay={0.9}
-                floatDelay={3}
-                interval={2500}
-              />
-              <LiveQuickStatPanel 
-                label="Calls" 
-                baseValue={247} 
-                icon={Phone} 
-                color="#7E4EF2" 
-                delay={1.1}
-                floatDelay={5}
-                interval={3000}
-              />
-            </div>
+          {/* Right column - Circular Command Center */}
+          <div className="order-1 lg:order-2 relative h-[500px] lg:h-[600px] flex items-center justify-center">
+            <CommandCenterRing />
           </div>
         </div>
       </div>

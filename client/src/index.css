@@ -598,6 +598,33 @@ html {
   animation: orbit-reverse 30s linear infinite;
 }
 
+/* Slow spin animation for command center ring */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 25s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 20s linear infinite;
+}
+
 /* Line flow animation */
 @keyframes line-flow {
   0%, 100% {
