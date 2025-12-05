@@ -12,7 +12,10 @@ import {
   Bell,
   CheckCircle2,
   ArrowUpRight,
-  Sparkles
+  Sparkles,
+  Circle,
+  Zap,
+  Globe
 } from "lucide-react";
 
 function useLiveCounter(baseValue: number, increment: number = 1, interval: number = 3000) {
@@ -83,7 +86,7 @@ function LiveActivityFeed({ onNewActivity }: { onNewActivity?: () => void }) {
       {activities.map((activity, i) => (
         <div 
           key={activity.id}
-          className={`flex items-center gap-3 p-2 rounded-lg bg-white/5 dark:bg-white/5 transition-all duration-500 ${
+          className={`flex items-center gap-3 p-2 rounded-lg bg-white/5 transition-all duration-500 ${
             i === 0 ? 'animate-fade-up' : ''
           }`}
         >
@@ -91,8 +94,8 @@ function LiveActivityFeed({ onNewActivity }: { onNewActivity?: () => void }) {
             <activity.icon className="w-4 h-4 text-[#6B8CFF]" />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm text-foreground truncate">{activity.text}</p>
-            <p className="text-xs text-muted-foreground">{activity.time}</p>
+            <p className="text-sm text-white truncate">{activity.text}</p>
+            <p className="text-xs text-white/50">{activity.time}</p>
           </div>
           {activity.time === 'now' && (
             <span className="w-2 h-2 rounded-full bg-[#7CFD98] animate-pulse" />
@@ -103,101 +106,10 @@ function LiveActivityFeed({ onNewActivity }: { onNewActivity?: () => void }) {
   );
 }
 
-function FloatingPanel({ 
-  children, 
-  className = "",
-  delay = 0,
-  floatDuration = 8,
-  floatDelay = 0,
-  highlight = false,
-}: { 
-  children: React.ReactNode; 
-  className?: string;
-  delay?: number;
-  floatDuration?: number;
-  floatDelay?: number;
-  highlight?: boolean;
-}) {
-  return (
-    <div 
-      className={`relative animate-fade-up group ${className}`}
-      style={{ 
-        animationDelay: `${delay}s`,
-        animation: `fade-up 0.6s ease-out ${delay}s both, float-gentle ${floatDuration}s ease-in-out ${floatDelay}s infinite`,
-      }}
-    >
-      {/* Glass panel */}
-      <div className={`relative rounded-2xl bg-white/70 dark:bg-white/10 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-2xl shadow-black/5 dark:shadow-black/20 overflow-hidden transition-all duration-500 group-hover:shadow-xl group-hover:shadow-[#6B8CFF]/5 group-hover:border-[#6B8CFF]/20 group-hover:-translate-y-1 ${
-        highlight ? 'ring-2 ring-[#7CFD98]/30 animate-highlight-pulse' : ''
-      }`}>
-        {/* Top highlight */}
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-        {children}
-      </div>
-    </div>
-  );
-}
-
-function DashboardPreviewPanel() {
+function CommandCenterPreview() {
   const leads = useLiveCounter(12847, 1, 5000);
+  const calls = useLiveCounter(247, 1, 8000);
   const chartData = [35, 45, 38, 52, 48, 60, 55, 72, 68, 85, 78, 92];
-  
-  return (
-    <FloatingPanel delay={0.3} floatDuration={10} floatDelay={0} className="w-full max-w-md">
-      <div className="p-4">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#6B8CFF] to-[#7E4EF2] flex items-center justify-center">
-              <BarChart3 className="w-4 h-4 text-white" />
-            </div>
-            <span className="font-semibold text-foreground">Overview</span>
-          </div>
-          <Badge className="bg-[#7CFD98]/20 text-[#7CFD98] border-0">Live</Badge>
-        </div>
-        
-        {/* Stats grid */}
-        <div className="grid grid-cols-3 gap-3 mb-4">
-          <div className="bg-muted/50 rounded-xl p-3">
-            <p className="text-xs text-muted-foreground mb-1">Leads</p>
-            <p className="text-xl font-bold text-foreground">{leads.toLocaleString()}</p>
-            <div className="flex items-center gap-1 text-xs text-[#7CFD98]">
-              <ArrowUpRight className="w-3 h-3" />
-              <span>+12%</span>
-            </div>
-          </div>
-          <div className="bg-muted/50 rounded-xl p-3">
-            <p className="text-xs text-muted-foreground mb-1">Pipeline</p>
-            <p className="text-xl font-bold text-foreground">$2.4M</p>
-            <div className="flex items-center gap-1 text-xs text-[#7CFD98]">
-              <ArrowUpRight className="w-3 h-3" />
-              <span>+8%</span>
-            </div>
-          </div>
-          <div className="bg-muted/50 rounded-xl p-3">
-            <p className="text-xs text-muted-foreground mb-1">Won</p>
-            <p className="text-xl font-bold text-foreground">$847K</p>
-            <div className="flex items-center gap-1 text-xs text-[#7CFD98]">
-              <ArrowUpRight className="w-3 h-3" />
-              <span>+24%</span>
-            </div>
-          </div>
-        </div>
-        
-        {/* Chart */}
-        <div className="bg-muted/30 rounded-xl p-3">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs text-muted-foreground">Conversion trend</span>
-            <span className="text-xs font-medium text-[#7CFD98]">+18.4%</span>
-          </div>
-          <MiniChart data={chartData} color="#6B8CFF" />
-        </div>
-      </div>
-    </FloatingPanel>
-  );
-}
-
-function ActivityPanel() {
   const [highlight, setHighlight] = useState(false);
   
   const handleNewActivity = () => {
@@ -206,63 +118,181 @@ function ActivityPanel() {
   };
 
   return (
-    <FloatingPanel delay={0.5} floatDuration={9} floatDelay={2} highlight={highlight} className="w-72">
-      <div className="p-4">
-        <div className="flex items-center gap-2 mb-3">
-          <Activity className="w-4 h-4 text-[#7E4EF2]" />
-          <span className="text-sm font-medium text-foreground">Live Activity</span>
-          <span className="ml-auto flex items-center gap-1">
-            <span className="w-2 h-2 rounded-full bg-[#7CFD98] animate-pulse" />
-            <span className="text-xs text-muted-foreground">3 active</span>
-          </span>
-        </div>
-        <LiveActivityFeed onNewActivity={handleNewActivity} />
-      </div>
-    </FloatingPanel>
-  );
-}
-
-function NotificationPanel() {
-  return (
-    <FloatingPanel delay={0.7} floatDuration={11} floatDelay={4} className="w-64">
-      <div className="p-3">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-[#FF805D]/20 flex items-center justify-center">
-            <Bell className="w-4 h-4 text-[#FF805D]" />
+    <div 
+      className="relative w-full max-w-2xl animate-fade-up"
+      style={{ 
+        animationDelay: '0.3s',
+        animation: 'fade-up 0.6s ease-out 0.3s both, float-gentle 10s ease-in-out infinite',
+      }}
+    >
+      {/* Glow effect behind */}
+      <div className="absolute -inset-4 bg-gradient-to-r from-[#6B8CFF]/20 via-[#7E4EF2]/20 to-[#7CFD98]/10 rounded-3xl blur-2xl" />
+      
+      {/* Main dashboard frame */}
+      <div className="relative rounded-2xl bg-[#1a1a2e]/90 backdrop-blur-xl border border-white/10 shadow-2xl overflow-hidden">
+        
+        {/* Top bar */}
+        <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/5">
+          <div className="flex items-center gap-3">
+            {/* Window controls */}
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 rounded-full bg-[#FF5F56]" />
+              <div className="w-3 h-3 rounded-full bg-[#FFBD2E]" />
+              <div className="w-3 h-3 rounded-full bg-[#27CA40]" />
+            </div>
+            {/* Tabs */}
+            <div className="flex items-center gap-1 ml-4">
+              <div className="px-3 py-1.5 rounded-lg bg-white/10 text-white text-xs font-medium">
+                Dashboard
+              </div>
+              <div className="px-3 py-1.5 rounded-lg text-white/50 text-xs hover:text-white/70 transition-colors">
+                Leads
+              </div>
+              <div className="px-3 py-1.5 rounded-lg text-white/50 text-xs hover:text-white/70 transition-colors">
+                Analytics
+              </div>
+            </div>
           </div>
-          <div className="flex-1">
-            <p className="text-sm font-medium text-foreground">High-value lead</p>
-            <p className="text-xs text-muted-foreground">Score: 92 - Needs follow-up</p>
+          <div className="flex items-center gap-3">
+            {/* Status indicators */}
+            <div className="flex items-center gap-2 px-2 py-1 rounded-full bg-[#7CFD98]/10">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#7CFD98] animate-pulse" />
+              <span className="text-xs text-[#7CFD98]">Synced</span>
+            </div>
+            {/* Avatar group */}
+            <div className="flex -space-x-2">
+              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#6B8CFF] to-[#7E4EF2] border-2 border-[#1a1a2e] flex items-center justify-center text-[10px] text-white font-medium">J</div>
+              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#7CFD98] to-[#4974EA] border-2 border-[#1a1a2e] flex items-center justify-center text-[10px] text-white font-medium">M</div>
+              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#FF805D] to-[#7E4EF2] border-2 border-[#1a1a2e] flex items-center justify-center text-[10px] text-white font-medium">+3</div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Dashboard content */}
+        <div className="p-4">
+          {/* Stats row */}
+          <div className="grid grid-cols-4 gap-3 mb-4">
+            <div className="bg-white/5 rounded-xl p-3 border border-white/5">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-8 h-8 rounded-lg bg-[#6B8CFF]/20 flex items-center justify-center">
+                  <Users className="w-4 h-4 text-[#6B8CFF]" />
+                </div>
+                <span className="text-xs text-white/50">Leads</span>
+              </div>
+              <p className="text-xl font-bold text-white">{leads.toLocaleString()}</p>
+              <div className="flex items-center gap-1 text-xs text-[#7CFD98] mt-1">
+                <ArrowUpRight className="w-3 h-3" />
+                <span>+12%</span>
+              </div>
+            </div>
+            
+            <div className="bg-white/5 rounded-xl p-3 border border-white/5">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-8 h-8 rounded-lg bg-[#7E4EF2]/20 flex items-center justify-center">
+                  <Phone className="w-4 h-4 text-[#7E4EF2]" />
+                </div>
+                <span className="text-xs text-white/50">Calls</span>
+              </div>
+              <p className="text-xl font-bold text-white">{calls}</p>
+              <div className="flex items-center gap-1 text-xs text-[#7CFD98] mt-1">
+                <ArrowUpRight className="w-3 h-3" />
+                <span>+8%</span>
+              </div>
+            </div>
+            
+            <div className="bg-white/5 rounded-xl p-3 border border-white/5">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-8 h-8 rounded-lg bg-[#7CFD98]/20 flex items-center justify-center">
+                  <Zap className="w-4 h-4 text-[#7CFD98]" />
+                </div>
+                <span className="text-xs text-white/50">Pipeline</span>
+              </div>
+              <p className="text-xl font-bold text-white">$2.4M</p>
+              <div className="flex items-center gap-1 text-xs text-[#7CFD98] mt-1">
+                <ArrowUpRight className="w-3 h-3" />
+                <span>+24%</span>
+              </div>
+            </div>
+            
+            <div className="bg-white/5 rounded-xl p-3 border border-white/5">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-8 h-8 rounded-lg bg-[#FF805D]/20 flex items-center justify-center">
+                  <Globe className="w-4 h-4 text-[#FF805D]" />
+                </div>
+                <span className="text-xs text-white/50">Countries</span>
+              </div>
+              <p className="text-xl font-bold text-white">150+</p>
+              <div className="flex items-center gap-1 text-xs text-white/40 mt-1">
+                <span>Global reach</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Main content grid */}
+          <div className="grid grid-cols-5 gap-4">
+            {/* Chart section */}
+            <div className="col-span-3 bg-white/5 rounded-xl p-4 border border-white/5">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h3 className="text-sm font-medium text-white">Conversion Trend</h3>
+                  <p className="text-xs text-white/50">Last 30 days</p>
+                </div>
+                <Badge className="bg-[#7CFD98]/20 text-[#7CFD98] border-0 text-xs">+18.4%</Badge>
+              </div>
+              <MiniChart data={chartData} color="#6B8CFF" />
+              
+              {/* Mini bar chart */}
+              <div className="flex items-end justify-between gap-1 mt-4 h-16">
+                {[65, 45, 78, 52, 88, 62, 95, 70, 85, 58, 92, 75].map((h, i) => (
+                  <div 
+                    key={i} 
+                    className="flex-1 rounded-t transition-all duration-300"
+                    style={{ 
+                      height: `${h}%`,
+                      background: `linear-gradient(to top, #6B8CFF, #7E4EF2)`,
+                      opacity: 0.6 + (i / 12) * 0.4,
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
+            
+            {/* Activity feed */}
+            <div className={`col-span-2 bg-white/5 rounded-xl p-4 border transition-all duration-300 ${
+              highlight ? 'border-[#7CFD98]/30' : 'border-white/5'
+            }`}>
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <Activity className="w-4 h-4 text-[#7E4EF2]" />
+                  <span className="text-sm font-medium text-white">Live Activity</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <span className="w-2 h-2 rounded-full bg-[#7CFD98] animate-pulse" />
+                  <span className="text-xs text-white/50">3 active</span>
+                </div>
+              </div>
+              <LiveActivityFeed onNewActivity={handleNewActivity} />
+            </div>
+          </div>
+          
+          {/* Bottom notification bar */}
+          <div className="mt-4 flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-[#FF805D]/10 to-[#7E4EF2]/10 border border-[#FF805D]/20">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-[#FF805D]/20 flex items-center justify-center">
+                <Bell className="w-4 h-4 text-[#FF805D]" />
+              </div>
+              <div>
+                <p className="text-sm font-medium text-white">High-value lead detected</p>
+                <p className="text-xs text-white/50">Score: 92 - Needs immediate follow-up</p>
+              </div>
+            </div>
+            <Button size="sm" className="bg-[#FF805D] hover:bg-[#FF805D]/90 text-white border-0 text-xs h-8">
+              View Lead
+            </Button>
           </div>
         </div>
       </div>
-    </FloatingPanel>
-  );
-}
-
-function QuickStatPanel({ label, value, icon: Icon, color, delay, floatDelay }: { 
-  label: string; 
-  value: string; 
-  icon: React.ElementType;
-  color: string;
-  delay: number;
-  floatDelay: number;
-}) {
-  return (
-    <FloatingPanel delay={delay} floatDuration={12} floatDelay={floatDelay} className="w-36">
-      <div className="p-3 flex items-center gap-3">
-        <div 
-          className="w-10 h-10 rounded-xl flex items-center justify-center"
-          style={{ backgroundColor: `${color}20` }}
-        >
-          <Icon className="w-5 h-5" style={{ color }} />
-        </div>
-        <div>
-          <p className="text-lg font-bold text-foreground">{value}</p>
-          <p className="text-xs text-muted-foreground">{label}</p>
-        </div>
-      </div>
-    </FloatingPanel>
+    </div>
   );
 }
 
@@ -287,7 +317,7 @@ export function HeroSection() {
       
       {/* Main content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* Left column - Text content */}
           <div className="order-2 lg:order-1">
@@ -366,44 +396,9 @@ export function HeroSection() {
             </div>
           </div>
           
-          {/* Right column - Floating panels */}
-          <div className="order-1 lg:order-2 relative h-[500px] lg:h-[600px]">
-            {/* Main dashboard panel */}
-            <div className="absolute top-0 left-4 lg:left-0 z-30">
-              <DashboardPreviewPanel />
-            </div>
-            
-            {/* Activity panel */}
-            <div className="absolute top-24 right-0 z-20">
-              <ActivityPanel />
-            </div>
-            
-            {/* Notification panel */}
-            <div className="absolute bottom-20 left-0 z-10">
-              <NotificationPanel />
-            </div>
-            
-            {/* Quick stat panels */}
-            <div className="absolute bottom-0 right-4 z-10 hidden lg:block">
-              <QuickStatPanel 
-                label="Calls" 
-                value="247" 
-                icon={Phone} 
-                color="#7E4EF2" 
-                delay={0.9}
-                floatDelay={3}
-              />
-            </div>
-            <div className="absolute top-0 right-0 z-10 hidden lg:block">
-              <QuickStatPanel 
-                label="Emails" 
-                value="1.2K" 
-                icon={Mail} 
-                color="#6B8CFF" 
-                delay={1.1}
-                floatDelay={5}
-              />
-            </div>
+          {/* Right column - Command Center Preview */}
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
+            <CommandCenterPreview />
           </div>
         </div>
       </div>
