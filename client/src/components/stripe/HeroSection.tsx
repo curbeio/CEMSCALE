@@ -31,32 +31,41 @@ export function HeroSection() {
           }}
         />
         
-        {/* Soft glow above the arc */}
+        {/* Atmospheric glow/shadow behind the arc */}
         <div 
-          className="absolute inset-x-0 bottom-0 h-[220px] pointer-events-none"
+          className="absolute inset-x-0 bottom-0 h-[350px] pointer-events-none"
           style={{
-            background: 'linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.08) 40%, rgba(255,255,255,0.18) 100%)',
-            filter: 'blur(24px)',
+            background: 'radial-gradient(ellipse 140% 120% at 50% 120%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.12) 45%, transparent 70%)',
+            filter: 'blur(40px)',
           }}
         />
         
-        {/* SVG Arc - guaranteed full width corner to corner */}
+        {/* Secondary softer glow layer */}
+        <div 
+          className="absolute inset-x-0 bottom-0 h-[250px] pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 100% 80% at 50% 100%, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 50%, transparent 80%)',
+            filter: 'blur(30px)',
+          }}
+        />
+        
+        {/* SVG Arc - more arched upward, corner to corner */}
         <svg
           className="absolute bottom-0 left-0 w-full pointer-events-none"
-          height="140"
+          height="180"
           viewBox="0 0 100 10"
           preserveAspectRatio="none"
         >
           <defs>
             <filter id="arcGlow" x="-20%" y="-500%" width="140%" height="1000%">
-              <feGaussianBlur stdDeviation="0.5" />
+              <feGaussianBlur stdDeviation="0.4" />
             </filter>
           </defs>
           <path
-            d="M0 9.5 Q50 1 100 9.5"
+            d="M0 9.8 Q50 -2 100 9.8"
             fill="none"
-            stroke="rgba(255,255,255,0.9)"
-            strokeWidth="0.5"
+            stroke="rgba(255,255,255,0.85)"
+            strokeWidth="0.4"
             filter="url(#arcGlow)"
           />
         </svg>
