@@ -857,6 +857,46 @@ html {
   }
 }
 
+/* Floating card animations */
+.animate-float-card-1 {
+  animation: floatCard1 6s ease-in-out infinite;
+}
+
+.animate-float-card-2 {
+  animation: floatCard2 7s ease-in-out infinite;
+}
+
+.animate-float-card-3 {
+  animation: floatCard3 5s ease-in-out infinite;
+}
+
+@keyframes floatCard1 {
+  0%, 100% {
+    transform: perspective(1000px) rotateY(5deg) rotateX(-2deg) translateY(0);
+  }
+  50% {
+    transform: perspective(1000px) rotateY(5deg) rotateX(-2deg) translateY(-15px);
+  }
+}
+
+@keyframes floatCard2 {
+  0%, 100% {
+    transform: perspective(1000px) rotateX(-3deg) translateY(0);
+  }
+  50% {
+    transform: perspective(1000px) rotateX(-3deg) translateY(-12px);
+  }
+}
+
+@keyframes floatCard3 {
+  0%, 100% {
+    transform: perspective(1000px) rotateY(-8deg) rotateX(-2deg) translateY(0);
+  }
+  50% {
+    transform: perspective(1000px) rotateY(-8deg) rotateX(-2deg) translateY(-18px);
+  }
+}
+
 /* Slow floating animation for center metrics */
 @keyframes float-slow {
   0%, 100% {
