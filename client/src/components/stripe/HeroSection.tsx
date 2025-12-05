@@ -51,7 +51,7 @@ function MiniChart({ data, color }: { data: number[]; color: string }) {
   );
 }
 
-function LiveActivityFeed() {
+function LiveActivityFeed({ onNewActivity }: { onNewActivity?: () => void }) {
   const [activities, setActivities] = useState([
     { id: 1, type: 'lead', text: 'New lead from LinkedIn', time: '2s ago', icon: Users },
     { id: 2, type: 'email', text: 'Email opened by John D.', time: '15s ago', icon: Mail },
@@ -72,10 +72,11 @@ function LiveActivityFeed() {
         { ...newActivity, id: Date.now(), time: 'now' },
         ...prev.slice(0, 2).map(a => ({ ...a, time: a.time === 'now' ? '2s ago' : a.time === '2s ago' ? '15s ago' : '1m ago' }))
       ]);
+      onNewActivity?.();
     }, 4000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [onNewActivity]);
 
   return (
     <div className="space-y-2">
@@ -106,59 +107,43 @@ function FloatingPanel({
   children, 
   className = "",
   delay = 0,
-  depth = 0,
-  isFocused = false,
-  panelId = "",
+  floatDuration = 8,
+  floatDelay = 0,
+  highlight = false,
 }: { 
   children: React.ReactNode; 
   className?: string;
   delay?: number;
-  depth?: number;
-  isFocused?: boolean;
-  panelId?: string;
+  floatDuration?: number;
+  floatDelay?: number;
+  highlight?: boolean;
 }) {
-  const baseScale = 1 - (depth * 0.05);
-  const baseOpacity = 1 - (depth * 0.15);
-  
   return (
     <div 
-      className={`relative animate-fade-up transition-all duration-700 ease-out ${className}`}
+      className={`relative animate-fade-up group ${className}`}
       style={{ 
         animationDelay: `${delay}s`,
-        transform: `scale(${isFocused ? baseScale * 1.03 : baseScale}) translateY(${isFocused ? -4 : 0}px)`,
-        opacity: isFocused ? 1 : baseOpacity * 0.85,
-        zIndex: isFocused ? 50 : undefined,
+        animation: `fade-up 0.6s ease-out ${delay}s both, float-gentle ${floatDuration}s ease-in-out ${floatDelay}s infinite`,
       }}
     >
-      {/* Glow effect when focused */}
-      <div 
-        className={`absolute -inset-2 rounded-3xl bg-gradient-to-r from-[#6B8CFF]/40 via-[#7E4EF2]/40 to-[#7CFD98]/40 blur-xl transition-opacity duration-700 ${
-          isFocused ? 'opacity-100' : 'opacity-0'
-        }`}
-      />
-      
       {/* Glass panel */}
-      <div className={`relative rounded-2xl bg-white/70 dark:bg-white/10 backdrop-blur-xl border transition-all duration-700 shadow-2xl overflow-hidden ${
-        isFocused 
-          ? 'border-[#6B8CFF]/30 dark:border-[#6B8CFF]/20 shadow-[#6B8CFF]/10' 
-          : 'border-white/20 dark:border-white/10 shadow-black/5 dark:shadow-black/20'
+      <div className={`relative rounded-2xl bg-white/70 dark:bg-white/10 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-2xl shadow-black/5 dark:shadow-black/20 overflow-hidden transition-all duration-500 group-hover:shadow-xl group-hover:shadow-[#6B8CFF]/5 group-hover:border-[#6B8CFF]/20 group-hover:-translate-y-1 ${
+        highlight ? 'ring-2 ring-[#7CFD98]/30 animate-highlight-pulse' : ''
       }`}>
         {/* Top highlight */}
-        <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent transition-opacity duration-700 ${
-          isFocused ? 'opacity-100' : 'opacity-50'
-        }`} />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
         {children}
       </div>
     </div>
   );
 }
 
-function DashboardPreviewPanel({ isFocused }: { isFocused: boolean }) {
+function DashboardPreviewPanel() {
   const leads = useLiveCounter(12847, 1, 5000);
   const chartData = [35, 45, 38, 52, 48, 60, 55, 72, 68, 85, 78, 92];
   
   return (
-    <FloatingPanel delay={0.3} isFocused={isFocused} panelId="dashboard" className="w-full max-w-md">
+    <FloatingPanel delay={0.3} floatDuration={10} floatDelay={0} className="w-full max-w-md">
       <div className="p-4">
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
@@ -212,9 +197,16 @@ function DashboardPreviewPanel({ isFocused }: { isFocused: boolean }) {
   );
 }
 
-function ActivityPanel({ isFocused }: { isFocused: boolean }) {
+function ActivityPanel() {
+  const [highlight, setHighlight] = useState(false);
+  
+  const handleNewActivity = () => {
+    setHighlight(true);
+    setTimeout(() => setHighlight(false), 600);
+  };
+
   return (
-    <FloatingPanel delay={0.5} isFocused={isFocused} panelId="activity" className="w-72">
+    <FloatingPanel delay={0.5} floatDuration={9} floatDelay={2} highlight={highlight} className="w-72">
       <div className="p-4">
         <div className="flex items-center gap-2 mb-3">
           <Activity className="w-4 h-4 text-[#7E4EF2]" />
@@ -224,15 +216,15 @@ function ActivityPanel({ isFocused }: { isFocused: boolean }) {
             <span className="text-xs text-muted-foreground">3 active</span>
           </span>
         </div>
-        <LiveActivityFeed />
+        <LiveActivityFeed onNewActivity={handleNewActivity} />
       </div>
     </FloatingPanel>
   );
 }
 
-function NotificationPanel({ isFocused }: { isFocused: boolean }) {
+function NotificationPanel() {
   return (
-    <FloatingPanel delay={0.7} depth={1} isFocused={isFocused} panelId="notification" className="w-64">
+    <FloatingPanel delay={0.7} floatDuration={11} floatDelay={4} className="w-64">
       <div className="p-3">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full bg-[#FF805D]/20 flex items-center justify-center">
@@ -248,16 +240,16 @@ function NotificationPanel({ isFocused }: { isFocused: boolean }) {
   );
 }
 
-function QuickStatPanel({ label, value, icon: Icon, color, delay, isFocused }: { 
+function QuickStatPanel({ label, value, icon: Icon, color, delay, floatDelay }: { 
   label: string; 
   value: string; 
   icon: React.ElementType;
   color: string;
   delay: number;
-  isFocused: boolean;
+  floatDelay: number;
 }) {
   return (
-    <FloatingPanel delay={delay} depth={2} isFocused={isFocused} className="w-36">
+    <FloatingPanel delay={delay} floatDuration={12} floatDelay={floatDelay} className="w-36">
       <div className="p-3 flex items-center gap-3">
         <div 
           className="w-10 h-10 rounded-xl flex items-center justify-center"
@@ -275,16 +267,6 @@ function QuickStatPanel({ label, value, icon: Icon, color, delay, isFocused }: {
 }
 
 export function HeroSection() {
-  const [focusedPanel, setFocusedPanel] = useState(0);
-  const panels = ['dashboard', 'activity', 'notification', 'calls', 'emails'];
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFocusedPanel(prev => (prev + 1) % panels.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section 
       className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 dark:from-background dark:via-background dark:to-background"
@@ -388,17 +370,17 @@ export function HeroSection() {
           <div className="order-1 lg:order-2 relative h-[500px] lg:h-[600px]">
             {/* Main dashboard panel */}
             <div className="absolute top-0 left-0 lg:left-8 z-30">
-              <DashboardPreviewPanel isFocused={focusedPanel === 0} />
+              <DashboardPreviewPanel />
             </div>
             
             {/* Activity panel */}
             <div className="absolute top-32 right-0 lg:right-0 z-20">
-              <ActivityPanel isFocused={focusedPanel === 1} />
+              <ActivityPanel />
             </div>
             
             {/* Notification panel */}
             <div className="absolute bottom-24 left-4 lg:left-0 z-10">
-              <NotificationPanel isFocused={focusedPanel === 2} />
+              <NotificationPanel />
             </div>
             
             {/* Quick stat panels */}
@@ -409,7 +391,7 @@ export function HeroSection() {
                 icon={Phone} 
                 color="#7E4EF2" 
                 delay={0.9}
-                isFocused={focusedPanel === 3}
+                floatDelay={3}
               />
             </div>
             <div className="absolute top-48 left-0 z-5 hidden lg:block">
@@ -419,7 +401,7 @@ export function HeroSection() {
                 icon={Mail} 
                 color="#6B8CFF" 
                 delay={1.1}
-                isFocused={focusedPanel === 4}
+                floatDelay={5}
               />
             </div>
           </div>
