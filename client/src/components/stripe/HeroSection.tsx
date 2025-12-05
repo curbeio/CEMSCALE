@@ -370,27 +370,54 @@ export function HeroSection() {
               platform that drives growth and enhances customer relationships.
             </p>
             
-            {/* CTA Buttons */}
+            {/* Email Signup Form */}
             <div 
-              className="flex flex-wrap gap-4 justify-center animate-fade-up"
+              className="animate-fade-up"
               style={{ animationDelay: '0.2s' }}
             >
-              <Button 
-                size="lg"
-                className="rounded-full px-8 h-12 text-base gap-2 bg-[#6b4cff] hover:bg-[#7c5fff] text-white font-medium shadow-lg shadow-[#6b4cff]/25"
-                data-testid="button-hero-start"
+              <form 
+                className="flex flex-col sm:flex-row gap-3 justify-center max-w-xl mx-auto mb-4"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.currentTarget);
+                  const email = formData.get('email');
+                  console.log('Starting registration with:', email);
+                }}
               >
-                Get Started Now
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-              <Button 
-                variant="outline"
-                size="lg"
-                className="rounded-full px-8 h-12 text-base gap-2 bg-transparent border-[#3d3a50] text-white hover:bg-[#1a1a2e] hover:border-[#4d4a60]"
-                data-testid="button-hero-demo"
-              >
-                Schedule a Demo
-              </Button>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Work email address"
+                  required
+                  className="flex-1 h-12 px-5 rounded-full bg-white/10 backdrop-blur-sm border border-[#3d3a50] text-white placeholder:text-[#8b87a5] focus:outline-none focus:border-[#6b4cff] focus:ring-2 focus:ring-[#6b4cff]/20 transition-all"
+                  data-testid="input-hero-email"
+                />
+                <Button 
+                  type="submit"
+                  size="lg"
+                  className="rounded-full px-8 h-12 text-base gap-2 bg-[#6b4cff] hover:bg-[#7c5fff] text-white font-medium shadow-lg shadow-[#6b4cff]/25 whitespace-nowrap"
+                  data-testid="button-hero-start"
+                >
+                  Start Free Trial
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </form>
+              
+              {/* Trust badges */}
+              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-[#a59ecb]">
+                <span className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-[#7cffd4]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  No credit card required
+                </span>
+                <span className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-[#7cffd4]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  14-day free trial
+                </span>
+              </div>
             </div>
           </div>
           
