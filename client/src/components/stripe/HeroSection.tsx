@@ -33,26 +33,58 @@ export function HeroSection() {
         
       </div>
       
-      {/* Planet horizon arc - in front of content */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
-        {/* Very thin arc line with minimal glow */}
+      {/* Bottom effect - inverted spotlight + branching connectors */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
+        
+        {/* Inverted purple spotlight at bottom */}
+        <div 
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1200px] h-[500px]"
+          style={{
+            background: 'radial-gradient(ellipse at center bottom, rgba(100, 60, 255, 0.18) 0%, transparent 60%)',
+          }}
+        />
+        
+        {/* Central beam going down */}
+        <div 
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[2px] h-[180px] opacity-50"
+          style={{
+            background: 'linear-gradient(to bottom, transparent, rgba(140, 100, 255, 0.7))',
+          }}
+        />
+        
+        {/* Branching connector lines - Y shape */}
         <svg
           className="absolute bottom-0 left-0 w-full"
-          height="120"
-          viewBox="0 0 100 10"
+          height="200"
+          viewBox="0 0 100 20"
           preserveAspectRatio="none"
         >
           <defs>
-            <filter id="softGlow" x="-10%" y="-100%" width="120%" height="300%">
-              <feGaussianBlur stdDeviation="0.2" />
+            <filter id="lineGlow" x="-20%" y="-50%" width="140%" height="200%">
+              <feGaussianBlur stdDeviation="0.3" />
             </filter>
+            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="rgba(140, 100, 255, 0.3)" />
+              <stop offset="100%" stopColor="rgba(140, 100, 255, 0.7)" />
+            </linearGradient>
           </defs>
+          
+          {/* Left branch - from center to left corner */}
           <path
-            d="M0 9.9 Q50 -3 100 9.9"
+            d="M50 5 C40 12, 20 16, 0 20"
             fill="none"
-            stroke="rgba(255,255,255,0.6)"
-            strokeWidth="0.12"
-            filter="url(#softGlow)"
+            stroke="url(#lineGradient)"
+            strokeWidth="0.15"
+            filter="url(#lineGlow)"
+          />
+          
+          {/* Right branch - from center to right corner */}
+          <path
+            d="M50 5 C60 12, 80 16, 100 20"
+            fill="none"
+            stroke="url(#lineGradient)"
+            strokeWidth="0.15"
+            filter="url(#lineGlow)"
           />
         </svg>
       </div>
