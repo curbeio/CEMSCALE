@@ -31,49 +31,44 @@ export function HeroSection() {
           }}
         />
         
-        {/* Moon horizon - Selflane style: ultra-thin rim only */}
-        <div 
-          className="absolute bottom-0 left-0 right-0 overflow-hidden pointer-events-none"
-          style={{ height: '180px' }}
-        >
-          {/* Soft bloom/glow above the rim */}
+        {/* Moon/Planet at bottom - like Selflane */}
+        <div className="absolute bottom-0 left-0 right-0 h-[300px] pointer-events-none">
+          
+          {/* Glow above the moon */}
           <div 
-            className="absolute left-1/2"
+            className="absolute bottom-[100px] left-1/2 -translate-x-1/2 w-[80%] h-[150px]"
             style={{
-              width: '160vw',
-              height: '160vw',
-              bottom: 'calc(-160vw + 90px)',
-              transform: 'translateX(-50%) scaleY(0.1)',
-              background: 'radial-gradient(ellipse at 50% 55%, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.05) 35%, transparent 65%)',
-              filter: 'blur(20px)',
+              background: 'radial-gradient(ellipse 50% 100% at 50% 100%, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 50%, transparent 80%)',
             }}
           />
           
-          {/* The planet sphere - pure black, only rim visible via mask */}
+          {/* The moon sphere */}
           <div 
-            className="absolute left-1/2"
-            style={{
-              width: '220vw',
-              height: '220vw',
-              bottom: 'calc(-220vw + 70px)',
-              transform: 'translateX(-50%) scaleY(0.15)',
-              background: '#000000',
-              maskImage: 'radial-gradient(ellipse at 50% 45%, transparent calc(50% - 14px), rgba(255,255,255,0.9) calc(50% - 8px), rgba(255,255,255,0.4) calc(50% - 2px), transparent 50%)',
-              WebkitMaskImage: 'radial-gradient(ellipse at 50% 45%, transparent calc(50% - 14px), rgba(255,255,255,0.9) calc(50% - 8px), rgba(255,255,255,0.4) calc(50% - 2px), transparent 50%)',
-            }}
-          />
-          
-          {/* Bright rim line */}
-          <div 
-            className="absolute left-1/2"
+            className="absolute left-1/2 -translate-x-1/2 rounded-full"
             style={{
               width: '200vw',
               height: '200vw',
-              bottom: 'calc(-200vw + 72px)',
-              transform: 'translateX(-50%) scaleY(0.15)',
-              background: 'transparent',
-              borderRadius: '50%',
-              boxShadow: 'inset 0 2px 0 rgba(255,255,255,0.2), inset 0 4px 8px rgba(255,255,255,0.08)',
+              bottom: '-198vw',
+              background: 'linear-gradient(to top, #000000 0%, #0a0a0f 50%, #121218 100%)',
+              boxShadow: '0 0 60px 10px rgba(255,255,255,0.05)',
+            }}
+          />
+          
+          {/* Bright rim on top of moon */}
+          <div 
+            className="absolute bottom-[95px] left-1/2 -translate-x-1/2 w-[140%] h-[3px]"
+            style={{
+              background: 'radial-gradient(ellipse 40% 100% at 50% 50%, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.2) 30%, rgba(255,255,255,0.05) 60%, transparent 80%)',
+              filter: 'blur(1px)',
+            }}
+          />
+          
+          {/* Secondary softer glow */}
+          <div 
+            className="absolute bottom-[90px] left-1/2 -translate-x-1/2 w-[120%] h-[15px]"
+            style={{
+              background: 'radial-gradient(ellipse 50% 100% at 50% 0%, rgba(255,255,255,0.08) 0%, transparent 70%)',
+              filter: 'blur(8px)',
             }}
           />
         </div>
