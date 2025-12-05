@@ -766,6 +766,28 @@ html {
   }
 }
 
+/* Floating card animation */
+@keyframes floatCard {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-8px);
+  }
+}
+
+/* Node pulse animation */
+@keyframes pulse-node {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
 /* Slow floating animation for center metrics */
 @keyframes float-slow {
   0%, 100% {
