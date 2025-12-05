@@ -2,6 +2,43 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
+  // Particle configurations spread across entire hero
+  const particles = [
+    // Top area particles
+    { left: '8%', top: '12%', size: 3, duration: 7, delay: 0 },
+    { left: '15%', top: '25%', size: 4, duration: 8, delay: -2 },
+    { left: '22%', top: '8%', size: 2, duration: 6, delay: -4 },
+    { left: '85%', top: '15%', size: 3, duration: 9, delay: -1 },
+    { left: '92%', top: '28%', size: 4, duration: 7, delay: -3 },
+    { left: '78%', top: '10%', size: 2, duration: 8, delay: -5 },
+    // Middle area particles
+    { left: '5%', top: '45%', size: 3, duration: 8, delay: -1 },
+    { left: '12%', top: '55%', size: 5, duration: 9, delay: -3 },
+    { left: '95%', top: '42%', size: 4, duration: 7, delay: -2 },
+    { left: '88%', top: '58%', size: 3, duration: 8, delay: -4 },
+    // Lower-middle particles
+    { left: '18%', top: '70%', size: 4, duration: 6, delay: -2 },
+    { left: '25%', top: '78%', size: 3, duration: 7, delay: -4 },
+    { left: '82%', top: '72%', size: 5, duration: 8, delay: -1 },
+    { left: '75%', top: '80%', size: 3, duration: 9, delay: -3 },
+    // Bottom area particles
+    { left: '30%', top: '88%', size: 4, duration: 7, delay: -2 },
+    { left: '45%', top: '85%', size: 3, duration: 8, delay: -1 },
+    { left: '55%', top: '90%', size: 4, duration: 6, delay: -3 },
+    { left: '70%', top: '86%', size: 3, duration: 7, delay: -4 },
+  ];
+
+  // Glowing orbs spread throughout
+  const orbs = [
+    { left: '10%', top: '20%', size: 8, duration: 4, delay: 0 },
+    { left: '90%', top: '25%', size: 10, duration: 5, delay: -1 },
+    { left: '8%', top: '60%', size: 6, duration: 4, delay: -2 },
+    { left: '92%', top: '55%', size: 8, duration: 5, delay: -3 },
+    { left: '15%', top: '85%', size: 10, duration: 4, delay: -1 },
+    { left: '50%', top: '92%', size: 12, duration: 3, delay: 0 },
+    { left: '85%', top: '88%', size: 10, duration: 4, delay: -2 },
+  ];
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#030014]">
       
@@ -32,40 +69,211 @@ export function HeroSection() {
         />
         
       </div>
-      
-      {/* Bottom effect - Nebula Circuit Wave */}
-      <div className="absolute inset-x-0 bottom-0 h-[380px] pointer-events-none overflow-hidden">
+
+      {/* Full-screen Nebula Effects Layer */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         
-        {/* Aurora mesh backdrop */}
-        <div className="absolute inset-x-[-20%] bottom-[-60%] h-[600px] opacity-60">
+        {/* Aurora mesh - distributed across entire hero */}
+        <div className="absolute inset-0 opacity-50">
+          {/* Top-left aurora */}
           <div 
-            className="absolute inset-0 animate-pulse"
+            className="absolute animate-pulse"
             style={{
-              background: 'radial-gradient(ellipse 60% 40% at 30% 80%, rgba(139, 92, 246, 0.25) 0%, transparent 70%)',
+              left: '-10%',
+              top: '5%',
+              width: '50%',
+              height: '40%',
+              background: 'radial-gradient(ellipse 80% 60% at 30% 40%, rgba(139, 92, 246, 0.2) 0%, transparent 70%)',
               animationDuration: '8s',
             }}
           />
+          {/* Top-right aurora */}
           <div 
-            className="absolute inset-0 animate-pulse"
+            className="absolute animate-pulse"
             style={{
-              background: 'radial-gradient(ellipse 50% 35% at 70% 75%, rgba(196, 181, 253, 0.2) 0%, transparent 70%)',
-              animationDuration: '6s',
+              right: '-10%',
+              top: '10%',
+              width: '45%',
+              height: '35%',
+              background: 'radial-gradient(ellipse 70% 50% at 70% 30%, rgba(196, 181, 253, 0.15) 0%, transparent 70%)',
+              animationDuration: '10s',
+              animationDelay: '-4s',
+            }}
+          />
+          {/* Center aurora */}
+          <div 
+            className="absolute animate-pulse"
+            style={{
+              left: '25%',
+              top: '30%',
+              width: '50%',
+              height: '40%',
+              background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(107, 76, 255, 0.12) 0%, transparent 70%)',
+              animationDuration: '12s',
+              animationDelay: '-6s',
+            }}
+          />
+          {/* Left-middle aurora */}
+          <div 
+            className="absolute animate-pulse"
+            style={{
+              left: '-5%',
+              top: '45%',
+              width: '40%',
+              height: '35%',
+              background: 'radial-gradient(ellipse 70% 60% at 30% 50%, rgba(139, 92, 246, 0.18) 0%, transparent 70%)',
+              animationDuration: '9s',
               animationDelay: '-3s',
             }}
           />
+          {/* Right-middle aurora */}
           <div 
-            className="absolute inset-0 animate-pulse"
+            className="absolute animate-pulse"
             style={{
-              background: 'radial-gradient(ellipse 70% 50% at 50% 90%, rgba(107, 76, 255, 0.18) 0%, transparent 60%)',
-              animationDuration: '10s',
+              right: '-5%',
+              top: '50%',
+              width: '40%',
+              height: '35%',
+              background: 'radial-gradient(ellipse 65% 55% at 70% 50%, rgba(196, 181, 253, 0.15) 0%, transparent 70%)',
+              animationDuration: '11s',
               animationDelay: '-5s',
             }}
           />
+          {/* Bottom-left aurora */}
+          <div 
+            className="absolute animate-pulse"
+            style={{
+              left: '0%',
+              bottom: '5%',
+              width: '50%',
+              height: '40%',
+              background: 'radial-gradient(ellipse 80% 60% at 25% 70%, rgba(139, 92, 246, 0.22) 0%, transparent 70%)',
+              animationDuration: '8s',
+              animationDelay: '-2s',
+            }}
+          />
+          {/* Bottom-center aurora */}
+          <div 
+            className="absolute animate-pulse"
+            style={{
+              left: '25%',
+              bottom: '-10%',
+              width: '50%',
+              height: '45%',
+              background: 'radial-gradient(ellipse 70% 50% at 50% 80%, rgba(107, 76, 255, 0.2) 0%, transparent 70%)',
+              animationDuration: '10s',
+              animationDelay: '-4s',
+            }}
+          />
+          {/* Bottom-right aurora */}
+          <div 
+            className="absolute animate-pulse"
+            style={{
+              right: '0%',
+              bottom: '5%',
+              width: '50%',
+              height: '40%',
+              background: 'radial-gradient(ellipse 75% 55% at 75% 70%, rgba(196, 181, 253, 0.18) 0%, transparent 70%)',
+              animationDuration: '9s',
+              animationDelay: '-6s',
+            }}
+          />
         </div>
-        
+
+        {/* Floating particles spread across entire hero */}
+        {particles.map((p, i) => (
+          <span
+            key={`particle-${i}`}
+            className="absolute rounded-full animate-float-particle"
+            style={{
+              width: `${p.size}px`,
+              height: `${p.size}px`,
+              left: p.left,
+              top: p.top,
+              background: `radial-gradient(circle, rgba(196, 181, 253, 0.9) 0%, rgba(139, 92, 246, 0.6) 50%, transparent 100%)`,
+              boxShadow: `0 0 ${p.size * 3}px rgba(139, 92, 246, 0.5)`,
+              animationDuration: `${p.duration}s`,
+              animationDelay: `${p.delay}s`,
+            }}
+          />
+        ))}
+
+        {/* Glowing orbs distributed throughout */}
+        {orbs.map((orb, i) => (
+          <div
+            key={`orb-${i}`}
+            className="absolute rounded-full animate-pulse"
+            style={{
+              width: `${orb.size}px`,
+              height: `${orb.size}px`,
+              left: orb.left,
+              top: orb.top,
+              background: `radial-gradient(circle, rgba(196, 181, 253, 0.8) 0%, rgba(139, 92, 246, 0.5) 40%, transparent 70%)`,
+              boxShadow: `0 0 ${orb.size * 2}px rgba(139, 92, 246, 0.4), 0 0 ${orb.size * 4}px rgba(139, 92, 246, 0.2)`,
+              animationDuration: `${orb.duration}s`,
+              animationDelay: `${orb.delay}s`,
+            }}
+          />
+        ))}
+
+        {/* Connecting light beams */}
+        <div 
+          className="absolute left-[10%] top-[20%] w-[1px] h-[30%] opacity-20"
+          style={{
+            background: 'linear-gradient(to bottom, transparent, rgba(139, 92, 246, 0.6), transparent)',
+          }}
+        />
+        <div 
+          className="absolute right-[10%] top-[15%] w-[1px] h-[35%] opacity-20"
+          style={{
+            background: 'linear-gradient(to bottom, transparent, rgba(196, 181, 253, 0.5), transparent)',
+          }}
+        />
+        <div 
+          className="absolute left-[15%] top-[60%] w-[1px] h-[25%] opacity-25"
+          style={{
+            background: 'linear-gradient(to bottom, transparent, rgba(139, 92, 246, 0.5), transparent)',
+          }}
+        />
+        <div 
+          className="absolute right-[15%] top-[55%] w-[1px] h-[30%] opacity-25"
+          style={{
+            background: 'linear-gradient(to bottom, transparent, rgba(196, 181, 253, 0.5), transparent)',
+          }}
+        />
+
+        {/* Horizontal connection lines */}
+        <div 
+          className="absolute left-0 top-[30%] w-[15%] h-[1px] opacity-15"
+          style={{
+            background: 'linear-gradient(to right, transparent, rgba(139, 92, 246, 0.5), transparent)',
+          }}
+        />
+        <div 
+          className="absolute right-0 top-[35%] w-[15%] h-[1px] opacity-15"
+          style={{
+            background: 'linear-gradient(to left, transparent, rgba(196, 181, 253, 0.5), transparent)',
+          }}
+        />
+        <div 
+          className="absolute left-0 top-[65%] w-[12%] h-[1px] opacity-20"
+          style={{
+            background: 'linear-gradient(to right, transparent, rgba(139, 92, 246, 0.6), transparent)',
+          }}
+        />
+        <div 
+          className="absolute right-0 top-[70%] w-[12%] h-[1px] opacity-20"
+          style={{
+            background: 'linear-gradient(to left, transparent, rgba(196, 181, 253, 0.6), transparent)',
+          }}
+        />
+      </div>
+      
+      {/* Bottom wave effect */}
+      <div className="absolute inset-x-0 bottom-0 h-[200px] pointer-events-none overflow-hidden">
         {/* Animated wave ribbons */}
         <svg
-          className="absolute inset-x-0 bottom-8 w-full"
+          className="absolute inset-x-0 bottom-0 w-full"
           height="180"
           viewBox="0 0 100 18"
           preserveAspectRatio="none"
@@ -130,60 +338,6 @@ export function HeroSection() {
             }}
           />
         </svg>
-        
-        {/* Central beam connector */}
-        <div 
-          className="absolute left-1/2 bottom-16 -translate-x-1/2 w-[2px] h-36"
-          style={{
-            background: 'linear-gradient(to bottom, transparent 0%, rgba(139, 92, 246, 0.4) 30%, rgba(196, 181, 253, 0.6) 70%, rgba(139, 92, 246, 0.3) 100%)',
-          }}
-        />
-        
-        {/* Floating particles */}
-        {[0, 1, 2, 3, 4, 5, 6].map((i) => (
-          <span
-            key={i}
-            className="absolute rounded-full animate-float-particle"
-            style={{
-              width: `${3 + (i % 3)}px`,
-              height: `${3 + (i % 3)}px`,
-              left: `${15 + i * 12}%`,
-              bottom: `${12 + (i % 3) * 8}%`,
-              background: `radial-gradient(circle, rgba(196, 181, 253, 0.9) 0%, rgba(139, 92, 246, 0.6) 50%, transparent 100%)`,
-              boxShadow: '0 0 8px rgba(139, 92, 246, 0.5)',
-              animationDuration: `${5 + i}s`,
-              animationDelay: `${-i * 0.7}s`,
-            }}
-          />
-        ))}
-        
-        {/* Glowing orbs at wave intersections */}
-        <div 
-          className="absolute left-1/2 bottom-24 -translate-x-1/2 w-3 h-3 rounded-full animate-pulse"
-          style={{
-            background: 'radial-gradient(circle, rgba(196, 181, 253, 1) 0%, rgba(139, 92, 246, 0.8) 40%, transparent 70%)',
-            boxShadow: '0 0 20px rgba(139, 92, 246, 0.6), 0 0 40px rgba(139, 92, 246, 0.3)',
-            animationDuration: '3s',
-          }}
-        />
-        <div 
-          className="absolute left-[30%] bottom-28 w-2 h-2 rounded-full animate-pulse"
-          style={{
-            background: 'radial-gradient(circle, rgba(196, 181, 253, 0.8) 0%, transparent 70%)',
-            boxShadow: '0 0 12px rgba(139, 92, 246, 0.4)',
-            animationDuration: '4s',
-            animationDelay: '-1s',
-          }}
-        />
-        <div 
-          className="absolute left-[70%] bottom-28 w-2 h-2 rounded-full animate-pulse"
-          style={{
-            background: 'radial-gradient(circle, rgba(196, 181, 253, 0.8) 0%, transparent 70%)',
-            boxShadow: '0 0 12px rgba(139, 92, 246, 0.4)',
-            animationDuration: '4s',
-            animationDelay: '-2s',
-          }}
-        />
       </div>
       
       {/* Content */}
