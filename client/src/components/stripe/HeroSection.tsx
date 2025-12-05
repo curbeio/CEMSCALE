@@ -607,23 +607,14 @@ function CommandCenterRing() {
 
   return (
     <div className="relative w-[500px] h-[500px] lg:w-[600px] lg:h-[600px] xl:w-[680px] xl:h-[680px]">
-      {/* Pulsing outer glow */}
-      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#6B8CFF]/30 via-[#7E4EF2]/25 to-[#7CFD98]/30 blur-2xl animate-pulse-glow" />
+      {/* Subtle outer glow */}
+      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#6B8CFF]/20 via-[#7E4EF2]/15 to-[#7CFD98]/20 blur-3xl" />
       
-      {/* Ring 1 - Outermost, clockwise, dashed */}
-      <div className="absolute inset-0 rounded-full border-2 border-dashed border-[#6B8CFF]/50 animate-spin-slow" style={{ animationDuration: '35s' }} />
+      {/* Ring 1 - Outer, solid, clockwise */}
+      <div className="absolute inset-0 rounded-full border-[3px] border-[#6B8CFF]/60 animate-spin-slow" style={{ animationDuration: '30s' }} />
       
-      {/* Ring 2 - Counter-clockwise */}
-      <div className="absolute inset-6 rounded-full border-[3px] border-[#7E4EF2]/40 animate-spin-reverse" style={{ animationDuration: '28s' }} />
-      
-      {/* Ring 3 - Clockwise, faster */}
-      <div className="absolute inset-12 rounded-full border-2 border-dashed border-[#7CFD98]/35 animate-spin-slow" style={{ animationDuration: '22s' }} />
-      
-      {/* Ring 4 - Counter-clockwise, faster */}
-      <div className="absolute inset-[72px] rounded-full border-2 border-[#6B8CFF]/30 animate-spin-reverse" style={{ animationDuration: '18s' }} />
-      
-      {/* Inner glowing ring - static with pulse */}
-      <div className="absolute inset-24 rounded-full border-[3px] border-[#7CFD98]/50 shadow-[0_0_100px_rgba(124,253,152,0.25)] animate-ring-breathe" />
+      {/* Ring 2 - Inner, solid, counter-clockwise */}
+      <div className="absolute inset-16 rounded-full border-[3px] border-[#7E4EF2]/50 animate-spin-reverse" style={{ animationDuration: '25s' }} />
       
       {/* Core content - center metrics */}
       <div className="absolute inset-24 rounded-full bg-white/80 dark:bg-slate-900/90 backdrop-blur-xl shadow-2xl flex flex-col items-center justify-center">
