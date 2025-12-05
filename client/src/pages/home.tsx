@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/stripe/HeroSection";
 import { DataSection } from "@/components/stripe/DataSection";
 import { ServicesSection } from "@/components/stripe/ServicesSection";
 import { StatsSection } from "@/components/stripe/StatsSection";
+import { PricingSection } from "@/components/stripe/PricingSection";
 import { UseCasesSection } from "@/components/stripe/UseCasesSection";
 import { EnterpriseSection } from "@/components/stripe/EnterpriseSection";
 import { StartupSection } from "@/components/stripe/StartupSection";
@@ -19,6 +20,7 @@ export default function Home() {
         <DataSection />
         <ServicesSection />
         <StatsSection />
+        <PricingSection />
         <UseCasesSection />
         <EnterpriseSection />
         <StartupSection />
