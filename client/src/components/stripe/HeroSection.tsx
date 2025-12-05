@@ -553,33 +553,50 @@ const ringNotifications = [
 ];
 
 function CommandCenterRing() {
-  const [activeNotifs, setActiveNotifs] = useState<number[]>([0, 2, 4, 6]);
+  const [activeNotifs, setActiveNotifs] = useState<number[]>([0, 2, 4, 6, 1, 5]);
+  const [visibleNotifs, setVisibleNotifs] = useState<boolean[]>([true, true, true, true, true, true]);
   const leadsCount = useLiveCounter(12853, 1, 2500);
   const pipelineValue = useLiveCounter(2400000, 5000, 3000);
   const callsCount = useLiveCounter(247, 1, 3000);
   const emailsCount = useLiveCounter(1247, 2, 2500);
   
-  // Rotate active notifications
+  // Rotate notifications with fade out/in effect
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveNotifs(prev => {
-        const newActive = [...prev];
-        const randomIndex = Math.floor(Math.random() * 4);
-        newActive[randomIndex] = (newActive[randomIndex] + 1) % ringNotifications.length;
-        return newActive;
+      const randomIndex = Math.floor(Math.random() * 6);
+      
+      // Fade out
+      setVisibleNotifs(prev => {
+        const newVisible = [...prev];
+        newVisible[randomIndex] = false;
+        return newVisible;
       });
-    }, 2000);
+      
+      // After fade out, change content and fade in
+      setTimeout(() => {
+        setActiveNotifs(prev => {
+          const newActive = [...prev];
+          newActive[randomIndex] = (newActive[randomIndex] + 1) % ringNotifications.length;
+          return newActive;
+        });
+        setVisibleNotifs(prev => {
+          const newVisible = [...prev];
+          newVisible[randomIndex] = true;
+          return newVisible;
+        });
+      }, 400);
+    }, 1200);
     return () => clearInterval(timer);
   }, []);
 
-  // Positions for notifications around the ring (in degrees)
+  // Positions for notifications around the ring (in degrees) - 6 positions
   const positions = [
-    { angle: -60, distance: 220 },  // Top-right
-    { angle: 30, distance: 230 },   // Right
-    { angle: 120, distance: 225 },  // Bottom-right
-    { angle: 210, distance: 220 },  // Bottom-left
-    { angle: -120, distance: 225 }, // Top-left
-    { angle: 150, distance: 230 },  // Bottom
+    { angle: -70, distance: 260 },  // Top-right
+    { angle: 20, distance: 270 },   // Right
+    { angle: 110, distance: 265 },  // Bottom-right
+    { angle: 200, distance: 260 },  // Bottom-left
+    { angle: -110, distance: 265 }, // Top-left
+    { angle: 160, distance: 270 },  // Bottom
   ];
 
   const formatValue = (v: number) => {
@@ -589,18 +606,24 @@ function CommandCenterRing() {
   };
 
   return (
-    <div className="relative w-[450px] h-[450px] lg:w-[520px] lg:h-[520px]">
-      {/* Outer glow ring */}
-      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#6B8CFF]/20 via-[#7E4EF2]/20 to-[#7CFD98]/20 blur-xl animate-pulse" style={{ animationDuration: '4s' }} />
+    <div className="relative w-[500px] h-[500px] lg:w-[600px] lg:h-[600px] xl:w-[680px] xl:h-[680px]">
+      {/* Pulsing outer glow */}
+      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#6B8CFF]/30 via-[#7E4EF2]/25 to-[#7CFD98]/30 blur-2xl animate-pulse-glow" />
       
-      {/* Outer ring - slowly rotating */}
-      <div className="absolute inset-4 rounded-full border-2 border-[#6B8CFF]/30 animate-spin-slow" />
+      {/* Ring 1 - Outermost, clockwise, dashed */}
+      <div className="absolute inset-0 rounded-full border-2 border-dashed border-[#6B8CFF]/50 animate-spin-slow" style={{ animationDuration: '35s' }} />
       
-      {/* Middle ring - opposite rotation */}
-      <div className="absolute inset-12 rounded-full border border-[#7E4EF2]/40 animate-spin-reverse" />
+      {/* Ring 2 - Counter-clockwise */}
+      <div className="absolute inset-6 rounded-full border-[3px] border-[#7E4EF2]/40 animate-spin-reverse" style={{ animationDuration: '28s' }} />
       
-      {/* Inner ring - static with glow */}
-      <div className="absolute inset-20 rounded-full border-2 border-[#7CFD98]/30 shadow-[0_0_60px_rgba(124,253,152,0.15)]" />
+      {/* Ring 3 - Clockwise, faster */}
+      <div className="absolute inset-12 rounded-full border-2 border-dashed border-[#7CFD98]/35 animate-spin-slow" style={{ animationDuration: '22s' }} />
+      
+      {/* Ring 4 - Counter-clockwise, faster */}
+      <div className="absolute inset-[72px] rounded-full border-2 border-[#6B8CFF]/30 animate-spin-reverse" style={{ animationDuration: '18s' }} />
+      
+      {/* Inner glowing ring - static with pulse */}
+      <div className="absolute inset-24 rounded-full border-[3px] border-[#7CFD98]/50 shadow-[0_0_100px_rgba(124,253,152,0.25)] animate-ring-breathe" />
       
       {/* Core content - center metrics */}
       <div className="absolute inset-24 rounded-full bg-white/80 dark:bg-slate-900/90 backdrop-blur-xl shadow-2xl flex flex-col items-center justify-center">
@@ -630,44 +653,52 @@ function CommandCenterRing() {
         </div>
       </div>
       
-      {/* Orbiting notification capsules */}
-      {positions.slice(0, 4).map((pos, i) => {
+      {/* Orbiting notification capsules - 6 notifications with fade */}
+      {positions.map((pos, i) => {
         const notif = ringNotifications[activeNotifs[i]];
         const Icon = notif.icon;
         const x = Math.cos((pos.angle * Math.PI) / 180) * pos.distance;
         const y = Math.sin((pos.angle * Math.PI) / 180) * pos.distance;
+        const isVisible = visibleNotifs[i];
         
         return (
           <div
             key={i}
-            className="absolute left-1/2 top-1/2 transition-all duration-700 ease-out"
+            className="absolute left-1/2 top-1/2 transition-all duration-500 ease-out"
             style={{
-              transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
+              transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(${isVisible ? 1 : 0.8})`,
+              opacity: isVisible ? 1 : 0,
             }}
           >
-            <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shadow-lg border border-black/5 dark:border-white/10 animate-fade-in whitespace-nowrap">
+            <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/95 dark:bg-slate-800/95 backdrop-blur-md shadow-xl border border-black/5 dark:border-white/10 whitespace-nowrap animate-float-notification" style={{ animationDelay: `${i * 0.5}s` }}>
               <div 
-                className="w-6 h-6 rounded-full flex items-center justify-center"
-                style={{ backgroundColor: `${notif.color}20` }}
+                className="w-7 h-7 rounded-full flex items-center justify-center"
+                style={{ backgroundColor: `${notif.color}25` }}
               >
-                <Icon className="w-3 h-3" style={{ color: notif.color }} />
+                <Icon className="w-3.5 h-3.5" style={{ color: notif.color }} />
               </div>
               <span className="text-xs font-medium text-foreground">{notif.text}</span>
-              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: notif.color }} />
+              <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: notif.color }} />
             </div>
           </div>
         );
       })}
       
-      {/* Floating dots on the rings */}
-      <div className="absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 animate-spin-slow" style={{ animationDuration: '20s' }}>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#6B8CFF] rounded-full shadow-lg shadow-[#6B8CFF]/50" />
+      {/* Floating dots on the rings - fast orbiting */}
+      <div className="absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 animate-spin-slow" style={{ animationDuration: '12s' }}>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#6B8CFF] rounded-full shadow-[0_0_20px_#6B8CFF] animate-pulse" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#7E4EF2] rounded-full shadow-[0_0_15px_#7E4EF2]" />
       </div>
-      <div className="absolute top-1/2 left-1/2 w-[85%] h-[85%] -translate-x-1/2 -translate-y-1/2 animate-spin-reverse" style={{ animationDuration: '25s' }}>
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#7E4EF2] rounded-full shadow-lg shadow-[#7E4EF2]/50" />
+      <div className="absolute top-1/2 left-1/2 w-[88%] h-[88%] -translate-x-1/2 -translate-y-1/2 animate-spin-reverse" style={{ animationDuration: '15s' }}>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#7E4EF2] rounded-full shadow-[0_0_15px_#7E4EF2] animate-pulse" />
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-[#7CFD98] rounded-full shadow-[0_0_12px_#7CFD98]" />
       </div>
-      <div className="absolute top-1/2 left-1/2 w-[70%] h-[70%] -translate-x-1/2 -translate-y-1/2 animate-spin-slow" style={{ animationDuration: '15s' }}>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#7CFD98] rounded-full shadow-lg shadow-[#7CFD98]/50" />
+      <div className="absolute top-1/2 left-1/2 w-[75%] h-[75%] -translate-x-1/2 -translate-y-1/2 animate-spin-slow" style={{ animationDuration: '10s' }}>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-[#7CFD98] rounded-full shadow-[0_0_18px_#7CFD98] animate-pulse" />
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-[#6B8CFF] rounded-full shadow-[0_0_12px_#6B8CFF]" />
+      </div>
+      <div className="absolute top-1/2 left-1/2 w-[60%] h-[60%] -translate-x-1/2 -translate-y-1/2 animate-spin-reverse" style={{ animationDuration: '8s' }}>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-[#FF805D] rounded-full shadow-[0_0_12px_#FF805D]" />
       </div>
     </div>
   );

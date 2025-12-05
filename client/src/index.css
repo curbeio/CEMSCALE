@@ -625,6 +625,58 @@ html {
   animation: spin-reverse 20s linear infinite;
 }
 
+/* Pulsing glow animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+/* Ring breathing animation */
+@keyframes ring-breathe {
+  0%, 100% {
+    opacity: 0.5;
+    box-shadow: 0 0 60px rgba(124, 253, 152, 0.15);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 120px rgba(124, 253, 152, 0.35);
+  }
+}
+
+.animate-ring-breathe {
+  animation: ring-breathe 3s ease-in-out infinite;
+}
+
+/* Floating notification animation */
+@keyframes float-notification {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-4px) translateX(2px);
+  }
+  50% {
+    transform: translateY(-2px) translateX(-2px);
+  }
+  75% {
+    transform: translateY(-6px) translateX(1px);
+  }
+}
+
+.animate-float-notification {
+  animation: float-notification 4s ease-in-out infinite;
+}
+
 /* Line flow animation */
 @keyframes line-flow {
   0%, 100% {
