@@ -31,62 +31,42 @@ export function HeroSection() {
           }}
         />
         
-        {/* Moon/Planet horizon effect at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-[500px] overflow-hidden pointer-events-none">
+        {/* Moon/Planet at bottom - exactly like Selflane */}
+        <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: '45vh' }}>
           
-          {/* Outer glow - atmospheric haze */}
+          {/* The moon sphere - dark grey, positioned to show only top curve */}
           <div 
-            className="absolute bottom-[-50px] left-1/2 -translate-x-1/2"
+            className="absolute left-1/2 -translate-x-1/2"
             style={{
-              width: '180%',
-              height: '400px',
-              background: 'radial-gradient(ellipse 50% 40% at 50% 100%, rgba(200, 200, 255, 0.08) 0%, rgba(140, 120, 255, 0.04) 40%, transparent 70%)',
-            }}
-          />
-          
-          {/* Main moon/planet body - large curved surface */}
-          <div 
-            className="absolute bottom-[-200px] left-1/2 -translate-x-1/2"
-            style={{
-              width: '180%',
-              height: '350px',
-              background: 'linear-gradient(to top, #08080f 0%, #0c0c18 40%, #101020 70%, #141428 100%)',
-              borderRadius: '50% 50% 0 0 / 100% 100% 0 0',
-              boxShadow: '0 -20px 80px rgba(180, 170, 255, 0.08), 0 -5px 30px rgba(255, 255, 255, 0.05)',
-            }}
-          />
-          
-          {/* Bright horizon edge - the glowing rim */}
-          <div 
-            className="absolute bottom-[145px] left-1/2 -translate-x-1/2"
-            style={{
-              width: '160%',
-              height: '3px',
-              background: 'radial-gradient(ellipse 40% 100% at 50% 50%, rgba(255, 255, 255, 0.6) 0%, rgba(220, 210, 255, 0.3) 30%, rgba(180, 160, 255, 0.1) 60%, transparent 80%)',
-              filter: 'blur(1px)',
+              bottom: '-85vh',
+              width: '150vw',
+              height: '100vh',
               borderRadius: '50%',
+              background: 'linear-gradient(180deg, #1a1a1f 0%, #0d0d10 30%, #050507 100%)',
+              boxShadow: '0 -1px 0 rgba(255,255,255,0.12)',
             }}
           />
           
-          {/* Secondary glow line */}
+          {/* Bright rim glow on top of moon */}
           <div 
-            className="absolute bottom-[148px] left-1/2 -translate-x-1/2"
+            className="absolute left-1/2 -translate-x-1/2"
             style={{
-              width: '140%',
-              height: '8px',
-              background: 'radial-gradient(ellipse 35% 100% at 50% 50%, rgba(255, 255, 255, 0.15) 0%, rgba(200, 190, 255, 0.08) 50%, transparent 80%)',
-              filter: 'blur(4px)',
-              borderRadius: '50%',
+              bottom: '14.8vh',
+              width: '120vw',
+              height: '4px',
+              background: 'radial-gradient(ellipse 50% 100% at 50% 50%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.15) 40%, transparent 70%)',
+              filter: 'blur(2px)',
             }}
           />
           
-          {/* Sunrise glow above horizon */}
+          {/* Soft glow above the rim */}
           <div 
-            className="absolute bottom-[150px] left-1/2 -translate-x-1/2"
+            className="absolute left-1/2 -translate-x-1/2"
             style={{
-              width: '120%',
-              height: '150px',
-              background: 'radial-gradient(ellipse 40% 80% at 50% 100%, rgba(180, 160, 255, 0.12) 0%, rgba(140, 120, 255, 0.06) 40%, transparent 70%)',
+              bottom: '14vh',
+              width: '80vw',
+              height: '100px',
+              background: 'radial-gradient(ellipse 50% 100% at 50% 100%, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 50%, transparent 80%)',
             }}
           />
         </div>
