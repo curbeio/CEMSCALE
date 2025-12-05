@@ -22,16 +22,16 @@ const logos = [
 
 export function LogoCarousel() {
   return (
-    <section className="py-12 sm:py-16 border-y border-border/50">
-      <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-sm text-muted-foreground mb-8">
+    <section className="py-12 sm:py-16 border-y border-[#1f1f35]/50 bg-[#030014]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p className="text-center text-sm text-[#a59ecb] mb-8">
           Trusted by leading companies worldwide
         </p>
         <div className="grid grid-cols-4 md:grid-cols-8 gap-6 sm:gap-8 lg:gap-10 items-center justify-items-center">
           {logos.map((logo) => (
             <div 
               key={logo.name}
-              className="flex items-center justify-center opacity-40 hover:opacity-100 transition-opacity duration-300"
+              className="flex items-center justify-center text-[#6b6789] hover:text-[#d2d0df] transition-colors duration-300"
               data-testid={`logo-${logo.name.toLowerCase()}`}
               title={logo.name}
             >

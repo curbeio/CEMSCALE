@@ -12,8 +12,7 @@ const services = [
     tagline: "Communication without limits.",
     description: "Cloud telephony system integrated with your CRM. Call recording, intelligent IVR and real-time analytics.",
     image: dashboardFlyer,
-    color: "#7E4EF2",
-    bgColor: "from-[#7E4EF2]/20 via-[#7E4EF2]/10 to-transparent",
+    color: "#a78bfa",
   },
   {
     id: "marketing",
@@ -21,8 +20,7 @@ const services = [
     tagline: "Automate and scale your reach.",
     description: "Email, SMS, WhatsApp and social media in one platform. Automated campaigns that convert.",
     image: marketingFlyer,
-    color: "#6B8CFF",
-    bgColor: "from-[#6B8CFF]/20 via-[#6B8CFF]/10 to-transparent",
+    color: "#6b4cff",
   },
   {
     id: "crm",
@@ -30,8 +28,7 @@ const services = [
     tagline: "Every customer, under control.",
     description: "Manage relationships, interaction history and visual sales pipeline. Everything in one place.",
     image: offlineFlyer,
-    color: "#7CFD98",
-    bgColor: "from-[#7CFD98]/20 via-[#7CFD98]/10 to-transparent",
+    color: "#7cffd4",
   },
   {
     id: "leads",
@@ -39,8 +36,7 @@ const services = [
     tagline: "Convert more, lose less.",
     description: "Automated capture, qualification and nurturing. Intelligent scoring to prioritize high-value opportunities.",
     image: leadsFlyer,
-    color: "#FF805D",
-    bgColor: "from-[#FF805D]/20 via-[#FF805D]/10 to-transparent",
+    color: "#ff805d",
   },
 ];
 
@@ -68,10 +64,17 @@ const itemVariants = {
 
 export function ServicesSection() {
   return (
-    <section className="py-16 sm:py-24 lg:py-32 xl:py-40 relative overflow-hidden">
-      <div className="absolute inset-0 stripe-hero-gradient opacity-50" />
+    <section className="py-16 sm:py-24 lg:py-32 relative overflow-hidden bg-[#030014]">
+      <div className="absolute inset-0">
+        <div 
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px]"
+          style={{
+            background: 'radial-gradient(ellipse at center top, rgba(107, 76, 255, 0.1) 0%, transparent 70%)',
+          }}
+        />
+      </div>
       
-      <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -80,20 +83,15 @@ export function ServicesSection() {
           className="text-center mb-12 lg:mb-16"
         >
           <span 
-            className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mb-4"
-            style={{ 
-              backgroundColor: 'rgba(107, 140, 255, 0.1)', 
-              color: '#6B8CFF',
-              border: '1px solid rgba(107, 140, 255, 0.2)'
-            }}
+            className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mb-4 bg-[#6b4cff]/10 text-[#a78bfa] border border-[#6b4cff]/20"
           >
             Our Services
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-white">
             Everything you need to
-            <span className="stripe-text-gradient block sm:inline"> sell more</span>
+            <span className="block bg-gradient-to-r from-[#6b4cff] to-[#a78bfa] bg-clip-text text-transparent"> sell more</span>
           </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-[#a59ecb] max-w-3xl mx-auto">
             Telephony, Marketing, CRM and Leads integrated to transform how you manage and convert opportunities.
           </p>
         </motion.div>
@@ -103,7 +101,7 @@ export function ServicesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {services.map((service) => (
             <motion.div
@@ -112,9 +110,7 @@ export function ServicesSection() {
               className="group relative"
               data-testid={`card-service-${service.id}`}
             >
-              <div className={`absolute -inset-2 bg-gradient-to-b ${service.bgColor} rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              
-              <div className="relative bg-card dark:bg-card/80 rounded-2xl overflow-hidden border border-border/50 hover:border-border transition-all duration-300 h-full flex flex-col">
+              <div className="relative bg-[#0a0a1a]/80 rounded-2xl overflow-hidden border border-[#1f1f35] hover:border-[#6b4cff]/50 transition-all duration-300 h-full flex flex-col">
                 <div className="relative aspect-[3/4] overflow-hidden">
                   <img
                     src={service.image}
@@ -136,7 +132,7 @@ export function ServicesSection() {
                 </div>
                 
                 <div className="p-4 sm:p-6 flex-1 flex flex-col">
-                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed flex-1">
+                  <p className="text-[#a59ecb] text-sm leading-relaxed flex-1">
                     {service.description}
                   </p>
                   

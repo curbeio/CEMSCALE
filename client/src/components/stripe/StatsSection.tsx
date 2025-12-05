@@ -32,20 +32,20 @@ export function StatsSection() {
   return (
     <section 
       ref={sectionRef}
-      className="py-16 sm:py-24 lg:py-32 xl:py-40 bg-muted/30"
+      className="py-16 sm:py-24 lg:py-32 bg-[#0a0a1a]"
     >
-      <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tight mb-4 text-white">
             The data that drives your growth
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-[#a59ecb] max-w-3xl mx-auto">
             Access the most complete and updated B2B leads database on the market. 
             Find your ideal customers with precision.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 xl:gap-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
           {stats.map((stat, index) => (
             <div 
               key={stat.label}
@@ -56,10 +56,13 @@ export function StatsSection() {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-semibold stripe-text-gradient mb-2" data-testid={`stat-value-${index}`}>
+              <div 
+                className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-semibold bg-gradient-to-r from-[#6b4cff] to-[#a78bfa] bg-clip-text text-transparent mb-2" 
+                data-testid={`stat-value-${index}`}
+              >
                 {stat.value}{stat.suffix}
               </div>
-              <p className="text-sm lg:text-base text-muted-foreground" data-testid={`stat-label-${index}`}>
+              <p className="text-sm lg:text-base text-[#a59ecb]" data-testid={`stat-label-${index}`}>
                 {stat.label}
               </p>
             </div>

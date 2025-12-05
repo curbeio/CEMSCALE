@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
@@ -10,28 +9,28 @@ const enterprises = [
     name: "Fitness Chain",
     headline: "How a major gym network unified member data across 50+ locations",
     image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop",
-    color: "from-[#7E4EF2] to-[#6B8CFF]",
+    color: "from-[#a78bfa] to-[#6b4cff]",
   },
   {
     id: "education-group",
     name: "Education Group",
     headline: "See how this university streamlined student enrollment data by 300%",
     image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop",
-    color: "from-[#6B8CFF] to-[#4974EA]",
+    color: "from-[#6b4cff] to-[#7cffd4]",
   },
   {
     id: "retail-brand",
     name: "Retail Brand",
     headline: "Connecting offline and online customer journeys in real-time",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop",
-    color: "from-[#7CFD98] to-[#6B8CFF]",
+    color: "from-[#7cffd4] to-[#6b4cff]",
   },
   {
     id: "healthcare-network",
     name: "Healthcare Network",
     headline: "How patient data unification improved care coordination by 40%",
     image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop",
-    color: "from-[#FF805D] to-[#7E4EF2]",
+    color: "from-[#ff805d] to-[#a78bfa]",
   },
 ];
 
@@ -47,17 +46,17 @@ export function EnterpriseSection() {
   };
 
   return (
-    <section className="py-16 sm:py-24 lg:py-32 xl:py-40 bg-muted/30">
-      <div className="max-w-7xl xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-24 lg:py-32 bg-[#030014]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8 sm:mb-12">
           <div>
-            <Badge variant="secondary" className="mb-4">Success Stories</Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-semibold tracking-tight">
+            <Badge className="mb-4 bg-[#6b4cff]/20 text-[#a78bfa] border-[#6b4cff]/30">Success Stories</Badge>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tight text-white">
               Trusted by growing businesses
             </h2>
           </div>
           
-          <p className="text-muted-foreground max-w-md">
+          <p className="text-[#a59ecb] max-w-md">
             See how businesses are transforming their operations with CemScale's unified data platform.
           </p>
         </div>
@@ -73,7 +72,7 @@ export function EnterpriseSection() {
                   key={enterprise.id}
                   className="w-full flex-shrink-0"
                 >
-                  <Card className="relative overflow-hidden aspect-[16/9] lg:aspect-[21/9]">
+                  <div className="relative overflow-hidden aspect-[16/9] lg:aspect-[21/9] rounded-2xl border border-[#1f1f35]">
                     <img 
                       src={enterprise.image}
                       alt={enterprise.name}
@@ -96,7 +95,7 @@ export function EnterpriseSection() {
                         Read story <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </div>
-                  </Card>
+                  </div>
                 </div>
               ))}
             </div>
@@ -109,7 +108,7 @@ export function EnterpriseSection() {
                   key={enterprise.id}
                   onClick={() => setActiveIndex(index)}
                   className={`w-12 h-1 rounded-full transition-colors ${
-                    index === activeIndex ? 'bg-primary' : 'bg-border'
+                    index === activeIndex ? 'bg-[#6b4cff]' : 'bg-[#1f1f35]'
                   }`}
                   data-testid={`button-slide-${index}`}
                 />
@@ -120,7 +119,7 @@ export function EnterpriseSection() {
               <Button 
                 variant="outline" 
                 size="icon" 
-                className="rounded-full"
+                className="rounded-full bg-transparent border-[#1f1f35] text-[#a59ecb] hover:bg-[#1a1a2e] hover:text-white"
                 onClick={prevSlide}
                 data-testid="button-prev-slide"
               >
@@ -129,7 +128,7 @@ export function EnterpriseSection() {
               <Button 
                 variant="outline" 
                 size="icon" 
-                className="rounded-full"
+                className="rounded-full bg-transparent border-[#1f1f35] text-[#a59ecb] hover:bg-[#1a1a2e] hover:text-white"
                 onClick={nextSlide}
                 data-testid="button-next-slide"
               >
@@ -146,12 +145,12 @@ export function EnterpriseSection() {
               onClick={() => setActiveIndex(index)}
               className={`p-4 rounded-xl transition-all text-left ${
                 index === activeIndex 
-                  ? 'bg-card border border-border' 
-                  : 'hover:bg-muted/50'
+                  ? 'bg-[#0a0a1a] border border-[#6b4cff]/50' 
+                  : 'hover:bg-[#0a0a1a]/50 border border-transparent'
               }`}
               data-testid={`button-enterprise-${enterprise.id}`}
             >
-              <div className="font-semibold text-sm">{enterprise.name}</div>
+              <div className="font-semibold text-sm text-white">{enterprise.name}</div>
             </button>
           ))}
         </div>

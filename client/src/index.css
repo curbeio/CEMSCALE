@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global dark theme for Growsphere-style design */
+html, body {
+  background-color: #030014;
+  color: #d2d0df;
+}
+
 /* Fluid Typography - Auto-adjusts based on viewport */
 html {
   font-size: clamp(14px, 1vw + 10px, 16px);

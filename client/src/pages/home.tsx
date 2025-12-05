@@ -13,7 +13,7 @@ import { Footer } from "@/components/stripe/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background w-full overflow-x-hidden">
+    <div className="min-h-screen bg-[#030014] w-full overflow-x-hidden">
       <Header />
       <main className="w-full">
         <HeroSection />
