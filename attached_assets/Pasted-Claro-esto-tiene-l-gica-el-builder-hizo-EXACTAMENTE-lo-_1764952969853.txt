@@ -1,0 +1,89 @@
+Claro, esto tiene lógica: el builder hizo EXACTAMENTE lo que le pedimos: un **dashboard** bonito.
+Si no quieres dashboard en el hero, hay que decirle al sistema **“cero pantallas, cero gráficos, cero UI”**.
+
+Vamos a rehacer el concepto SIN interfaz, solo algo ultra moderno y futurista.
+
+---
+
+## 1. Nuevo concepto de hero (sin dashboard)
+
+Piensa en esto:
+
+* **Izquierda:** solo texto + CTAs (igual que ahora).
+* **Derecha:**
+  Una **forma 3D / orbe de vidrio** con ondas y líneas conectando iconos de canales (teléfono, burbuja de chat, WhatsApp, SMS, iMessage).
+  Es decir: una “mente” o “núcleo” de comunicaciones, NO una app.
+
+Estilo de la parte derecha:
+
+* Gran esfera de vidrio / núcleo de energía con luz interna.
+* Alrededor, orbitando: pequeños chips circulares con iconos (📞, 💬, WhatsApp, SMS, iMessage).
+* Líneas finas que conectan los chips entre sí y con el núcleo.
+* Degradado oscuro elegante, luz tipo neón suave (no rave).
+
+Nada de tarjetas cuadradas, nada de ventanas tipo Mac, nada de listas.
+
+---
+
+## 2. Prompt nuevo para Replit / Lovable (sin dashboard)
+
+Pega esto tal cual y luego cambias el texto que quieras.
+Clave: fíjate en las frases en mayúsculas que lo prohíben.
+
+> Diseña una sección HERO full-screen ultra moderna y futurista para la landing de un SaaS llamado **“Curbe Command Center”**.
+>
+> **REGLA IMPORTANTE:**
+> NO MUUESTRES NINGÚN DASHBOARD, NINGUNA INTERFAZ, NINGUNA PANTALLA DE APP.
+> Nada de ventanas, tablas, gráficos, listas ni mockups de producto.
+> El hero debe ser puramente tipografía + ilustración abstracta futurista.
+>
+> **Estilo visual general:**
+> – Fondo oscuro degradado de azul profundo a púrpura, con blobs suaves y un ligero grain.
+> – Estética futurista limpia, con detalles de luz neón en verde y cian.
+> – Look de “núcleo de energía” o “cerebro de comunicaciones”, NO de UI.
+>
+> **Layout:**
+> – Sección ocupa el alto completo de la ventana (100vh) con contenido centrado en un contenedor max-width ~1200px.
+> – Dos columnas en desktop:
+> • Izquierda: texto y CTAs.
+> • Derecha: ilustración abstracta.
+> – En mobile, las columnas se apilan: primero texto, luego ilustración.
+>
+> **Columna izquierda (texto):**
+> – Pequeño badge estilo pastilla de vidrio:
+> “⚡ Command center para seguros”
+> – Título grande en dos líneas:
+> Línea 1 (blanco): “Your entire call center”
+> Línea 2 (degradado azul → verde): “in one signal.”
+> – Subtítulo gris claro de 2–3 líneas:
+> “Centralize CRM, calls, SMS, WhatsApp & iMessage in real time. Fewer open tabs, more closed deals, focused agents.”
+> – Dos CTAs:
+> • Botón primario sólido con ligero glow: “Try Live Panel”
+> • Botón secundario ghost: “3-min Tour”
+> – Debajo, fila de 3 métricas (número grande + label pequeña):
+> • “+120K” / “Calls / month”
+> • “35%” / “More closes in 60 days”
+> • “–48%” / “Agent idle time”
+>
+> **Columna derecha (ilustración SIN UI):**
+> – Un gran **orbe de vidrio** o “núcleo” en el centro, con luz interna y varias capas semitransparentes.
+> – Desde el orbe salen **ondas circulares** suaves, como un radar o señal expansiva.
+> – Orbitando alrededor del orbe, coloca chips o iconos redondos pequeños (estilo glassmorphism) con símbolos de canales:
+> • Icono de teléfono 📞
+> • Burbuja de chat 💬
+> • Logo genérico de WhatsApp
+> • Ícono de SMS
+> • Ícono de iMessage
+> – Conecta estos chips con líneas finas luminosas hacia el núcleo, para dar sensación de red viva en tiempo real.
+> – Añade puntos de luz flotando y ligeras sombras para que se vea 3D y profundo.
+> – NO uses rectángulos que parezcan ventanas de app, tablas, gráficos ni tarjetas de dashboard. Solo formas abstractas, círculos, ondas y chips redondos.
+>
+> **Detalles adicionales:**
+> – Tipografías modernas y legibles, jerarquía clara: título > CTAs > métricas.
+> – Hover states en los botones y en los chips de iconos (por ejemplo, pequeño glow adicional).
+> – El resultado debe verse como una portada de producto SaaS futurista, pero sin enseñar todavía la interfaz del software.
+
+---
+
+Traducción brutal: el problema no es que Replit sea malo, es que el brief anterior pedía, literalmente, un dashboard.
+Con este, lo obligas a construir **una metáfora visual de tu producto** sin mostrar la app. Eso ya se siente mucho más “marca grande” y menos “pantallazo del panel que todavía estás cambiando cada semana”.
