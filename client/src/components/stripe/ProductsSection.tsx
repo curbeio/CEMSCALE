@@ -37,7 +37,7 @@ const productCategories = [
   },
   { 
     id: "crm",
-    name: "CRM", 
+    name: "Engagement", 
     icon: Users,
     description: "Manage all your customer relationships. Complete history, interaction tracking and visual sales pipeline.",
     products: [
@@ -74,7 +74,7 @@ export function ProductsSection() {
             A complete suite for your business
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Telephony, Marketing, CRM and Leads integrated in a unified platform to scale your company.
+            Telephony, Marketing, Engagement and Leads integrated in a unified platform to scale your company.
           </p>
         </div>
 

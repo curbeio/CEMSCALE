@@ -24,7 +24,7 @@ export function CTASection() {
         </h2>
         <p className="text-lg text-[#a59ecb] max-w-2xl mx-auto mb-8">
           Access millions of verified B2B contacts and start selling more. 
-          Telephony, Marketing, CRM and Leads in one platform.
+          Telephony, Marketing, Engagement and Leads in one platform.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

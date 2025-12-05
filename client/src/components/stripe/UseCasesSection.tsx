@@ -13,7 +13,7 @@ const useCases = [
   {
     id: "lead-capture",
     title: "Lead Capture",
-    description: "Capture leads from any source: web, WhatsApp, calls, social media. Everything unified in your CRM automatically.",
+    description: "Capture leads from any source: web, WhatsApp, calls, social media. Everything unified in your platform automatically.",
     icon: Target,
     color: "from-[#7cffd4] to-[#6b4cff]",
     logos: ["Multi-channel", "Auto-sync", "Scoring"],

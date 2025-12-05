@@ -112,7 +112,7 @@ export function DashboardPreview() {
               </div>
             </div>
             <div className="text-sm text-muted-foreground">
-              CRM Dashboard
+              Engagement Dashboard
             </div>
           </div>
         </div>

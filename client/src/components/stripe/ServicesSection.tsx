@@ -10,7 +10,7 @@ const services = [
     id: "telephony",
     name: "Telephony",
     tagline: "Communication without limits.",
-    description: "Cloud telephony system integrated with your CRM. Call recording, intelligent IVR and real-time analytics.",
+    description: "Cloud telephony system integrated with your platform. Call recording, intelligent IVR and real-time analytics.",
     image: dashboardFlyer,
     color: "#a78bfa",
   },
@@ -24,7 +24,7 @@ const services = [
   },
   {
     id: "crm",
-    name: "CRM",
+    name: "Engagement",
     tagline: "Every customer, under control.",
     description: "Manage relationships, interaction history and visual sales pipeline. Everything in one place.",
     image: offlineFlyer,
@@ -92,7 +92,7 @@ export function ServicesSection() {
             <span className="block bg-gradient-to-r from-[#6b4cff] to-[#a78bfa] bg-clip-text text-transparent"> sell more</span>
           </h2>
           <p className="text-lg text-[#a59ecb] max-w-3xl mx-auto">
-            Telephony, Marketing, CRM and Leads integrated to transform how you manage and convert opportunities.
+            Telephony, Marketing, Engagement and Leads integrated to transform how you manage and convert opportunities.
           </p>
         </motion.div>
 

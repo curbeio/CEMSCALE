@@ -366,8 +366,8 @@ export function HeroSection() {
               style={{ animationDelay: '0.1s' }}
               data-testid="text-hero-subheadline"
             >
-              To empower businesses of all sizes with an intuitive, all-in-one CRM
-              platform that drives growth and enhances customer relationships.
+              To empower businesses of all sizes with an intuitive, all-in-one 
+              Customer Engagement Management platform that drives growth and enhances relationships.
             </p>
             
             {/* Email Signup Form */}
