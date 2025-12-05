@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
@@ -282,26 +282,8 @@ function QuickStatPanel({ label, value, icon: Icon, color, delay }: {
 }
 
 export function HeroSection() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const heroRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (heroRef.current) {
-        const rect = heroRef.current.getBoundingClientRect();
-        setMousePosition({
-          x: (e.clientX - rect.left - rect.width / 2) / 100,
-          y: (e.clientY - rect.top - rect.height / 2) / 100,
-        });
-      }
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
   return (
     <section 
-      ref={heroRef}
       className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 dark:from-background dark:via-background dark:to-background"
     >
       {/* Gradient orbs */}
@@ -400,13 +382,7 @@ export function HeroSection() {
           </div>
           
           {/* Right column - Floating panels */}
-          <div 
-            className="order-1 lg:order-2 relative h-[500px] lg:h-[600px]"
-            style={{ 
-              transform: `perspective(1000px) rotateY(${mousePosition.x * 2}deg) rotateX(${-mousePosition.y * 2}deg)`,
-              transition: 'transform 0.3s ease-out'
-            }}
-          >
+          <div className="order-1 lg:order-2 relative h-[500px] lg:h-[600px]">
             {/* Main dashboard panel */}
             <div className="absolute top-0 left-0 lg:left-8 z-30">
               <DashboardPreviewPanel />
