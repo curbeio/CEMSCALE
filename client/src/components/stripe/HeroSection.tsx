@@ -374,7 +374,7 @@ export function HeroSection() {
             </div>
             
             {/* Activity panel */}
-            <div className="absolute top-24 right-0 z-20">
+            <div className="absolute top-24 -right-20 z-20">
               <ActivityPanel />
             </div>
             
