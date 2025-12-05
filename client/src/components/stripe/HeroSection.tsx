@@ -35,15 +35,7 @@ export function HeroSection() {
       
       {/* Planet horizon arc - in front of content */}
       <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
-        {/* Subtle glow above the arc */}
-        <div 
-          className="absolute bottom-[60px] left-0 right-0 h-[80px]"
-          style={{
-            background: 'linear-gradient(to top, rgba(255,255,255,0.06) 0%, transparent 100%)',
-          }}
-        />
-        
-        {/* Very thin arc line */}
+        {/* Very thin arc line with minimal glow */}
         <svg
           className="absolute bottom-0 left-0 w-full"
           height="120"
@@ -52,14 +44,14 @@ export function HeroSection() {
         >
           <defs>
             <filter id="softGlow" x="-10%" y="-100%" width="120%" height="300%">
-              <feGaussianBlur stdDeviation="0.15" />
+              <feGaussianBlur stdDeviation="0.2" />
             </filter>
           </defs>
           <path
             d="M0 9.9 Q50 -3 100 9.9"
             fill="none"
-            stroke="rgba(255,255,255,0.7)"
-            strokeWidth="0.15"
+            stroke="rgba(255,255,255,0.6)"
+            strokeWidth="0.12"
             filter="url(#softGlow)"
           />
         </svg>
