@@ -351,31 +351,13 @@ export function HeroSection() {
             
             {/* Main headline */}
             <h1 
-              className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[1.1] mb-8 animate-fade-up"
+              className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.1] mb-8 animate-fade-up"
               data-testid="text-hero-headline"
             >
-              <span className="text-white">One platform.</span>
+              <span className="text-white">We Bring </span>
+              <span className="bg-gradient-to-r from-[#8b5cf6] via-[#c4b5fd] to-[#8b5cf6] bg-clip-text text-transparent">Clarity</span>
               <br />
-              <span className="inline-flex items-center align-middle">
-                <svg viewBox="0 0 100 50" className="w-20 h-10 sm:w-28 sm:h-14 lg:w-36 lg:h-18 xl:w-44 xl:h-22" fill="none">
-                  <defs>
-                    <linearGradient id="infinityGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#8b5cf6" />
-                      <stop offset="50%" stopColor="#c4b5fd" />
-                      <stop offset="100%" stopColor="#8b5cf6" />
-                    </linearGradient>
-                  </defs>
-                  <path 
-                    d="M50 25 C50 25, 35 8, 22 8 C9 8, 2 17, 2 25 C2 33, 9 42, 22 42 C35 42, 50 25, 50 25 C50 25, 65 8, 78 8 C91 8, 98 17, 98 25 C98 33, 91 42, 78 42 C65 42, 50 25, 50 25" 
-                    stroke="url(#infinityGradient)" 
-                    strokeWidth="5" 
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    fill="none"
-                  />
-                </svg>
-              </span>
-              <span className="text-white"> growth.</span>
+              <span className="text-white">to Scattered Data</span>
             </h1>
             
             {/* Subtitle */}
