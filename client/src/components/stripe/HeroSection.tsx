@@ -90,8 +90,7 @@ export function HeroSection() {
             >
               <span className="text-white">One platform.</span>
               <br />
-              <span className="text-white">Infinite </span>
-              <span className="inline-flex items-center mx-3 align-middle">
+              <span className="inline-flex items-center align-middle">
                 <svg viewBox="0 0 100 50" className="w-20 h-10 sm:w-28 sm:h-14 lg:w-36 lg:h-18 xl:w-44 xl:h-22" fill="none">
                   <defs>
                     <linearGradient id="infinityGradient" x1="0%" y1="0%" x2="100%" y2="0%">
