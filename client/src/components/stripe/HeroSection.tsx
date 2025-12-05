@@ -33,59 +33,111 @@ export function HeroSection() {
         
       </div>
       
-      {/* Bottom effect - inverted spotlight + branching connectors */}
+      {/* Bottom effect - tech horizon with layered ribbons */}
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
         
-        {/* Inverted purple spotlight at bottom */}
+        {/* Inverted purple spotlight at bottom - softer */}
         <div 
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1200px] h-[500px]"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1400px] h-[400px]"
           style={{
-            background: 'radial-gradient(ellipse at center bottom, rgba(100, 60, 255, 0.18) 0%, transparent 60%)',
+            background: 'radial-gradient(ellipse at center bottom, rgba(100, 60, 255, 0.15) 0%, transparent 70%)',
           }}
         />
         
-        {/* Central beam going down */}
-        <div 
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[2px] h-[180px] opacity-50"
-          style={{
-            background: 'linear-gradient(to bottom, transparent, rgba(140, 100, 255, 0.7))',
-          }}
-        />
-        
-        {/* Branching connector lines - Y shape */}
+        {/* Tech horizon - multiple layered lines with circuit nodes */}
         <svg
           className="absolute bottom-0 left-0 w-full"
-          height="200"
-          viewBox="0 0 100 20"
+          height="160"
+          viewBox="0 0 100 16"
           preserveAspectRatio="none"
         >
           <defs>
-            <filter id="lineGlow" x="-20%" y="-50%" width="140%" height="200%">
-              <feGaussianBlur stdDeviation="0.3" />
+            <filter id="softLine" x="-10%" y="-50%" width="120%" height="200%">
+              <feGaussianBlur stdDeviation="0.15" />
             </filter>
-            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="rgba(140, 100, 255, 0.3)" />
-              <stop offset="100%" stopColor="rgba(140, 100, 255, 0.7)" />
+            <linearGradient id="horizonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="rgba(140, 100, 255, 0)" />
+              <stop offset="20%" stopColor="rgba(140, 100, 255, 0.4)" />
+              <stop offset="50%" stopColor="rgba(140, 100, 255, 0.6)" />
+              <stop offset="80%" stopColor="rgba(140, 100, 255, 0.4)" />
+              <stop offset="100%" stopColor="rgba(140, 100, 255, 0)" />
             </linearGradient>
           </defs>
           
-          {/* Left branch - from center to left corner */}
+          {/* Main horizontal tech line */}
           <path
-            d="M50 5 C40 12, 20 16, 0 20"
+            d="M0 14 L100 14"
             fill="none"
-            stroke="url(#lineGradient)"
-            strokeWidth="0.15"
-            filter="url(#lineGlow)"
+            stroke="url(#horizonGrad)"
+            strokeWidth="0.08"
+            filter="url(#softLine)"
           />
           
-          {/* Right branch - from center to right corner */}
+          {/* Secondary line - slightly above */}
           <path
-            d="M50 5 C60 12, 80 16, 100 20"
+            d="M10 12 L90 12"
             fill="none"
-            stroke="url(#lineGradient)"
-            strokeWidth="0.15"
-            filter="url(#lineGlow)"
+            stroke="rgba(140, 100, 255, 0.25)"
+            strokeWidth="0.06"
+            filter="url(#softLine)"
           />
+          
+          {/* Tertiary line - even higher */}
+          <path
+            d="M20 10 L80 10"
+            fill="none"
+            stroke="rgba(140, 100, 255, 0.15)"
+            strokeWidth="0.04"
+            filter="url(#softLine)"
+          />
+          
+          {/* Central vertical connector from beam */}
+          <path
+            d="M50 0 L50 14"
+            fill="none"
+            stroke="rgba(140, 100, 255, 0.3)"
+            strokeWidth="0.08"
+            filter="url(#softLine)"
+          />
+          
+          {/* Left diagonal connectors */}
+          <path
+            d="M50 14 L30 12"
+            fill="none"
+            stroke="rgba(140, 100, 255, 0.2)"
+            strokeWidth="0.05"
+            filter="url(#softLine)"
+          />
+          <path
+            d="M30 12 L15 10"
+            fill="none"
+            stroke="rgba(140, 100, 255, 0.15)"
+            strokeWidth="0.04"
+            filter="url(#softLine)"
+          />
+          
+          {/* Right diagonal connectors */}
+          <path
+            d="M50 14 L70 12"
+            fill="none"
+            stroke="rgba(140, 100, 255, 0.2)"
+            strokeWidth="0.05"
+            filter="url(#softLine)"
+          />
+          <path
+            d="M70 12 L85 10"
+            fill="none"
+            stroke="rgba(140, 100, 255, 0.15)"
+            strokeWidth="0.04"
+            filter="url(#softLine)"
+          />
+          
+          {/* Circuit nodes - small glowing dots */}
+          <circle cx="50" cy="14" r="0.3" fill="rgba(140, 100, 255, 0.8)" filter="url(#softLine)" />
+          <circle cx="30" cy="12" r="0.2" fill="rgba(140, 100, 255, 0.5)" filter="url(#softLine)" />
+          <circle cx="70" cy="12" r="0.2" fill="rgba(140, 100, 255, 0.5)" filter="url(#softLine)" />
+          <circle cx="15" cy="10" r="0.15" fill="rgba(140, 100, 255, 0.3)" filter="url(#softLine)" />
+          <circle cx="85" cy="10" r="0.15" fill="rgba(140, 100, 255, 0.3)" filter="url(#softLine)" />
         </svg>
       </div>
       
