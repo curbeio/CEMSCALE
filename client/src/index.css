@@ -788,6 +788,31 @@ html {
   }
 }
 
+/* Floating panel animation */
+@keyframes floatPanel {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Holographic scan line effect */
+@keyframes scanLine {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
 /* Slow floating animation for center metrics */
 @keyframes float-slow {
   0%, 100% {
