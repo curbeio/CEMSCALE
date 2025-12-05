@@ -426,25 +426,45 @@ function NotificationPanel() {
   );
 }
 
-function QuickStatPanel({ label, value, icon: Icon, color, delay, floatDelay }: { 
+function LiveQuickStatPanel({ label, baseValue, icon: Icon, color, delay, floatDelay, interval = 4000 }: { 
   label: string; 
-  value: string; 
+  baseValue: number; 
   icon: React.ElementType;
   color: string;
   delay: number;
   floatDelay: number;
+  interval?: number;
 }) {
+  const [value, setValue] = useState(baseValue);
+  const [flash, setFlash] = useState(false);
+  
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setValue(v => v + Math.floor(Math.random() * 3) + 1);
+      setFlash(true);
+      setTimeout(() => setFlash(false), 300);
+    }, interval);
+    return () => clearInterval(timer);
+  }, [interval]);
+
+  const formatValue = (v: number) => {
+    if (v >= 1000) return `${(v / 1000).toFixed(1)}K`;
+    return v.toString();
+  };
+
   return (
     <FloatingPanel delay={delay} floatDuration={12} floatDelay={floatDelay} className="w-36">
       <div className="p-3 flex items-center gap-3">
         <div 
-          className="w-10 h-10 rounded-xl flex items-center justify-center"
+          className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${flash ? 'scale-110' : ''}`}
           style={{ backgroundColor: `${color}20` }}
         >
           <Icon className="w-5 h-5" style={{ color }} />
         </div>
         <div>
-          <p className="text-lg font-bold text-foreground">{value}</p>
+          <p className={`text-lg font-bold text-foreground transition-all duration-300 ${flash ? 'text-[#7CFD98]' : ''}`}>
+            {formatValue(value)}
+          </p>
           <p className="text-xs text-muted-foreground">{label}</p>
         </div>
       </div>
@@ -666,23 +686,25 @@ export function HeroSection() {
             
             {/* Quick stat panels */}
             <div className="absolute bottom-0 right-4 z-10 hidden lg:block">
-              <QuickStatPanel 
+              <LiveQuickStatPanel 
                 label="Calls" 
-                value="247" 
+                baseValue={247} 
                 icon={Phone} 
                 color="#7E4EF2" 
                 delay={0.9}
                 floatDelay={3}
+                interval={3000}
               />
             </div>
             <div className="absolute top-0 right-0 z-10 hidden lg:block">
-              <QuickStatPanel 
+              <LiveQuickStatPanel 
                 label="Emails" 
-                value="1.2K" 
+                baseValue={1247} 
                 icon={Mail} 
                 color="#6B8CFF" 
                 delay={1.1}
                 floatDelay={5}
+                interval={2500}
               />
             </div>
           </div>
