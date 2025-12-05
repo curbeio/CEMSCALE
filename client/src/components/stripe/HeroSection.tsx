@@ -51,29 +51,215 @@ function MiniChart({ data, color }: { data: number[]; color: string }) {
   );
 }
 
+const activityPool = [
+  // Leads - New acquisitions
+  { type: 'lead', text: 'New lead from LinkedIn', icon: Users },
+  { type: 'lead', text: 'Lead captured via website', icon: Users },
+  { type: 'lead', text: 'New signup from Google Ads', icon: Users },
+  { type: 'lead', text: 'Lead imported from CSV', icon: Users },
+  { type: 'lead', text: 'Referral lead received', icon: Users },
+  { type: 'lead', text: 'Lead from Facebook Ads', icon: Users },
+  { type: 'lead', text: 'Webinar registration', icon: Users },
+  { type: 'lead', text: 'Demo request submitted', icon: Users },
+  { type: 'lead', text: 'Contact form submission', icon: Users },
+  { type: 'lead', text: 'Lead from trade show', icon: Users },
+  { type: 'lead', text: 'Inbound lead qualified', icon: Users },
+  { type: 'lead', text: 'New enterprise inquiry', icon: Users },
+  { type: 'lead', text: 'Lead from partner referral', icon: Users },
+  { type: 'lead', text: 'Free trial started', icon: Users },
+  { type: 'lead', text: 'Lead score updated: 92', icon: Users },
+  { type: 'lead', text: 'High-intent lead detected', icon: Users },
+  { type: 'lead', text: 'Lead from Instagram', icon: Users },
+  { type: 'lead', text: 'Newsletter subscriber', icon: Users },
+  { type: 'lead', text: 'Pricing page visitor', icon: Users },
+  { type: 'lead', text: 'Lead enriched with data', icon: Users },
+  
+  // Email activities
+  { type: 'email', text: 'Campaign sent to 2.4K', icon: Mail },
+  { type: 'email', text: 'Email opened by Sarah M.', icon: Mail },
+  { type: 'email', text: 'Link clicked in email', icon: Mail },
+  { type: 'email', text: 'Email reply received', icon: Mail },
+  { type: 'email', text: 'Sequence completed', icon: Mail },
+  { type: 'email', text: 'Email bounced - updated', icon: Mail },
+  { type: 'email', text: 'Newsletter sent: 15K', icon: Mail },
+  { type: 'email', text: 'A/B test winner selected', icon: Mail },
+  { type: 'email', text: 'Follow-up scheduled', icon: Mail },
+  { type: 'email', text: 'Email forwarded', icon: Mail },
+  { type: 'email', text: 'Template saved', icon: Mail },
+  { type: 'email', text: 'Drip campaign started', icon: Mail },
+  { type: 'email', text: 'Unsubscribe processed', icon: Mail },
+  { type: 'email', text: 'Email delivered: 98.5%', icon: Mail },
+  { type: 'email', text: 'Personalization added', icon: Mail },
+  { type: 'email', text: 'Email queued for send', icon: Mail },
+  { type: 'email', text: 'Auto-reply detected', icon: Mail },
+  { type: 'email', text: 'Meeting request sent', icon: Mail },
+  { type: 'email', text: 'Proposal email opened', icon: Mail },
+  { type: 'email', text: 'Cold outreach replied', icon: Mail },
+  
+  // Phone/Call activities
+  { type: 'call', text: 'Outbound call - 4:32', icon: Phone },
+  { type: 'call', text: 'Inbound call received', icon: Phone },
+  { type: 'call', text: 'Voicemail left', icon: Phone },
+  { type: 'call', text: 'Call scheduled', icon: Phone },
+  { type: 'call', text: 'Discovery call done', icon: Phone },
+  { type: 'call', text: 'Demo call completed', icon: Phone },
+  { type: 'call', text: 'Follow-up call made', icon: Phone },
+  { type: 'call', text: 'Call transferred', icon: Phone },
+  { type: 'call', text: 'Conference call started', icon: Phone },
+  { type: 'call', text: 'Call recording saved', icon: Phone },
+  { type: 'call', text: 'Callback requested', icon: Phone },
+  { type: 'call', text: 'Call notes added', icon: Phone },
+  { type: 'call', text: 'Sales call - 12:45', icon: Phone },
+  { type: 'call', text: 'Support call resolved', icon: Phone },
+  { type: 'call', text: 'Call outcome: Interested', icon: Phone },
+  { type: 'call', text: 'International call made', icon: Phone },
+  { type: 'call', text: 'Call transcript ready', icon: Phone },
+  { type: 'call', text: 'Missed call logged', icon: Phone },
+  { type: 'call', text: 'Call sentiment: Positive', icon: Phone },
+  { type: 'call', text: 'Next steps scheduled', icon: Phone },
+  
+  // Deals/Sales
+  { type: 'deal', text: 'Deal closed - $12,500', icon: CheckCircle2 },
+  { type: 'deal', text: 'New deal created', icon: CheckCircle2 },
+  { type: 'deal', text: 'Deal moved to negotiation', icon: CheckCircle2 },
+  { type: 'deal', text: 'Proposal sent - $45K', icon: CheckCircle2 },
+  { type: 'deal', text: 'Contract signed', icon: CheckCircle2 },
+  { type: 'deal', text: 'Deal won - $28,000', icon: CheckCircle2 },
+  { type: 'deal', text: 'Upsell opportunity', icon: CheckCircle2 },
+  { type: 'deal', text: 'Renewal processed', icon: CheckCircle2 },
+  { type: 'deal', text: 'Quote approved', icon: CheckCircle2 },
+  { type: 'deal', text: 'Deal stage updated', icon: CheckCircle2 },
+  { type: 'deal', text: 'Revenue forecasted', icon: CheckCircle2 },
+  { type: 'deal', text: 'Deal value increased', icon: CheckCircle2 },
+  { type: 'deal', text: 'Commission calculated', icon: CheckCircle2 },
+  { type: 'deal', text: 'Invoice generated', icon: CheckCircle2 },
+  { type: 'deal', text: 'Payment received', icon: CheckCircle2 },
+  { type: 'deal', text: 'Enterprise deal closed', icon: CheckCircle2 },
+  { type: 'deal', text: 'Multi-year contract', icon: CheckCircle2 },
+  { type: 'deal', text: 'Deal assigned to rep', icon: CheckCircle2 },
+  { type: 'deal', text: 'Discount approved', icon: CheckCircle2 },
+  { type: 'deal', text: 'Cross-sell completed', icon: CheckCircle2 },
+  
+  // CRM/Data activities
+  { type: 'data', text: 'Contact updated', icon: Users },
+  { type: 'data', text: 'Company merged', icon: Users },
+  { type: 'data', text: 'Data enriched', icon: Users },
+  { type: 'data', text: 'Duplicate removed', icon: Users },
+  { type: 'data', text: 'Tag added: Enterprise', icon: Users },
+  { type: 'data', text: 'Segment updated', icon: Users },
+  { type: 'data', text: 'List imported: 500', icon: Users },
+  { type: 'data', text: 'Contact verified', icon: Users },
+  { type: 'data', text: 'Industry classified', icon: Users },
+  { type: 'data', text: 'Revenue data added', icon: Users },
+  { type: 'data', text: 'Social profile linked', icon: Users },
+  { type: 'data', text: 'Location geocoded', icon: Users },
+  { type: 'data', text: 'Timezone detected', icon: Users },
+  { type: 'data', text: 'Job title updated', icon: Users },
+  { type: 'data', text: 'Company size verified', icon: Users },
+  { type: 'data', text: 'Tech stack identified', icon: Users },
+  { type: 'data', text: 'Intent signal detected', icon: Users },
+  { type: 'data', text: 'Buying stage updated', icon: Users },
+  { type: 'data', text: 'Account scored: A+', icon: Users },
+  { type: 'data', text: 'Custom field added', icon: Users },
+  
+  // Marketing activities
+  { type: 'marketing', text: 'Campaign launched', icon: Mail },
+  { type: 'marketing', text: 'Ad clicked: 342', icon: Mail },
+  { type: 'marketing', text: 'Landing page visit', icon: Mail },
+  { type: 'marketing', text: 'Form submitted', icon: Mail },
+  { type: 'marketing', text: 'Retargeting pixel fired', icon: Mail },
+  { type: 'marketing', text: 'UTM tracked', icon: Mail },
+  { type: 'marketing', text: 'Content downloaded', icon: Mail },
+  { type: 'marketing', text: 'Video watched: 85%', icon: Mail },
+  { type: 'marketing', text: 'Event registered', icon: Mail },
+  { type: 'marketing', text: 'Social share tracked', icon: Mail },
+  { type: 'marketing', text: 'Blog post viewed', icon: Mail },
+  { type: 'marketing', text: 'Case study read', icon: Mail },
+  { type: 'marketing', text: 'ROI calculated', icon: Mail },
+  { type: 'marketing', text: 'Attribution updated', icon: Mail },
+  { type: 'marketing', text: 'Conversion tracked', icon: Mail },
+  { type: 'marketing', text: 'Lead source: Organic', icon: Mail },
+  { type: 'marketing', text: 'Campaign ROI: 340%', icon: Mail },
+  { type: 'marketing', text: 'MQL created', icon: Mail },
+  { type: 'marketing', text: 'SQL qualified', icon: Mail },
+  { type: 'marketing', text: 'Nurture started', icon: Mail },
+  
+  // Automation/Workflow
+  { type: 'auto', text: 'Workflow triggered', icon: Activity },
+  { type: 'auto', text: 'Task auto-created', icon: Activity },
+  { type: 'auto', text: 'Alert sent to team', icon: Activity },
+  { type: 'auto', text: 'Lead auto-assigned', icon: Activity },
+  { type: 'auto', text: 'SLA timer started', icon: Activity },
+  { type: 'auto', text: 'Reminder scheduled', icon: Activity },
+  { type: 'auto', text: 'Status auto-updated', icon: Activity },
+  { type: 'auto', text: 'Notification sent', icon: Activity },
+  { type: 'auto', text: 'Integration synced', icon: Activity },
+  { type: 'auto', text: 'Webhook fired', icon: Activity },
+  { type: 'auto', text: 'API call successful', icon: Activity },
+  { type: 'auto', text: 'Zapier triggered', icon: Activity },
+  { type: 'auto', text: 'Slack notification', icon: Activity },
+  { type: 'auto', text: 'Calendar event added', icon: Activity },
+  { type: 'auto', text: 'Follow-up queued', icon: Activity },
+  { type: 'auto', text: 'Score recalculated', icon: Activity },
+  { type: 'auto', text: 'Territory assigned', icon: Activity },
+  { type: 'auto', text: 'Round-robin applied', icon: Activity },
+  { type: 'auto', text: 'Escalation triggered', icon: Activity },
+  { type: 'auto', text: 'Report generated', icon: Activity },
+  
+  // Team/User activities
+  { type: 'team', text: 'Note added by Mike', icon: Users },
+  { type: 'team', text: 'Task completed', icon: Users },
+  { type: 'team', text: 'Meeting scheduled', icon: Users },
+  { type: 'team', text: 'Comment added', icon: Users },
+  { type: 'team', text: 'File attached', icon: Users },
+  { type: 'team', text: 'Deal reassigned', icon: Users },
+  { type: 'team', text: 'Collaboration invite', icon: Users },
+  { type: 'team', text: 'Approval requested', icon: Users },
+  { type: 'team', text: 'Feedback received', icon: Users },
+  { type: 'team', text: '@mention received', icon: Users },
+  { type: 'team', text: 'Goal updated', icon: Users },
+  { type: 'team', text: 'Pipeline reviewed', icon: Users },
+  { type: 'team', text: 'Forecast submitted', icon: Users },
+  { type: 'team', text: 'Activity logged', icon: Users },
+  { type: 'team', text: 'Performance alert', icon: Users },
+  { type: 'team', text: 'Quota achieved: 112%', icon: Users },
+  { type: 'team', text: 'Training completed', icon: Users },
+  { type: 'team', text: 'Best practice shared', icon: Users },
+  { type: 'team', text: 'Template created', icon: Users },
+  { type: 'team', text: 'Dashboard viewed', icon: Users },
+  
+  // Analytics/Insights
+  { type: 'insight', text: 'Trend detected', icon: Activity },
+  { type: 'insight', text: 'Anomaly alert', icon: Activity },
+  { type: 'insight', text: 'Prediction updated', icon: Activity },
+  { type: 'insight', text: 'Churn risk: Low', icon: Activity },
+  { type: 'insight', text: 'Growth opportunity', icon: Activity },
+  { type: 'insight', text: 'Win rate: 34%', icon: Activity },
+  { type: 'insight', text: 'Avg deal size: $18K', icon: Activity },
+  { type: 'insight', text: 'Sales velocity up', icon: Activity },
+  { type: 'insight', text: 'Pipeline health: Good', icon: Activity },
+  { type: 'insight', text: 'Engagement score: 87', icon: Activity },
+];
+
 function LiveActivityFeed({ onNewActivity }: { onNewActivity?: () => void }) {
-  const [activities, setActivities] = useState([
-    { id: 1, type: 'lead', text: 'New lead from LinkedIn', time: '2s ago', icon: Users },
-    { id: 2, type: 'email', text: 'Email opened by John D.', time: '15s ago', icon: Mail },
-    { id: 3, type: 'call', text: 'Call completed - 4:32', time: '1m ago', icon: Phone },
-  ]);
+  const [activities, setActivities] = useState(() => {
+    const initial = [];
+    for (let i = 0; i < 3; i++) {
+      const activity = activityPool[Math.floor(Math.random() * activityPool.length)];
+      initial.push({ ...activity, id: i, time: i === 0 ? '2s ago' : i === 1 ? '15s ago' : '1m ago' });
+    }
+    return initial;
+  });
 
   useEffect(() => {
-    const newActivities = [
-      { type: 'lead', text: 'New lead from Google Ads', icon: Users },
-      { type: 'email', text: 'Campaign sent to 2.4K', icon: Mail },
-      { type: 'deal', text: 'Deal closed - $12,500', icon: CheckCircle2 },
-      { type: 'call', text: 'Inbound call received', icon: Phone },
-    ];
-    
     const interval = setInterval(() => {
-      const newActivity = newActivities[Math.floor(Math.random() * newActivities.length)];
+      const newActivity = activityPool[Math.floor(Math.random() * activityPool.length)];
       setActivities(prev => [
         { ...newActivity, id: Date.now(), time: 'now' },
         ...prev.slice(0, 2).map(a => ({ ...a, time: a.time === 'now' ? '2s ago' : a.time === '2s ago' ? '15s ago' : '1m ago' }))
       ]);
       onNewActivity?.();
-    }, 4000);
+    }, 2000);
     
     return () => clearInterval(interval);
   }, [onNewActivity]);
