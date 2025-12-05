@@ -31,32 +31,36 @@ export function HeroSection() {
           }}
         />
         
-        {/* SVG Arc - pronounced arch with outer-only glow */}
+      </div>
+      
+      {/* Planet horizon arc - in front of content */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
+        {/* Subtle glow above the arc */}
+        <div 
+          className="absolute bottom-[60px] left-0 right-0 h-[80px]"
+          style={{
+            background: 'linear-gradient(to top, rgba(255,255,255,0.06) 0%, transparent 100%)',
+          }}
+        />
+        
+        {/* Very thin arc line */}
         <svg
-          className="absolute bottom-0 left-0 w-full pointer-events-none"
-          height="220"
+          className="absolute bottom-0 left-0 w-full"
+          height="120"
           viewBox="0 0 100 10"
           preserveAspectRatio="none"
         >
           <defs>
-            <filter id="arcOuterGlow" x="-20%" y="-500%" width="140%" height="1000%" colorInterpolationFilters="sRGB">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="1.1" result="blur" />
-              <feOffset in="blur" dy="-1.6" result="offset" />
-              <feComposite in="offset" in2="SourceGraphic" operator="out" result="outer" />
-              <feColorMatrix in="outer" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.85 0" />
-              <feMerge>
-                <feMergeNode />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
+            <filter id="softGlow" x="-10%" y="-100%" width="120%" height="300%">
+              <feGaussianBlur stdDeviation="0.15" />
             </filter>
           </defs>
           <path
-            d="M0 9.8 Q50 -5.2 100 9.8"
+            d="M0 9.9 Q50 -3 100 9.9"
             fill="none"
-            stroke="#f1f4ff"
-            strokeWidth="0.38"
-            strokeLinecap="round"
-            filter="url(#arcOuterGlow)"
+            stroke="rgba(255,255,255,0.7)"
+            strokeWidth="0.15"
+            filter="url(#softGlow)"
           />
         </svg>
       </div>
