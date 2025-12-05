@@ -80,24 +80,24 @@ export function HeroSection() {
       </div>
       
       {/* Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 min-h-screen flex items-center justify-center">
         
         {/* Hero Content */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Centered headline section */}
-          <div className="text-center max-w-4xl mx-auto mb-32">
+          <div className="text-center max-w-5xl mx-auto">
             
             {/* Main headline */}
             <h1 
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6 animate-fade-up"
+              className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[1.1] mb-8 animate-fade-up"
               data-testid="text-hero-headline"
             >
               <span className="text-white">One platform.</span>
               <br />
               <span className="text-white">Infinite </span>
-              <span className="inline-flex items-center mx-2 align-middle">
-                <svg viewBox="0 0 100 50" className="w-16 h-8 sm:w-20 sm:h-10 lg:w-24 lg:h-12" fill="none">
+              <span className="inline-flex items-center mx-3 align-middle">
+                <svg viewBox="0 0 100 50" className="w-20 h-10 sm:w-28 sm:h-14 lg:w-36 lg:h-18 xl:w-44 xl:h-22" fill="none">
                   <defs>
                     <linearGradient id="infinityGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                       <stop offset="0%" stopColor="#8b5cf6" />
@@ -120,7 +120,7 @@ export function HeroSection() {
             
             {/* Subtitle */}
             <p 
-              className="text-lg text-[#a59ecb] max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-up"
+              className="text-lg sm:text-xl text-[#a59ecb] max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-up"
               style={{ animationDelay: '0.1s' }}
               data-testid="text-hero-subheadline"
             >
