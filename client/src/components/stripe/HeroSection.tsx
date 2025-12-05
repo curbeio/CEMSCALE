@@ -266,11 +266,106 @@ function QuickStatPanel({ label, value, icon: Icon, color, delay, floatDelay }: 
   );
 }
 
+function AnimatedRings() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Central rings */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute w-[600px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#6B8CFF]/10 animate-ring-pulse" style={{ animationDelay: '0s' }} />
+        <div className="absolute w-[800px] h-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#7E4EF2]/10 animate-ring-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute w-[1000px] h-[1000px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#7CFD98]/5 animate-ring-pulse" style={{ animationDelay: '2s' }} />
+      </div>
+      
+      {/* Orbiting dots */}
+      <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 animate-orbit" style={{ animationDuration: '20s' }}>
+        <div className="absolute top-0 left-1/2 w-2 h-2 bg-[#6B8CFF] rounded-full shadow-lg shadow-[#6B8CFF]/50" />
+      </div>
+      <div className="absolute top-1/2 left-1/2 w-[700px] h-[700px] -translate-x-1/2 -translate-y-1/2 animate-orbit-reverse" style={{ animationDuration: '30s' }}>
+        <div className="absolute top-0 left-1/2 w-3 h-3 bg-[#7E4EF2] rounded-full shadow-lg shadow-[#7E4EF2]/50" />
+      </div>
+      <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] -translate-x-1/2 -translate-y-1/2 animate-orbit" style={{ animationDuration: '15s' }}>
+        <div className="absolute bottom-0 left-1/2 w-2 h-2 bg-[#7CFD98] rounded-full shadow-lg shadow-[#7CFD98]/50" />
+      </div>
+    </div>
+  );
+}
+
+function DataConnections() {
+  return (
+    <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.15 }}>
+      <defs>
+        <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#6B8CFF" stopOpacity="0" />
+          <stop offset="50%" stopColor="#6B8CFF" stopOpacity="1" />
+          <stop offset="100%" stopColor="#7E4EF2" stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id="line-gradient-2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#7CFD98" stopOpacity="0" />
+          <stop offset="50%" stopColor="#7CFD98" stopOpacity="1" />
+          <stop offset="100%" stopColor="#6B8CFF" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      
+      {/* Animated connection lines */}
+      <line x1="10%" y1="20%" x2="40%" y2="35%" stroke="url(#line-gradient)" strokeWidth="1" className="animate-line-flow" />
+      <line x1="60%" y1="15%" x2="85%" y2="40%" stroke="url(#line-gradient)" strokeWidth="1" className="animate-line-flow" style={{ animationDelay: '1s' }} />
+      <line x1="20%" y1="70%" x2="50%" y2="55%" stroke="url(#line-gradient-2)" strokeWidth="1" className="animate-line-flow" style={{ animationDelay: '2s' }} />
+      <line x1="70%" y1="80%" x2="90%" y2="60%" stroke="url(#line-gradient-2)" strokeWidth="1" className="animate-line-flow" style={{ animationDelay: '0.5s' }} />
+      <line x1="5%" y1="50%" x2="30%" y2="45%" stroke="url(#line-gradient)" strokeWidth="1" className="animate-line-flow" style={{ animationDelay: '1.5s' }} />
+      
+      {/* Connection nodes */}
+      <circle cx="40%" cy="35%" r="3" fill="#6B8CFF" className="animate-pulse-node" />
+      <circle cx="85%" cy="40%" r="4" fill="#7E4EF2" className="animate-pulse-node" style={{ animationDelay: '0.5s' }} />
+      <circle cx="50%" cy="55%" r="3" fill="#7CFD98" className="animate-pulse-node" style={{ animationDelay: '1s' }} />
+      <circle cx="30%" cy="45%" r="2" fill="#6B8CFF" className="animate-pulse-node" style={{ animationDelay: '1.5s' }} />
+      <circle cx="70%" cy="25%" r="3" fill="#7E4EF2" className="animate-pulse-node" style={{ animationDelay: '2s' }} />
+    </svg>
+  );
+}
+
+function FloatingParticles() {
+  const particles = [
+    { x: '15%', y: '25%', size: 4, color: '#6B8CFF', delay: 0 },
+    { x: '80%', y: '20%', size: 3, color: '#7E4EF2', delay: 1 },
+    { x: '25%', y: '75%', size: 5, color: '#7CFD98', delay: 2 },
+    { x: '85%', y: '70%', size: 3, color: '#6B8CFF', delay: 0.5 },
+    { x: '50%', y: '85%', size: 4, color: '#7E4EF2', delay: 1.5 },
+    { x: '10%', y: '50%', size: 3, color: '#7CFD98', delay: 2.5 },
+    { x: '92%', y: '45%', size: 4, color: '#6B8CFF', delay: 3 },
+    { x: '35%', y: '15%', size: 3, color: '#7E4EF2', delay: 0.8 },
+  ];
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {particles.map((p, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full animate-float-particle"
+          style={{
+            left: p.x,
+            top: p.y,
+            width: p.size,
+            height: p.size,
+            backgroundColor: p.color,
+            boxShadow: `0 0 ${p.size * 3}px ${p.color}`,
+            animationDelay: `${p.delay}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 export function HeroSection() {
   return (
     <section 
       className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 dark:from-background dark:via-background dark:to-background"
     >
+      {/* Animated background elements */}
+      <AnimatedRings />
+      <DataConnections />
+      <FloatingParticles />
+      
       {/* Gradient orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#6B8CFF]/20 rounded-full blur-3xl animate-aurora-1" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#7E4EF2]/15 rounded-full blur-3xl animate-aurora-2" />

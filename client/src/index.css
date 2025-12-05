@@ -555,6 +555,104 @@ html {
   animation: highlight-pulse 0.6s ease-out;
 }
 
+/* Ring pulse animation */
+@keyframes ring-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.02);
+  }
+}
+
+.animate-ring-pulse {
+  animation: ring-pulse 4s ease-in-out infinite;
+}
+
+/* Orbit animation */
+@keyframes orbit {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes orbit-reverse {
+  0% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+.animate-orbit {
+  animation: orbit 20s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-reverse 30s linear infinite;
+}
+
+/* Line flow animation */
+@keyframes line-flow {
+  0%, 100% {
+    opacity: 0.1;
+    stroke-dashoffset: 100;
+  }
+  50% {
+    opacity: 0.4;
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-line-flow {
+  stroke-dasharray: 100;
+  animation: line-flow 4s ease-in-out infinite;
+}
+
+/* Pulse node animation */
+@keyframes pulse-node {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+.animate-pulse-node {
+  animation: pulse-node 3s ease-in-out infinite;
+}
+
+/* Floating particle animation */
+@keyframes float-particle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-20px) scale(1.2);
+  }
+  75% {
+    opacity: 0.9;
+  }
+}
+
+.animate-float-particle {
+  animation: float-particle 6s ease-in-out infinite;
+}
+
 /* Custom scrollbar for webkit browsers */
 ::-webkit-scrollbar {
   width: 8px;
