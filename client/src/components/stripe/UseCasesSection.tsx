@@ -54,7 +54,7 @@ const useCases = [
 
 export function UseCasesSection() {
   return (
-    <section className="py-16 sm:py-24 lg:py-32 bg-[#0a0a1a]">
+    <section className="py-16 sm:py-24 lg:py-32 bg-[#030014]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-12">
           <Badge className="mb-4 bg-[#6b4cff]/20 text-[#a78bfa] border-[#6b4cff]/30">Capabilities</Badge>
