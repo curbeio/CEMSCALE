@@ -436,13 +436,19 @@ function NotificationPanel() {
   const [isNew, setIsNew] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const newAlert = alertPool[Math.floor(Math.random() * alertPool.length)];
-      setAlert(newAlert);
-      setIsNew(true);
-      setTimeout(() => setIsNew(false), 500);
-    }, 5000);
-    return () => clearInterval(interval);
+    const scheduleNext = () => {
+      const randomDelay = 3000 + Math.random() * 7000;
+      return setTimeout(() => {
+        const newAlert = alertPool[Math.floor(Math.random() * alertPool.length)];
+        setAlert(newAlert);
+        setIsNew(true);
+        setTimeout(() => setIsNew(false), 500);
+        scheduleNext();
+      }, randomDelay);
+    };
+    
+    const timeout = scheduleNext();
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
