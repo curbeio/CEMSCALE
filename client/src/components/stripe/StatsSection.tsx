@@ -37,11 +37,11 @@ export function StatsSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tight mb-4 text-white">
-            The data that drives your growth
+            AI-powered data at scale
           </h2>
           <p className="text-lg text-[#a59ecb] max-w-3xl mx-auto">
-            Access the most complete and updated B2B leads database on the market. 
-            Find your ideal customers with precision.
+            Our AI processes millions of signals to deliver verified, enriched data. 
+            Precision targeting powered by machine learning.
           </p>
         </div>
 

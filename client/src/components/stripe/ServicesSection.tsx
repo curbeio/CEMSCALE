@@ -88,11 +88,11 @@ export function ServicesSection() {
             Our Services
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-white">
-            Everything you need to
-            <span className="block bg-gradient-to-r from-[#6b4cff] to-[#a78bfa] bg-clip-text text-transparent"> sell more</span>
+            AI-powered tools to
+            <span className="block bg-gradient-to-r from-[#6b4cff] to-[#a78bfa] bg-clip-text text-transparent"> sell smarter</span>
           </h2>
           <p className="text-lg text-[#a59ecb] max-w-3xl mx-auto">
-            Telephony, Marketing, Engagement and Leads integrated to transform how you manage and convert opportunities.
+            Artificial Intelligence embedded in every feature. Automate, predict and optimize with AI that learns from your business.
           </p>
         </motion.div>
 

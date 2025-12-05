@@ -61,12 +61,12 @@ export function DataSection() {
             Premium Data
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-white">
-            The most powerful leads
-            <span className="block bg-gradient-to-r from-[#6b4cff] to-[#a78bfa] bg-clip-text text-transparent"> database on the market</span>
+            AI-enriched leads
+            <span className="block bg-gradient-to-r from-[#6b4cff] to-[#a78bfa] bg-clip-text text-transparent"> ready to convert</span>
           </h2>
           <p className="text-lg text-[#a59ecb] max-w-3xl mx-auto">
-            Access millions of verified and updated B2B contacts. 
-            Find your ideal customers with surgical precision.
+            Our AI analyzes millions of data points to find your ideal customers. 
+            Predictive scoring and intelligent segmentation included.
           </p>
         </div>
 

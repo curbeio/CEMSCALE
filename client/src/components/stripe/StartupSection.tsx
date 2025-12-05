@@ -9,10 +9,10 @@ export function StartupSection() {
         <div className="text-center mb-8 sm:mb-12">
           <Badge className="mb-4 bg-[#6b4cff]/20 text-[#a78bfa] border-[#6b4cff]/30">Get Started</Badge>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tight mb-4 text-white">
-            Start scaling with CemScale today
+            Start with AI on your side
           </h2>
           <p className="text-lg text-[#a59ecb] max-w-2xl mx-auto">
-            Build on CemScale to launch faster, adapt as you grow, and automate data workflows to do more with less.
+            Launch faster with AI that automates from day one. Smart workflows that learn and improve as you grow.
           </p>
         </div>
 

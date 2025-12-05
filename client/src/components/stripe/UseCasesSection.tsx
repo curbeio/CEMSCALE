@@ -59,10 +59,10 @@ export function UseCasesSection() {
         <div className="text-center mb-8 sm:mb-12">
           <Badge className="mb-4 bg-[#6b4cff]/20 text-[#a78bfa] border-[#6b4cff]/30">Capabilities</Badge>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tight mb-4 text-white">
-            Everything to scale your business
+            AI capabilities that scale with you
           </h2>
           <p className="text-lg text-[#a59ecb] max-w-2xl mx-auto">
-            Powerful tools designed to capture more leads, sell more and grow faster.
+            Intelligent automation that learns, adapts, and delivers results. Let AI handle the complexity.
           </p>
         </div>
 

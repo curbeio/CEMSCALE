@@ -20,11 +20,11 @@ export function CTASection() {
         </div>
         
         <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tight mb-4 text-white">
-          Ready to get more leads?
+          Let AI work for your business
         </h2>
         <p className="text-lg text-[#a59ecb] max-w-2xl mx-auto mb-8">
-          Access millions of verified B2B contacts and start selling more. 
-          Telephony, Marketing, Engagement and Leads in one platform.
+          AI that predicts, automates and converts. Access millions of verified contacts 
+          and let artificial intelligence do the heavy lifting.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

@@ -360,14 +360,25 @@ export function HeroSection() {
               <span className="text-white">to Scattered Data</span>
             </h1>
             
+            {/* AI Badge */}
+            <div 
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#7cffd4]/10 border border-[#7cffd4]/30 text-[#7cffd4] text-sm font-medium mb-6 animate-fade-up"
+              style={{ animationDelay: '0.05s' }}
+            >
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+              </svg>
+              Powered by Artificial Intelligence
+            </div>
+            
             {/* Subtitle */}
             <p 
               className="text-lg sm:text-xl text-[#a59ecb] max-w-2xl mx-auto mb-12 leading-relaxed animate-fade-up"
               style={{ animationDelay: '0.1s' }}
               data-testid="text-hero-subheadline"
             >
-              To empower businesses of all sizes with an intuitive, all-in-one 
-              Customer Engagement Management platform that drives growth and enhances relationships.
+              The AI-first Customer Engagement platform. Automate conversations, 
+              predict behaviors, and turn every interaction into growth.
             </p>
             
             {/* Email Signup Form */}
