@@ -737,43 +737,44 @@ export function HeroSection() {
           
           {/* Right column - Floating panels */}
           <div className="order-1 lg:order-2 relative h-[500px] lg:h-[600px]">
-            {/* Main dashboard panel */}
-            <div className="absolute top-0 left-4 lg:left-0 z-30">
+            {/* Main dashboard panel - center left */}
+            <div className="absolute top-8 left-0 z-30">
               <DashboardPreviewPanel />
             </div>
             
-            {/* Activity panel */}
-            <div className="absolute top-24 -right-20 z-20">
+            {/* Activity panel - right side, vertically centered */}
+            <div className="absolute top-16 right-0 lg:-right-8 z-20">
               <ActivityPanel />
             </div>
             
-            {/* Notification panel */}
-            <div className="absolute bottom-20 left-0 z-10">
-              <NotificationPanel />
-            </div>
-            
-            {/* Quick stat panels */}
-            <div className="absolute bottom-0 right-4 z-10 hidden lg:block">
-              <LiveQuickStatPanel 
-                label="Calls" 
-                baseValue={247} 
-                icon={Phone} 
-                color="#7E4EF2" 
-                delay={0.9}
-                floatDelay={3}
-                interval={3000}
-              />
-            </div>
-            <div className="absolute top-0 right-0 z-10 hidden lg:block">
-              <LiveQuickStatPanel 
-                label="Emails" 
-                baseValue={1247} 
-                icon={Mail} 
-                color="#6B8CFF" 
-                delay={1.1}
-                floatDelay={5}
-                interval={2500}
-              />
+            {/* Bottom row - notification and stats */}
+            <div className="absolute bottom-8 left-0 right-0 z-10">
+              <div className="flex items-end gap-4 justify-between">
+                {/* Notification panel */}
+                <NotificationPanel />
+                
+                {/* Quick stat panels in a row */}
+                <div className="hidden lg:flex gap-3">
+                  <LiveQuickStatPanel 
+                    label="Calls" 
+                    baseValue={247} 
+                    icon={Phone} 
+                    color="#7E4EF2" 
+                    delay={0.9}
+                    floatDelay={3}
+                    interval={3000}
+                  />
+                  <LiveQuickStatPanel 
+                    label="Emails" 
+                    baseValue={1247} 
+                    icon={Mail} 
+                    color="#6B8CFF" 
+                    delay={1.1}
+                    floatDelay={5}
+                    interval={2500}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
