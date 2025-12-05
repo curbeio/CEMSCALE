@@ -677,6 +677,23 @@ html {
   animation: float-notification 4s ease-in-out infinite;
 }
 
+/* Floating chip animation for hero */
+@keyframes float-chip {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  33% {
+    transform: translateY(-6px) translateX(3px);
+  }
+  66% {
+    transform: translateY(-3px) translateX(-3px);
+  }
+}
+
+.animate-float-chip {
+  animation: float-chip 5s ease-in-out infinite;
+}
+
 /* Slow floating animation for center metrics */
 @keyframes float-slow {
   0%, 100% {

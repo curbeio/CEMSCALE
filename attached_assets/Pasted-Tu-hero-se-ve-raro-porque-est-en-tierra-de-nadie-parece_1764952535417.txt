@@ -1,0 +1,134 @@
+Tu hero se ve raro porque está en tierra de nadie: parece un template bonito de Dribbble, pero no dice nada de ti ni de tu producto. Es genérico “SaaS del espacio con circulitos” y eso mata la sensación de algo único y futurista.
+
+Voy a hacer dos cosas:
+
+Decirte qué está mal a nivel estructura.
+
+Darte un prompt listo para pegar en Replit / Lovable para que te genere algo mucho más moderno.
+
+1. Qué falla en ese hero
+
+Puntilloso:
+
+Demasiado genérico: “See everything. Miss nothing.” sirve para 10.000 productos distintos. No huele a seguros, ni a CRM, ni a nada tuyo.
+
+Ilustración derecha cliché: el círculo con numeritos flotando ya lo he visto mil veces. Se ve bonito pero no transmite nada concreto (¿qué hace la app?, ¿qué gana el agente?).
+
+Peso visual raro: la esfera derecha es muy grande, el texto queda aplastado a la izquierda. Se siente desequilibrado.
+
+Sin historia: no hay una micro-historia de “antes / después” en el hero. Es solo “dashboard sexy”. Eso impresiona 3 segundos y luego se olvida.
+
+Demasiado oscuro y plano: fondo negro, pequeñas estrellitas… futurista barato. Futuro de 2019, no de 2026.
+
+Traducción brutal: estás intentando verte “super moderno” copiando el lenguaje visual de otros, en vez de diseñar un hero que cuente tu película.
+
+2. Concepto nuevo de hero para Curbe (o lo que estés montando)
+
+Te propongo algo concreto para tu marca de CRM/command center de seguros:
+
+Layout:
+
+Hero full-screen (100vh).
+
+Dos columnas:
+
+Izquierda: texto fuerte + CTAs.
+
+Derecha: mockup del dashboard en una tarjeta de vidrio con blur y elementos flotando (notificaciones, llamadas, SMS, WhatsApp, iMessage).
+
+Look & feel:
+
+Fondo degradado oscuro profundo (azul petróleo → púrpura) con blobs suaves, no “estrellitas del espacio”.
+
+Glassmorphism: tarjetas semi-transparentes con blur.
+
+Detalles neón (verde lima / cian) para resaltar.
+
+Micro-animaciones: glow suave, pulso en las notificaciones, ligero parallax.
+
+Copy ejemplo para tu producto:
+
+Título:
+
+Todo tu call center de seguros, en un solo panel.
+
+Subtítulo:
+
+CRM, llamadas, SMS, WhatsApp e iMessage en tiempo real. Menos pestañas, más pólizas cerradas.
+
+CTAs:
+
+Botón primario: Probar panel en vivo
+
+Secundario: Ver recorrido de 3 minutos
+
+Métricas debajo:
+
++120K llamadas manejadas / mes
+
+35% más cierres en 60 días
+
+–48% tiempo muerto por agente
+
+Visual derecha (lo que se ve en la esfera en tu screenshot, pero bien):
+
+Tarjeta grande con mini-dashboard: lista de leads, estado de llamadas, chat, SMS.
+
+Chips flotando alrededor:
+
+“Llamada conectada – Juan Pérez”
+
+“WhatsApp – Cotización enviada”
+
+“Recordatorio de renovación – SMS enviado”
+
+“Agente Ana · Disponible”
+
+Eso ya se siente tu mundo, no un template random.
+
+3. Prompt que puedes pegar en Replit / Lovable
+
+Copia y pega esto tal cual y luego ajustas palabras:
+
+Crea una sección HERO full-screen ultra moderna y futurista para la landing page de un CRM y command center para agencias de seguros llamado “Curbe”.
+
+Estilo visual:
+– Fondo oscuro degradado (azul petróleo a púrpura) con blobs suaves y sutil grain, nada de estrellitas.
+– Look glassmorphism: tarjetas semi-transparentes con blur y bordes muy suaves.
+– Detalles neón en verde lima y cian para acentos (bordes, iconos, highlights).
+– Micro-animaciones suaves: glow, hover states, y elementos flotando alrededor del dashboard.
+
+Layout:
+– Contenedor centrado, max-width ~1200px.
+– Dos columnas en desktop: izquierda texto, derecha ilustración del producto.
+– En mobile se apilan: primero texto, luego ilustración.
+
+Columna izquierda (texto):
+– Badge arriba tipo “Nuevo · Command center para seguros”.
+– Título grande en dos líneas con peso fuerte:
+“Todo tu call center de seguros,
+en un solo panel.”
+– Subtítulo corto y claro:
+“CRM, llamadas, SMS, WhatsApp e iMessage en tiempo real. Menos pestañas, más pólizas cerradas.”
+– Dos CTAs:
+• Botón primario sólido con glow: “Probar panel en vivo”
+• Botón secundario tipo ghost: “Ver recorrido de 3 minutos”
+– Debajo, fila de 3 métricas con números grandes:
+• “+120K” / “Llamadas al mes”
+• “35%” / “Más cierres en 60 días”
+• “–48%” / “Tiempo muerto por agente”
+
+Columna derecha (visual):
+– Tarjeta principal: mockup de dashboard oscuro, con columnas de leads, estado de llamadas, chats y SMS.
+– Alrededor, chips flotando con glassmorphism:
+• “Llamada conectada · Juan Pérez”
+• “WhatsApp enviado · Cotización Bronze Plus”
+• “Recordatorio de renovación · SMS enviado”
+• “Agente Ana · Disponible”
+– Añade pequeños puntos de luz neón y líneas sutiles que conectan los chips con el dashboard para dar sensación de red en tiempo real.
+
+Tono general:
+– Ultra moderno, serio y tecnológico, pero limpio y legible.
+– Nada de ilustraciones caricaturescas ni iconos genéricos de gente. Todo debe verse como un producto SaaS real, listo para vender.
+
+Con esto dejas de pedir “algo moderno” y le das al builder una especificación de producto serio. Ese es el salto de “quiero que se vea cool” a “esto es exactamente lo que quiero que mi cliente sienta al entrar”.

@@ -1,0 +1,74 @@
+Vale, directo:
+tu hero está bonito **como wallpaper**, pero flojo como pieza de venta. Se ve genérico, “SaaS espacial” de cualquier cosa. Por eso lo sientes raro, no único.
+
+### Qué tiene raro este hero
+
+* **Demasiado simétrico y vacío:** muchísima “noche” negra, dos cosas flotando (texto y donut) y ya. No parece un producto real, parece un screensaver.
+* **Headline con glow raro:** el halo azul detrás del texto hace ruido visual y cansa. Es efecto “filtro de Instagram”, no diseño fino.
+* **Gráfico de la derecha cliché:** donut gigante con numeritos verdes flotando… cero específico para tu caso (seguros/call center/lo que sea).
+* **No hay historia:** no se ve “antes / después” ni qué problema resuelves. Solo lucecitas.
+
+Quieres “super moderno y futurista”, pero estás describiendo estética, no **sistema**. A Replit tienes que darle sistema: layout, estilo, animaciones, contenido y propósito.
+
+---
+
+## Prompt listo para pegar en Replit (versión seria, futurista y única)
+
+Adáptalo con el nombre real de tu producto (yo pongo “Curbe Command Center” y lo enfoco a call center/seguros, cámbialo si quieres):
+
+> Diseña un HERO full-screen ultra moderno y futurista para una landing page SaaS llamada **“Curbe Command Center”**, un panel unificado para call centers y equipos de venta de seguros.
+>
+> **Objetivo del hero:**
+> Que en 3 segundos se entienda que Curbe centraliza llamadas, SMS, WhatsApp e iMessage en un solo lugar y ayuda a cerrar más pólizas con menos caos. Debe parecer un producto real, no solo un dibujo bonito.
+>
+> **Estilo visual general:**
+> – Fondo oscuro degradado de azul petróleo a púrpura, con blobs suaves y un ligero grain, sin estrellas ni galaxias.
+> – Estilo “glassmorphism”: tarjetas semi-transparentes con blur, bordes muy redondeados y líneas de borde finas con un ligero brillo.
+> – Acentos en neón verde lima y cian para elementos importantes (CTAs, badges, highlights).
+> – Micro-animaciones suaves en hover: sombra, escala ligera, glow sutil. Nada exagerado.
+>
+> **Layout del hero:**
+> – Sección ocupa el alto completo de la ventana (100vh) con contenido centrado en un contenedor de max-width ~1200px.
+> – Dos columnas en desktop:
+> • Izquierda: texto y CTAs.
+> • Derecha: visual del producto.
+> – En mobile: el texto primero y el visual debajo, con buen espaciado.
+>
+> **Columna izquierda (texto):**
+> – Badge arriba, pequeño, estilo pastilla de vidrio:
+> “⚡ Nuevo · Command center para seguros”
+> – Título grande y claro en dos líneas, sin glow detrás, con ligera variación de color entre líneas:
+> Línea 1 (blanco): “Todo tu call center”
+> Línea 2 (degradado azul → verde): “en un solo panel.”
+> – Subtítulo de 2–3 líneas, gris claro:
+> “Centraliza CRM, llamadas, SMS, WhatsApp e iMessage en tiempo real. Menos pestañas abiertas, más pólizas cerradas y agentes enfocados.”
+> – Debajo, fila de dos botones:
+> • Botón primario sólido con ligero glow de neón: “Probar panel en vivo”
+> • Botón secundario tipo ghost: “Ver recorrido de 3 minutos”
+> – Bajo los botones, una fila de 3 métricas con números grandes y etiquetas pequeñas:
+> • “+120K” / “Llamadas al mes”
+> • “35%” / “Más cierres en 60 días”
+> • “–48%” / “Tiempo muerto por agente”
+>
+> **Columna derecha (visual futurista):**
+> – Tarjeta principal: un mockup del dashboard de Curbe sobre fondo oscuro, con:
+> • Lista vertical de leads con nombre del cliente, estado de póliza y canal (icono de teléfono, WhatsApp, SMS, iMessage).
+> • Widget de “Estado del call center” con número de agentes conectados, llamadas en cola y SLA.
+> • Pequeño gráfico de actividad en tiempo real (línea o barras).
+> – Alrededor de la tarjeta principal, coloca 3–4 chips flotando estilo glassmorphism conectados por líneas suaves, por ejemplo:
+> • “Llamada conectada · Juan Pérez · Agente Ana”
+> • “WhatsApp enviado · Cotización Plan Bronze”
+> • “Recordatorio de renovación · SMS enviado”
+> • “Nuevo lead · Webform · Alta intención”
+> – Añade pequeños puntos de luz neón y líneas sutiles que conectan los chips con el dashboard, para dar sensación de red en tiempo real.
+>
+> **Interacción y detalles:**
+> – Usa tipografías modernas y legibles (por ejemplo, una Sans geométrica para títulos y una Sans limpia para texto).
+> – Asegúrate de que el contraste sea alto y la jerarquía visual muy clara: título > CTAs > métricas > detalles.
+> – Que todo se vea como un producto listo para vender, no como una ilustración abstracta.
+>
+> Genera el HTML y CSS necesarios (o el componente React) para esta sección HERO, con atención a espaciados, tamaños y responsive design.
+
+---
+
+Si quieres realmente algo único, deja de decir “quiero algo futurista” y define **tu** futuro: qué hace tu sistema, qué señales visuales lo cuentan, y qué historia ve el usuario en 3 segundos. Esto que te di ya es un brief de diseñador senior; si Replit/AI con esto no saca algo decente, el problema ya no es el prompt.
