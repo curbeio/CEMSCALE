@@ -10,7 +10,9 @@ import {
   FileAudio,
   BarChart3,
   Shield,
-  Languages
+  Languages,
+  Globe,
+  Zap
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -44,9 +46,10 @@ const additionalCapabilities = [
   { icon: Languages, label: "Multi-Language Support" },
 ];
 
-const integrations = [
-  { name: "Twilio", description: "Enterprise voice & SMS" },
-  { name: "Telnyx", description: "Global SIP trunking" },
+const platformHighlights = [
+  { icon: Globe, label: "Global Coverage", description: "Enterprise-grade infrastructure" },
+  { icon: Zap, label: "Instant Setup", description: "Deploy in minutes, not months" },
+  { icon: Shield, label: "Enterprise Security", description: "Compliant & secure by design" },
 ];
 
 const outcomes = [
@@ -82,14 +85,14 @@ export function TelephonySection() {
             Integrated Telephony
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white" data-testid="text-telephony-title">
-            Twilio/Telnyx-Powered Voice, SMS
+            Enterprise-Grade Voice, SMS
             <span className="block bg-gradient-to-r from-[#a78bfa] to-[#6b4cff] bg-clip-text text-transparent">
               and WhatsApp Communications
             </span>
           </h2>
           <p className="text-lg text-[#a59ecb] max-w-3xl mx-auto" data-testid="text-telephony-description">
-            CEMSCALE seamlessly connects with Twilio or Telnyx to give your team an enterprise-grade 
-            communications stack—including AI outbound calling and dynamic routing—directly inside the platform.
+            CEMSCALE provides your team with an enterprise-grade communications stack—including 
+            AI outbound calling and dynamic routing—directly inside the platform.
           </p>
         </motion.div>
 
@@ -120,23 +123,27 @@ export function TelephonySection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden"
-            data-testid="card-integrations"
+            data-testid="card-platform-highlights"
           >
             <div className="px-6 py-4 border-b border-[#1f1f35]">
-              <span className="font-medium text-white">Powered By</span>
+              <span className="font-medium text-white">Platform Highlights</span>
             </div>
             <div className="p-4 space-y-3">
-              {integrations.map((integration, index) => (
+              {platformHighlights.map((highlight, index) => (
                 <div 
-                  key={integration.name}
+                  key={highlight.label}
                   className="p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45] flex flex-wrap items-center justify-between gap-2"
-                  data-testid={`card-integration-${index}`}
+                  data-testid={`card-highlight-${index}`}
                 >
-                  <div>
-                    <p className="font-medium text-white">{integration.name}</p>
-                    <p className="text-sm text-[#a59ecb]">{integration.description}</p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-[#7cffd4]/10 flex items-center justify-center shrink-0">
+                      <highlight.icon className="h-5 w-5 text-[#7cffd4]" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-white">{highlight.label}</p>
+                      <p className="text-sm text-[#a59ecb]">{highlight.description}</p>
+                    </div>
                   </div>
-                  <Badge className="bg-[#7cffd4]/10 text-[#7cffd4] border-[#7cffd4]/20">Native</Badge>
                 </div>
               ))}
             </div>

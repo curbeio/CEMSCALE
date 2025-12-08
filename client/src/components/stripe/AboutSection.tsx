@@ -22,7 +22,7 @@ const coreCapabilities = [
   {
     icon: Phone,
     title: "Integrated Telephony",
-    description: "Twilio/Telnyx-powered voice, SMS, and WhatsApp communications directly inside the platform, including AI outbound calling and dynamic routing.",
+    description: "Enterprise-grade voice, SMS, and WhatsApp communications directly inside the platform, including AI outbound calling and dynamic routing.",
   },
   {
     icon: Mail,
