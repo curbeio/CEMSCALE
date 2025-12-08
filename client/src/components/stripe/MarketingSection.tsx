@@ -4,13 +4,9 @@ import {
   Mail, 
   MessageSquare, 
   Sparkles,
-  Target,
-  Zap,
-  TrendingUp,
   ArrowRight,
   CheckCircle2,
   FileText,
-  BarChart3,
   Globe,
   Megaphone,
   Phone,
@@ -19,59 +15,44 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
-const marketingCapabilities = [
+const marketingFeatures = [
   {
     icon: Sparkles,
     title: "AI-Powered Content Creation",
     description: "Generate compelling marketing content with AI. From email copy to landing pages—create high-converting assets in seconds.",
-    stat: "Time Saved",
-    statValue: "80%",
   },
   {
     icon: FileText,
     title: "Pre-Configured Campaign Templates",
     description: "Ready-to-launch templates for ACA, Medicare, Final Expense, Legal, Tax, and beyond. Proven frameworks that convert.",
-    stat: "Templates",
-    statValue: "50+",
   },
   {
     icon: Layers,
     title: "Multi-Channel Funnels",
     description: "Email, SMS, Social, Web, and Voice funnels—all orchestrated from a single platform for seamless customer journeys.",
-    stat: "Channels",
-    statValue: "5+",
   },
   {
     icon: Split,
     title: "A/B Testing & Optimization",
     description: "Test everything. Subject lines, content, timing, channels. Data-driven optimization built into every campaign.",
-    stat: "Avg Lift",
-    statValue: "+34%",
   },
 ];
 
 const channels = [
-  { icon: Mail, name: "Email", active: true },
-  { icon: MessageSquare, name: "SMS", active: true },
-  { icon: Globe, name: "Social", active: true },
-  { icon: Megaphone, name: "Web", active: true },
-  { icon: Phone, name: "Voice", active: true },
+  { icon: Mail, name: "Email" },
+  { icon: MessageSquare, name: "SMS" },
+  { icon: Globe, name: "Social" },
+  { icon: Megaphone, name: "Web" },
+  { icon: Phone, name: "Voice" },
 ];
 
 const industryTemplates = [
-  { name: "ACA / Health Insurance", campaigns: 12 },
-  { name: "Medicare", campaigns: 8 },
-  { name: "Final Expense", campaigns: 6 },
-  { name: "Legal Services", campaigns: 5 },
-  { name: "Tax Services", campaigns: 4 },
-  { name: "Financial Services", campaigns: 7 },
-];
-
-const campaignMetrics = [
-  { label: "Active Campaigns", value: "24", change: "+6", positive: true },
-  { label: "Messages Sent", value: "1.2M", change: "+23%", positive: true },
-  { label: "Conversion Rate", value: "12%", change: "+4%", positive: true },
-  { label: "ROI", value: "340%", change: "+45%", positive: true },
+  "ACA / Health Insurance",
+  "Medicare",
+  "Final Expense",
+  "Legal Services",
+  "Tax Services",
+  "Financial Services",
 ];
 
 const outcomes = [
@@ -93,12 +74,6 @@ export function MarketingSection() {
             background: 'radial-gradient(ellipse at left, rgba(107, 76, 255, 0.12) 0%, transparent 60%)',
           }}
         />
-        <div 
-          className="absolute bottom-0 right-0 w-[500px] h-[500px]"
-          style={{
-            background: 'radial-gradient(ellipse at bottom right, rgba(124, 255, 212, 0.08) 0%, transparent 60%)',
-          }}
-        />
       </div>
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -110,95 +85,64 @@ export function MarketingSection() {
           className="text-center mb-16"
         >
           <Badge className="mb-4 bg-[#6b4cff]/20 text-[#a78bfa] border-[#6b4cff]/30" data-testid="badge-marketing">
-            Multi-Channel Marketing
+            Multi-Channel Marketing Automation
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white" data-testid="text-marketing-title">
-            Activate and Convert
+            Email, SMS, Social, Landing Pages
             <span className="block bg-gradient-to-r from-[#6b4cff] to-[#7cffd4] bg-clip-text text-transparent">
-              With Precision Marketing
+              and AI-Generated Content
             </span>
           </h2>
           <p className="text-lg text-[#a59ecb] max-w-3xl mx-auto" data-testid="text-marketing-description">
-            CEMSCALE empowers your organization with multi-channel marketing tools that connect your brand 
-            to consumers at the right time, on the right channel.
+            CEMSCALE empowers your organization with multi-channel marketing tools synchronized into 
+            a cohesive engagement engine—connecting your brand to consumers at the right time, on the right channel.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-6 mb-16">
-          {marketingCapabilities.map((capability, index) => (
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
+          {marketingFeatures.map((feature, index) => (
             <motion.div
-              key={capability.title}
+              key={feature.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="p-6 rounded-2xl bg-[#0a0a1a]/60 border border-[#1f1f35] hover:border-[#6b4cff]/30 transition-colors"
-              data-testid={`card-marketing-capability-${index}`}
+              data-testid={`card-marketing-feature-${index}`}
             >
-              <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-[#6b4cff]/10 flex items-center justify-center">
-                  <capability.icon className="h-6 w-6 text-[#6b4cff]" />
-                </div>
-                <div className="text-right">
-                  <p className="text-xs text-[#a59ecb]">{capability.stat}</p>
-                  <p className="text-xl font-bold text-[#7cffd4]" data-testid={`text-capability-stat-${index}`}>{capability.statValue}</p>
-                </div>
+              <div className="w-12 h-12 rounded-xl bg-[#6b4cff]/10 flex items-center justify-center mb-4">
+                <feature.icon className="h-6 w-6 text-[#6b4cff]" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2" data-testid={`text-capability-title-${index}`}>{capability.title}</h3>
-              <p className="text-[#a59ecb] text-sm leading-relaxed">{capability.description}</p>
+              <h3 className="text-xl font-semibold text-white mb-2" data-testid={`text-feature-title-${index}`}>{feature.title}</h3>
+              <p className="text-[#a59ecb] text-sm leading-relaxed">{feature.description}</p>
             </motion.div>
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid lg:grid-cols-2 gap-6 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-2 rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden"
-            data-testid="card-campaign-dashboard"
+            className="rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden"
+            data-testid="card-channels"
           >
-            <div className="px-6 py-4 border-b border-[#1f1f35] flex flex-wrap items-center justify-between gap-2">
-              <div className="flex items-center gap-2">
-                <Target className="h-5 w-5 text-[#6b4cff]" />
-                <span className="font-medium text-white">Campaign Performance</span>
-              </div>
-              <Badge className="bg-[#7cffd4]/10 text-[#7cffd4] border-[#7cffd4]/20">All Channels</Badge>
+            <div className="px-6 py-4 border-b border-[#1f1f35]">
+              <span className="font-medium text-white">Available Channels</span>
             </div>
-            
             <div className="p-6">
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
-                {campaignMetrics.map((metric, index) => (
-                  <div key={metric.label} className="p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45]" data-testid={`card-campaign-metric-${index}`}>
-                    <p className="text-xs text-[#a59ecb] mb-1">{metric.label}</p>
-                    <div className="flex flex-wrap items-end justify-between gap-1">
-                      <span className="text-xl font-bold text-white" data-testid={`text-campaign-value-${index}`}>{metric.value}</span>
-                      <span className={`text-xs font-medium ${metric.positive ? 'text-[#7cffd4]' : 'text-[#ff805d]'}`}>
-                        {metric.change}
-                      </span>
-                    </div>
+              <div className="flex flex-wrap gap-3">
+                {channels.map((channel, index) => (
+                  <div 
+                    key={channel.name}
+                    className="flex items-center gap-2 px-4 py-3 rounded-xl bg-[#1a1a2e] border border-[#2a2a45]"
+                    data-testid={`badge-channel-${index}`}
+                  >
+                    <channel.icon className="h-5 w-5 text-[#6b4cff]" />
+                    <span className="text-white">{channel.name}</span>
                   </div>
                 ))}
-              </div>
-
-              <div className="p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45]">
-                <p className="text-sm font-medium text-white mb-3">Active Channels</p>
-                <div className="flex flex-wrap gap-3">
-                  {channels.map((channel, index) => (
-                    <div 
-                      key={channel.name}
-                      className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#0a0a1a] border border-[#2a2a45]"
-                      data-testid={`badge-channel-${index}`}
-                    >
-                      <channel.icon className="h-4 w-4 text-[#6b4cff]" />
-                      <span className="text-sm text-white">{channel.name}</span>
-                      {channel.active && (
-                        <div className="w-2 h-2 rounded-full bg-[#7cffd4]" />
-                      )}
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </motion.div>
@@ -212,25 +156,18 @@ export function MarketingSection() {
             data-testid="card-templates"
           >
             <div className="px-6 py-4 border-b border-[#1f1f35]">
-              <div className="flex items-center gap-2">
-                <FileText className="h-5 w-5 text-[#a78bfa]" />
-                <span className="font-medium text-white">Industry Templates</span>
-              </div>
+              <span className="font-medium text-white">Industry Templates</span>
             </div>
-            
             <div className="p-4">
-              <div className="space-y-2">
+              <div className="flex flex-wrap gap-2">
                 {industryTemplates.map((template, index) => (
-                  <div 
-                    key={template.name}
-                    className="p-3 rounded-lg bg-[#1a1a2e] border border-[#2a2a45] flex flex-wrap items-center justify-between gap-2"
-                    data-testid={`card-template-${index}`}
+                  <span 
+                    key={template}
+                    className="px-3 py-2 rounded-lg bg-[#1a1a2e] border border-[#2a2a45] text-sm text-[#a59ecb]"
+                    data-testid={`badge-template-${index}`}
                   >
-                    <span className="text-sm text-white">{template.name}</span>
-                    <Badge className="bg-[#6b4cff]/10 text-[#6b4cff] border-[#6b4cff]/20 text-xs">
-                      {template.campaigns} campaigns
-                    </Badge>
-                  </div>
+                    {template}
+                  </span>
                 ))}
               </div>
             </div>
@@ -258,7 +195,7 @@ export function MarketingSection() {
               className="bg-[#6b4cff] hover:bg-[#6b4cff]/90 text-white shrink-0"
               data-testid="button-marketing-start"
             >
-              Start Campaign
+              Get Started
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>

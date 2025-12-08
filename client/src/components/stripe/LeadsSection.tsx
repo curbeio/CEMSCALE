@@ -2,9 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
   Target, 
-  UserPlus,
   Zap,
-  TrendingUp,
   CheckCircle2,
   ArrowRight,
   ShieldCheck,
@@ -12,7 +10,6 @@ import {
   BarChart3,
   Database,
   FileCheck,
-  Bell,
   Workflow,
   RefreshCw,
   Users,
@@ -24,34 +21,26 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
-const leadCapabilities = [
+const leadFeatures = [
   {
     icon: Target,
     title: "High-Intent Lead Sourcing",
     description: "Leads are generated through CEMSCALE's internal demand engine and routed instantly into the platform. No third-party dependencies.",
-    stat: "Quality Score",
-    statValue: "94%",
   },
   {
     icon: Zap,
     title: "Real-Time Delivery",
     description: "Leads flow directly to your agents and workflows without external systems. Instant availability for immediate engagement.",
-    stat: "Delivery Time",
-    statValue: "<1s",
   },
   {
     icon: ShieldCheck,
     title: "Compliance-First Framework",
     description: "Every lead is verified, opt-in certified, and DNC-scrubbed to meet regulatory requirements. Full TCPA compliance built-in.",
-    stat: "Compliance Rate",
-    statValue: "100%",
   },
   {
     icon: BarChart3,
     title: "Attribution & Tracking",
     description: "Each lead is tagged, scored, and tracked for conversion analytics and ROI insights. Complete visibility into your pipeline.",
-    stat: "Tracked Metrics",
-    statValue: "50+",
   },
 ];
 
@@ -60,44 +49,6 @@ const complianceFeatures = [
   { label: "DNC Scrubbed", icon: ShieldCheck },
   { label: "TCPA Compliant", icon: CheckCircle2 },
   { label: "Real-Time Validation", icon: Clock },
-];
-
-const leadMetrics = [
-  { label: "Leads Delivered Today", value: "2,847", change: "+23%", positive: true },
-  { label: "Average Lead Score", value: "87", change: "+5", positive: true },
-  { label: "Conversion Rate", value: "34%", change: "+8%", positive: true },
-  { label: "Cost per Lead", value: "$12", change: "-18%", positive: true },
-];
-
-const recentLeads = [
-  { 
-    name: "Enterprise Solutions Co.", 
-    intent: "Demo Request",
-    score: 96,
-    status: "Hot",
-    time: "Just now"
-  },
-  { 
-    name: "TechStart Inc.", 
-    intent: "Pricing Inquiry",
-    score: 89,
-    status: "Qualified",
-    time: "2 min ago"
-  },
-  { 
-    name: "Global Retail Group", 
-    intent: "Product Interest",
-    score: 82,
-    status: "Qualified",
-    time: "5 min ago"
-  },
-  { 
-    name: "Healthcare Plus", 
-    intent: "Consultation",
-    score: 78,
-    status: "New",
-    time: "8 min ago"
-  },
 ];
 
 const workflowSteps = [
@@ -156,8 +107,8 @@ const segmentationFilters = [
 ];
 
 const verticals = [
-  "Technology", "Finance", "Healthcare", "Insurance", "Retail", "Education", 
-  "Real Estate", "Legal", "Manufacturing", "Government"
+  "Insurance", "Healthcare", "Medicare", "Financial Services", 
+  "Legal", "Tax", "Real Estate", "Technology"
 ];
 
 export function LeadsSection() {
@@ -168,12 +119,6 @@ export function LeadsSection() {
           className="absolute top-1/3 right-0 w-[700px] h-[700px]"
           style={{
             background: 'radial-gradient(ellipse at right, rgba(255, 128, 93, 0.1) 0%, transparent 60%)',
-          }}
-        />
-        <div 
-          className="absolute bottom-0 left-1/4 w-[600px] h-[600px]"
-          style={{
-            background: 'radial-gradient(ellipse at bottom left, rgba(107, 76, 255, 0.08) 0%, transparent 60%)',
           }}
         />
       </div>
@@ -187,42 +132,36 @@ export function LeadsSection() {
           className="text-center mb-16"
         >
           <Badge className="mb-4 bg-[#ff805d]/20 text-[#ff805d] border-[#ff805d]/30" data-testid="badge-leads">
-            Lead Generation
+            Intelligent Lead Generation
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white" data-testid="text-leads-title">
-            Intelligent, Compliant Lead Generation
+            High-Quality, AI-Enriched Data
             <span className="block bg-gradient-to-r from-[#ff805d] to-[#a78bfa] bg-clip-text text-transparent">
-              Built Into CEMSCALE
+              With 95%+ Verified Accuracy
             </span>
           </h2>
           <p className="text-lg text-[#a59ecb] max-w-3xl mx-auto" data-testid="text-leads-description">
-            CEMSCALE provides a high-quality, high-intent lead engine that delivers verified consumers 
-            directly into your CRM—ready for automated workflows, call-center outreach, and real-time engagement.
+            CEMSCALE provides continuously updated, AI-enriched consumer and business data with advanced 
+            segmentation—delivering verified leads directly into your CRM for automated workflows and real-time engagement.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-6 mb-16">
-          {leadCapabilities.map((capability, index) => (
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
+          {leadFeatures.map((feature, index) => (
             <motion.div
-              key={capability.title}
+              key={feature.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="p-6 rounded-2xl bg-[#0a0a1a]/60 border border-[#1f1f35] hover:border-[#ff805d]/30 transition-colors"
-              data-testid={`card-lead-capability-${index}`}
+              data-testid={`card-lead-feature-${index}`}
             >
-              <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-[#ff805d]/10 flex items-center justify-center">
-                  <capability.icon className="h-6 w-6 text-[#ff805d]" />
-                </div>
-                <div className="text-right">
-                  <p className="text-xs text-[#a59ecb]">{capability.stat}</p>
-                  <p className="text-xl font-bold text-[#7cffd4]" data-testid={`text-capability-stat-${index}`}>{capability.statValue}</p>
-                </div>
+              <div className="w-12 h-12 rounded-xl bg-[#ff805d]/10 flex items-center justify-center mb-4">
+                <feature.icon className="h-6 w-6 text-[#ff805d]" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2" data-testid={`text-capability-title-${index}`}>{capability.title}</h3>
-              <p className="text-[#a59ecb] text-sm leading-relaxed">{capability.description}</p>
+              <h3 className="text-xl font-semibold text-white mb-2" data-testid={`text-feature-title-${index}`}>{feature.title}</h3>
+              <p className="text-[#a59ecb] text-sm leading-relaxed">{feature.description}</p>
             </motion.div>
           ))}
         </div>
@@ -245,7 +184,7 @@ export function LeadsSection() {
             </div>
             
             <div className="p-6">
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 {workflowSteps.map((step, index) => (
                   <motion.div
                     key={step.step}
@@ -269,20 +208,6 @@ export function LeadsSection() {
                       </div>
                     )}
                   </motion.div>
-                ))}
-              </div>
-
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                {leadMetrics.map((metric, index) => (
-                  <div key={metric.label} className="p-3 rounded-lg bg-[#1a1a2e] border border-[#2a2a45]" data-testid={`card-lead-metric-${index}`}>
-                    <p className="text-xs text-[#a59ecb] mb-1">{metric.label}</p>
-                    <div className="flex flex-wrap items-end justify-between gap-1">
-                      <span className="text-lg font-semibold text-white" data-testid={`text-lead-metric-value-${index}`}>{metric.value}</span>
-                      <span className={`text-xs font-medium ${metric.positive ? 'text-[#7cffd4]' : 'text-[#ff805d]'}`}>
-                        {metric.change}
-                      </span>
-                    </div>
-                  </div>
                 ))}
               </div>
             </div>
@@ -321,59 +246,6 @@ export function LeadsSection() {
             </div>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden mb-16"
-          data-testid="card-recent-leads"
-        >
-          <div className="px-6 py-4 border-b border-[#1f1f35] flex flex-wrap items-center justify-between gap-2">
-            <div className="flex items-center gap-2">
-              <Bell className="h-5 w-5 text-[#a78bfa]" />
-              <span className="font-medium text-white">Live Lead Feed</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-[#7cffd4] animate-pulse" />
-              <span className="text-xs text-[#7cffd4]">Real-time</span>
-            </div>
-          </div>
-          
-          <div className="p-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
-              {recentLeads.map((lead, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45]"
-                  data-testid={`card-recent-lead-${index}`}
-                >
-                  <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
-                    <div className={`px-2 py-1 rounded-full text-xs font-semibold ${
-                      lead.status === 'Hot' ? 'bg-[#7cffd4]/20 text-[#7cffd4]' :
-                      lead.status === 'Qualified' ? 'bg-[#a78bfa]/20 text-[#a78bfa]' :
-                      'bg-[#ff805d]/20 text-[#ff805d]'
-                    }`} data-testid={`badge-lead-status-${index}`}>
-                      {lead.status}
-                    </div>
-                    <span className="text-xs text-[#a59ecb]">{lead.time}</span>
-                  </div>
-                  <p className="font-medium text-white text-sm mb-1 truncate" data-testid={`text-lead-name-${index}`}>{lead.name}</p>
-                  <p className="text-xs text-[#a59ecb] mb-2">{lead.intent}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-[#a59ecb]">Score</span>
-                    <span className="text-sm font-bold text-[#7cffd4]" data-testid={`text-lead-score-${index}`}>{lead.score}</span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
 
         {/* CEMSCALE Data Section */}
         <motion.div

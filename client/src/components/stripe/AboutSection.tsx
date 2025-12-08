@@ -8,7 +8,6 @@ import {
   Shield,
   CheckCircle2,
   ArrowRight,
-  Sparkles,
   Building2,
   Globe
 } from "lucide-react";
@@ -19,25 +18,21 @@ const coreCapabilities = [
     icon: Database,
     title: "Intelligent Lead Generation",
     description: "High-quality, continuously updated, AI-enriched consumer and business data with advanced segmentation and 95%+ verified accuracy.",
-    color: "#ff805d",
   },
   {
     icon: Phone,
     title: "Integrated Telephony",
     description: "Twilio/Telnyx-powered voice, SMS, and WhatsApp communications directly inside the platform, including AI outbound calling and dynamic routing.",
-    color: "#a78bfa",
   },
   {
     icon: Mail,
     title: "Multi-Channel Marketing Automation",
     description: "Email, SMS, social, landing pages, funnels, and AI-generated content synchronized into a cohesive engagement engine.",
-    color: "#6b4cff",
   },
   {
     icon: Users,
     title: "Customer Engagement Management",
     description: "Unified CRM, automated workflows, referrals, compliance tracking, and lifecycle intelligence purpose-built for insurance and regulated markets.",
-    color: "#7cffd4",
   },
 ];
 
@@ -48,16 +43,6 @@ const industries = [
   "Legal",
   "Tax",
   "Medicare",
-  "ACA",
-  "Final Expense",
-];
-
-const keyPoints = [
-  "Eliminates disconnect between marketing, call centers, sales, and back-office",
-  "Every lead, interaction, and workflow tracked and optimized by AI",
-  "From first contact to conversion and long-term retention",
-  "Supports 10-agent teams to multi-state enterprises with thousands of seats",
-  "Privacy, consent, auditability, and data governance built into every touchpoint",
 ];
 
 export function AboutSection() {
@@ -108,9 +93,7 @@ export function AboutSection() {
               <div className="w-12 h-12 rounded-xl bg-[#6b4cff]/10 flex items-center justify-center">
                 <Building2 className="h-6 w-6 text-[#6b4cff]" />
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-white">Built for Compliance-Driven Organizations</h3>
-              </div>
+              <h3 className="text-xl font-semibold text-white">Built for Compliance-Driven Organizations</h3>
             </div>
             <p className="text-[#a59ecb] leading-relaxed mb-6">
               Built from the ground up to support insurance, healthcare, financial services, legal, tax, and 
@@ -122,7 +105,7 @@ export function AboutSection() {
               {industries.map((industry, index) => (
                 <span 
                   key={industry}
-                  className="px-3 py-1.5 rounded-full bg-[#1a1a2e] border border-[#2a2a45] text-xs text-[#a59ecb]"
+                  className="px-3 py-1.5 rounded-full bg-[#1a1a2e] border border-[#2a2a45] text-sm text-[#a59ecb]"
                   data-testid={`badge-industry-${index}`}
                 >
                   {industry}
@@ -140,27 +123,21 @@ export function AboutSection() {
           className="p-8 rounded-2xl bg-gradient-to-br from-[#a78bfa]/5 to-[#7cffd4]/5 border border-[#1f1f35] mb-16"
           data-testid="card-about-unified"
         >
-          <div className="flex flex-wrap items-center gap-3 mb-6">
-            <div className="w-12 h-12 rounded-xl bg-[#a78bfa]/10 flex items-center justify-center">
-              <Sparkles className="h-6 w-6 text-[#a78bfa]" />
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold text-white">A Unified Environment</h3>
-            </div>
-          </div>
-          <p className="text-[#a59ecb] leading-relaxed mb-6">
+          <p className="text-[#a59ecb] leading-relaxed text-lg">
             At its core, CEMSCALE eliminates the disconnect between marketing, call centers, sales, and 
             back-office operations. The result is a unified environment where every lead, interaction, and 
             workflow is tracked, optimized, and enriched by AI—from first contact to conversion and long-term retention.
           </p>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {keyPoints.map((point, index) => (
-              <div key={point} className="flex items-start gap-2" data-testid={`text-keypoint-${index}`}>
-                <CheckCircle2 className="h-4 w-4 text-[#7cffd4] shrink-0 mt-0.5" />
-                <span className="text-sm text-[#a59ecb]">{point}</span>
-              </div>
-            ))}
-          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center mb-12"
+        >
+          <h3 className="text-2xl font-semibold text-white mb-2">CEMSCALE Provides:</h3>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-6 mb-16">
@@ -171,15 +148,11 @@ export function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-6 rounded-2xl bg-[#0a0a1a]/60 border border-[#1f1f35] hover:border-opacity-50 transition-colors"
-              style={{ borderColor: `${capability.color}20` }}
+              className="p-6 rounded-2xl bg-[#0a0a1a]/60 border border-[#1f1f35]"
               data-testid={`card-capability-${index}`}
             >
-              <div 
-                className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                style={{ backgroundColor: `${capability.color}15` }}
-              >
-                <capability.icon className="h-6 w-6" style={{ color: capability.color }} />
+              <div className="w-12 h-12 rounded-xl bg-[#6b4cff]/10 flex items-center justify-center mb-4">
+                <capability.icon className="h-6 w-6 text-[#6b4cff]" />
               </div>
               <h3 className="text-lg font-semibold text-white mb-2" data-testid={`text-capability-title-${index}`}>{capability.title}</h3>
               <p className="text-sm text-[#a59ecb] leading-relaxed">{capability.description}</p>

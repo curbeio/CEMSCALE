@@ -2,63 +2,49 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
   Phone, 
-  PhoneCall, 
-  Headphones,
+  Bot,
   MessageSquare,
-  Mic,
-  BarChart3,
-  Users,
-  Globe,
-  Zap,
-  Shield,
+  Radio,
   ArrowRight,
   CheckCircle2,
-  Bot,
-  Radio,
   FileAudio,
+  BarChart3,
+  Shield,
   Languages
 } from "lucide-react";
 import { motion } from "framer-motion";
 
-const telephonyCapabilities = [
-  {
-    icon: Phone,
-    title: "In-Browser Dialer",
-    description: "Streamlined agent operations with a powerful softphone built directly into the platform. No external apps needed.",
-    stat: "Agent Efficiency",
-    statValue: "+40%",
-  },
+const telephonyFeatures = [
   {
     icon: Bot,
     title: "AI Outbound Agent",
     description: "Automated follow-up and outreach powered by AI. Scale your outbound campaigns without scaling headcount.",
-    stat: "Call Volume",
-    statValue: "10x",
+  },
+  {
+    icon: Phone,
+    title: "In-Browser Dialer",
+    description: "Streamlined agent operations with a powerful softphone built directly into the platform. No external apps needed.",
   },
   {
     icon: MessageSquare,
-    title: "Multi-Channel Sequences",
-    description: "SMS, Voice, and WhatsApp messaging sequences—all orchestrated from a single platform for consistent engagement.",
-    stat: "Response Rate",
-    statValue: "85%",
+    title: "SMS, Voice & WhatsApp",
+    description: "Multi-channel messaging sequences—all orchestrated from a single platform for consistent engagement.",
   },
   {
     icon: Radio,
     title: "Real-Time Routing",
     description: "Intelligent call routing based on licenses, skill sets, and language. Every call reaches the right agent instantly.",
-    stat: "Route Accuracy",
-    statValue: "99%",
   },
 ];
 
-const additionalFeatures = [
+const additionalCapabilities = [
   { icon: FileAudio, label: "Call Recording" },
   { icon: BarChart3, label: "Analytics" },
   { icon: Shield, label: "Compliance Tracking" },
-  { icon: Languages, label: "Multi-Language" },
+  { icon: Languages, label: "Multi-Language Support" },
 ];
 
-const integrationPartners = [
+const integrations = [
   { name: "Twilio", description: "Enterprise voice & SMS" },
   { name: "Telnyx", description: "Global SIP trunking" },
 ];
@@ -72,13 +58,6 @@ const outcomes = [
   "Real-time performance analytics",
 ];
 
-const metrics = [
-  { label: "Active Calls", value: "127", change: "+18%", positive: true },
-  { label: "Avg Handle Time", value: "3:42", change: "-15%", positive: true },
-  { label: "First Call Resolution", value: "89%", change: "+7%", positive: true },
-  { label: "CSAT Score", value: "4.8", change: "+0.3", positive: true },
-];
-
 export function TelephonySection() {
   return (
     <section id="telephony" className="py-20 sm:py-28 lg:py-36 relative overflow-hidden bg-[#030014]" data-testid="section-telephony">
@@ -87,12 +66,6 @@ export function TelephonySection() {
           className="absolute top-0 right-0 w-[800px] h-[800px]"
           style={{
             background: 'radial-gradient(ellipse at top right, rgba(167, 139, 250, 0.15) 0%, transparent 60%)',
-          }}
-        />
-        <div 
-          className="absolute bottom-0 left-0 w-[600px] h-[600px]"
-          style={{
-            background: 'radial-gradient(ellipse at bottom left, rgba(107, 76, 255, 0.1) 0%, transparent 60%)',
           }}
         />
       </div>
@@ -106,98 +79,66 @@ export function TelephonySection() {
           className="text-center mb-16"
         >
           <Badge className="mb-4 bg-[#a78bfa]/20 text-[#a78bfa] border-[#a78bfa]/30" data-testid="badge-telephony">
-            Telephony
+            Integrated Telephony
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white" data-testid="text-telephony-title">
-            AI-Enabled Telephony
+            Twilio/Telnyx-Powered Voice, SMS
             <span className="block bg-gradient-to-r from-[#a78bfa] to-[#6b4cff] bg-clip-text text-transparent">
-              Integrated Directly Into the Platform
+              and WhatsApp Communications
             </span>
           </h2>
           <p className="text-lg text-[#a59ecb] max-w-3xl mx-auto" data-testid="text-telephony-description">
             CEMSCALE seamlessly connects with Twilio or Telnyx to give your team an enterprise-grade 
-            communications stack—without any technical overhead.
+            communications stack—including AI outbound calling and dynamic routing—directly inside the platform.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-6 mb-16">
-          {telephonyCapabilities.map((capability, index) => (
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
+          {telephonyFeatures.map((feature, index) => (
             <motion.div
-              key={capability.title}
+              key={feature.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="p-6 rounded-2xl bg-[#0a0a1a]/60 border border-[#1f1f35] hover:border-[#a78bfa]/30 transition-colors"
-              data-testid={`card-telephony-capability-${index}`}
+              data-testid={`card-telephony-feature-${index}`}
             >
-              <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-[#a78bfa]/10 flex items-center justify-center">
-                  <capability.icon className="h-6 w-6 text-[#a78bfa]" />
-                </div>
-                <div className="text-right">
-                  <p className="text-xs text-[#a59ecb]">{capability.stat}</p>
-                  <p className="text-xl font-bold text-[#7cffd4]" data-testid={`text-capability-stat-${index}`}>{capability.statValue}</p>
-                </div>
+              <div className="w-12 h-12 rounded-xl bg-[#a78bfa]/10 flex items-center justify-center mb-4">
+                <feature.icon className="h-6 w-6 text-[#a78bfa]" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2" data-testid={`text-capability-title-${index}`}>{capability.title}</h3>
-              <p className="text-[#a59ecb] text-sm leading-relaxed">{capability.description}</p>
+              <h3 className="text-xl font-semibold text-white mb-2" data-testid={`text-feature-title-${index}`}>{feature.title}</h3>
+              <p className="text-[#a59ecb] text-sm leading-relaxed">{feature.description}</p>
             </motion.div>
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid lg:grid-cols-2 gap-6 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-2 rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden"
-            data-testid="card-live-dashboard"
+            className="rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden"
+            data-testid="card-integrations"
           >
-            <div className="px-6 py-4 border-b border-[#1f1f35] flex flex-wrap items-center justify-between gap-2">
-              <div className="flex items-center gap-2">
-                <Headphones className="h-5 w-5 text-[#a78bfa]" />
-                <span className="font-medium text-white">Live Communications Dashboard</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-[#7cffd4] animate-pulse" />
-                <span className="text-xs text-[#7cffd4]">Real-time</span>
-              </div>
+            <div className="px-6 py-4 border-b border-[#1f1f35]">
+              <span className="font-medium text-white">Powered By</span>
             </div>
-            
-            <div className="p-6">
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
-                {metrics.map((metric, index) => (
-                  <div key={metric.label} className="p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45]" data-testid={`card-metric-${index}`}>
-                    <p className="text-xs text-[#a59ecb] mb-1">{metric.label}</p>
-                    <div className="flex flex-wrap items-end justify-between gap-1">
-                      <span className="text-xl font-bold text-white" data-testid={`text-metric-value-${index}`}>{metric.value}</span>
-                      <span className={`text-xs font-medium ${metric.positive ? 'text-[#7cffd4]' : 'text-[#ff805d]'}`}>
-                        {metric.change}
-                      </span>
-                    </div>
+            <div className="p-4 space-y-3">
+              {integrations.map((integration, index) => (
+                <div 
+                  key={integration.name}
+                  className="p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45] flex flex-wrap items-center justify-between gap-2"
+                  data-testid={`card-integration-${index}`}
+                >
+                  <div>
+                    <p className="font-medium text-white">{integration.name}</p>
+                    <p className="text-sm text-[#a59ecb]">{integration.description}</p>
                   </div>
-                ))}
-              </div>
-
-              <div className="p-4 rounded-xl bg-gradient-to-r from-[#a78bfa]/10 to-[#6b4cff]/10 border border-[#a78bfa]/20">
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-[#a78bfa]/20 flex items-center justify-center">
-                      <Zap className="h-5 w-5 text-[#a78bfa]" />
-                    </div>
-                    <div>
-                      <p className="font-medium text-white">Speed-to-Lead</p>
-                      <p className="text-sm text-[#a59ecb]">Average response time</p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-2xl font-bold text-white" data-testid="text-speed-to-lead">8 seconds</p>
-                    <p className="text-sm text-[#7cffd4]">Industry avg: 47 min</p>
-                  </div>
+                  <Badge className="bg-[#7cffd4]/10 text-[#7cffd4] border-[#7cffd4]/20">Native</Badge>
                 </div>
-              </div>
+              ))}
             </div>
           </motion.div>
 
@@ -206,43 +147,24 @@ export function TelephonySection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-4"
+            className="rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden"
+            data-testid="card-capabilities"
           >
-            <div className="rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden" data-testid="card-integrations">
-              <div className="px-6 py-4 border-b border-[#1f1f35]">
-                <div className="flex items-center gap-2">
-                  <Globe className="h-5 w-5 text-[#6b4cff]" />
-                  <span className="font-medium text-white">Integrations</span>
-                </div>
-              </div>
-              <div className="p-4 space-y-3">
-                {integrationPartners.map((partner, index) => (
-                  <div 
-                    key={partner.name}
-                    className="p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45] flex flex-wrap items-center justify-between gap-2"
-                    data-testid={`card-integration-${index}`}
-                  >
-                    <div>
-                      <p className="font-medium text-white text-sm">{partner.name}</p>
-                      <p className="text-xs text-[#a59ecb]">{partner.description}</p>
-                    </div>
-                    <Badge className="bg-[#7cffd4]/10 text-[#7cffd4] border-[#7cffd4]/20 text-xs">Connected</Badge>
-                  </div>
-                ))}
-              </div>
+            <div className="px-6 py-4 border-b border-[#1f1f35]">
+              <span className="font-medium text-white">Additional Capabilities</span>
             </div>
-
-            <div className="rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] p-4" data-testid="card-features">
-              <p className="text-sm font-medium text-white mb-3">Additional Features</p>
-              <div className="grid grid-cols-2 gap-2">
-                {additionalFeatures.map((feature, index) => (
+            <div className="p-4">
+              <div className="grid grid-cols-2 gap-3">
+                {additionalCapabilities.map((capability, index) => (
                   <div 
-                    key={feature.label}
-                    className="p-3 rounded-lg bg-[#1a1a2e] border border-[#2a2a45] flex items-center gap-2"
-                    data-testid={`card-feature-${index}`}
+                    key={capability.label}
+                    className="p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45] flex items-center gap-3"
+                    data-testid={`card-capability-${index}`}
                   >
-                    <feature.icon className="h-4 w-4 text-[#a78bfa]" />
-                    <span className="text-xs text-[#a59ecb]">{feature.label}</span>
+                    <div className="w-10 h-10 rounded-lg bg-[#a78bfa]/10 flex items-center justify-center shrink-0">
+                      <capability.icon className="h-5 w-5 text-[#a78bfa]" />
+                    </div>
+                    <span className="text-sm text-white">{capability.label}</span>
                   </div>
                 ))}
               </div>
