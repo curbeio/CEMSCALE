@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Building2 } from "lucide-react";
 
 const enterprises = [
   {
@@ -37,6 +37,13 @@ const enterprises = [
 export function EnterpriseSection() {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % enterprises.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
+
   const nextSlide = () => {
     setActiveIndex((prev) => (prev + 1) % enterprises.length);
   };
@@ -46,23 +53,28 @@ export function EnterpriseSection() {
   };
 
   return (
-    <section className="py-16 sm:py-24 lg:py-32 bg-[#030014]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8 sm:mb-12">
+    <section className="py-16 sm:py-20 lg:py-28 bg-[#030014]">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-8 sm:mb-10 lg:mb-12">
           <div>
-            <Badge className="mb-4 bg-[#6b4cff]/20 text-[#a78bfa] border-[#6b4cff]/30">Success Stories</Badge>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tight text-white">
+            <Badge className="mb-4 bg-[#6b4cff]/20 text-[#a78bfa] border-[#6b4cff]/30">
+              <Building2 className="w-3 h-3 mr-1" />
+              Success Stories
+            </Badge>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white">
               Trusted by growing businesses
             </h2>
           </div>
           
-          <p className="text-[#a59ecb] max-w-md">
+          <p className="text-sm sm:text-base text-[#a59ecb] max-w-md">
             See how businesses are transforming their operations with CemScale's unified data platform.
           </p>
         </div>
 
+        {/* Carousel */}
         <div className="relative">
-          <div className="overflow-hidden rounded-2xl">
+          <div className="overflow-hidden rounded-xl sm:rounded-2xl">
             <div 
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -72,27 +84,28 @@ export function EnterpriseSection() {
                   key={enterprise.id}
                   className="w-full flex-shrink-0"
                 >
-                  <div className="relative overflow-hidden aspect-[16/9] lg:aspect-[21/9] rounded-2xl border border-[#1f1f35]">
+                  <div className="relative overflow-hidden aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] rounded-xl sm:rounded-2xl border border-[#1f1f35]">
                     <img 
                       src={enterprise.image}
                       alt={enterprise.name}
                       className="absolute inset-0 w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
                     
-                    <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12">
-                      <Badge className={`bg-gradient-to-r ${enterprise.color} border-0 mb-4`}>
+                    <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8 lg:p-12">
+                      <Badge className={`bg-gradient-to-r ${enterprise.color} border-0 mb-3 sm:mb-4 text-xs sm:text-sm`}>
                         {enterprise.name}
                       </Badge>
-                      <h3 className="text-2xl lg:text-3xl font-semibold text-white mb-4 max-w-2xl">
+                      <h3 className="text-lg sm:text-2xl lg:text-3xl font-semibold text-white mb-3 sm:mb-4 max-w-2xl leading-snug">
                         {enterprise.headline}
                       </h3>
                       <Button 
                         variant="outline" 
-                        className="rounded-full text-white border-white/30 bg-white/10 hover:bg-white/20"
+                        size="sm"
+                        className="rounded-full text-white border-white/30 bg-white/10 hover:bg-white/20 text-xs sm:text-sm"
                         data-testid={`button-read-story-${enterprise.id}`}
                       >
-                        Read story <ArrowRight className="ml-2 h-4 w-4" />
+                        Read story <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4" />
                       </Button>
                     </div>
                   </div>
@@ -101,13 +114,14 @@ export function EnterpriseSection() {
             </div>
           </div>
 
-          <div className="flex items-center justify-between mt-6">
-            <div className="flex gap-2">
+          {/* Controls */}
+          <div className="flex items-center justify-between mt-4 sm:mt-6">
+            <div className="flex gap-1.5 sm:gap-2">
               {enterprises.map((enterprise, index) => (
                 <button
                   key={enterprise.id}
                   onClick={() => setActiveIndex(index)}
-                  className={`w-12 h-1 rounded-full transition-colors ${
+                  className={`w-8 sm:w-12 h-1 rounded-full transition-colors ${
                     index === activeIndex ? 'bg-[#6b4cff]' : 'bg-[#1f1f35]'
                   }`}
                   data-testid={`button-slide-${index}`}
@@ -119,7 +133,7 @@ export function EnterpriseSection() {
               <Button 
                 variant="outline" 
                 size="icon" 
-                className="rounded-full bg-transparent border-[#1f1f35] text-[#a59ecb] hover:bg-[#1a1a2e] hover:text-white"
+                className="rounded-full bg-transparent border-[#1f1f35] text-[#a59ecb] hover:bg-[#1a1a2e] hover:text-white h-9 w-9 sm:h-10 sm:w-10"
                 onClick={prevSlide}
                 data-testid="button-prev-slide"
               >
@@ -128,7 +142,7 @@ export function EnterpriseSection() {
               <Button 
                 variant="outline" 
                 size="icon" 
-                className="rounded-full bg-transparent border-[#1f1f35] text-[#a59ecb] hover:bg-[#1a1a2e] hover:text-white"
+                className="rounded-full bg-transparent border-[#1f1f35] text-[#a59ecb] hover:bg-[#1a1a2e] hover:text-white h-9 w-9 sm:h-10 sm:w-10"
                 onClick={nextSlide}
                 data-testid="button-next-slide"
               >
@@ -138,19 +152,20 @@ export function EnterpriseSection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12">
+        {/* Mini Cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 mt-8 sm:mt-10">
           {enterprises.map((enterprise, index) => (
             <button
               key={enterprise.id}
               onClick={() => setActiveIndex(index)}
-              className={`p-4 rounded-xl transition-all text-left ${
+              className={`p-3 sm:p-4 rounded-lg sm:rounded-xl transition-all text-left ${
                 index === activeIndex 
                   ? 'bg-[#0a0a1a] border border-[#6b4cff]/50' 
                   : 'hover:bg-[#0a0a1a]/50 border border-transparent'
               }`}
               data-testid={`button-enterprise-${enterprise.id}`}
             >
-              <div className="font-semibold text-sm text-white">{enterprise.name}</div>
+              <div className="font-medium text-xs sm:text-sm text-white">{enterprise.name}</div>
             </button>
           ))}
         </div>
