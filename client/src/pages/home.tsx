@@ -1,6 +1,7 @@
 import { Header } from "@/components/stripe/Header";
 import { HeroSection } from "@/components/stripe/HeroSection";
 import { AboutSection } from "@/components/stripe/AboutSection";
+import { OmnichannelSection } from "@/components/stripe/OmnichannelSection";
 import { TelephonySection } from "@/components/stripe/TelephonySection";
 import { MarketingSection } from "@/components/stripe/MarketingSection";
 import { EngagementSection } from "@/components/stripe/EngagementSection";
@@ -16,6 +17,7 @@ export default function Home() {
       <main className="w-full">
         <HeroSection />
         <AboutSection />
+        <OmnichannelSection />
         <TelephonySection />
         <MarketingSection />
         <EngagementSection />
