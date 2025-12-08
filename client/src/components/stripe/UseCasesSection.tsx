@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Phone, Target, Megaphone, Users, BarChart3, Zap, Sparkles } from "lucide-react";
+import { ArrowRight, Phone, Target, Megaphone, Users, BarChart3, Zap } from "lucide-react";
 
 const useCases = [
   {
@@ -54,57 +54,45 @@ const useCases = [
 
 export function UseCasesSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-28 bg-[#030014]">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-10 sm:mb-12 lg:mb-14">
-          <Badge className="mb-4 bg-[#6b4cff]/20 text-[#a78bfa] border-[#6b4cff]/30">
-            <Sparkles className="w-3 h-3 mr-1" />
-            AI Capabilities
-          </Badge>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-white">
+    <section className="py-16 sm:py-24 lg:py-32 bg-[#030014]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-12">
+          <Badge className="mb-4 bg-[#6b4cff]/20 text-[#a78bfa] border-[#6b4cff]/30">Capabilities</Badge>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold tracking-tight mb-4 text-white">
             AI capabilities that scale with you
           </h2>
-          <p className="text-base sm:text-lg text-[#a59ecb] max-w-2xl mx-auto px-2">
+          <p className="text-lg text-[#a59ecb] max-w-2xl mx-auto">
             Intelligent automation that learns, adapts, and delivers results. Let AI handle the complexity.
           </p>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {useCases.map((useCase) => (
             <div 
               key={useCase.id}
-              className="group p-5 sm:p-6 rounded-xl bg-[#0a0a1a]/80 border border-[#1f1f35] hover:border-[#6b4cff]/50 transition-all duration-300"
+              className="group p-6 rounded-2xl bg-[#0a0a1a]/80 border border-[#1f1f35] hover:border-[#6b4cff]/50 transition-all duration-300"
               data-testid={`card-usecase-${useCase.id}`}
             >
-              {/* Icon */}
-              <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-lg bg-gradient-to-br ${useCase.color} flex items-center justify-center mb-4`}>
-                <useCase.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${useCase.color} flex items-center justify-center mb-4`}>
+                <useCase.icon className="h-6 w-6 text-white" />
               </div>
               
-              {/* Title */}
-              <h3 className="text-lg sm:text-xl font-semibold mb-2 text-white">{useCase.title}</h3>
-              
-              {/* Description */}
-              <p className="text-sm text-[#a59ecb] mb-4 leading-relaxed">
+              <h3 className="text-xl font-semibold mb-2 text-white">{useCase.title}</h3>
+              <p className="text-sm text-[#a59ecb] mb-4 line-clamp-3">
                 {useCase.description}
               </p>
               
-              {/* Tags */}
-              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-4">
                 {useCase.logos.map((logo) => (
-                  <Badge key={logo} className="text-[10px] sm:text-xs bg-[#1a1a2e] text-[#a59ecb] border-[#2a2a45] px-2 py-0.5">
+                  <Badge key={logo} className="text-xs bg-[#1a1a2e] text-[#a59ecb] border-[#2a2a45]">
                     {logo}
                   </Badge>
                 ))}
               </div>
               
-              {/* Link */}
               <a 
                 href="#" 
                 className="inline-flex items-center gap-1 text-sm font-medium text-[#6b4cff] group-hover:text-[#a78bfa] group-hover:gap-2 transition-all"
-                data-testid={`link-usecase-${useCase.id}`}
               >
                 Learn more <ArrowRight className="h-4 w-4" />
               </a>

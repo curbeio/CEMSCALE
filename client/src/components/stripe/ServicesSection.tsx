@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
-import { Layers } from "lucide-react";
 
 import dashboardFlyer from "@assets/Flyers_servicios-01_1764870214057.png";
 import leadsFlyer from "@assets/Flyers_servicios-02_1764870214057.png";
@@ -47,18 +45,18 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.15,
     },
   },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.6,
       ease: "easeOut",
     },
   },
@@ -66,46 +64,44 @@ const itemVariants = {
 
 export function ServicesSection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-28 relative overflow-hidden bg-[#030014]">
-      {/* Background glow */}
-      <div className="absolute inset-0 pointer-events-none">
+    <section className="py-16 sm:py-24 lg:py-32 relative overflow-hidden bg-[#030014]">
+      <div className="absolute inset-0">
         <div 
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] h-[400px] sm:h-[600px]"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px]"
           style={{
             background: 'radial-gradient(ellipse at center top, rgba(107, 76, 255, 0.1) 0%, transparent 70%)',
           }}
         />
       </div>
       
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative">
-        {/* Header */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10 sm:mb-12 lg:mb-16"
+          className="text-center mb-12 lg:mb-16"
         >
-          <Badge className="mb-4 bg-[#6b4cff]/20 text-[#a78bfa] border-[#6b4cff]/30">
-            <Layers className="w-3 h-3 mr-1" />
+          <span 
+            className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mb-4 bg-[#6b4cff]/10 text-[#a78bfa] border border-[#6b4cff]/20"
+          >
             Our Services
-          </Badge>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-white">
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-white">
             AI-powered tools to
-            <span className="block sm:inline bg-gradient-to-r from-[#6b4cff] to-[#a78bfa] bg-clip-text text-transparent"> sell smarter</span>
+            <span className="block bg-gradient-to-r from-[#6b4cff] to-[#a78bfa] bg-clip-text text-transparent"> sell smarter</span>
           </h2>
-          <p className="text-base sm:text-lg text-[#a59ecb] max-w-2xl mx-auto">
+          <p className="text-lg text-[#a59ecb] max-w-3xl mx-auto">
             Artificial Intelligence embedded in every feature. Automate, predict and optimize with AI that learns from your business.
           </p>
         </motion.div>
 
-        {/* Service Cards - Single column on very small, 2 columns on sm+, 4 on lg+ */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {services.map((service) => (
             <motion.div
@@ -114,42 +110,40 @@ export function ServicesSection() {
               className="group relative"
               data-testid={`card-service-${service.id}`}
             >
-              <div className="relative bg-[#0a0a1a]/80 rounded-xl overflow-hidden border border-[#1f1f35] hover:border-[#6b4cff]/50 transition-all duration-300 h-full flex flex-col">
-                {/* Image */}
+              <div className="relative bg-[#0a0a1a]/80 rounded-2xl overflow-hidden border border-[#1f1f35] hover:border-[#6b4cff]/50 transition-all duration-300 h-full flex flex-col">
                 <div className="relative aspect-[3/4] overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
                     <h3 
-                      className="text-base sm:text-lg lg:text-xl font-bold text-white mb-0.5 sm:mb-1"
+                      className="text-xl sm:text-2xl font-bold text-white mb-1"
                       style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}
                     >
                       {service.name}
                     </h3>
-                    <p className="text-white/90 text-xs sm:text-sm font-medium">
+                    <p className="text-white/90 text-sm font-medium">
                       {service.tagline}
                     </p>
                   </div>
                 </div>
                 
-                {/* Content */}
-                <div className="p-4 sm:p-5 flex-1 flex flex-col">
-                  <p className="text-[#a59ecb] text-xs sm:text-sm leading-relaxed flex-1">
+                <div className="p-4 sm:p-6 flex-1 flex flex-col">
+                  <p className="text-[#a59ecb] text-sm leading-relaxed flex-1">
                     {service.description}
                   </p>
                   
                   <button
-                    className="mt-3 sm:mt-4 inline-flex items-center text-xs sm:text-sm font-semibold transition-colors group/btn"
+                    className="mt-4 inline-flex items-center text-sm font-semibold transition-colors group/btn"
                     style={{ color: service.color }}
                     data-testid={`button-learn-${service.id}`}
                   >
                     Learn more
                     <svg 
-                      className="ml-1.5 w-3 h-3 sm:w-4 sm:h-4 transition-transform group-hover/btn:translate-x-1" 
+                      className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" 
                       fill="none" 
                       viewBox="0 0 24 24" 
                       stroke="currentColor"

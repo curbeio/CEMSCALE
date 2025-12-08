@@ -1,46 +1,45 @@
 # CemScale Website
 
 ## Overview
-A fully responsive website featuring a premium dark theme with Nebula Circuit Wave effects. The site showcases CemScale as an AI-first Customer Engagement Management platform (NOT CRM) with B2B lead data capabilities across email, calls, SMS, WhatsApp, and in-app channels. All content is in English.
+A fully responsive website featuring a premium dark theme inspired by Growsphere CRM design (Dribbble reference). The site showcases CemScale as a Customer Engagement Management platform with B2B lead data capabilities across email, calls, SMS, WhatsApp, and in-app channels.
 
 ## Design Style
-**Dark Nebula Theme** - Premium SaaS aesthetic with:
+**Growsphere-Inspired Dark Theme** - Premium SaaS aesthetic with:
 - Dark navy/purple background (#030014)
 - Purple accent colors (#6b4cff, #a78bfa)
 - Teal highlights (#7cffd4)
-- Nebula wave effects and aurora animations
+- Centered hero with infinity symbol
 - Feature cards with subtle borders and glow effects
-- AI-focused messaging throughout
 
 ## Project Structure
 ```
 client/src/
 ├── components/
 │   └── stripe/           # All CemScale components
-│       ├── Header.tsx         # Glass effect nav with scroll detection
-│       ├── HeroSection.tsx    # "We Bring Clarity to Scattered Data" with email signup
-│       ├── DataSection.tsx    # AI-enriched leads and stats
-│       ├── ServicesSection.tsx # 4 service flyers (Telephony, Marketing, Engagement, Leads)
-│       ├── StatsSection.tsx   # Animated counters with AI metrics
-│       ├── PricingSection.tsx # 3 pricing tiers (Starter, Professional, Enterprise)
-│       ├── UseCasesSection.tsx # AI capabilities cards
-│       ├── EnterpriseSection.tsx # Success stories carousel with auto-rotate
+│       ├── Header.tsx         # Dark translucent nav with CemScale logo
+│       ├── HeroSection.tsx    # "One platform. Infinite growth." with feature cards
+│       ├── LogoCarousel.tsx   # Partner company logos (dark theme)
+│       ├── DataSection.tsx    # B2B data features and stats
+│       ├── ServicesSection.tsx # 4 service flyers (Telephony, Marketing, CRM, Leads)
+│       ├── StatsSection.tsx   # Key metrics with gradient text
+│       ├── UseCasesSection.tsx # Capability cards
+│       ├── EnterpriseSection.tsx # Success stories carousel
 │       ├── StartupSection.tsx # Quick Setup & Live Demo cards
 │       ├── CodeSnippet.tsx    # CemScale API code examples
 │       ├── CTASection.tsx     # Final call to action
-│       └── Footer.tsx         # Comprehensive footer with social links
+│       └── Footer.tsx         # Full footer with dark theme
 ├── pages/
 │   └── home.tsx          # Main homepage (bg-[#030014])
 └── index.css             # Global dark theme + animations
 ```
 
-## Color Palette
+## Color Palette (Growsphere Style)
 - **Background Dark**: #030014 - Main page background
 - **Card Background**: #0a0a1a - Cards and sections
 - **Highlight Background**: #1a1a2e - Inputs, hover states
 - **Primary Purple**: #6b4cff - CTAs, accents
 - **Light Purple**: #a78bfa - Secondary accents
-- **Teal Accent**: #7cffd4 - Success, highlights, AI indicators
+- **Teal Accent**: #7cffd4 - Success, highlights
 - **Orange Accent**: #ff805d - Alerts
 - **Text Primary**: white - Headings
 - **Text Secondary**: #a59ecb - Body text
@@ -49,37 +48,24 @@ client/src/
 
 ## Typography
 - **Primary Font**: Montserrat (Google Fonts)
-- Fluid typography system with responsive breakpoints
-- Sizes: text-xs (mobile) → text-5xl+ (desktop)
+- Fluid typography system that scales with viewport
 
 ## Key Sections
-1. **Hero**: "We Bring Clarity to Scattered Data"
-   - AI badge: "Powered by Artificial Intelligence"
-   - Email signup form with trust badges
-   - Nebula wave background effects
-2. **Data Section**: AI-enriched leads ready to convert
-   - Feature cards with icons
-   - Live data stats panel
-3. **Services**: 4 service flyers (2x2 grid on mobile, 4 on desktop)
-4. **Stats**: Animated counters with AI-powered data metrics
-5. **Pricing**: 3 tiers - Starter ($49), Professional ($149), Enterprise (Custom)
-6. **Use Cases**: 6 AI capability cards
-7. **Enterprise**: Auto-rotating success stories carousel
-8. **Startup**: Quick Start & Live Demo dual cards
-9. **Developer**: API code snippets (JS, Python, Ruby, cURL)
-10. **CTA**: "Let AI work for your business"
-11. **Footer**: Comprehensive navigation with social links
-
-## Pricing Tiers
-- **Starter**: $49/user/month - Up to 5 team members, 1k contacts, basic features
-- **Professional**: $149/user/month - Up to 25 members, 10k contacts, AI chatbot unlimited, predictive scoring
-- **Enterprise**: Custom pricing - Unlimited, white-label, custom AI training, dedicated support
-
-## Responsive Design
-- Mobile-first approach with breakpoints: sm (640px), md (768px), lg (1024px), xl (1280px)
-- All sections optimized for touch devices
-- Consistent padding: px-5 (mobile) → px-6/px-8 (desktop)
-- Cards adapt from single column to multi-column grids
+1. **Hero**: "One platform. Infinite ∞ growth." with centered layout
+   - Dark gradient background with purple spotlight
+   - Infinity symbol in headline
+   - Dual CTAs: "Get Started Now" + "Schedule a Demo"
+   - 4 Feature cards: Chatbot, App Integrations, Security, AI Drafting
+2. **Logo Carousel**: Partner company logos (muted colors)
+3. **Data Section**: B2B database features with stats
+4. **Services**: 4 service flyers (Telephony, Marketing, CRM, Leads)
+5. **Stats**: Key metrics with gradient text
+6. **Use Cases**: 6 capability cards with icons
+7. **Enterprise**: Success stories carousel
+8. **Startup**: Quick Start & Live Demo cards
+9. **Developer**: API code snippets with syntax highlighting
+10. **CTA**: Final call to action with purple accent
+11. **Footer**: Comprehensive navigation links
 
 ## Technical Stack
 - React 18 with TypeScript
@@ -90,22 +76,25 @@ client/src/
 - Express backend for API endpoints
 - Vite for development
 
+## API Endpoints
+- `GET /api/dashboard/metrics` - Returns dashboard metrics
+- `GET /api/dashboard/invoices` - Returns invoice summary
+- `GET /api/dashboard/transactions` - Returns transaction data
+- `GET /api/dashboard/chart-data` - Returns chart data points
+
 ## Attached Assets
 - `attached_assets/cemscale_logo_*.png` - CemScale logo
 - `attached_assets/Flyers_servicios-*.png` - 4 service flyers
+- `attached_assets/brandbook_CemScale_*.pdf` - Brand guidelines
 
 ## Running the Project
 The application runs on port 5000 with `npm run dev`.
 
 ## Recent Changes
-- **December 2024**: Complete responsive optimization
-  - World-class web and mobile experience
-  - Simplified Header with scroll-aware glass effect
-  - Hero with email signup form and trust badges
-  - All sections optimized for mobile (320px+) to desktop
-  - Animated stat counters with intersection observer
-  - 3-tier pricing section with featured plan highlighting
-  - Auto-rotating enterprise carousel
-  - AI messaging emphasized throughout ("Powered by Artificial Intelligence")
-  - Consistent padding across all sections (px-5 mobile)
-  - Proper touch targets and accessible navigation
+- **December 2024**: Complete Growsphere-style dark theme
+  - Implemented dark navy/purple color scheme (#030014 base)
+  - Hero with "One platform. Infinite growth." and infinity symbol
+  - 4 feature cards: Chatbot, App Integrations, Security, AI Drafting
+  - All sections updated to dark theme with proper contrast
+  - Global html/body background set to dark
+  - Text contrast improved for accessibility (#8b87a5 minimum)
