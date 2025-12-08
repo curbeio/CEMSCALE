@@ -1,0 +1,247 @@
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { 
+  Database,
+  Phone,
+  Mail,
+  Users,
+  Shield,
+  CheckCircle2,
+  ArrowRight,
+  Sparkles,
+  Building2,
+  Globe
+} from "lucide-react";
+import { motion } from "framer-motion";
+
+const coreCapabilities = [
+  {
+    icon: Database,
+    title: "Intelligent Lead Generation",
+    description: "High-quality, continuously updated, AI-enriched consumer and business data with advanced segmentation and 95%+ verified accuracy.",
+    color: "#ff805d",
+  },
+  {
+    icon: Phone,
+    title: "Integrated Telephony",
+    description: "Twilio/Telnyx-powered voice, SMS, and WhatsApp communications directly inside the platform, including AI outbound calling and dynamic routing.",
+    color: "#a78bfa",
+  },
+  {
+    icon: Mail,
+    title: "Multi-Channel Marketing Automation",
+    description: "Email, SMS, social, landing pages, funnels, and AI-generated content synchronized into a cohesive engagement engine.",
+    color: "#6b4cff",
+  },
+  {
+    icon: Users,
+    title: "Customer Engagement Management",
+    description: "Unified CRM, automated workflows, referrals, compliance tracking, and lifecycle intelligence purpose-built for insurance and regulated markets.",
+    color: "#7cffd4",
+  },
+];
+
+const industries = [
+  "Insurance",
+  "Healthcare",
+  "Financial Services",
+  "Legal",
+  "Tax",
+  "Medicare",
+  "ACA",
+  "Final Expense",
+];
+
+const keyPoints = [
+  "Eliminates disconnect between marketing, call centers, sales, and back-office",
+  "Every lead, interaction, and workflow tracked and optimized by AI",
+  "From first contact to conversion and long-term retention",
+  "Supports 10-agent teams to multi-state enterprises with thousands of seats",
+  "Privacy, consent, auditability, and data governance built into every touchpoint",
+];
+
+export function AboutSection() {
+  return (
+    <section id="about" className="py-20 sm:py-28 lg:py-36 relative overflow-hidden bg-[#030014]" data-testid="section-about">
+      <div className="absolute inset-0">
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px]"
+          style={{
+            background: 'radial-gradient(ellipse at center, rgba(107, 76, 255, 0.08) 0%, transparent 60%)',
+          }}
+        />
+      </div>
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <Badge className="mb-4 bg-[#6b4cff]/20 text-[#a78bfa] border-[#6b4cff]/30" data-testid="badge-about">
+            About CEMSCALE
+          </Badge>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white" data-testid="text-about-title">
+            Intelligent Customer Engagement
+            <span className="block bg-gradient-to-r from-[#6b4cff] via-[#a78bfa] to-[#7cffd4] bg-clip-text text-transparent">
+              For Regulated Industries
+            </span>
+          </h2>
+          <p className="text-lg text-[#a59ecb] max-w-4xl mx-auto leading-relaxed" data-testid="text-about-description">
+            CEMSCALE is an intelligent Customer Engagement Management platform engineered for highly regulated 
+            industries—uniting lead generation, AI-powered telephony, multi-channel marketing, and customer 
+            lifecycle management into a single, seamless ecosystem.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-16"
+        >
+          <div className="p-8 rounded-2xl bg-[#0a0a1a]/60 border border-[#1f1f35]" data-testid="card-about-main">
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-[#6b4cff]/10 flex items-center justify-center">
+                <Building2 className="h-6 w-6 text-[#6b4cff]" />
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-white">Built for Compliance-Driven Organizations</h3>
+              </div>
+            </div>
+            <p className="text-[#a59ecb] leading-relaxed mb-6">
+              Built from the ground up to support insurance, healthcare, financial services, legal, tax, and 
+              compliance-driven organizations, CEMSCALE transforms how agencies acquire, engage, convert, and 
+              retain customers. The platform integrates real-time data intelligence, predictive analytics, and 
+              enterprise-level automation to deliver a faster, more efficient, and more compliant operating model.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {industries.map((industry, index) => (
+                <span 
+                  key={industry}
+                  className="px-3 py-1.5 rounded-full bg-[#1a1a2e] border border-[#2a2a45] text-xs text-[#a59ecb]"
+                  data-testid={`badge-industry-${index}`}
+                >
+                  {industry}
+                </span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="p-8 rounded-2xl bg-gradient-to-br from-[#a78bfa]/5 to-[#7cffd4]/5 border border-[#1f1f35] mb-16"
+          data-testid="card-about-unified"
+        >
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            <div className="w-12 h-12 rounded-xl bg-[#a78bfa]/10 flex items-center justify-center">
+              <Sparkles className="h-6 w-6 text-[#a78bfa]" />
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-white">A Unified Environment</h3>
+            </div>
+          </div>
+          <p className="text-[#a59ecb] leading-relaxed mb-6">
+            At its core, CEMSCALE eliminates the disconnect between marketing, call centers, sales, and 
+            back-office operations. The result is a unified environment where every lead, interaction, and 
+            workflow is tracked, optimized, and enriched by AI—from first contact to conversion and long-term retention.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {keyPoints.map((point, index) => (
+              <div key={point} className="flex items-start gap-2" data-testid={`text-keypoint-${index}`}>
+                <CheckCircle2 className="h-4 w-4 text-[#7cffd4] shrink-0 mt-0.5" />
+                <span className="text-sm text-[#a59ecb]">{point}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-6 mb-16">
+          {coreCapabilities.map((capability, index) => (
+            <motion.div
+              key={capability.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="p-6 rounded-2xl bg-[#0a0a1a]/60 border border-[#1f1f35] hover:border-opacity-50 transition-colors"
+              style={{ borderColor: `${capability.color}20` }}
+              data-testid={`card-capability-${index}`}
+            >
+              <div 
+                className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
+                style={{ backgroundColor: `${capability.color}15` }}
+              >
+                <capability.icon className="h-6 w-6" style={{ color: capability.color }} />
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2" data-testid={`text-capability-title-${index}`}>{capability.title}</h3>
+              <p className="text-sm text-[#a59ecb] leading-relaxed">{capability.description}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="p-6 rounded-2xl bg-[#0a0a1a]/60 border border-[#1f1f35] mb-16"
+          data-testid="card-compliance-design"
+        >
+          <div className="flex flex-col lg:flex-row lg:items-center gap-6">
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-[#7cffd4]/10 flex items-center justify-center">
+                  <Shield className="h-6 w-6 text-[#7cffd4]" />
+                </div>
+                <h3 className="text-xl font-semibold text-white">Compliance by Design</h3>
+              </div>
+              <p className="text-[#a59ecb] leading-relaxed">
+                Privacy, consent, auditability, and data governance woven into every touchpoint. CEMSCALE 
+                redefines operational efficiency by turning disparate processes into a measurable, automated, 
+                and scalable customer engagement strategy.
+              </p>
+            </div>
+            <div className="shrink-0">
+              <div className="p-4 rounded-xl bg-gradient-to-br from-[#7cffd4]/10 to-[#6b4cff]/10 border border-[#7cffd4]/20 text-center">
+                <Globe className="h-8 w-8 text-[#7cffd4] mx-auto mb-2" />
+                <p className="text-sm font-medium text-white">10 to 10,000+ Seats</p>
+                <p className="text-xs text-[#a59ecb]">Scales with your business</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center p-8 rounded-2xl bg-gradient-to-r from-[#6b4cff]/10 to-[#7cffd4]/10 border border-[#6b4cff]/20"
+          data-testid="card-about-cta"
+        >
+          <p className="text-2xl sm:text-3xl font-bold text-white mb-2" data-testid="text-about-tagline">
+            CEMSCALE
+          </p>
+          <p className="text-lg text-[#a59ecb] mb-6">
+            Where compliance meets intelligent automation.
+          </p>
+          <Button 
+            className="bg-[#6b4cff] hover:bg-[#6b4cff]/90 text-white"
+            data-testid="button-about-demo"
+          >
+            Schedule a Demo
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
