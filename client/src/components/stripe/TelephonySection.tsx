@@ -210,13 +210,13 @@ export function TelephonySection() {
                     </div>
                   </div>
                   <div className="flex flex-wrap items-center justify-center gap-3">
-                    <Button size="icon" variant="ghost" className="h-8 w-8 text-[#a59ecb]" data-testid="button-volume">
+                    <Button size="icon" variant="ghost" className="text-[#a59ecb]" data-testid="button-volume">
                       <Volume2 className="h-4 w-4" />
                     </Button>
-                    <Button size="icon" className="h-10 w-10 bg-[#a78bfa] hover:bg-[#a78bfa]/90" data-testid="button-pause">
+                    <Button size="icon" className="bg-[#a78bfa] hover:bg-[#a78bfa]/90" data-testid="button-pause">
                       <Pause className="h-5 w-5" />
                     </Button>
-                    <Button size="icon" variant="ghost" className="h-8 w-8 text-[#a59ecb]" data-testid="button-headphones">
+                    <Button size="icon" variant="ghost" className="text-[#a59ecb]" data-testid="button-headphones">
                       <Headphones className="h-4 w-4" />
                     </Button>
                   </div>

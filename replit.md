@@ -18,6 +18,10 @@ client/src/
 │   └── stripe/           # All CemScale components
 │       ├── Header.tsx         # Dark translucent nav with CemScale logo
 │       ├── HeroSection.tsx    # "One platform. Infinite growth." with feature cards
+│       ├── TelephonySection.tsx # Cloud telephony features, metrics, and dashboard
+│       ├── MarketingSection.tsx # Multi-channel marketing automation platform
+│       ├── EngagementSection.tsx # Customer engagement and CRM features
+│       ├── LeadsSection.tsx    # Lead management, scoring, and pipeline
 │       ├── LogoCarousel.tsx   # Partner company logos (dark theme)
 │       ├── DataSection.tsx    # B2B data features and stats
 │       ├── ServicesSection.tsx # 4 service flyers (Telephony, Marketing, CRM, Leads)
@@ -56,16 +60,32 @@ client/src/
    - Infinity symbol in headline
    - Dual CTAs: "Get Started Now" + "Schedule a Demo"
    - 4 Feature cards: Chatbot, App Integrations, Security, AI Drafting
-2. **Logo Carousel**: Partner company logos (muted colors)
-3. **Data Section**: B2B database features with stats
-4. **Services**: 4 service flyers (Telephony, Marketing, CRM, Leads)
-5. **Stats**: Key metrics with gradient text
-6. **Use Cases**: 6 capability cards with icons
-7. **Enterprise**: Success stories carousel
-8. **Startup**: Quick Start & Live Demo cards
-9. **Developer**: API code snippets with syntax highlighting
-10. **CTA**: Final call to action with purple accent
-11. **Footer**: Comprehensive navigation links
+2. **Telephony Section**: Cloud telephony features and capabilities
+   - Cloud PBX, Call Recording, IVR, Real-Time Analytics
+   - Live call dashboard with metrics
+   - Global coverage, instant setup, enterprise security cards
+3. **Marketing Section**: Multi-channel marketing automation
+   - Email, SMS, WhatsApp, Social Media channels
+   - Automation workflows with conversion metrics
+   - AI-powered email builder with subject line generator
+4. **Engagement Section**: Customer engagement and CRM
+   - Active Users, Conversations, NPS Score, Retention metrics
+   - Customer journey funnel visualization
+   - Recent interactions feed with sentiment analysis
+5. **Leads Section**: Lead management and scoring
+   - Sales pipeline with stages and values
+   - AI lead scoring tiers (Hot, Warm, Nurture, Cold)
+   - Lead sources breakdown and recent leads feed
+6. **Logo Carousel**: Partner company logos (muted colors)
+7. **Data Section**: B2B database features with stats
+8. **Services**: 4 service flyers (Telephony, Marketing, CRM, Leads)
+9. **Stats**: Key metrics with gradient text
+10. **Use Cases**: 6 capability cards with icons
+11. **Enterprise**: Success stories carousel
+12. **Startup**: Quick Start & Live Demo cards
+13. **Developer**: API code snippets with syntax highlighting
+14. **CTA**: Final call to action with purple accent
+15. **Footer**: Comprehensive navigation links
 
 ## Technical Stack
 - React 18 with TypeScript
@@ -91,6 +111,13 @@ client/src/
 The application runs on port 5000 with `npm run dev`.
 
 ## Recent Changes
+- **December 2024**: Added four comprehensive content modules
+  - TelephonySection: Cloud PBX, call recording, IVR, analytics dashboard
+  - MarketingSection: Email, SMS, WhatsApp, social media automation
+  - EngagementSection: Customer journey funnel, interaction tracking, health scores
+  - LeadsSection: Sales pipeline, lead scoring, source tracking
+  - All sections include data-testid attributes for testing
+  - Responsive design with flex-wrap and gap utilities
 - **December 2024**: Complete Growsphere-style dark theme
   - Implemented dark navy/purple color scheme (#030014 base)
   - Hero with "One platform. Infinite growth." and infinity symbol
