@@ -3,21 +3,14 @@ import { Button } from "@/components/ui/button";
 import { 
   Target, 
   UserPlus,
-  Filter,
   Zap,
   TrendingUp,
-  BarChart3,
-  Clock,
   CheckCircle2,
   ArrowRight,
   Sparkles,
   Star,
-  Mail,
-  Phone,
   Globe,
-  Layers,
-  ArrowUpRight,
-  ChevronRight
+  Layers
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -111,7 +104,7 @@ const capabilities = [
 
 export function LeadsSection() {
   return (
-    <section id="leads" className="py-20 sm:py-28 lg:py-36 relative overflow-hidden bg-[#030014]">
+    <section id="leads" className="py-20 sm:py-28 lg:py-36 relative overflow-hidden bg-[#030014]" data-testid="section-leads">
       <div className="absolute inset-0">
         <div 
           className="absolute top-1/3 right-0 w-[700px] h-[700px]"
@@ -135,16 +128,16 @@ export function LeadsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <Badge className="mb-4 bg-[#ff805d]/20 text-[#ff805d] border-[#ff805d]/30">
+          <Badge className="mb-4 bg-[#ff805d]/20 text-[#ff805d] border-[#ff805d]/30" data-testid="badge-leads">
             Leads
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white" data-testid="text-leads-title">
             Lead Management
             <span className="block bg-gradient-to-r from-[#ff805d] to-[#a78bfa] bg-clip-text text-transparent">
               That Converts
             </span>
           </h2>
-          <p className="text-lg text-[#a59ecb] max-w-3xl mx-auto">
+          <p className="text-lg text-[#a59ecb] max-w-3xl mx-auto" data-testid="text-leads-description">
             Capture, score, and nurture leads with AI-powered intelligence. 
             From first touch to closed deal, never lose track of an opportunity.
           </p>
@@ -157,17 +150,18 @@ export function LeadsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="lg:col-span-2 rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden"
+            data-testid="card-sales-pipeline"
           >
-            <div className="px-6 py-4 border-b border-[#1f1f35] flex items-center justify-between">
+            <div className="px-6 py-4 border-b border-[#1f1f35] flex flex-wrap items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 <Layers className="h-5 w-5 text-[#ff805d]" />
                 <span className="font-medium text-white">Sales Pipeline</span>
               </div>
-              <Badge className="bg-[#7cffd4]/10 text-[#7cffd4] border-[#7cffd4]/20">$7.4M Total</Badge>
+              <Badge className="bg-[#7cffd4]/10 text-[#7cffd4] border-[#7cffd4]/20" data-testid="badge-pipeline-total">$7.4M Total</Badge>
             </div>
             
             <div className="p-6">
-              <div className="flex gap-2 overflow-x-auto pb-4">
+              <div className="flex flex-wrap gap-2 pb-4">
                 {pipelineStages.map((stage, index) => (
                   <motion.div
                     key={stage.name}
@@ -175,17 +169,18 @@ export function LeadsSection() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
-                    className="flex-1 min-w-[120px] p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45]"
+                    className="flex-1 min-w-[100px] p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45]"
+                    data-testid={`card-pipeline-stage-${index}`}
                   >
                     <p className="text-xs text-[#a59ecb] mb-1">{stage.name}</p>
-                    <p className="text-xl font-bold text-white">{stage.count}</p>
+                    <p className="text-xl font-bold text-white" data-testid={`text-stage-count-${index}`}>{stage.count}</p>
                     <p className="text-sm text-[#7cffd4]">{stage.value}</p>
                   </motion.div>
                 ))}
               </div>
 
-              <div className="mt-4 p-4 rounded-xl bg-gradient-to-r from-[#ff805d]/10 to-transparent border border-[#ff805d]/20">
-                <div className="flex items-center justify-between">
+              <div className="mt-4 p-4 rounded-xl bg-gradient-to-r from-[#ff805d]/10 to-transparent border border-[#ff805d]/20" data-testid="card-pipeline-velocity">
+                <div className="flex flex-wrap items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-[#ff805d]/20 flex items-center justify-center">
                       <TrendingUp className="h-5 w-5 text-[#ff805d]" />
@@ -196,7 +191,7 @@ export function LeadsSection() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-2xl font-bold text-white">23 days</p>
+                    <p className="text-2xl font-bold text-white" data-testid="text-velocity-days">23 days</p>
                     <p className="text-sm text-[#7cffd4]">-5 days vs last month</p>
                   </div>
                 </div>
@@ -210,6 +205,7 @@ export function LeadsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden"
+            data-testid="card-lead-scoring"
           >
             <div className="px-6 py-4 border-b border-[#1f1f35]">
               <div className="flex items-center gap-2">
@@ -220,12 +216,13 @@ export function LeadsSection() {
             
             <div className="p-4">
               <div className="space-y-3">
-                {leadScoring.map((tier) => (
+                {leadScoring.map((tier, index) => (
                   <div 
                     key={tier.label}
                     className="p-3 rounded-xl bg-[#1a1a2e] border border-[#2a2a45]"
+                    data-testid={`card-scoring-tier-${index}`}
                   >
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                       <div className="flex items-center gap-2">
                         <div 
                           className="w-3 h-3 rounded-full" 
@@ -235,9 +232,9 @@ export function LeadsSection() {
                       </div>
                       <span className="text-xs text-[#a59ecb]">{tier.range}</span>
                     </div>
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
                       <span className="text-xs text-[#a59ecb]">{tier.description}</span>
-                      <span className="text-sm font-semibold" style={{ color: tier.color }}>
+                      <span className="text-sm font-semibold" style={{ color: tier.color }} data-testid={`text-tier-count-${index}`}>
                         {tier.count.toLocaleString()}
                       </span>
                     </div>
@@ -255,8 +252,9 @@ export function LeadsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden"
+            data-testid="card-lead-sources"
           >
-            <div className="px-6 py-4 border-b border-[#1f1f35] flex items-center justify-between">
+            <div className="px-6 py-4 border-b border-[#1f1f35] flex flex-wrap items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 <Globe className="h-5 w-5 text-[#6b4cff]" />
                 <span className="font-medium text-white">Lead Sources</span>
@@ -267,8 +265,8 @@ export function LeadsSection() {
             <div className="p-6">
               <div className="space-y-4">
                 {leadSources.map((source, index) => (
-                  <div key={source.name}>
-                    <div className="flex items-center justify-between mb-2">
+                  <div key={source.name} data-testid={`row-lead-source-${index}`}>
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                       <span className="text-sm text-white">{source.name}</span>
                       <div className="flex items-center gap-2">
                         <span className="text-sm font-semibold text-white">{source.leads.toLocaleString()}</span>
@@ -297,8 +295,9 @@ export function LeadsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden"
+            data-testid="card-recent-leads"
           >
-            <div className="px-6 py-4 border-b border-[#1f1f35] flex items-center justify-between">
+            <div className="px-6 py-4 border-b border-[#1f1f35] flex flex-wrap items-center justify-between gap-2">
               <div className="flex items-center gap-2">
                 <UserPlus className="h-5 w-5 text-[#7cffd4]" />
                 <span className="font-medium text-white">Recent Leads</span>
@@ -316,23 +315,24 @@ export function LeadsSection() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     className="p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45] hover:border-[#ff805d]/30 transition-colors cursor-pointer"
+                    data-testid={`card-lead-${index}`}
                   >
-                    <div className="flex items-start justify-between mb-2">
+                    <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                       <div>
-                        <p className="font-medium text-white text-sm">{lead.name}</p>
+                        <p className="font-medium text-white text-sm" data-testid={`text-lead-company-${index}`}>{lead.name}</p>
                         <p className="text-xs text-[#a59ecb]">{lead.contact} • {lead.title}</p>
                       </div>
                       <div className={`px-2 py-1 rounded-full text-xs font-semibold ${
                         lead.score >= 90 ? 'bg-[#7cffd4]/20 text-[#7cffd4]' :
                         lead.score >= 70 ? 'bg-[#a78bfa]/20 text-[#a78bfa]' :
                         'bg-[#6b4cff]/20 text-[#6b4cff]'
-                      }`}>
+                      }`} data-testid={`badge-lead-score-${index}`}>
                         {lead.score}
                       </div>
                     </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <span className="text-sm font-semibold text-[#7cffd4]">{lead.value}</span>
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex flex-wrap items-center gap-3">
+                        <span className="text-sm font-semibold text-[#7cffd4]" data-testid={`text-lead-value-${index}`}>{lead.value}</span>
                         <span className="text-xs text-[#a59ecb] bg-[#0a0a1a] px-2 py-0.5 rounded">{lead.source}</span>
                       </div>
                       <span className="text-xs text-[#a59ecb]">{lead.time}</span>
@@ -359,11 +359,12 @@ export function LeadsSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="p-6 rounded-2xl bg-[#0a0a1a]/60 border border-[#1f1f35] hover:border-[#ff805d]/30 transition-colors"
+              data-testid={`card-lead-feature-${index}`}
             >
               <div className="w-12 h-12 rounded-xl bg-[#ff805d]/10 flex items-center justify-center mb-4">
                 <feature.icon className="h-6 w-6 text-[#ff805d]" />
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
+              <h3 className="text-lg font-semibold text-white mb-2" data-testid={`text-lead-feature-title-${index}`}>{feature.title}</h3>
               <p className="text-sm text-[#a59ecb] leading-relaxed">{feature.description}</p>
             </motion.div>
           ))}
@@ -375,10 +376,11 @@ export function LeadsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="p-8 rounded-2xl bg-gradient-to-r from-[#ff805d]/10 to-[#a78bfa]/10 border border-[#ff805d]/20"
+          data-testid="card-leads-cta"
         >
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div>
-              <h3 className="text-2xl font-semibold text-white mb-2">Never miss another opportunity</h3>
+              <h3 className="text-2xl font-semibold text-white mb-2" data-testid="text-leads-cta-title">Never miss another opportunity</h3>
               <p className="text-[#a59ecb]">Complete lead management from capture to conversion.</p>
             </div>
             <Button 
@@ -391,8 +393,8 @@ export function LeadsSection() {
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
-            {capabilities.map((capability) => (
-              <div key={capability} className="flex items-center gap-2">
+            {capabilities.map((capability, index) => (
+              <div key={capability} className="flex items-center gap-2" data-testid={`text-leads-capability-${index}`}>
                 <CheckCircle2 className="h-4 w-4 text-[#7cffd4] shrink-0" />
                 <span className="text-sm text-[#a59ecb]">{capability}</span>
               </div>
