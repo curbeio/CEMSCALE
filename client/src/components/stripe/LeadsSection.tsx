@@ -10,11 +10,17 @@ import {
   ShieldCheck,
   Clock,
   BarChart3,
-  Users,
   Database,
   FileCheck,
   Bell,
-  Workflow
+  Workflow,
+  RefreshCw,
+  Users,
+  Globe,
+  Brain,
+  Lock,
+  Filter,
+  Building2
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -108,6 +114,50 @@ const outcomes = [
   "Real-time analytics for continuous optimization",
   "Zero external dependencies or data silos",
   "Scalable lead volume based on your capacity",
+];
+
+const dataHighlights = [
+  { icon: Building2, label: "Companies", value: "12M+" },
+  { icon: Users, label: "Decision Makers / Consumers", value: "50M+" },
+  { icon: CheckCircle2, label: "Verified Emails", value: "98% accuracy" },
+  { icon: Zap, label: "Direct Phone Numbers", value: "45M+" },
+];
+
+const dataFeatures = [
+  {
+    icon: RefreshCw,
+    title: "Constant Updates",
+    description: "Our proprietary database is refreshed continuously with verified contacts, enriched profiles, and real-time corrections.",
+  },
+  {
+    icon: Database,
+    title: "Enriched Profiles",
+    description: "Deep data points: job role, industry, company attributes, demographic & behavioral signals, technology indicators.",
+  },
+  {
+    icon: Brain,
+    title: "Intent Intelligence",
+    description: "Identifies consumers and decision-makers actively seeking solutions in your market—improving targeting and conversion.",
+  },
+  {
+    icon: Lock,
+    title: "Privacy & Compliance",
+    description: "All data adheres to strict privacy frameworks, including GDPR-aligned standards, ensuring secure and compliant usage.",
+  },
+];
+
+const segmentationFilters = [
+  "Industry / Vertical",
+  "Job Title / Household Profile", 
+  "Company Size / Demographics",
+  "Technology Usage",
+  "Geography (local to national)",
+  "50+ Custom Attributes",
+];
+
+const verticals = [
+  "Technology", "Finance", "Healthcare", "Insurance", "Retail", "Education", 
+  "Real Estate", "Legal", "Manufacturing", "Government"
 ];
 
 export function LeadsSection() {
@@ -325,6 +375,138 @@ export function LeadsSection() {
           </div>
         </motion.div>
 
+        {/* CEMSCALE Data Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+          data-testid="subsection-cemscale-data"
+        >
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-[#7cffd4]/20 text-[#7cffd4] border-[#7cffd4]/30" data-testid="badge-data">
+              CEMSCALE Data
+            </Badge>
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-4 text-white" data-testid="text-data-title">
+              Why is CEMSCALE Data Different?
+            </h3>
+            <p className="text-lg text-[#a59ecb] max-w-2xl mx-auto">
+              AI-enriched leads ready to convert. Our verification engine ensures 95%+ data accuracy guaranteed.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+            {dataHighlights.map((highlight, index) => (
+              <motion.div
+                key={highlight.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="p-5 rounded-2xl bg-[#0a0a1a]/60 border border-[#1f1f35] text-center"
+                data-testid={`card-data-highlight-${index}`}
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#7cffd4]/10 flex items-center justify-center mx-auto mb-3">
+                  <highlight.icon className="h-6 w-6 text-[#7cffd4]" />
+                </div>
+                <p className="text-2xl font-bold text-white mb-1" data-testid={`text-highlight-value-${index}`}>{highlight.value}</p>
+                <p className="text-xs text-[#a59ecb]">{highlight.label}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6 mb-10">
+            {dataFeatures.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="p-6 rounded-2xl bg-[#0a0a1a]/60 border border-[#1f1f35]"
+                data-testid={`card-data-feature-${index}`}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-[#a78bfa]/10 flex items-center justify-center shrink-0">
+                    <feature.icon className="h-6 w-6 text-[#a78bfa]" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-white mb-2">{feature.title}</h4>
+                    <p className="text-sm text-[#a59ecb] leading-relaxed">{feature.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden"
+              data-testid="card-segmentation"
+            >
+              <div className="px-6 py-4 border-b border-[#1f1f35]">
+                <div className="flex items-center gap-2">
+                  <Filter className="h-5 w-5 text-[#6b4cff]" />
+                  <span className="font-medium text-white">Advanced Segmentation</span>
+                </div>
+              </div>
+              <div className="p-4">
+                <div className="grid grid-cols-2 gap-2">
+                  {segmentationFilters.map((filter, index) => (
+                    <div 
+                      key={filter}
+                      className="p-3 rounded-lg bg-[#1a1a2e] border border-[#2a2a45] flex items-center gap-2"
+                      data-testid={`badge-filter-${index}`}
+                    >
+                      <CheckCircle2 className="h-4 w-4 text-[#6b4cff] shrink-0" />
+                      <span className="text-xs text-[#a59ecb]">{filter}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden"
+              data-testid="card-verticals"
+            >
+              <div className="px-6 py-4 border-b border-[#1f1f35]">
+                <div className="flex items-center gap-2">
+                  <Globe className="h-5 w-5 text-[#ff805d]" />
+                  <span className="font-medium text-white">Available Verticals</span>
+                </div>
+              </div>
+              <div className="p-4">
+                <div className="flex flex-wrap gap-2">
+                  {verticals.map((vertical, index) => (
+                    <span 
+                      key={vertical}
+                      className="px-3 py-1.5 rounded-full bg-[#1a1a2e] border border-[#2a2a45] text-xs text-[#a59ecb]"
+                      data-testid={`badge-vertical-${index}`}
+                    >
+                      {vertical}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-4 p-3 rounded-lg bg-gradient-to-r from-[#ff805d]/10 to-transparent border border-[#ff805d]/20">
+                  <p className="text-xs text-[#a59ecb]">
+                    <span className="text-white font-medium">Perfect for:</span> Insurance, Health, Medicare, Financial Services & Regulated Markets
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -346,7 +528,7 @@ export function LeadsSection() {
               className="bg-[#ff805d] hover:bg-[#ff805d]/90 text-white shrink-0"
               data-testid="button-leads-start"
             >
-              Start Generating Leads
+              Request Access
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>

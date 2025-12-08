@@ -3,75 +3,84 @@ import { Button } from "@/components/ui/button";
 import { 
   Mail, 
   MessageSquare, 
-  Send,
+  Sparkles,
   Target,
   Zap,
   TrendingUp,
-  MousePointer,
-  Eye,
   ArrowRight,
   CheckCircle2,
-  Sparkles,
-  Clock,
-  Globe
+  FileText,
+  BarChart3,
+  Globe,
+  Megaphone,
+  Phone,
+  Split,
+  Layers
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { SiWhatsapp } from "react-icons/si";
 
-const marketingChannels = [
+const marketingCapabilities = [
   {
-    icon: Mail,
-    name: "Email Marketing",
-    description: "AI-optimized email campaigns with dynamic content, A/B testing, and predictive send times.",
-    stats: { label: "Avg Open Rate", value: "42%" },
-    color: "#a78bfa",
+    icon: Sparkles,
+    title: "AI-Powered Content Creation",
+    description: "Generate compelling marketing content with AI. From email copy to landing pages—create high-converting assets in seconds.",
+    stat: "Time Saved",
+    statValue: "80%",
   },
   {
-    icon: MessageSquare,
-    name: "SMS Campaigns",
-    description: "Direct SMS marketing with personalization, scheduling, and two-way conversations.",
-    stats: { label: "Delivery Rate", value: "99%" },
-    color: "#7cffd4",
+    icon: FileText,
+    title: "Pre-Configured Campaign Templates",
+    description: "Ready-to-launch templates for ACA, Medicare, Final Expense, Legal, Tax, and beyond. Proven frameworks that convert.",
+    stat: "Templates",
+    statValue: "50+",
   },
   {
-    icon: SiWhatsapp,
-    name: "WhatsApp Business",
-    description: "Official WhatsApp API integration for broadcast messages, chatbots, and customer support.",
-    stats: { label: "Response Rate", value: "85%" },
-    color: "#25D366",
+    icon: Layers,
+    title: "Multi-Channel Funnels",
+    description: "Email, SMS, Social, Web, and Voice funnels—all orchestrated from a single platform for seamless customer journeys.",
+    stat: "Channels",
+    statValue: "5+",
   },
   {
-    icon: Globe,
-    name: "Social Media",
-    description: "Unified inbox for Facebook, Instagram, and Twitter. Schedule posts and track engagement.",
-    stats: { label: "Engagement", value: "+156%" },
-    color: "#6b4cff",
+    icon: Split,
+    title: "A/B Testing & Optimization",
+    description: "Test everything. Subject lines, content, timing, channels. Data-driven optimization built into every campaign.",
+    stat: "Avg Lift",
+    statValue: "+34%",
   },
 ];
 
-const automationWorkflows = [
-  { name: "Welcome Series", status: "active", contacts: "12,847", conversion: "34%" },
-  { name: "Cart Abandonment", status: "active", contacts: "8,293", conversion: "28%" },
-  { name: "Re-engagement", status: "active", contacts: "45,102", conversion: "19%" },
-  { name: "Upsell Campaign", status: "paused", contacts: "23,456", conversion: "41%" },
+const channels = [
+  { icon: Mail, name: "Email", active: true },
+  { icon: MessageSquare, name: "SMS", active: true },
+  { icon: Globe, name: "Social", active: true },
+  { icon: Megaphone, name: "Web", active: true },
+  { icon: Phone, name: "Voice", active: true },
+];
+
+const industryTemplates = [
+  { name: "ACA / Health Insurance", campaigns: 12 },
+  { name: "Medicare", campaigns: 8 },
+  { name: "Final Expense", campaigns: 6 },
+  { name: "Legal Services", campaigns: 5 },
+  { name: "Tax Services", campaigns: 4 },
+  { name: "Financial Services", campaigns: 7 },
 ];
 
 const campaignMetrics = [
-  { icon: Send, label: "Emails Sent", value: "2.4M", period: "This month" },
-  { icon: Eye, label: "Total Opens", value: "987K", period: "41% rate" },
-  { icon: MousePointer, label: "Clicks", value: "234K", period: "24% CTR" },
-  { icon: TrendingUp, label: "Conversions", value: "18.2K", period: "$2.4M revenue" },
+  { label: "Active Campaigns", value: "24", change: "+6", positive: true },
+  { label: "Messages Sent", value: "1.2M", change: "+23%", positive: true },
+  { label: "Conversion Rate", value: "12%", change: "+4%", positive: true },
+  { label: "ROI", value: "340%", change: "+45%", positive: true },
 ];
 
-const features = [
-  "Drag-and-drop email builder with 100+ templates",
-  "AI-powered subject line optimization",
-  "Advanced segmentation with 50+ filters",
-  "Behavioral triggers and automation",
-  "Real-time analytics and reporting",
-  "A/B testing for all campaign elements",
-  "Lead scoring and nurturing workflows",
-  "CRM and sales integration",
+const outcomes = [
+  "Launch campaigns directly from CEMSCALE",
+  "No external marketing software required",
+  "Connected to your telephony and CRM",
+  "Full lead flow integration",
+  "Real-time performance analytics",
+  "Compliance-ready messaging",
 ];
 
 export function MarketingSection() {
@@ -101,200 +110,132 @@ export function MarketingSection() {
           className="text-center mb-16"
         >
           <Badge className="mb-4 bg-[#6b4cff]/20 text-[#a78bfa] border-[#6b4cff]/30" data-testid="badge-marketing">
-            Marketing
+            Multi-Channel Marketing
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white" data-testid="text-marketing-title">
-            Multi-Channel Marketing
+            Activate and Convert
             <span className="block bg-gradient-to-r from-[#6b4cff] to-[#7cffd4] bg-clip-text text-transparent">
-              Automation Platform
+              With Precision Marketing
             </span>
           </h2>
           <p className="text-lg text-[#a59ecb] max-w-3xl mx-auto" data-testid="text-marketing-description">
-            Reach your audience on every channel with AI-powered campaigns that convert. 
-            Email, SMS, WhatsApp, and social media—all from one intelligent platform.
+            CEMSCALE empowers your organization with multi-channel marketing tools that connect your brand 
+            to consumers at the right time, on the right channel.
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-6 mb-16">
-          {marketingChannels.map((channel, index) => (
+          {marketingCapabilities.map((capability, index) => (
             <motion.div
-              key={channel.name}
+              key={capability.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-6 rounded-2xl bg-[#0a0a1a]/60 border border-[#1f1f35] hover:border-[#6b4cff]/30 transition-colors group"
-              data-testid={`card-marketing-channel-${index}`}
+              className="p-6 rounded-2xl bg-[#0a0a1a]/60 border border-[#1f1f35] hover:border-[#6b4cff]/30 transition-colors"
+              data-testid={`card-marketing-capability-${index}`}
             >
               <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                <div 
-                  className="w-12 h-12 rounded-xl flex items-center justify-center"
-                  style={{ backgroundColor: `${channel.color}15` }}
-                >
-                  <channel.icon className="h-6 w-6" style={{ color: channel.color }} />
+                <div className="w-12 h-12 rounded-xl bg-[#6b4cff]/10 flex items-center justify-center">
+                  <capability.icon className="h-6 w-6 text-[#6b4cff]" />
                 </div>
                 <div className="text-right">
-                  <p className="text-xs text-[#a59ecb]">{channel.stats.label}</p>
-                  <p className="text-xl font-bold" style={{ color: channel.color }} data-testid={`text-channel-stat-${index}`}>{channel.stats.value}</p>
+                  <p className="text-xs text-[#a59ecb]">{capability.stat}</p>
+                  <p className="text-xl font-bold text-[#7cffd4]" data-testid={`text-capability-stat-${index}`}>{capability.statValue}</p>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-white mb-2" data-testid={`text-channel-name-${index}`}>{channel.name}</h3>
-              <p className="text-[#a59ecb] text-sm leading-relaxed">{channel.description}</p>
+              <h3 className="text-xl font-semibold text-white mb-2" data-testid={`text-capability-title-${index}`}>{capability.title}</h3>
+              <p className="text-[#a59ecb] text-sm leading-relaxed">{capability.description}</p>
             </motion.div>
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-6 mb-16">
+        <div className="grid lg:grid-cols-3 gap-6 mb-16">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-3 rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden"
-            data-testid="card-automation-workflows"
+            className="lg:col-span-2 rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden"
+            data-testid="card-campaign-dashboard"
           >
             <div className="px-6 py-4 border-b border-[#1f1f35] flex flex-wrap items-center justify-between gap-2">
               <div className="flex items-center gap-2">
-                <Zap className="h-5 w-5 text-[#7cffd4]" />
-                <span className="font-medium text-white">Automation Workflows</span>
+                <Target className="h-5 w-5 text-[#6b4cff]" />
+                <span className="font-medium text-white">Campaign Performance</span>
               </div>
-              <Badge className="bg-[#7cffd4]/10 text-[#7cffd4] border-[#7cffd4]/20">4 Active</Badge>
+              <Badge className="bg-[#7cffd4]/10 text-[#7cffd4] border-[#7cffd4]/20">All Channels</Badge>
             </div>
             
-            <div className="p-4">
-              <div className="space-y-3">
-                {automationWorkflows.map((workflow, index) => (
-                  <div 
-                    key={workflow.name}
-                    className="p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45] flex flex-wrap items-center justify-between gap-3"
-                    data-testid={`card-workflow-${index}`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className={`w-2 h-2 rounded-full ${workflow.status === 'active' ? 'bg-[#7cffd4]' : 'bg-[#a59ecb]'}`} />
-                      <div>
-                        <p className="font-medium text-white text-sm" data-testid={`text-workflow-name-${index}`}>{workflow.name}</p>
-                        <p className="text-xs text-[#a59ecb]">{workflow.contacts} contacts</p>
-                      </div>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-lg font-semibold text-[#7cffd4]" data-testid={`text-workflow-conversion-${index}`}>{workflow.conversion}</p>
-                      <p className="text-xs text-[#a59ecb]">conversion</p>
+            <div className="p-6">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+                {campaignMetrics.map((metric, index) => (
+                  <div key={metric.label} className="p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45]" data-testid={`card-campaign-metric-${index}`}>
+                    <p className="text-xs text-[#a59ecb] mb-1">{metric.label}</p>
+                    <div className="flex flex-wrap items-end justify-between gap-1">
+                      <span className="text-xl font-bold text-white" data-testid={`text-campaign-value-${index}`}>{metric.value}</span>
+                      <span className={`text-xs font-medium ${metric.positive ? 'text-[#7cffd4]' : 'text-[#ff805d]'}`}>
+                        {metric.change}
+                      </span>
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-2 space-y-4"
-          >
-            {campaignMetrics.map((metric, index) => (
-              <div 
-                key={metric.label}
-                className="p-4 rounded-xl bg-[#0a0a1a]/60 border border-[#1f1f35] flex flex-wrap items-center gap-4"
-                data-testid={`card-campaign-metric-${index}`}
-              >
-                <div className="w-10 h-10 rounded-lg bg-[#6b4cff]/10 flex items-center justify-center">
-                  <metric.icon className="h-5 w-5 text-[#6b4cff]" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-xs text-[#a59ecb]">{metric.label}</p>
-                  <p className="text-xl font-bold text-white" data-testid={`text-metric-value-${index}`}>{metric.value}</p>
-                </div>
-                <span className="text-xs text-[#a59ecb] bg-[#1a1a2e] px-2 py-1 rounded">{metric.period}</span>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden mb-16"
-          data-testid="card-email-builder"
-        >
-          <div className="px-6 py-4 border-b border-[#1f1f35]">
-            <div className="flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-[#a78bfa]" />
-              <span className="font-medium text-white">AI-Powered Email Builder</span>
-            </div>
-          </div>
-          
-          <div className="p-6">
-            <div className="grid lg:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <div className="p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45]" data-testid="card-subject-generator">
-                  <div className="flex flex-wrap items-center gap-2 mb-3">
-                    <div className="w-2 h-2 rounded-full bg-[#7cffd4] animate-pulse" />
-                    <span className="text-sm font-medium text-white">AI Subject Line Generator</span>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="p-3 rounded-lg bg-[#0a0a1a] border border-[#2a2a45] flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-sm text-[#a59ecb]">"Unlock 40% off - Today only"</span>
-                      <Badge className="bg-[#7cffd4]/10 text-[#7cffd4] text-xs">92% score</Badge>
-                    </div>
-                    <div className="p-3 rounded-lg bg-[#0a0a1a] border border-[#2a2a45] flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-sm text-[#a59ecb]">"Your exclusive deal awaits"</span>
-                      <Badge className="bg-[#a78bfa]/10 text-[#a78bfa] text-xs">87% score</Badge>
-                    </div>
-                    <div className="p-3 rounded-lg bg-[#0a0a1a] border border-[#2a2a45] flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-sm text-[#a59ecb]">"Don't miss this limited offer"</span>
-                      <Badge className="bg-[#6b4cff]/10 text-[#6b4cff] text-xs">81% score</Badge>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45]" data-testid="card-send-time">
-                  <div className="flex flex-wrap items-center gap-2 mb-3">
-                    <Clock className="h-4 w-4 text-[#a78bfa]" />
-                    <span className="text-sm font-medium text-white">Optimal Send Time</span>
-                  </div>
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <div>
-                      <p className="text-2xl font-bold text-white" data-testid="text-optimal-time">Tuesday, 10:34 AM</p>
-                      <p className="text-xs text-[#a59ecb]">Based on recipient engagement patterns</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-lg font-semibold text-[#7cffd4]">+23%</p>
-                      <p className="text-xs text-[#a59ecb]">higher opens</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45]" data-testid="card-audience-segments">
-                <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <Target className="h-4 w-4 text-[#6b4cff]" />
-                  <span className="text-sm font-medium text-white">Audience Segments</span>
-                </div>
-                <div className="space-y-3">
-                  {[
-                    { name: "High-Value Customers", count: "12,847", color: "#7cffd4" },
-                    { name: "Recent Purchasers", count: "8,293", color: "#a78bfa" },
-                    { name: "Cart Abandoners", count: "3,456", color: "#ff805d" },
-                    { name: "Newsletter Subscribers", count: "45,102", color: "#6b4cff" },
-                    { name: "Inactive (30+ days)", count: "7,891", color: "#a59ecb" },
-                  ].map((segment, index) => (
-                    <div key={segment.name} className="flex flex-wrap items-center justify-between gap-2 p-3 rounded-lg bg-[#0a0a1a]" data-testid={`row-segment-${index}`}>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 rounded-full" style={{ backgroundColor: segment.color }} />
-                        <span className="text-sm text-white">{segment.name}</span>
-                      </div>
-                      <span className="text-sm text-[#a59ecb]">{segment.count}</span>
+              <div className="p-4 rounded-xl bg-[#1a1a2e] border border-[#2a2a45]">
+                <p className="text-sm font-medium text-white mb-3">Active Channels</p>
+                <div className="flex flex-wrap gap-3">
+                  {channels.map((channel, index) => (
+                    <div 
+                      key={channel.name}
+                      className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#0a0a1a] border border-[#2a2a45]"
+                      data-testid={`badge-channel-${index}`}
+                    >
+                      <channel.icon className="h-4 w-4 text-[#6b4cff]" />
+                      <span className="text-sm text-white">{channel.name}</span>
+                      {channel.active && (
+                        <div className="w-2 h-2 rounded-full bg-[#7cffd4]" />
+                      )}
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] overflow-hidden"
+            data-testid="card-templates"
+          >
+            <div className="px-6 py-4 border-b border-[#1f1f35]">
+              <div className="flex items-center gap-2">
+                <FileText className="h-5 w-5 text-[#a78bfa]" />
+                <span className="font-medium text-white">Industry Templates</span>
+              </div>
+            </div>
+            
+            <div className="p-4">
+              <div className="space-y-2">
+                {industryTemplates.map((template, index) => (
+                  <div 
+                    key={template.name}
+                    className="p-3 rounded-lg bg-[#1a1a2e] border border-[#2a2a45] flex flex-wrap items-center justify-between gap-2"
+                    data-testid={`card-template-${index}`}
+                  >
+                    <span className="text-sm text-white">{template.name}</span>
+                    <Badge className="bg-[#6b4cff]/10 text-[#6b4cff] border-[#6b4cff]/20 text-xs">
+                      {template.campaigns} campaigns
+                    </Badge>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -304,25 +245,29 @@ export function MarketingSection() {
           className="p-8 rounded-2xl bg-gradient-to-r from-[#6b4cff]/10 to-[#7cffd4]/10 border border-[#6b4cff]/20"
           data-testid="card-marketing-cta"
         >
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
             <div>
-              <h3 className="text-2xl font-semibold text-white mb-2" data-testid="text-marketing-cta-title">Scale your marketing with AI</h3>
-              <p className="text-[#a59ecb]">Everything you need to create, automate, and optimize multi-channel campaigns.</p>
+              <h3 className="text-2xl font-semibold text-white mb-2" data-testid="text-marketing-cta-title">
+                A Powerful Marketing Ecosystem
+              </h3>
+              <p className="text-[#a59ecb]">
+                Tied directly to your telephony, CRM, and lead flow—no external software required.
+              </p>
             </div>
             <Button 
               className="bg-[#6b4cff] hover:bg-[#6b4cff]/90 text-white shrink-0"
               data-testid="button-marketing-start"
             >
-              Start Free Trial
+              Start Campaign
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
-            {features.map((feature, index) => (
-              <div key={feature} className="flex items-center gap-2" data-testid={`text-feature-${index}`}>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {outcomes.map((outcome, index) => (
+              <div key={outcome} className="flex items-center gap-2" data-testid={`text-marketing-outcome-${index}`}>
                 <CheckCircle2 className="h-4 w-4 text-[#7cffd4] shrink-0" />
-                <span className="text-sm text-[#a59ecb]">{feature}</span>
+                <span className="text-sm text-[#a59ecb]">{outcome}</span>
               </div>
             ))}
           </div>
