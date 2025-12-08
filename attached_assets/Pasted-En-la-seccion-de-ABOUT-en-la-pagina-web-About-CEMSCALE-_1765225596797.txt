@@ -1,0 +1,23 @@
+En la seccion de "ABOUT" en la pagina web:  About CEMSCALE
+
+CEMSCALE is an intelligent Customer Engagement Management platform engineered for highly regulated industries—uniting lead generation, AI-powered telephony, multi-channel marketing, and customer lifecycle management into a single, seamless ecosystem.
+
+Built from the ground up to support insurance, healthcare, financial services, legal, tax, and compliance-driven organizations, CEMSCALE transforms how agencies acquire, engage, convert, and retain customers. The platform integrates real-time data intelligence, predictive analytics, and enterprise-level automation to deliver a faster, more efficient, and more compliant operating model.
+
+At its core, CEMSCALE eliminates the disconnect between marketing, call centers, sales, and back-office operations. The result is a unified environment where every lead, interaction, and workflow is tracked, optimized, and enriched by AI—from first contact to conversion and long-term retention.
+
+CEMSCALE provides:
+
+Intelligent Lead Generation: High-quality, continuously updated, AI-enriched consumer and business data with advanced segmentation and 95%+ verified accuracy.
+
+Integrated Telephony: Twilio/Telnyx-powered voice, SMS, and WhatsApp communications directly inside the platform, including AI outbound calling and dynamic routing.
+
+Multi-Channel Marketing Automation: Email, SMS, social, landing pages, funnels, and AI-generated content synchronized into a cohesive engagement engine.
+
+Customer Engagement Management: Unified CRM, automated workflows, referrals, compliance tracking, and lifecycle intelligence purpose-built for insurance and regulated markets.
+
+Compliance by Design: Privacy, consent, auditability, and data governance woven into every touchpoint.
+
+CEMSCALE redefines operational efficiency by turning disparate processes into a measurable, automated, and scalable customer engagement strategy. Whether supporting a 10-agent team or a multi-state enterprise with thousands of seats, CEMSCALE adapts and expands to meet the demands of modern digital engagement.
+
+CEMSCALE — Where compliance meets intelligent automation.
