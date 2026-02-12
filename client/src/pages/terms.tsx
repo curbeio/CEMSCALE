@@ -1,9 +1,11 @@
+import { useEffect } from "react";
 import { Header } from "@/components/stripe/Header";
 import { Footer } from "@/components/stripe/Footer";
 import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
 
 export default function Terms() {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
   return (
     <div className="min-h-screen bg-[#030014] w-full overflow-x-hidden">
       <Header />
