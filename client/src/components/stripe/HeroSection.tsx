@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
+import { ContactFormModal } from "./ContactFormModal";
 
 export function HeroSection() {
+  const [showForm, setShowForm] = useState(false);
+  const [formTitle, setFormTitle] = useState("Get Started");
   const particles = [
     { left: '8%', top: '12%', size: 3, duration: 7, delay: 0 },
     { left: '15%', top: '25%', size: 4, duration: 8, delay: -2 },
@@ -159,6 +163,7 @@ export function HeroSection() {
                 size="lg"
                 className="rounded-full px-8 h-12 text-base gap-2 bg-[#6b4cff] hover:bg-[#7c5fff] text-white font-medium shadow-lg shadow-[#6b4cff]/25"
                 data-testid="button-hero-start"
+                onClick={() => { setFormTitle("Get Started"); setShowForm(true); }}
               >
                 Get Started Now
                 <ArrowRight className="h-4 w-4" />
@@ -168,6 +173,7 @@ export function HeroSection() {
                 variant="outline"
                 className="rounded-full px-8 h-12 text-base gap-2 border-[#3d3a50] text-white hover:bg-white/10"
                 data-testid="button-hero-demo"
+                onClick={() => { setFormTitle("Schedule a Demo"); setShowForm(true); }}
               >
                 <Play className="h-4 w-4" />
                 Schedule a Demo
@@ -201,6 +207,13 @@ export function HeroSection() {
           
         </div>
       </div>
+
+      <ContactFormModal 
+        isOpen={showForm} 
+        onClose={() => setShowForm(false)} 
+        title={formTitle}
+        source="hero"
+      />
     </section>
   );
 }

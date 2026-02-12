@@ -60,19 +60,9 @@ export function Footer() {
                 className="h-8 sm:h-9 w-auto"
               />
             </a>
-            <p className="text-sm text-[#8b87a5] leading-relaxed mb-4">
+            <p className="text-sm text-[#8b87a5] leading-relaxed">
               Intelligent Customer Engagement Management for regulated industries.
             </p>
-            <div className="space-y-1 text-sm text-[#8b87a5]">
-              <p className="text-white font-medium">CEMSCALE LLC</p>
-              <p>20801 Biscayne Blvd Suite 340</p>
-              <p>Aventura, FL 33180</p>
-              <p>
-                <a href="mailto:master@cemscale.com" className="hover:text-[#d2d0df] transition-colors" data-testid="link-footer-email">
-                  master@cemscale.com
-                </a>
-              </p>
-            </div>
           </div>
           
           {Object.entries(footerLinks).map(([key, section]) => (
