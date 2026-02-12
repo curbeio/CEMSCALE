@@ -9,15 +9,6 @@ export function CTASection() {
 
   return (
     <section className="py-16 sm:py-24 lg:py-32 relative overflow-hidden bg-[#030014]">
-      <div className="absolute inset-0">
-        <div 
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px]"
-          style={{
-            background: 'radial-gradient(ellipse at center top, rgba(107, 76, 255, 0.15) 0%, transparent 70%)',
-          }}
-        />
-      </div>
-      
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#7cffd4]/20 text-[#7cffd4] text-sm font-medium mb-6">
           <Zap className="h-4 w-4" />
