@@ -1,0 +1,223 @@
+# REPLIT PROMPT — Implementar cumplimiento A2P 10DLC (BulkVS) en website cemscale.com / Curbe
+
+Objetivo: actualizar el website para cumplir requisitos de Bulk Solutions / carriers para aprobar campaña A2P 10DLC:
+- Website debe estar en HTTPS
+- Website debe mostrar relación Legal Company Name vs Brand (si aplica)
+- Privacy Policy y Terms accesibles
+- En cualquier formulario que capture contacto, agregar disclosure SMS completo debajo del formulario
+- Implementar un flujo de opt-in claro (checkbox + logging)
+- Crear endpoints para guardar evidencia del consentimiento (consent ledger) y exportarla
+- Páginas públicas deben mostrar los textos requeridos (rates/frequency/STOP/HELP)
+
+## Contexto del negocio (para copy y consistencia)
+Legal Company Name: CEMSCALE LLC
+Brand/DBA: (si aplica) Curbe / BeeUp / Cemscale (usar el que realmente va en mensajes)
+Website: https://cemscale.com
+Contact: master@cemscale.com | +1 786-399-6378
+Ubicación: 20801 Biscayne Blvd Suite 340, Aventura, FL 33180
+
+## 0) Reglas de oro
+1) NO inventes datos legales. Usa los valores de arriba.
+2) Todo texto SMS compliance debe aparecer “above the fold” o debajo inmediato del botón del formulario.
+3) El opt-in NO puede ser pre-marcado. Debe ser acción explícita (checkbox).
+4) Guardar evidencia de consentimiento: timestamp, IP, user-agent, URL, versión del disclosure, checkbox=true.
+5) Links a Privacy Policy y Terms deben existir y ser accesibles desde footer del sitio.
+
+---
+
+# 1) Infra / HTTPS
+- Verificar que TODO el sitio responda por HTTPS (301 desde HTTP a HTTPS).
+- No mixed content.
+- Si hay proxy (Caddy/Nginx), asegurarse de:
+  - HSTS recomendado (includeSubDomains opcional, pero ok)
+  - Redirección http->https
+
+Entregable:
+- Confirmación con prueba: curl -I http://cemscale.com y https://cemscale.com mostrando 301 -> 200.
+
+---
+
+# 2) Estructura de páginas legales (crear o actualizar)
+Crear/asegurar estas rutas públicas:
+- /privacy-policy
+- /terms
+- /sms-policy (opcional pero recomendado; puede ser sección dentro de terms)
+
+## 2.1 Privacy Policy: incluir frase requerida
+Insertar un párrafo visible (no escondido) con wording similar:
+“Any personal information that we collect (as identified in the ‘Personal Data We Collect’ section) will not be shared with third parties.”
+
+Además incluir secciones mínimas:
+- Personal Data We Collect (name, phone, email, IP, etc.)
+- How We Use Data (incluye “to send SMS communications you opted into”)
+- Data retention
+- Contact info
+
+## 2.2 Terms: incluir sección SMS/Communications
+Incluir:
+- Consentimiento para recibir SMS/email
+- STOP/HELP
+- “Message and data rates may apply”
+- Frecuencia (definir: “message frequency varies; up to 5 msgs/month” o el número que el negocio use)
+- No vender/share PII a terceros (alineado con privacy)
+- Contacto soporte
+
+Footer global del sitio:
+- links visibles: Privacy Policy + Terms
+- Si Brand != legal: “Curbe is a product of CEMSCALE LLC” o “Curbe is operated by CEMSCALE LLC”
+  (ajustar según brand real)
+
+---
+
+# 3) Formularios: Opt-in y disclosure SMS (CRÍTICO)
+Buscar TODOS los formularios del sitio (contact, quote, demo, lead, newsletter, etc.) y para cada uno:
+
+## 3.1 Añadir checkbox de opt-in
+- Label exacto (puede ser bilingüe, pero incluir inglés):
+  “I agree to receive communications from [BRAND] via SMS and email.”
+- Checkbox obligatorio si el form capturará teléfono.
+- Si el usuario no marca checkbox, NO se debe aceptar el envío cuando hay phone.
+
+## 3.2 Añadir disclosure debajo del form (texto completo)
+Debajo inmediato del botón Submit, mostrar este bloque (inglés obligatorio, español opcional):
+
+EN:
+“By submitting this form, you agree to receive communications from [BRAND] via SMS and email. Message and data rates may apply. Message frequency varies (up to X messages per month). Reply STOP to opt out, HELP for help. View our Privacy Policy and Terms & Conditions.”
+
+- “Privacy Policy” link a /privacy-policy
+- “Terms & Conditions” link a /terms
+- “X” configurable (default: 5) o “varies”
+
+ES opcional:
+“Al enviar este formulario, aceptas recibir comunicaciones de [BRAND] por SMS y email… Responde STOP para cancelar, HELP para ayuda…”
+
+## 3.3 Validación UI/UX
+- Si no marca opt-in: mostrar error claro.
+- No usar texto gris minúsculo escondido: debe ser legible.
+- Mantener screenshot-friendly (BulkVS lo pide).
+
+Entregables:
+- Lista de formularios encontrados y actualizados
+- Screenshot-ready layout (no overflow)
+
+---
+
+# 4) Consent Ledger (registro de consentimiento) + evidencia
+Implementar backend simple para registrar opt-ins.
+
+## 4.1 Crear tabla/colección
+Si hay DB (Postgres recomendado), crear tabla:
+consents
+- id (uuid)
+- phone_e164 (text, index)
+- email (text nullable)
+- name (text nullable)
+- consent_sms (boolean)
+- consent_email (boolean)
+- consent_text (text)  // guardar el disclosure exacto mostrado
+- consent_version (text) // ej: "sms-disclosure-v1"
+- page_url (text)
+- ip_address (text)
+- user_agent (text)
+- timestamp_utc (timestamptz default now())
+- source (text) // "web_form"
+- metadata (jsonb) // opcional
+
+Normalizar phone a E.164 en servidor.
+
+## 4.2 Endpoint de submit del form
+Cuando usuario envía form:
+- Validar checkbox si phone existe
+- Guardar consentimiento en consents
+- Guardar lead (si aplica) en leads table
+- Responder success
+
+## 4.3 Endpoint de export/evidence (admin protegido)
+Crear endpoints protegidos (Basic Auth o token env var):
+- GET /admin/consents?phone=...
+- GET /admin/consents/export.csv (rango de fechas opcional)
+Esto es para que el negocio tenga evidencia si el carrier la pide.
+
+## 4.4 Seguridad mínima
+- Rate limit básico a endpoints públicos
+- Sanitizar inputs
+- No exponer IP en frontend
+
+Entregables:
+- Migración/DDL
+- Código de endpoints
+- Instrucciones para setear variables env (DB_URL, ADMIN_TOKEN)
+
+---
+
+# 5) Mensajes y páginas de soporte (para coherencia)
+Crear una sección pública en /sms-policy o dentro /terms con:
+- Opt-in: cómo se suscriben (web form checkbox)
+- Opt-out: “Reply STOP…”
+- Help: “Reply HELP…” + contacto email/teléfono
+- Frequency
+- Rates
+- “No third-party sharing” (alineado)
+
+---
+
+# 6) Checklist final + pruebas
+Replit debe entregar:
+1) URLs:
+- https://cemscale.com/privacy-policy
+- https://cemscale.com/terms
+- (opcional) https://cemscale.com/sms-policy
+
+2) Prueba de HTTPS:
+- curl -I http://cemscale.com devuelve 301 a https
+- curl -I https://cemscale.com devuelve 200
+
+3) Form:
+- Checkbox opt-in no prechecked
+- Sin checkbox => error
+- Con checkbox => guarda consent en DB
+
+4) Evidencia:
+- Admin export CSV funciona
+- Registro contiene ip, ua, url, consent_text/version
+
+5) Copy exacto incluye:
+- “Message and data rates may apply”
+- “Reply STOP to opt out”
+- “Reply HELP for help”
+- “Message frequency …”
+- Links a Privacy/Terms
+
+---
+
+# 7) Notas importantes (no fallar)
+- Asegurar consistencia de BRAND en:
+  - disclosure del form
+  - footer
+  - privacy/terms
+  - mensajes sample en el paquete A2P
+- Si BRAND != CEMSCALE LLC, poner relación visible en footer + about.
+- No usar bit.ly o enlaces acortados en ejemplos del sitio.
+
+---
+
+# Implementación sugerida (si el stack es Next.js / React)
+- Crear componentes:
+  - <SmsConsentDisclosure brand="Curbe" frequency="up to 5/month" />
+  - <SmsOptInCheckbox required />
+- Crear API route:
+  - POST /api/lead (guarda lead + consent)
+  - GET /api/admin/consents/export (auth)
+
+Si el stack es Express:
+- POST /lead
+- GET /admin/consents/export
+
+---
+
+# Output esperado de Replit
+1) Lista de archivos modificados
+2) Código completo del disclosure
+3) DDL/migración
+4) Instrucciones de deploy
+5) Capturas/confirmación visual del form con el disclosure debajo del botón

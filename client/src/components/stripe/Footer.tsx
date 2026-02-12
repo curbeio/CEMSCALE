@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 import cemscaleLogo from "@assets/cemscale_logo_1764870041879.png";
 import { 
   Globe, 
@@ -9,36 +10,39 @@ const footerLinks = {
   products: {
     title: "Solutions",
     links: [
-      "Dashboard", "Leads", "Marketing", "Offline Form",
-      "Analytics", "Reporting", "Integrations", "API"
+      { label: "Lead Generation", href: "#leads" },
+      { label: "Telephony", href: "#telephony" },
+      { label: "Marketing Automation", href: "#marketing" },
+      { label: "Engagement CRM", href: "#engagement" },
+      { label: "Omnichannel Inbox", href: "#omnichannel" },
     ]
   },
-  solutions: {
+  industries: {
     title: "Industries",
     links: [
-      "Gyms & Fitness", "Education", "Retail", "Healthcare",
-      "Real Estate", "Events", "Hospitality", "Services"
-    ]
-  },
-  developers: {
-    title: "Developers",
-    links: [
-      "Documentation", "API Reference", "Webhooks", "SDK",
-      "Changelog", "Status Page"
+      { label: "Insurance", href: "#about" },
+      { label: "Healthcare", href: "#about" },
+      { label: "Medicare", href: "#about" },
+      { label: "Financial Services", href: "#about" },
+      { label: "Legal", href: "#about" },
+      { label: "Tax", href: "#about" },
     ]
   },
   resources: {
     title: "Resources",
     links: [
-      "Getting Started", "Case Studies", "Blog", "Help Center",
-      "Privacy Policy", "Terms of Service", "Contact"
+      { label: "Getting Started", href: "#" },
+      { label: "API Documentation", href: "#" },
+      { label: "Help Center", href: "#" },
+      { label: "Contact Us", href: "mailto:master@cemscale.com" },
     ]
   },
-  company: {
-    title: "Company",
+  legal: {
+    title: "Legal",
     links: [
-      "About Us", "Our Team", "Careers", "Partners",
-      "News", "Contact Us"
+      { label: "Privacy Policy", href: "/privacy-policy", isRoute: true },
+      { label: "Terms & Conditions", href: "/terms", isRoute: true },
+      { label: "SMS Policy", href: "/sms-policy", isRoute: true },
     ]
   }
 };
@@ -47,7 +51,7 @@ export function Footer() {
   return (
     <footer className="bg-[#030014] border-t border-[#1f1f35]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <a href="/" className="inline-block mb-4">
               <img 
@@ -56,40 +60,53 @@ export function Footer() {
                 className="h-8 sm:h-9 w-auto"
               />
             </a>
+            <p className="text-sm text-[#8b87a5] leading-relaxed mb-4">
+              Intelligent Customer Engagement Management for regulated industries.
+            </p>
+            <div className="space-y-1 text-sm text-[#8b87a5]">
+              <p className="text-white font-medium">CEMSCALE LLC</p>
+              <p>20801 Biscayne Blvd Suite 340</p>
+              <p>Aventura, FL 33180</p>
+              <p>
+                <a href="mailto:master@cemscale.com" className="hover:text-[#d2d0df] transition-colors" data-testid="link-footer-email">
+                  master@cemscale.com
+                </a>
+              </p>
+            </div>
           </div>
           
           {Object.entries(footerLinks).map(([key, section]) => (
             <div key={key}>
               <h4 className="font-semibold text-sm text-white mb-4">{section.title}</h4>
               <ul className="space-y-2">
-                {section.links.slice(0, 8).map((link) => (
-                  <li key={link}>
-                    <a 
-                      href="#" 
-                      className="text-sm text-[#8b87a5] hover:text-[#d2d0df] transition-colors"
-                      data-testid={`link-footer-${link.toLowerCase().replace(/\s+/g, '-')}`}
-                    >
-                      {link}
-                    </a>
+                {section.links.map((link) => (
+                  <li key={link.label}>
+                    {(link as any).isRoute ? (
+                      <Link
+                        href={link.href}
+                        className="text-sm text-[#8b87a5] hover:text-[#d2d0df] transition-colors"
+                        data-testid={`link-footer-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a 
+                        href={link.href} 
+                        className="text-sm text-[#8b87a5] hover:text-[#d2d0df] transition-colors"
+                        data-testid={`link-footer-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                      >
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
-                {section.links.length > 8 && (
-                  <li>
-                    <a 
-                      href="#" 
-                      className="text-sm text-[#8b87a5] hover:text-[#d2d0df] transition-colors"
-                    >
-                      See more...
-                    </a>
-                  </li>
-                )}
               </ul>
             </div>
           ))}
         </div>
         
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-[#1f1f35]">
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-4">
             <Button 
               variant="outline" 
               size="sm" 
@@ -100,10 +117,17 @@ export function Footer() {
               United States (English)
               <ChevronDown className="h-4 w-4" />
             </Button>
+            <div className="flex flex-wrap items-center gap-3 text-xs text-[#8b87a5]">
+              <Link href="/privacy-policy" className="hover:text-[#d2d0df] transition-colors" data-testid="link-bottom-privacy">Privacy</Link>
+              <span>|</span>
+              <Link href="/terms" className="hover:text-[#d2d0df] transition-colors" data-testid="link-bottom-terms">Terms</Link>
+              <span>|</span>
+              <Link href="/sms-policy" className="hover:text-[#d2d0df] transition-colors" data-testid="link-bottom-sms">SMS Policy</Link>
+            </div>
           </div>
           
           <p className="text-sm text-[#8b87a5] text-center md:text-right">
-            © {new Date().getFullYear()} CemScale. All rights reserved.
+            &copy; {new Date().getFullYear()} CEMSCALE LLC. All rights reserved.
           </p>
         </div>
       </div>

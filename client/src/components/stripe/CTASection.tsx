@@ -1,7 +1,12 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap } from "lucide-react";
+import { ContactFormModal } from "./ContactFormModal";
 
 export function CTASection() {
+  const [showForm, setShowForm] = useState(false);
+  const [formTitle, setFormTitle] = useState("Get Started");
+
   return (
     <section className="py-16 sm:py-24 lg:py-32 relative overflow-hidden bg-[#030014]">
       <div className="absolute inset-0">
@@ -32,19 +37,28 @@ export function CTASection() {
             size="lg" 
             className="rounded-full px-8 text-base h-12 bg-[#6b4cff] hover:bg-[#7c5fff] text-white shadow-lg shadow-[#6b4cff]/25"
             data-testid="button-cta-start"
+            onClick={() => { setFormTitle("Get Started"); setShowForm(true); }}
           >
-            Get Leads Now <ArrowRight className="ml-2 h-4 w-4" />
+            Get Started Now <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
           <Button 
             variant="outline" 
             size="lg" 
             className="rounded-full px-8 text-base h-12 bg-transparent border-[#3d3a50] text-white hover:bg-[#1a1a2e] hover:border-[#4d4a60]"
             data-testid="button-cta-contact"
+            onClick={() => { setFormTitle("Schedule a Demo"); setShowForm(true); }}
           >
             Schedule a Demo
           </Button>
         </div>
       </div>
+
+      <ContactFormModal 
+        isOpen={showForm} 
+        onClose={() => setShowForm(false)} 
+        title={formTitle}
+        source="cta"
+      />
     </section>
   );
 }
