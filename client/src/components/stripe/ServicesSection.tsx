@@ -85,7 +85,7 @@ export function ServicesSection() {
             Ready to transform your
             <span className="block bg-gradient-to-r from-[#6b4cff] to-[#7cffd4] bg-clip-text text-transparent"> customer engagement?</span>
           </h2>
-          <p className="text-lg text-[#a59ecb] max-w-2xl mx-auto">
+          <p className="text-lg text-[#a59ecb] max-w-2xl mx-auto mb-4">
             Fill out the form below and our team will reach out to schedule a personalized demo for your business.
           </p>
         </div>
