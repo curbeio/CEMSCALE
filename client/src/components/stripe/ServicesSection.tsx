@@ -19,10 +19,12 @@ export function ServicesSection() {
 
   const mutation = useMutation({
     mutationFn: async () => {
+      const phoneDigits = phone.replace(/\D/g, "");
+      const phoneE164 = phoneDigits.length === 10 ? `+1${phoneDigits}` : undefined;
       const res = await apiRequest("POST", "/api/lead", {
         name,
         email,
-        phone: phone || undefined,
+        phone: phoneE164,
         company: company || undefined,
         message: message || undefined,
         consentSms,
@@ -45,7 +47,8 @@ export function ServicesSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (phone && !consentSms) {
+    const phoneDigits = phone.replace(/\D/g, "");
+    if (phoneDigits.length > 0 && !consentSms) {
       setConsentError("SMS consent is required when providing a phone number.");
       return;
     }
@@ -192,14 +195,25 @@ export function ServicesSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-[#a59ecb] mb-1.5">Phone Number</label>
-                      <input
-                        type="tel"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        className="w-full px-4 py-2.5 rounded-lg bg-[#1a1a2e] border border-[#2a2a45] text-white placeholder-[#8b87a5] focus:outline-none focus:border-[#6b4cff] transition-colors"
-                        placeholder="+1 (555) 000-0000"
-                        data-testid="input-inline-phone"
-                      />
+                      <div className="flex">
+                        <span className="inline-flex items-center px-3 rounded-l-lg bg-[#1a1a2e] border border-r-0 border-[#2a2a45] text-[#a59ecb] text-sm select-none">+1</span>
+                        <input
+                          type="tel"
+                          value={phone}
+                          onChange={(e) => {
+                            const digits = e.target.value.replace(/\D/g, "").slice(0, 10);
+                            let formatted = "";
+                            if (digits.length > 0) formatted = "(" + digits.slice(0, 3);
+                            if (digits.length >= 3) formatted += ") ";
+                            if (digits.length > 3) formatted += digits.slice(3, 6);
+                            if (digits.length >= 6) formatted += "-" + digits.slice(6, 10);
+                            setPhone(formatted);
+                          }}
+                          className="w-full px-4 py-2.5 rounded-r-lg bg-[#1a1a2e] border border-[#2a2a45] text-white placeholder-[#8b87a5] focus:outline-none focus:border-[#6b4cff] transition-colors"
+                          placeholder="(555) 000-0000"
+                          data-testid="input-inline-phone"
+                        />
+                      </div>
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-[#a59ecb] mb-1.5">Company</label>
