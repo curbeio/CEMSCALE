@@ -9,7 +9,7 @@ import {
 
 const navLinks = [
   { name: "About", href: "#about" },
-  { name: "Blog", href: "#blog" },
+  { name: "Blog", href: "/blog" },
   { name: "Resources", href: "#resources" },
   { name: "Contact Us", href: "#contact" },
 ];
