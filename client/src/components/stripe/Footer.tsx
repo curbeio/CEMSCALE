@@ -1,5 +1,6 @@
+import { useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import cemscaleLogo from "@assets/cemscale_logo_1764870041879.png";
 import { 
   Globe, 
@@ -10,30 +11,29 @@ const footerLinks = {
   products: {
     title: "Solutions",
     links: [
-      { label: "Lead Generation", href: "#leads" },
-      { label: "Telephony", href: "#telephony" },
-      { label: "Marketing Automation", href: "#marketing" },
-      { label: "Engagement CRM", href: "#engagement" },
-      { label: "Omnichannel Inbox", href: "#omnichannel" },
+      { label: "Lead Generation", href: "/#leads" },
+      { label: "Telephony", href: "/#telephony" },
+      { label: "Marketing Automation", href: "/#marketing" },
+      { label: "Engagement CRM", href: "/#engagement" },
+      { label: "Omnichannel Inbox", href: "/#omnichannel" },
     ]
   },
   industries: {
     title: "Industries",
     links: [
-      { label: "Insurance", href: "#about" },
-      { label: "Healthcare", href: "#about" },
-      { label: "Medicare", href: "#about" },
-      { label: "Financial Services", href: "#about" },
-      { label: "Legal", href: "#about" },
-      { label: "Tax", href: "#about" },
+      { label: "Insurance", href: "/#about" },
+      { label: "Healthcare", href: "/#about" },
+      { label: "Medicare", href: "/#about" },
+      { label: "Financial Services", href: "/#about" },
+      { label: "Legal", href: "/#about" },
+      { label: "Tax", href: "/#about" },
     ]
   },
   resources: {
     title: "Resources",
     links: [
-      { label: "Getting Started", href: "#" },
-      { label: "API Documentation", href: "#" },
-      { label: "Help Center", href: "#" },
+      { label: "Blog", href: "/blog", isRoute: true },
+      { label: "Resources", href: "/resources", isRoute: true },
       { label: "Contact Us", href: "mailto:master@cemscale.com" },
     ]
   },
@@ -47,13 +47,70 @@ const footerLinks = {
   }
 };
 
+function FooterLink({ href, label, isRoute }: { href: string; label: string; isRoute?: boolean }) {
+  const [location, setLocation] = useLocation();
+
+  const handleClick = useCallback((e: React.MouseEvent) => {
+    if (href.startsWith("mailto:")) return;
+
+    e.preventDefault();
+
+    if (href.startsWith("/#")) {
+      const sectionId = href.substring(2);
+      if (location === "/") {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      } else {
+        setLocation("/");
+        setTimeout(() => {
+          const el = document.getElementById(sectionId);
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    } else if (isRoute) {
+      setLocation(href);
+      window.scrollTo(0, 0);
+    }
+  }, [href, isRoute, location, setLocation]);
+
+  if (isRoute) {
+    return (
+      <a
+        href={href}
+        className="text-sm text-[#8b87a5] hover:text-[#d2d0df] transition-colors"
+        data-testid={`link-footer-${label.toLowerCase().replace(/\s+/g, '-')}`}
+        onClick={handleClick}
+      >
+        {label}
+      </a>
+    );
+  }
+
+  return (
+    <a 
+      href={href} 
+      className="text-sm text-[#8b87a5] hover:text-[#d2d0df] transition-colors"
+      data-testid={`link-footer-${label.toLowerCase().replace(/\s+/g, '-')}`}
+      onClick={handleClick}
+    >
+      {label}
+    </a>
+  );
+}
+
 export function Footer() {
+  const [, setLocation] = useLocation();
+
   return (
     <footer className="bg-[#030014] border-t border-[#1f1f35]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
-            <a href="/" className="inline-block mb-4">
+            <a
+              href="/"
+              className="inline-block mb-4"
+              onClick={(e) => { e.preventDefault(); setLocation("/"); window.scrollTo(0, 0); }}
+            >
               <img 
                 src={cemscaleLogo} 
                 alt="CemScale" 
@@ -71,23 +128,7 @@ export function Footer() {
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.label}>
-                    {(link as any).isRoute ? (
-                      <Link
-                        href={link.href}
-                        className="text-sm text-[#8b87a5] hover:text-[#d2d0df] transition-colors"
-                        data-testid={`link-footer-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                      >
-                        {link.label}
-                      </Link>
-                    ) : (
-                      <a 
-                        href={link.href} 
-                        className="text-sm text-[#8b87a5] hover:text-[#d2d0df] transition-colors"
-                        data-testid={`link-footer-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                      >
-                        {link.label}
-                      </a>
-                    )}
+                    <FooterLink href={link.href} label={link.label} isRoute={(link as any).isRoute} />
                   </li>
                 ))}
               </ul>
