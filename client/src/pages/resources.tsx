@@ -62,7 +62,7 @@ const glossaryTerms = [
   { term: "A2P (Application-to-Person)", definition: "Messaging sent from a business application to a consumer's mobile phone. Distinct from P2P (person-to-person) messaging between individuals." },
   { term: "10DLC (10-Digit Long Code)", definition: "A standard 10-digit phone number used for A2P messaging. Requires registration with The Campaign Registry for business use." },
   { term: "TCR (The Campaign Registry)", definition: "The centralized registration platform where businesses register their brand and messaging campaigns for A2P 10DLC compliance." },
-  { term: "TCPA (Telephone Consumer Protection Act)", definition: "Federal law regulating telemarketing calls, auto-dialed calls, pre-recorded calls, text messages, and unsolicited faxes. Requires prior express consent for marketing messages." },
+  { term: "TCPA (Telephone Consumer Protection Act)", definition: "Federal law regulating auto-dialed calls, pre-recorded calls, text messages, and unsolicited faxes. Requires prior express consent for commercial messages." },
   { term: "CAN-SPAM Act", definition: "Federal law governing commercial email messages. Requires accurate header information, honest subject lines, opt-out mechanisms, and sender identification." },
   { term: "HIPAA (Health Insurance Portability and Accountability Act)", definition: "Federal law establishing standards for protecting sensitive patient health information. Applies to covered entities and their business associates." },
   { term: "PHI (Protected Health Information)", definition: "Any individually identifiable health information created, received, maintained, or transmitted by a covered entity or business associate." },
