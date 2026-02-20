@@ -150,8 +150,8 @@ export function HeroSection() {
               style={{ animationDelay: '0.1s' }}
               data-testid="text-hero-subheadline"
             >
-              CEMSCALE is an intelligent Customer Engagement Management platform for regulated industries—
-              uniting lead generation, AI-powered telephony, multi-channel marketing, and customer lifecycle 
+              CEMSCALE is an intelligent Customer Engagement Management platform for professional services—
+              uniting lead generation, AI-powered communication, multi-channel marketing, and customer lifecycle 
               management into a single, seamless ecosystem.
             </p>
             
@@ -188,7 +188,7 @@ export function HeroSection() {
                 <svg className="w-4 h-4 text-[#7cffd4]" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                Compliance by Design
+                Security by Design
               </span>
               <span className="flex items-center gap-2">
                 <svg className="w-4 h-4 text-[#7cffd4]" fill="currentColor" viewBox="0 0 20 20">

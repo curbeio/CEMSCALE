@@ -42,20 +42,20 @@ const telephonyFeatures = [
 const additionalCapabilities = [
   { icon: FileAudio, label: "Call Recording" },
   { icon: BarChart3, label: "Analytics" },
-  { icon: Shield, label: "Compliance Tracking" },
+  { icon: Shield, label: "Activity Tracking" },
   { icon: Languages, label: "Multi-Language Support" },
 ];
 
 const platformHighlights = [
   { icon: Globe, label: "Global Coverage", description: "Enterprise-grade infrastructure" },
   { icon: Zap, label: "Instant Setup", description: "Deploy in minutes, not months" },
-  { icon: Shield, label: "Enterprise Security", description: "Compliant & secure by design" },
+  { icon: Shield, label: "Enterprise Security", description: "Secure by design" },
 ];
 
 const outcomes = [
   "Improved speed-to-lead response times",
   "Higher call quality and consistency",
-  "Built-in compliance tracking",
+  "Built-in activity tracking",
   "Zero technical overhead for your team",
   "Seamless CRM integration",
   "Real-time performance analytics",
@@ -193,7 +193,7 @@ export function TelephonySection() {
                 A Fully Integrated Communication Engine
               </h3>
               <p className="text-[#a59ecb]">
-                Improve speed-to-lead, call quality, and compliance—all from a single platform.
+                Improve speed-to-lead, call quality, and team productivity—all from a single platform.
               </p>
             </div>
             <Button 

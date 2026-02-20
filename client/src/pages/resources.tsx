@@ -17,28 +17,20 @@ interface FaqItem {
 
 const faqs: FaqItem[] = [
   {
-    question: "What is A2P 10DLC and why does it matter for my business?",
-    answer: "A2P 10DLC (Application-to-Person 10-Digit Long Code) is the industry standard for business text messaging in the United States. Carriers like AT&T, T-Mobile, and Verizon require all businesses sending SMS/MMS to register their brand and messaging campaigns through The Campaign Registry (TCR). Without registration, your messages may be filtered, throttled, or blocked entirely. CEMSCALE handles the entire registration and compliance process for you."
+    question: "What is CEMSCALE?",
+    answer: "CEMSCALE is a unified Customer Engagement Management (CEM) platform designed for professional services industries. It brings together customer communication, contact management, lead tracking, and workflow automation into a single platform—eliminating the need for disconnected tools."
   },
   {
-    question: "How does CEMSCALE handle HIPAA compliance for healthcare clients?",
-    answer: "CEMSCALE implements administrative, physical, and technical safeguards required by HIPAA. This includes end-to-end encryption for messages containing Protected Health Information (PHI), role-based access controls, comprehensive audit logging, Business Associate Agreements (BAAs) with all clients, and automatic data retention policies. Our platform is designed so healthcare providers can communicate with patients across channels without risking compliance violations."
+    question: "How does CEMSCALE protect sensitive client data?",
+    answer: "CEMSCALE implements enterprise-grade security including end-to-end encryption for all communications, role-based access controls, comprehensive audit logging, and automatic data retention policies. For healthcare clients, we support HIPAA safeguards including Business Associate Agreements (BAAs). Our platform is SOC 2 aligned and undergoes regular security assessments."
   },
   {
-    question: "What channels does CEMSCALE support?",
-    answer: "CEMSCALE provides unified omnichannel communication across SMS, MMS, WhatsApp Business API, Facebook Messenger, Instagram Direct Messages, iMessage (via Apple Business Chat), Email, and Voice (inbound/outbound calling with IVR). All channels feed into a single conversation thread per contact, so your team always has full context regardless of which channel the customer prefers."
-  },
-  {
-    question: "Can I port my existing phone numbers to CEMSCALE?",
-    answer: "Yes. CEMSCALE supports number porting for local, toll-free, and short code numbers. The porting process typically takes 7-14 business days for local numbers and 4-6 weeks for toll-free and short codes. During the transition period, your existing service remains active. Our onboarding team manages the entire porting process to minimize disruption."
-  },
-  {
-    question: "How does the consent management system work?",
-    answer: "CEMSCALE's consent ledger automatically records every opt-in and opt-out event with full metadata: timestamp, IP address, user agent, page URL, consent text version, and the specific language the consumer agreed to. This creates an auditable compliance trail that satisfies TCPA requirements, carrier obligations, and state-specific regulations. Opt-outs are processed immediately across all channels."
+    question: "What communication channels does CEMSCALE support?",
+    answer: "CEMSCALE provides a unified inbox that brings together email, WhatsApp, Facebook Messenger, Instagram Direct Messages, and iMessage conversations. All channels feed into a single conversation thread per contact, so your team always has full context regardless of which channel the customer prefers."
   },
   {
     question: "What industries does CEMSCALE serve?",
-    answer: "CEMSCALE is purpose-built for regulated industries including Insurance (P&C, Life, Health, Medicare), Healthcare (providers, clinics, hospitals), Financial Services (advisors, banks, credit unions), Legal (law firms, legal services), Tax (CPAs, tax preparers, enrolled agents), and Medicare (enrollment, supplements, advantage plans). Our compliance framework is tailored to the specific regulatory requirements of each industry."
+    answer: "CEMSCALE is built for professional services industries including Insurance (P&C, Life, Health, Medicare), Healthcare (providers, clinics, hospitals), Financial Services (advisors, banks, credit unions), Legal (law firms, legal services), Tax (CPAs, tax preparers, enrolled agents), and Medicare (enrollment, supplements, advantage plans)."
   },
   {
     question: "Does CEMSCALE integrate with my existing tools?",
@@ -46,61 +38,47 @@ const faqs: FaqItem[] = [
   },
   {
     question: "What kind of support does CEMSCALE provide?",
-    answer: "All CEMSCALE plans include email support with response within 4 business hours. Professional and Enterprise plans include dedicated account management, phone support, and priority ticket handling. Enterprise clients receive a dedicated Customer Success Manager, custom onboarding programs, and quarterly business reviews. Our support team is based in the United States and specializes in regulated industry communications."
+    answer: "All CEMSCALE plans include email support with response within 4 business hours. Professional and Enterprise plans include dedicated account management, phone support, and priority ticket handling. Enterprise clients receive a dedicated Customer Success Manager, custom onboarding programs, and quarterly business reviews. Our support team is based in the United States."
   },
   {
     question: "How is pricing structured?",
-    answer: "CEMSCALE offers per-seat licensing with tiered plans based on feature requirements and messaging volume. Plans include a base allocation of messages across channels, with transparent per-message pricing for overages. There are no hidden fees for A2P 10DLC registration, number provisioning, or compliance features—these are included in every plan. Contact our sales team for a customized quote based on your specific needs."
+    answer: "CEMSCALE offers per-seat licensing with tiered plans based on feature requirements. Plans include access to all core modules—contact management, unified inbox, workflow automation, and analytics. Contact our sales team for a customized quote based on your specific needs."
   },
   {
     question: "What happens to my data if I cancel?",
-    answer: "Upon cancellation, CEMSCALE provides a 30-day data export window during which you can download all your contact records, communication history, consent logs, and campaign data in standard formats (CSV, JSON). After the export window, data is securely deleted from our systems within 90 days, in compliance with our data retention policy and applicable regulations. We provide written confirmation of data deletion upon request."
+    answer: "Upon cancellation, CEMSCALE provides a 30-day data export window during which you can download all your contact records, communication history, and data in standard formats (CSV, JSON). After the export window, data is securely deleted from our systems within 90 days, in accordance with our data retention policy. We provide written confirmation of data deletion upon request."
+  },
+  {
+    question: "How long does onboarding take?",
+    answer: "Most teams are fully operational within 1-2 weeks. Our onboarding process includes data migration from your existing tools, team training sessions, and custom workflow configuration. Enterprise clients receive a dedicated onboarding manager to ensure a smooth transition."
+  },
+  {
+    question: "Can I try CEMSCALE before committing?",
+    answer: "Yes. We offer guided product demos where our team walks you through the platform using scenarios relevant to your industry. You can also request a sandbox environment to explore features hands-on before making a decision. Contact us to schedule your personalized demo."
   }
 ];
 
 const glossaryTerms = [
-  { term: "A2P (Application-to-Person)", definition: "Messaging sent from a business application to a consumer's mobile phone. Distinct from P2P (person-to-person) messaging between individuals." },
-  { term: "10DLC (10-Digit Long Code)", definition: "A standard 10-digit phone number used for A2P messaging. Requires registration with The Campaign Registry for business use." },
-  { term: "TCR (The Campaign Registry)", definition: "The centralized registration platform where businesses register their brand and messaging campaigns for A2P 10DLC compliance." },
-  { term: "TCPA (Telephone Consumer Protection Act)", definition: "Federal law regulating auto-dialed calls, pre-recorded calls, text messages, and unsolicited faxes. Requires prior express consent for commercial messages." },
-  { term: "CAN-SPAM Act", definition: "Federal law governing commercial email messages. Requires accurate header information, honest subject lines, opt-out mechanisms, and sender identification." },
+  { term: "CEM (Customer Engagement Management)", definition: "A strategy and technology approach focused on managing and optimizing all interactions between a business and its customers across every touchpoint and channel." },
+  { term: "CRM (Customer Relationship Management)", definition: "Software that helps businesses manage customer data, interactions, and relationships. A CRM centralizes contact information, communication history, and sales pipeline data." },
+  { term: "Omnichannel", definition: "A communication approach that provides a seamless customer experience across all channels (email, messaging, social media, phone) with unified conversation history." },
   { term: "HIPAA (Health Insurance Portability and Accountability Act)", definition: "Federal law establishing standards for protecting sensitive patient health information. Applies to covered entities and their business associates." },
   { term: "PHI (Protected Health Information)", definition: "Any individually identifiable health information created, received, maintained, or transmitted by a covered entity or business associate." },
   { term: "BAA (Business Associate Agreement)", definition: "A contract between a HIPAA-covered entity and a business associate that establishes the permitted uses and disclosures of PHI." },
   { term: "SOC 2 (Service Organization Control 2)", definition: "An auditing framework for service providers that stores customer data, evaluating controls related to security, availability, processing integrity, confidentiality, and privacy." },
-  { term: "GDPR (General Data Protection Regulation)", definition: "European Union regulation on data protection and privacy. Applies to any organization processing personal data of EU residents, regardless of where the organization is located." },
-  { term: "CCPA (California Consumer Privacy Act)", definition: "California state law giving consumers rights over their personal information collected by businesses, including the right to know, delete, and opt out of sale." },
-  { term: "IVR (Interactive Voice Response)", definition: "An automated telephony system that interacts with callers through voice and DTMF (touch-tone) inputs, routing calls and providing information without a live agent." },
+  { term: "RBAC (Role-Based Access Control)", definition: "A security approach that restricts system access based on a user's role within the organization, ensuring team members only see data relevant to their function." },
   { term: "NPS (Net Promoter Score)", definition: "A customer loyalty metric measured by asking how likely customers are to recommend your business on a 0-10 scale. Scores are categorized as Promoters (9-10), Passives (7-8), or Detractors (0-6)." },
+  { term: "Lead Scoring", definition: "A methodology for ranking prospects based on their likelihood to convert, using behavioral signals, engagement patterns, and demographic data to prioritize sales efforts." },
+  { term: "Pipeline Management", definition: "The process of tracking and managing sales opportunities as they progress through defined stages—from initial contact to closed deal—with visibility into value and probability at each stage." },
+  { term: "Workflow Automation", definition: "The use of technology to automate repetitive business processes such as follow-up reminders, task assignments, status updates, and notification triggers based on predefined rules." },
   { term: "DPA (Data Processing Agreement)", definition: "A legally binding contract between a data controller and data processor that outlines the scope, nature, and purpose of data processing activities." },
-  { term: "E.164", definition: "The international standard format for phone numbers, consisting of a plus sign, country code, and subscriber number (e.g., +15551234567 for a US number)." },
-  { term: "Opt-in / Opt-out", definition: "Opt-in is the process of a consumer giving explicit consent to receive messages. Opt-out is the process of withdrawing that consent. Both must be clearly documented and honored immediately." },
-  { term: "Throughput", definition: "The number of messages a sender can transmit per second. A2P 10DLC throughput is determined by your brand's trust score assigned during TCR registration." },
-  { term: "Webhook", definition: "An HTTP callback that delivers real-time data to other applications. Used to receive instant notifications about events like message delivery, opt-outs, and inbound messages." }
+  { term: "API (Application Programming Interface)", definition: "A set of protocols and tools that allows different software applications to communicate with each other, enabling data sharing and integration between platforms." },
+  { term: "Webhook", definition: "An HTTP callback that delivers real-time data to other applications. Used to receive instant notifications about events like new contacts, status changes, and form submissions." },
+  { term: "SLA (Service Level Agreement)", definition: "A commitment between a service provider and client that defines expected performance standards, response times, uptime guarantees, and remedies for non-compliance." }
 ];
 
 const complianceChecklist = [
-  { category: "SMS Compliance", items: [
-    "Register brand with The Campaign Registry (TCR)",
-    "Register each messaging campaign with appropriate use case",
-    "Obtain explicit written consent before sending any messages",
-    "Include clear opt-out instructions in every message (reply STOP)",
-    "Process opt-out requests immediately and across all channels",
-    "Maintain a consent ledger with timestamps and consent language",
-    "Include company identification in initial messages",
-    "Respect quiet hours (no messages before 8 AM or after 9 PM local time)",
-    "Keep message content consistent with registered campaign use case"
-  ]},
-  { category: "Email Compliance (CAN-SPAM)", items: [
-    "Use accurate 'From' and 'Reply-To' header information",
-    "Write honest, non-deceptive subject lines",
-    "Include a valid physical postal address in every email",
-    "Provide a clear and conspicuous unsubscribe mechanism",
-    "Honor unsubscribe requests within 10 business days",
-    "Monitor third-party email senders acting on your behalf",
-    "Clearly identify the message as an advertisement when applicable"
-  ]},
-  { category: "Data Security", items: [
+  { category: "Data Security Best Practices", items: [
     "Encrypt all data at rest using AES-256 or equivalent",
     "Encrypt all data in transit using TLS 1.2 or higher",
     "Implement role-based access controls (RBAC)",
@@ -118,39 +96,56 @@ const complianceChecklist = [
     "Conduct annual HIPAA risk assessments",
     "Train workforce on HIPAA policies and procedures",
     "Establish breach notification procedures (within 60 days)"
+  ]},
+  { category: "Client Data Management", items: [
+    "Maintain a single source of truth for all client records",
+    "Document data collection purposes and legal basis",
+    "Implement data minimization—only collect what's necessary",
+    "Provide clients with access to their data upon request",
+    "Establish clear data retention and deletion schedules",
+    "Ensure secure data export capabilities for client portability",
+    "Review third-party integrations for data handling standards"
+  ]},
+  { category: "Team Operations", items: [
+    "Define clear roles and permissions for each team member",
+    "Conduct regular access reviews and remove inactive accounts",
+    "Implement strong password policies and multi-factor authentication",
+    "Train team members on secure client communication practices",
+    "Document standard operating procedures for client interactions",
+    "Establish escalation protocols for sensitive client matters"
   ]}
 ];
 
 const guides = [
   {
-    title: "Getting Started with A2P 10DLC Registration",
-    description: "Step-by-step walkthrough of registering your brand and campaigns with The Campaign Registry. Covers EIN requirements, trust score optimization, and campaign approval best practices.",
+    title: "Getting Started with CEMSCALE",
+    description: "Step-by-step walkthrough of setting up your CEMSCALE workspace. Covers team invitations, role configuration, contact importing, and connecting your first communication channel.",
     icon: FileText,
     tag: "Guide"
   },
   {
-    title: "SMS Opt-In Best Practices for Regulated Industries",
-    description: "How to design compliant opt-in workflows for insurance, healthcare, and financial services. Includes sample consent language, web form templates, and verbal consent documentation methods.",
-    icon: MessageSquare,
-    tag: "Best Practices"
-  },
-  {
     title: "Omnichannel Communication Strategy Playbook",
-    description: "Framework for building a unified communication strategy across SMS, email, WhatsApp, voice, and social channels. Includes channel selection criteria, workflow automation templates, and measurement frameworks.",
+    description: "Framework for building a unified communication strategy across email, WhatsApp, and social channels. Includes channel selection criteria, workflow automation templates, and measurement frameworks.",
     icon: Globe,
     tag: "Playbook"
   },
   {
-    title: "HIPAA-Compliant Messaging Guide",
-    description: "Detailed guidance on sending patient communications that satisfy HIPAA requirements. Covers message content restrictions, encryption standards, consent management, and audit trail requirements.",
+    title: "Client Data Security Guide",
+    description: "Detailed guidance on protecting sensitive client information within your CRM. Covers encryption standards, access controls, audit trail best practices, and data handling procedures.",
     icon: Shield,
-    tag: "Compliance"
+    tag: "Security"
   },
   {
     title: "Lead Management for Insurance Agencies",
-    description: "Complete guide to capturing, scoring, nurturing, and converting insurance leads. Covers lead source optimization, response time benchmarks, drip campaign design, and pipeline analytics.",
+    description: "Complete guide to capturing, scoring, nurturing, and converting insurance leads. Covers lead source optimization, response time benchmarks, follow-up workflows, and pipeline analytics.",
     icon: Users,
     tag: "Industry Guide"
+  },
+  {
+    title: "Workflow Automation Best Practices",
+    description: "How to design efficient automated workflows for client onboarding, follow-up sequences, task assignments, and team notifications. Reduce manual work while improving client experience.",
+    icon: MessageSquare,
+    tag: "Best Practices"
   },
   {
     title: "CEMSCALE API Integration Reference",
@@ -180,7 +175,7 @@ export default function Resources() {
               Resources
             </h1>
             <p className="text-lg text-[#a59ecb] max-w-2xl">
-              Guides, compliance checklists, FAQs, and industry glossary to help you navigate customer engagement in regulated industries.
+              Guides, best practices, FAQs, and industry glossary to help you get the most out of customer engagement.
             </p>
           </div>
 
@@ -188,7 +183,7 @@ export default function Resources() {
             {([
               { key: "guides" as const, label: "Guides & Playbooks", icon: BookOpen },
               { key: "faq" as const, label: "FAQ", icon: HelpCircle },
-              { key: "checklist" as const, label: "Compliance Checklist", icon: Shield },
+              { key: "checklist" as const, label: "Security Checklist", icon: Shield },
               { key: "glossary" as const, label: "Industry Glossary", icon: GraduationCap },
             ]).map((tab) => (
               <button
@@ -244,7 +239,7 @@ export default function Resources() {
                   Need a custom resource for your industry?
                 </h3>
                 <p className="text-[#a59ecb] text-sm mb-5 max-w-lg mx-auto">
-                  Our team creates tailored compliance guides and implementation playbooks for specific regulatory environments.
+                  Our team creates tailored guides and implementation playbooks for your specific industry and use case.
                 </p>
                 <Link href="/#contact">
                   <Button
@@ -344,10 +339,10 @@ export default function Resources() {
 
               <div className="rounded-2xl bg-gradient-to-r from-[#6b4cff]/10 to-[#7cffd4]/10 border border-[#1f1f35] p-8 text-center">
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  CEMSCALE handles compliance for you
+                  CEMSCALE has security built in
                 </h3>
                 <p className="text-[#a59ecb] text-sm mb-5 max-w-lg mx-auto">
-                  Every item on this checklist is built into the CEMSCALE platform. Our compliance framework manages registration, consent, encryption, and audit logging automatically.
+                  These best practices are built into the CEMSCALE platform. Our security framework manages encryption, access controls, and audit logging automatically.
                 </p>
                 <Link href="/#contact">
                   <Button

@@ -118,7 +118,7 @@ export function Footer() {
               />
             </a>
             <p className="text-sm text-[#8b87a5] leading-relaxed">
-              Intelligent Customer Engagement Management for regulated industries.
+              Intelligent Customer Engagement Management for professional services.
             </p>
           </div>
           

@@ -130,18 +130,18 @@ export function ServicesSection() {
                   <Shield className="h-5 w-5 text-[#a78bfa]" />
                 </div>
                 <div>
-                  <p className="text-white font-medium text-sm">A2P 10DLC Compliant</p>
-                  <p className="text-[#8b87a5] text-sm">Full compliance for regulated industries: Insurance, Healthcare, Legal, Tax & more.</p>
+                  <p className="text-white font-medium text-sm">Enterprise-Grade Security</p>
+                  <p className="text-[#8b87a5] text-sm">Built for professional services: Insurance, Healthcare, Legal, Tax & more.</p>
                 </div>
               </div>
             </div>
 
             <div className="rounded-2xl bg-[#0a0a1a] border border-[#1f1f35] p-6">
               <p className="text-[#a59ecb] text-sm leading-relaxed mb-3">
-                "CEMSCALE unified all our communication channels and our team productivity increased dramatically. The compliance tools gave us peace of mind."
+                "CEMSCALE unified all our communication channels and our team productivity increased dramatically. The security and data management tools gave us peace of mind."
               </p>
               <p className="text-white text-sm font-medium">Insurance Agency Director</p>
-              <p className="text-[#8b87a5] text-xs">Regulated Industry Client</p>
+              <p className="text-[#8b87a5] text-xs">Professional Services Client</p>
             </div>
           </div>
 

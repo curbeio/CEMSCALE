@@ -30,8 +30,8 @@ const engagementFeatures = [
   },
   {
     icon: FileCheck,
-    title: "Unified CRM With Compliance Artifacts",
-    description: "Notes, calls, consents, and documents—all in one place. Complete compliance history for every customer interaction.",
+    title: "Unified CRM With Complete Records",
+    description: "Notes, calls, documents, and activity logs—all in one place. Complete history for every customer interaction.",
   },
   {
     icon: Gift,
@@ -60,7 +60,7 @@ const crossSellVerticals = [
 
 const journeySteps = [
   { phase: "Before Sale", activities: ["Lead Nurturing", "Engagement Scoring", "Automated Follow-ups"] },
-  { phase: "During Sale", activities: ["Unified CRM", "Compliance Tracking", "Document Collection"] },
+  { phase: "During Sale", activities: ["Unified CRM", "Activity Tracking", "Document Collection"] },
   { phase: "After Sale", activities: ["Cross-Sell Workflows", "Referral Programs", "Retention Campaigns"] },
 ];
 
@@ -68,7 +68,7 @@ const outcomes = [
   "Measurable increase in conversions",
   "Higher agent productivity",
   "Improved customer retention",
-  "Complete compliance artifact management",
+  "Complete activity and document management",
   "Automated partner/downline monetization",
   "Maximized lifetime customer value",
 ];
@@ -104,7 +104,7 @@ export function EngagementSection() {
           </h2>
           <p className="text-lg text-[#a59ecb] max-w-3xl mx-auto" data-testid="text-engagement-description">
             CEMSCALE's Customer Engagement Management engine ensures every interaction—before, during, 
-            and after the sale—is intelligent, intentional, and automated. Purpose-built for insurance and regulated markets.
+            and after the sale—is intelligent, intentional, and automated. Purpose-built for insurance and professional services.
           </p>
         </motion.div>
 
@@ -217,7 +217,7 @@ export function EngagementSection() {
               <div className="px-6 py-4 border-b border-[#1f1f35]">
                 <div className="flex items-center gap-2">
                   <FileCheck className="h-5 w-5 text-[#a78bfa]" />
-                  <span className="font-medium text-white">Compliance Artifacts</span>
+                  <span className="font-medium text-white">Client Records</span>
                 </div>
               </div>
               <div className="p-4 space-y-3">
@@ -262,7 +262,7 @@ export function EngagementSection() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
             <div>
               <h3 className="text-2xl font-semibold text-white mb-2" data-testid="text-engagement-cta-title">
-                Measurable Results — Purpose-Built for Regulated Markets
+                Measurable Results — Purpose-Built for Professional Services
               </h3>
               <p className="text-[#a59ecb]">
                 Increase conversions, boost agent productivity, and maximize retention with intelligent automation.

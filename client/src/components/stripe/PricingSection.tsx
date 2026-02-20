@@ -66,7 +66,7 @@ const plans = [
       "On-premise deployment option",
       "Custom integrations",
       "SLA guarantee 99.99%",
-      "Advanced security & compliance",
+      "Advanced security & data protection",
       "Phone & video support",
     ],
     cta: "Contact Sales",

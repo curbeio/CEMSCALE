@@ -61,7 +61,7 @@ const outcomes = [
   "Connected to your telephony and CRM",
   "Full lead flow integration",
   "Real-time performance analytics",
-  "Compliance-ready messaging",
+  "Enterprise-grade security",
 ];
 
 export function MarketingSection() {

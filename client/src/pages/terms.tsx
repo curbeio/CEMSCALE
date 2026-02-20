@@ -31,7 +31,7 @@ export default function Terms() {
               </p>
               <p className="text-[#a59ecb] leading-relaxed mt-4">
                 CEMSCALE is a software-as-a-service (SaaS) provider that offers a customer engagement management 
-                platform designed for businesses operating in regulated industries, including but not limited to 
+                platform designed for businesses operating in professional services industries, including but not limited to 
                 Insurance, Healthcare, Financial Services, Legal, Tax, and Medicare. Our Platform enables Clients 
                 to manage omnichannel communications, lead generation, CRM, telephony, marketing automation, 
                 and analytics.
@@ -203,7 +203,7 @@ export default function Terms() {
               </p>
               <ul className="list-disc list-inside space-y-2 text-[#a59ecb]">
                 <li>Use the Platform for any unlawful purpose or in violation of any applicable law or regulation</li>
-                <li>Send unsolicited communications (spam), including SMS, emails, or calls, in violation of applicable anti-spam laws (CAN-SPAM, TCPA, A2P 10DLC regulations)</li>
+                <li>Send unsolicited communications or use the Platform in a way that violates applicable laws</li>
                 <li>Upload or transmit any malicious code, viruses, or harmful content</li>
                 <li>Attempt to gain unauthorized access to the Platform, other accounts, or CEMSCALE systems</li>
                 <li>Reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code of the Platform</li>
@@ -227,27 +227,25 @@ export default function Terms() {
               <p className="text-[#a59ecb] leading-relaxed">
                 You are responsible for ensuring that your use of the Platform complies with all applicable 
                 federal, state, local, and international laws and regulations, including but not limited to 
-                data protection laws (GDPR, CCPA/CPRA), telecommunications regulations (TCPA, A2P 10DLC), 
-                anti-spam laws (CAN-SPAM), and industry-specific regulations (HIPAA, GLBA, SOX) applicable 
+                data protection laws (GDPR, CCPA/CPRA) and industry-specific regulations (HIPAA, GLBA, SOX) applicable 
                 to your business.
               </p>
 
-              <h3 className="text-lg font-medium text-white mb-3 mt-6">7.2 Regulated Industries</h3>
+              <h3 className="text-lg font-medium text-white mb-3 mt-6">7.2 Industry Requirements</h3>
               <p className="text-[#a59ecb] leading-relaxed">
-                If you operate in a regulated industry, you are solely responsible for ensuring that your use 
+                If you operate in an industry with specific requirements, you are solely responsible for ensuring that your use 
                 of the Platform and the Client Data processed through it comply with all applicable regulatory 
                 requirements. While CEMSCALE provides tools and features designed to support compliance (such 
                 as consent management, audit logs, and data encryption), the ultimate responsibility for 
                 regulatory compliance rests with you as the data controller.
               </p>
 
-              <h3 className="text-lg font-medium text-white mb-3 mt-6">7.3 A2P 10DLC and Telecommunications</h3>
+              <h3 className="text-lg font-medium text-white mb-3 mt-6">7.3 Communications</h3>
               <p className="text-[#a59ecb] leading-relaxed">
-                You acknowledge that sending SMS/MMS messages through the Platform requires compliance with 
-                A2P 10DLC regulations, including proper campaign registration, obtaining verifiable consumer 
-                consent, and providing opt-out mechanisms. CEMSCALE provides tools to assist with compliance 
-                but does not guarantee regulatory approval. You are responsible for registering your campaigns 
-                and maintaining consent records. See our <Link href="/sms-policy" className="text-[#a78bfa] hover:text-white transition-colors">SMS Policy</Link> for details.
+                You acknowledge that using the Platform's communication features requires compliance with 
+                all applicable laws governing business communications. CEMSCALE provides tools to assist 
+                with data management and record keeping but does not guarantee regulatory approval for any 
+                specific use case. See our <Link href="/sms-policy" className="text-[#a78bfa] hover:text-white transition-colors">Communication Policy</Link> for details.
               </p>
             </section>
 

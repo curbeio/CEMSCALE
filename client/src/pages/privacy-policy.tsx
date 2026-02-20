@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
                 CEMSCALE LLC ("CEMSCALE," "Company," "we," "us," or "our") is a software-as-a-service (SaaS) company 
                 that provides a customer engagement management platform to businesses and organizations ("Clients"). 
                 Our platform enables Clients to manage omnichannel communications, lead generation, customer relationship 
-                management, telephony, marketing automation, and data analytics across regulated industries including 
+                management, telephony, marketing automation, and data analytics across professional services industries including 
                 Insurance, Healthcare, Financial Services, Legal, Tax, and Medicare.
               </p>
               <p className="text-[#a59ecb] leading-relaxed mt-4">
@@ -151,7 +151,7 @@ export default function PrivacyPolicy() {
               <ul className="list-disc list-inside space-y-2 text-[#a59ecb]">
                 <li>To comply with applicable laws, regulations, and legal processes</li>
                 <li>To enforce our Terms of Service and other agreements</li>
-                <li>To maintain records of consent for A2P 10DLC and telecommunications compliance</li>
+                <li>To maintain records of consent and communication preferences</li>
                 <li>To detect, prevent, and address fraud, abuse, and security threats</li>
                 <li>To respond to lawful requests from public and government authorities</li>
               </ul>
@@ -161,7 +161,7 @@ export default function PrivacyPolicy() {
               <h2 className="text-xl font-semibold text-white mb-4">4. Data Storage, Hosting, and Security</h2>
               <p className="text-[#a59ecb] leading-relaxed mb-4">
                 As a SaaS provider, we take data storage and security seriously. Our infrastructure is designed 
-                to meet the needs of regulated industries.
+                to meet the needs of professional services businesses.
               </p>
               
               <h3 className="text-lg font-medium text-white mb-3 mt-6">4.1 Infrastructure and Hosting</h3>
@@ -268,7 +268,7 @@ export default function PrivacyPolicy() {
                 <li><span className="text-white font-medium">Account Data:</span> Retained for the duration of the Client's subscription and up to 90 days after account termination, unless otherwise agreed in the DPA</li>
                 <li><span className="text-white font-medium">Client Data:</span> Retained and available for export during the subscription term. Upon termination, Client Data is deleted within 90 days unless a legal hold or regulatory requirement mandates longer retention</li>
                 <li><span className="text-white font-medium">Website Visitor Data:</span> Contact form submissions and lead data are retained for up to 24 months from the date of collection</li>
-                <li><span className="text-white font-medium">Consent Records:</span> Maintained for the duration required by applicable telecommunications regulations (A2P 10DLC) and for at least 5 years for compliance purposes</li>
+                <li><span className="text-white font-medium">Consent Records:</span> Maintained for at least 5 years for record-keeping purposes</li>
                 <li><span className="text-white font-medium">Billing and Financial Data:</span> Retained for 7 years in accordance with tax and accounting regulations</li>
                 <li><span className="text-white font-medium">Logs and Analytics:</span> System logs are retained for up to 12 months; aggregated analytics may be retained indefinitely in de-identified form</li>
               </ul>

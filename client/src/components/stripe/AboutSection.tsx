@@ -32,7 +32,7 @@ const coreCapabilities = [
   {
     icon: Users,
     title: "Customer Engagement Management",
-    description: "Unified CRM, automated workflows, referrals, compliance tracking, and lifecycle intelligence purpose-built for insurance and regulated markets.",
+    description: "Unified CRM, automated workflows, referrals, activity tracking, and lifecycle intelligence purpose-built for insurance and professional services.",
   },
 ];
 
@@ -71,12 +71,12 @@ export function AboutSection() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white" data-testid="text-about-title">
             Intelligent Customer Engagement
             <span className="block bg-gradient-to-r from-[#6b4cff] via-[#a78bfa] to-[#7cffd4] bg-clip-text text-transparent">
-              For Regulated Industries
+              For Professional Services
             </span>
           </h2>
           <p className="text-lg text-[#a59ecb] max-w-4xl mx-auto leading-relaxed" data-testid="text-about-description">
-            CEMSCALE is an intelligent Customer Engagement Management platform engineered for highly regulated 
-            industries—uniting lead generation, AI-powered telephony, multi-channel marketing, and customer 
+            CEMSCALE is an intelligent Customer Engagement Management platform engineered for professional 
+            services—uniting lead generation, AI-powered communication, multi-channel marketing, and customer 
             lifecycle management into a single, seamless ecosystem.
           </p>
         </motion.div>
@@ -93,13 +93,13 @@ export function AboutSection() {
               <div className="w-12 h-12 rounded-xl bg-[#6b4cff]/10 flex items-center justify-center">
                 <Building2 className="h-6 w-6 text-[#6b4cff]" />
               </div>
-              <h3 className="text-xl font-semibold text-white">Built for Compliance-Driven Organizations</h3>
+              <h3 className="text-xl font-semibold text-white">Built for Professional Services</h3>
             </div>
             <p className="text-[#a59ecb] leading-relaxed mb-6">
               Built from the ground up to support insurance, healthcare, financial services, legal, tax, and 
-              compliance-driven organizations, CEMSCALE transforms how agencies acquire, engage, convert, and 
+              client-focused organizations, CEMSCALE transforms how agencies acquire, engage, convert, and 
               retain customers. The platform integrates real-time data intelligence, predictive analytics, and 
-              enterprise-level automation to deliver a faster, more efficient, and more compliant operating model.
+              enterprise-level automation to deliver a faster, more efficient, and more productive operating model.
             </p>
             <div className="flex flex-wrap gap-2">
               {industries.map((industry, index) => (
@@ -174,10 +174,10 @@ export function AboutSection() {
                 <div className="w-12 h-12 rounded-xl bg-[#7cffd4]/10 flex items-center justify-center">
                   <Shield className="h-6 w-6 text-[#7cffd4]" />
                 </div>
-                <h3 className="text-xl font-semibold text-white">Compliance by Design</h3>
+                <h3 className="text-xl font-semibold text-white">Security by Design</h3>
               </div>
               <p className="text-[#a59ecb] leading-relaxed">
-                Privacy, consent, auditability, and data governance woven into every touchpoint. CEMSCALE 
+                Privacy, data protection, auditability, and governance woven into every touchpoint. CEMSCALE 
                 redefines operational efficiency by turning disparate processes into a measurable, automated, 
                 and scalable customer engagement strategy.
               </p>
@@ -204,7 +204,7 @@ export function AboutSection() {
             CEMSCALE
           </p>
           <p className="text-lg text-[#a59ecb] mb-6">
-            Where compliance meets intelligent automation.
+            Where productivity meets intelligent automation.
           </p>
           <Button 
             className="bg-[#6b4cff] hover:bg-[#6b4cff]/90 text-white"
