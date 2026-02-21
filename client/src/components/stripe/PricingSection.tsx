@@ -15,7 +15,7 @@ const plans = [
     features: [
       "Up to 5 team members",
       "1,000 AI-enriched contacts/month",
-      "Basic email & SMS campaigns",
+      "Basic email & SMS workflows",
       "AI chatbot (100 conversations)",
       "Standard analytics dashboard",
       "Email support",
@@ -36,9 +36,9 @@ const plans = [
     features: [
       "Up to 25 team members",
       "10,000 AI-enriched contacts/month",
-      "Advanced multi-channel campaigns",
+      "Advanced multi-channel workflows",
       "AI chatbot (unlimited)",
-      "Predictive lead scoring",
+      "Predictive contact scoring",
       "AI-powered recommendations",
       "Custom workflows & automation",
       "Priority support 24/7",
@@ -95,7 +95,7 @@ export function PricingSection() {
             <span className="block bg-gradient-to-r from-[#6b4cff] to-[#7cffd4] bg-clip-text text-transparent"> powerful AI</span>
           </h2>
           <p className="text-lg text-[#a59ecb] max-w-2xl mx-auto">
-            Choose the plan that fits your business. All plans include our core AI features. 
+            Monthly software subscriptions that fit your business. All plans include our core AI features. 
             Scale as you grow.
           </p>
         </div>

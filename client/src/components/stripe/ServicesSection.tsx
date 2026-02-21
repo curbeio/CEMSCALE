@@ -121,8 +121,8 @@ export function ServicesSection() {
                   <Mail className="h-5 w-5 text-[#ff805d]" />
                 </div>
                 <div>
-                  <p className="text-white font-medium text-sm">Marketing Automation</p>
-                  <p className="text-[#8b87a5] text-sm">AI-powered campaigns across every channel with smart segmentation.</p>
+                  <p className="text-white font-medium text-sm">Engagement Automation</p>
+                  <p className="text-[#8b87a5] text-sm">AI-powered workflows across every channel with smart segmentation.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">

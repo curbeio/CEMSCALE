@@ -58,8 +58,8 @@ const aiFeatures = [
   },
   {
     icon: Heart,
-    title: "Lead Nurturing Sequences",
-    description: "Automated, personalized nurture campaigns keep prospects engaged throughout their journey.",
+    title: "Client Nurturing Sequences",
+    description: "Automated, personalized nurture workflows keep clients engaged throughout their journey.",
   },
 ];
 
@@ -292,7 +292,7 @@ export function OmnichannelSection() {
           data-testid="card-omnichannel-cta"
         >
           <h3 className="text-2xl font-semibold text-white mb-3" data-testid="text-omnichannel-cta-title">
-            Automate Repetitive Tasks. Nurture Every Lead.
+            Automate Repetitive Tasks. Nurture Every Relationship.
           </h3>
           <p className="text-[#a59ecb] mb-6 max-w-2xl mx-auto">
             Scale your service without increasing workload. Let CEMSCALE handle the heavy lifting 

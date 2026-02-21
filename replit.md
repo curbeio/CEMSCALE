@@ -1,7 +1,7 @@
 # CemScale Website
 
 ## Overview
-A fully responsive website featuring a premium dark theme inspired by Growsphere CRM design (Dribbble reference). The site showcases CemScale as a Customer Engagement Management platform with B2B lead data capabilities across email, calls, SMS, WhatsApp, and in-app channels.
+A fully responsive website featuring a premium dark theme inspired by Growsphere CRM design (Dribbble reference). The site showcases CemScale as a B2B SaaS Customer Engagement Management software platform for professional services teams, with unified CRM, workflow automation, and omnichannel communication capabilities.
 
 ## Design Style
 **Growsphere-Inspired Dark Theme** - Premium SaaS aesthetic with:
@@ -110,18 +110,42 @@ client/src/
 ## Running the Project
 The application runs on port 5000 with `npm run dev`.
 
+## Stripe-Safe Language Policy
+- **NEVER use**: "telemarketing", "A2P", "10DLC", "TCPA", "CAN-SPAM", "bulk SMS", "auto-dialing", "robocalls", "cold calling", "regulated industries"
+- **Avoid standalone**: "leads", "marketing", "campaigns", "outreach", "blasting"
+- **Use instead**: "client acquisition", "engagement automation", "workflows", "sequences", "professional services", "contact management"
+- **Hero disclaimer**: "Software platform only — not a telemarketing service"
+- **Positioning**: B2B SaaS customer engagement software (not marketing services)
+
+## Pages
+- `/` - Homepage with all sections
+- `/blog` - Blog articles
+- `/resources` - FAQ, guides, checklist
+- `/privacy-policy` - Privacy Policy
+- `/terms` - Terms & Conditions
+- `/sms-policy` - SMS Policy
+- `/acceptable-use` - Acceptable Use & Messaging Policy (anti-spam, anti-telemarketing)
+- `/refund-policy` - Refund Policy (software subscription terms)
+
 ## Recent Changes
+- **February 2026**: Stripe-safe language overhaul
+  - Replaced "lead generation" → "client acquisition", "marketing automation" → "engagement automation"
+  - Replaced "campaigns" → "workflows/sequences" across all components
+  - Added SaaS disclaimer to hero: "Software platform only"
+  - Created Acceptable Use Policy page (anti-spam, consent requirements, prohibited uses)
+  - Created Refund Policy page (software subscription billing terms)
+  - Updated Footer with company address, all policy links
+  - Reframed PricingSection as software subscription pricing
+  - Removed all "regulated industries" references → "professional services"
 - **December 2024**: Added four comprehensive content modules
   - TelephonySection: Cloud PBX, call recording, IVR, analytics dashboard
-  - MarketingSection: Email, SMS, WhatsApp, social media automation
+  - MarketingSection: Multi-channel engagement automation
   - EngagementSection: Customer journey funnel, interaction tracking, health scores
-  - LeadsSection: Sales pipeline, lead scoring, source tracking
   - All sections include data-testid attributes for testing
   - Responsive design with flex-wrap and gap utilities
 - **December 2024**: Complete Growsphere-style dark theme
   - Implemented dark navy/purple color scheme (#030014 base)
   - Hero with "One platform. Infinite growth." and infinity symbol
-  - 4 feature cards: Chatbot, App Integrations, Security, AI Drafting
   - All sections updated to dark theme with proper contrast
   - Global html/body background set to dark
   - Text contrast improved for accessibility (#8b87a5 minimum)

@@ -20,7 +20,7 @@ const telephonyFeatures = [
   {
     icon: Bot,
     title: "AI Outbound Agent",
-    description: "Automated follow-up and outreach powered by AI. Scale your outbound campaigns without scaling headcount.",
+    description: "Automated follow-up and engagement powered by AI. Scale your outbound workflows without scaling headcount.",
   },
   {
     icon: Phone,
@@ -53,7 +53,7 @@ const platformHighlights = [
 ];
 
 const outcomes = [
-  "Improved speed-to-lead response times",
+  "Improved response times",
   "Higher call quality and consistency",
   "Built-in activity tracking",
   "Zero technical overhead for your team",
@@ -193,7 +193,7 @@ export function TelephonySection() {
                 A Fully Integrated Communication Engine
               </h3>
               <p className="text-[#a59ecb]">
-                Improve speed-to-lead, call quality, and team productivity—all from a single platform.
+                Improve response times, call quality, and team productivity—all from a single platform.
               </p>
             </div>
             <Button 

@@ -7,6 +7,8 @@ import Home from "@/pages/home";
 import PrivacyPolicy from "@/pages/privacy-policy";
 import Terms from "@/pages/terms";
 import SmsPolicy from "@/pages/sms-policy";
+import AcceptableUse from "@/pages/acceptable-use";
+import RefundPolicy from "@/pages/refund-policy";
 import Blog from "@/pages/blog";
 import Resources from "@/pages/resources";
 import NotFound from "@/pages/not-found";
@@ -18,6 +20,8 @@ function Router() {
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms" component={Terms} />
       <Route path="/sms-policy" component={SmsPolicy} />
+      <Route path="/acceptable-use" component={AcceptableUse} />
+      <Route path="/refund-policy" component={RefundPolicy} />
       <Route path="/blog" component={Blog} />
       <Route path="/resources" component={Resources} />
       <Route component={NotFound} />

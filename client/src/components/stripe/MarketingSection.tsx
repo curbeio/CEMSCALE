@@ -19,22 +19,22 @@ const marketingFeatures = [
   {
     icon: Sparkles,
     title: "AI-Powered Content Creation",
-    description: "Generate compelling marketing content with AI. From email copy to landing pages—create high-converting assets in seconds.",
+    description: "Generate compelling engagement content with AI. From email copy to landing pages—create high-converting assets in seconds.",
   },
   {
     icon: FileText,
-    title: "Pre-Configured Campaign Templates",
-    description: "Ready-to-launch templates for ACA, Medicare, Final Expense, Legal, Tax, and beyond. Proven frameworks that convert.",
+    title: "Pre-Configured Workflow Templates",
+    description: "Ready-to-launch templates for ACA, Medicare, Final Expense, Legal, Tax, and beyond. Proven frameworks that deliver results.",
   },
   {
     icon: Layers,
-    title: "Multi-Channel Funnels",
-    description: "Email, SMS, Social, Web, and Voice funnels—all orchestrated from a single platform for seamless customer journeys.",
+    title: "Multi-Channel Workflows",
+    description: "Email, SMS, Social, Web, and Voice workflows—all orchestrated from a single platform for seamless customer journeys.",
   },
   {
     icon: Split,
     title: "A/B Testing & Optimization",
-    description: "Test everything. Subject lines, content, timing, channels. Data-driven optimization built into every campaign.",
+    description: "Test everything. Subject lines, content, timing, channels. Data-driven optimization built into every workflow.",
   },
 ];
 
@@ -56,10 +56,10 @@ const industryTemplates = [
 ];
 
 const outcomes = [
-  "Launch campaigns directly from CEMSCALE",
-  "No external marketing software required",
+  "Launch workflows directly from CEMSCALE",
+  "No external software required",
   "Connected to your telephony and CRM",
-  "Full lead flow integration",
+  "Full contact flow integration",
   "Real-time performance analytics",
   "Enterprise-grade security",
 ];
@@ -85,7 +85,7 @@ export function MarketingSection() {
           className="text-center mb-16"
         >
           <Badge className="mb-4 bg-[#6b4cff]/20 text-[#a78bfa] border-[#6b4cff]/30" data-testid="badge-marketing">
-            Multi-Channel Marketing Automation
+            Multi-Channel Engagement Automation
           </Badge>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-white" data-testid="text-marketing-title">
             Email, SMS, Social, Landing Pages
@@ -94,8 +94,8 @@ export function MarketingSection() {
             </span>
           </h2>
           <p className="text-lg text-[#a59ecb] max-w-3xl mx-auto" data-testid="text-marketing-description">
-            CEMSCALE empowers your organization with multi-channel marketing tools synchronized into 
-            a cohesive engagement engine—connecting your brand to consumers at the right time, on the right channel.
+            CEMSCALE empowers your organization with multi-channel engagement tools synchronized into 
+            a cohesive communication engine—connecting your brand to customers at the right time, on the right channel.
           </p>
         </motion.div>
 
@@ -185,10 +185,10 @@ export function MarketingSection() {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-8">
             <div>
               <h3 className="text-2xl font-semibold text-white mb-2" data-testid="text-marketing-cta-title">
-                A Powerful Marketing Ecosystem
+                A Powerful Engagement Ecosystem
               </h3>
               <p className="text-[#a59ecb]">
-                Tied directly to your telephony, CRM, and lead flow—no external software required.
+                Tied directly to your telephony, CRM, and contact management—no external software required.
               </p>
             </div>
             <Button 

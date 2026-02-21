@@ -1,0 +1,183 @@
+Sí, y aquí va la lectura fría: **Stripe no te cerró por “casualidad”**. Te clasificó como telemarketing porque **algo en tu presencia pública o en cómo describes el producto/cobros se parece a telemarketing**.
+
+### Lo que sí pude verificar de tu sitio
+
+* `cemscale.com` redirige a una página de login (`/login_up.php`) en lugar de una landing pública clara. Eso, para un revisor de riesgo, es mala señal porque no puede entender rápido qué vendes. ([cemscale.com][1])
+* También aparece indexada una versión con mensaje tipo marketing/analytics: **“We Bring Clarity to Scattered Data”** y menciones a **Dashboard, Leads, Marketing, and Offline Form solutions**. La palabra **“Leads” + “Marketing”** en la superficie pública puede empujar la clasificación a telemarketing si no está bien contextualizada como software. ([cemscale.com][2])
+
+Y aquí está el golpe de realidad: **si Stripe ve “Leads + Marketing” pero no ve una explicación súper clara de que eres SaaS B2B (software) y no un servicio de campañas para terceros, te mete en high-risk.**
+
+---
+
+## Qué cambiar en tu website para aumentar probabilidad de aprobación (prioridad alta)
+
+No es solo texto bonito. Es **evidencia de modelo de negocio**.
+
+### 1) Tener una landing pública clara (no solo login)
+
+Ahora mismo redirigir directo a login te perjudica.
+
+**Debes tener una homepage pública** con:
+
+* Qué es (B2B SaaS CRM / customer engagement platform)
+* Para quién (businesses / teams / agencies)
+* Cómo cobras (subscription software)
+* Qué NO eres (no telemarketing service / no lead resale / no done-for-you calling)
+
+**Problema actual:** un analista de Stripe entra y no ve esto en 10 segundos.
+
+---
+
+### 2) Cambiar el lenguaje que dispara “telemarketing”
+
+Si en la web tienes palabras como:
+
+* leads (sin contexto)
+* campaigns / blasting
+* outreach / cold outreach
+* bulk messaging
+* auto-dialing / robocalls
+* “send to lists”
+
+…te van a clasificar mal.
+
+#### Mejor lenguaje (enterprise/SaaS):
+
+* **Customer relationship management (CRM)**
+* **Customer engagement platform**
+* **Unified inbox**
+* **Workflow automation**
+* **Interaction tracking**
+* **Reporting and analytics**
+* **Business communications tools**
+* **Customer follow-ups / notifications / service messaging**
+
+Ojo: no te digo mentir. Te digo **posicionar correctamente** lo que es software.
+
+---
+
+### 3) Página de cumplimiento (esto pesa mucho con Stripe)
+
+Crea una página visible tipo:
+
+**“Acceptable Use & Messaging Compliance”**
+y deja clarísimo:
+
+* Prohibido spam
+* Prohibido telemarketing services prestados por ustedes
+* Clientes usan sus propios contactos
+* Requiere consentimiento
+* Soporte de opt-out
+* Logs / audit trail
+* Cumplimiento con políticas del canal
+
+Esto le habla directo al equipo de risk/compliance.
+
+---
+
+### 4) Políticas públicas obligatorias (si no están visibles, mal)
+
+Stripe quiere ver negocio real, no “caja negra”.
+Pon en footer (públicas, no escondidas):
+
+* Terms of Service
+* Privacy Policy
+* Refund Policy
+* Contact page (email de soporte + empresa)
+* About / Company info (mínimo)
+
+Si eso no existe o está flojo, sube el riesgo.
+
+---
+
+### 5) Pricing page consistente con “software subscription”
+
+Si tus planes se ven como:
+
+* “campaign packages”
+* “lead bundles”
+* “done-for-you outreach”
+* “managed calling”
+
+…huele a servicio de telemarketing.
+
+Mejor:
+
+* **Starter / Pro / Growth**
+* **Monthly subscription**
+* **Users, workspaces, automations, integrations**
+* **Optional onboarding/setup**
+
+Y en los invoices:
+
+* “CRM Software Subscription”
+* “Onboarding / Setup”
+  No “marketing services” ni “telemarketing”.
+
+---
+
+## Qué pudo disparar Stripe específicamente en tu caso
+
+Con lo que muestras y lo que sé de tu modelo, los candidatos más probables son:
+
+1. **Texto del sitio con “Leads” y “Marketing”** sin explicar que eres software. ([cemscale.com][2])
+2. **Descripción de negocio/merchant application** ambigua o muy enfocada en campañas.
+3. **Cobros/facturas** con wording de marketing services.
+4. **Login-first website** (sin contexto público) que obliga a Stripe a inferir por snippets o por historial de pagos. ([cemscale.com][1])
+5. Si ofreces features de mensajería/voz, Stripe pudo asumir “telemarketing” por defecto si no vio compliance visible.
+
+---
+
+## Qué deberías cambiar hoy (plan de choque)
+
+### En 24 horas:
+
+* **Landing pública** (aunque sea simple) con posicionamiento SaaS B2B
+* **Footer con políticas**
+* **Página de compliance**
+* **Pricing como suscripción de software**
+* **Eliminar/rebajar palabras de riesgo** en homepage (especialmente “leads” + “marketing” juntos sin contexto)
+
+### Hero recomendado (para tu web)
+
+Puedes usar algo así:
+
+**Headline:**
+**CRM and Customer Engagement Software for Business Teams**
+
+**Subheadline:**
+**Manage customer relationships, conversations, and workflows in one platform with a unified inbox, automation, reporting, and integrations.**
+
+**Short compliance line (pequeña pero visible):**
+**Software platform only — not a telemarketing service. Customers manage their own contacts and communications.**
+
+Eso le habla a Stripe, a clientes y a cualquier revisor.
+
+---
+
+## Respuesta brutal (la que necesitas escuchar)
+
+Tu problema no es solo “qué escribir en Stripe”.
+Tu problema es **señal pública inconsistente**:
+
+* Stripe te pregunta una cosa.
+* Tu web dice otra (o no dice suficiente).
+* Tu producto probablemente tiene features que se pueden usar para outreach.
+* Stripe prefiere cerrar primero y preguntar después.
+
+Eso se arregla con **posicionamiento, compliance visible y coherencia operacional**, no con una frase mágica.
+
+---
+
+## Te dejo texto para la apelación + referencia al sitio (si ya lo cambias)
+
+Cuando ajustes la web, en la apelación añade una línea como:
+
+> Hemos actualizado nuestro sitio web y descripciones para reflejar con mayor claridad que somos una plataforma SaaS B2B (CRM y customer engagement software), no un servicio de telemarketing. Stripe se utiliza únicamente para suscripciones de software y onboarding.
+
+---
+
+Si quieres subir la probabilidad de reapertura de verdad, el siguiente paso útil es este: pégame aquí el texto actual de tu **homepage (hero + features + pricing + footer)** y te lo reescribo completo en versión **enterprise SaaS / Stripe-safe**, sin matar tu capacidad comercial. Ahí está la cirugía fina.
+
+[1]: https://cemscale.com/ "Plesk Obsidian 18.0.75"
+[2]: https://www.cemscale.com/?utm_source=chatgpt.com "CemScale | We Bring Clarity to Scattered Data"

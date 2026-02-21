@@ -16,8 +16,8 @@ import { motion } from "framer-motion";
 const coreCapabilities = [
   {
     icon: Database,
-    title: "Intelligent Lead Generation",
-    description: "High-quality, continuously updated, AI-enriched consumer and business data with advanced segmentation and 95%+ verified accuracy.",
+    title: "Intelligent Client Acquisition",
+    description: "High-quality, continuously updated, AI-enriched contact data with advanced segmentation and 95%+ verified accuracy.",
   },
   {
     icon: Phone,
@@ -26,7 +26,7 @@ const coreCapabilities = [
   },
   {
     icon: Mail,
-    title: "Multi-Channel Marketing Automation",
+    title: "Multi-Channel Engagement Automation",
     description: "Email, SMS, social, landing pages, funnels, and AI-generated content synchronized into a cohesive engagement engine.",
   },
   {
@@ -75,9 +75,9 @@ export function AboutSection() {
             </span>
           </h2>
           <p className="text-lg text-[#a59ecb] max-w-4xl mx-auto leading-relaxed" data-testid="text-about-description">
-            CEMSCALE is an intelligent Customer Engagement Management platform engineered for professional 
-            services—uniting lead generation, AI-powered communication, multi-channel marketing, and customer 
-            lifecycle management into a single, seamless ecosystem.
+            CEMSCALE is an intelligent Customer Engagement Management software platform engineered for professional 
+            services—unifying CRM, AI-powered communication, workflow automation, and customer 
+            lifecycle management into a single, seamless software ecosystem.
           </p>
         </motion.div>
 
@@ -97,7 +97,7 @@ export function AboutSection() {
             </div>
             <p className="text-[#a59ecb] leading-relaxed mb-6">
               Built from the ground up to support insurance, healthcare, financial services, legal, tax, and 
-              client-focused organizations, CEMSCALE transforms how agencies acquire, engage, convert, and 
+              client-focused organizations, CEMSCALE transforms how agencies acquire, engage, serve, and 
               retain customers. The platform integrates real-time data intelligence, predictive analytics, and 
               enterprise-level automation to deliver a faster, more efficient, and more productive operating model.
             </p>
@@ -124,8 +124,8 @@ export function AboutSection() {
           data-testid="card-about-unified"
         >
           <p className="text-[#a59ecb] leading-relaxed text-lg">
-            At its core, CEMSCALE eliminates the disconnect between marketing, call centers, sales, and 
-            back-office operations. The result is a unified environment where every lead, interaction, and 
+            At its core, CEMSCALE eliminates the disconnect between engagement, communication, sales, and 
+            back-office operations. The result is a unified software environment where every contact, interaction, and 
             workflow is tracked, optimized, and enriched by AI—from first contact to conversion and long-term retention.
           </p>
         </motion.div>

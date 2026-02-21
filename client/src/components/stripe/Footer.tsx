@@ -9,13 +9,13 @@ import {
 
 const footerLinks = {
   products: {
-    title: "Solutions",
+    title: "Software Solutions",
     links: [
-      { label: "Lead Generation", href: "/#leads" },
+      { label: "Client Acquisition", href: "/#about" },
       { label: "Telephony", href: "/#telephony" },
-      { label: "Marketing Automation", href: "/#marketing" },
-      { label: "Engagement CRM", href: "/#engagement" },
-      { label: "Omnichannel Inbox", href: "/#omnichannel" },
+      { label: "Engagement Automation", href: "/#marketing" },
+      { label: "CRM Platform", href: "/#engagement" },
+      { label: "Unified Inbox", href: "/#omnichannel" },
     ]
   },
   industries: {
@@ -43,6 +43,8 @@ const footerLinks = {
       { label: "Privacy Policy", href: "/privacy-policy", isRoute: true },
       { label: "Terms & Conditions", href: "/terms", isRoute: true },
       { label: "SMS Policy", href: "/sms-policy", isRoute: true },
+      { label: "Acceptable Use", href: "/acceptable-use", isRoute: true },
+      { label: "Refund Policy", href: "/refund-policy", isRoute: true },
     ]
   }
 };
@@ -117,9 +119,15 @@ export function Footer() {
                 className="h-8 sm:h-9 w-auto"
               />
             </a>
-            <p className="text-sm text-[#8b87a5] leading-relaxed">
-              Intelligent Customer Engagement Management for professional services.
+            <p className="text-sm text-[#8b87a5] leading-relaxed mb-3">
+              B2B SaaS customer engagement software for professional services teams.
             </p>
+            <div className="text-xs text-[#8b87a5] space-y-0.5">
+              <p>CEMSCALE LLC</p>
+              <p>20801 Biscayne Blvd, Suite 340</p>
+              <p>Aventura, FL 33180</p>
+              <p className="mt-1">master@cemscale.com</p>
+            </div>
           </div>
           
           {Object.entries(footerLinks).map(([key, section]) => (
@@ -154,6 +162,10 @@ export function Footer() {
               <Link href="/terms" className="hover:text-[#d2d0df] transition-colors" data-testid="link-bottom-terms">Terms</Link>
               <span>|</span>
               <Link href="/sms-policy" className="hover:text-[#d2d0df] transition-colors" data-testid="link-bottom-sms">SMS Policy</Link>
+              <span>|</span>
+              <Link href="/acceptable-use" className="hover:text-[#d2d0df] transition-colors" data-testid="link-bottom-acceptable-use">Acceptable Use</Link>
+              <span>|</span>
+              <Link href="/refund-policy" className="hover:text-[#d2d0df] transition-colors" data-testid="link-bottom-refund">Refund Policy</Link>
             </div>
           </div>
           

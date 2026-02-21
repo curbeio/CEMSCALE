@@ -20,13 +20,13 @@ import { motion } from "framer-motion";
 const engagementFeatures = [
   {
     icon: Gauge,
-    title: "Lead Nurturing & Engagement Scores",
-    description: "Automatically score and nurture leads based on behavior, intent signals, and engagement history. Prioritize the hottest opportunities.",
+    title: "Client Nurturing & Engagement Scores",
+    description: "Automatically score and nurture contacts based on behavior, intent signals, and engagement history. Prioritize the hottest opportunities.",
   },
   {
     icon: Clock,
     title: "Follow-Up & Task Automation",
-    description: "Never miss a follow-up. Automated task creation, reminders, and escalations keep your team on track with every prospect.",
+    description: "Never miss a follow-up. Automated task creation, reminders, and escalations keep your team on track with every client.",
   },
   {
     icon: FileCheck,
@@ -59,9 +59,9 @@ const crossSellVerticals = [
 ];
 
 const journeySteps = [
-  { phase: "Before Sale", activities: ["Lead Nurturing", "Engagement Scoring", "Automated Follow-ups"] },
+  { phase: "Before Sale", activities: ["Client Nurturing", "Engagement Scoring", "Automated Follow-ups"] },
   { phase: "During Sale", activities: ["Unified CRM", "Activity Tracking", "Document Collection"] },
-  { phase: "After Sale", activities: ["Cross-Sell Workflows", "Referral Programs", "Retention Campaigns"] },
+  { phase: "After Sale", activities: ["Cross-Sell Workflows", "Referral Programs", "Retention Sequences"] },
 ];
 
 const outcomes = [

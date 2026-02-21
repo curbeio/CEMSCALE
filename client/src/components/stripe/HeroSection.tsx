@@ -150,9 +150,9 @@ export function HeroSection() {
               style={{ animationDelay: '0.1s' }}
               data-testid="text-hero-subheadline"
             >
-              CEMSCALE is an intelligent Customer Engagement Management platform for professional services—
-              uniting lead generation, AI-powered communication, multi-channel marketing, and customer lifecycle 
-              management into a single, seamless ecosystem.
+              CEMSCALE is a B2B SaaS customer engagement platform for professional services teams—
+              unifying CRM, AI-powered communication, workflow automation, and customer lifecycle 
+              management into a single, seamless software ecosystem.
             </p>
             
             <div 
@@ -203,6 +203,13 @@ export function HeroSection() {
                 AI-Powered Automation
               </span>
             </div>
+            
+            <p 
+              className="text-xs text-[#8b87a5] mt-4 animate-fade-up"
+              style={{ animationDelay: '0.4s' }}
+            >
+              Software platform only — not a telemarketing service. Customers manage their own contacts and communications.
+            </p>
           </div>
           
         </div>
